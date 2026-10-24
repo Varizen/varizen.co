@@ -31,13 +31,28 @@ export const products: Product[] = [
   { slug: "osint-stack", name: "OSINT Stack", category: "Cybersecurity", stage: "Concept", summary: "Open-source intelligence collection and analysis infrastructure.", outcome: "Structured intelligence from open sources.", capabilities: ["Collection", "Aggregation", "Analysis", "Intelligence workflows", "Research", "Automated processing"], status: "Concept; research stage", index: "09", ...reviewed },
 
   // ── AI & INTELLIGENCE ──────────────────────────────────────────────────────
-  { slug: "varizen-ai", name: "Varizen AI", category: "AI & Intelligence", stage: "Architecture", summary: "Core AI infrastructure: APIs, agents, orchestration and governance.", outcome: "Governed AI workflows with human approval.", capabilities: ["AI APIs", "AI agents", "Agent orchestration", "AI workflows", "Enterprise automation", "RAG", "Knowledge retrieval", "Computer Use", "AI governance"], status: "Architecture direction; availability not published", index: "10", ...reviewed },
-  { slug: "varizen-knowledge", name: "Varizen Knowledge Platform", category: "AI & Intelligence", stage: "Architecture", summary: "Vector search, RAG, enterprise search and knowledge graph.", outcome: "Retrieval-grounded answers over governed enterprise knowledge.", capabilities: ["Embeddings", "Vector search", "Semantic retrieval", "Document ingestion", "Chunking", "Ranking", "Citation", "Evaluation", "Enterprise search", "Knowledge graph"], status: "Architecture direction; availability not published", index: "11", ...reviewed },
-  { slug: "qim-ai", name: "QiM-AI", category: "AI & Intelligence", stage: "Concept", summary: "Memorial and knowledge intelligence product.", outcome: "Preserved knowledge with intelligent retrieval.", capabilities: ["Knowledge systems", "Memorial platform", "Intelligent retrieval"], status: "Concept", index: "12", ...reviewed },
-  { slug: "qim-ai-2-1", name: "QiM-AI 2.1", category: "AI & Intelligence", stage: "Architecture", summary: "Advanced AI and RAG platform.", outcome: "Retrieval-grounded AI assistance over curated knowledge.", capabilities: ["Teacher AI", "Dataset", "RAG", "Knowledge retrieval", "Voice AI"], status: "Architecture direction; availability not published", index: "13", ...reviewed },
-  { slug: "kiai", name: "KiAI", category: "AI & Intelligence", stage: "Concept", summary: "Knowledge intelligence platform.", outcome: "Faster discovery across distributed knowledge sources.", capabilities: ["Knowledge discovery", "Intelligence synthesis", "AI assistance"], status: "Concept", index: "14", ...reviewed },
-  { slug: "aibrowser", name: "AiBrowser / Eye Browser", category: "AI & Intelligence", stage: "Architecture", summary: "Minimal Chromium-based desktop browser with zero-leak Eye AI, Eye Shield tracker blocking, and MCP client.", outcome: "Private, autonomous browsing with untrusted prompt-injection protection and local execution.", capabilities: ["Zero-leak Eye AI gateway", "Eye Shield tracker blocking", "MCP client stdio", "Tab memory sleeping", "HTTPS-first auto upgrade", "Portable standalone Windows binary"], status: "Available for Windows (.zip / .exe) & web preview", index: "15", ...reviewed },
-  { slug: "autonomous-computer-operation", name: "Autonomous Computer Operation", category: "AI & Intelligence", stage: "Concept", summary: "AI computer-use (CUA) research and product direction.", outcome: "Research into controlled computer-use agents.", capabilities: ["Computer-use agents", "Desktop automation", "Application interaction", "OS interaction", "Autonomous workflows", "Enterprise automation"], status: "R&D; research stage", index: "16", ...reviewed },
+  {
+    slug: "ai-si",
+    name: "AI & SI",
+    category: "AI & Intelligence",
+    stage: "Architecture",
+    summary: "Unified AI, Synthetic Intelligence and knowledge architecture: APIs, agent orchestration, enterprise RAG, vector retrieval, and governed knowledge graph synthesis.",
+    outcome: "Retrieval-grounded, governed AI workflows, automated knowledge synthesis and enterprise assistance with verified human oversight.",
+    capabilities: [
+      "AI APIs & foundational models",
+      "Synthetic Intelligence (SI) architectures",
+      "Agent orchestration & workflows",
+      "Vector search & semantic retrieval",
+      "Enterprise RAG & knowledge graphs",
+      "Memorial & curated intelligence systems",
+      "AI governance & human approval gates"
+    ],
+    status: "Architecture direction; active research & platform integration",
+    index: "10",
+    ...reviewed
+  },
+  { slug: "aibrowser", name: "AiBrowser / Eye Browser", category: "AI & Intelligence", stage: "Architecture", summary: "Minimal Chromium-based desktop browser with zero-leak Eye AI, Eye Shield tracker blocking, and MCP client.", outcome: "Private, autonomous browsing with untrusted prompt-injection protection and local execution.", capabilities: ["Zero-leak Eye AI gateway", "Eye Shield tracker blocking", "MCP client stdio", "Tab memory sleeping", "HTTPS-first auto upgrade", "Portable standalone Windows binary"], status: "Available for Windows (.zip / .exe) & web preview", index: "11", ...reviewed },
+  { slug: "autonomous-computer-operation", name: "Autonomous Computer Operation", category: "AI & Intelligence", stage: "Concept", summary: "AI computer-use (CUA) research and product direction.", outcome: "Research into controlled computer-use agents.", capabilities: ["Computer-use agents", "Desktop automation", "Application interaction", "OS interaction", "Autonomous workflows", "Enterprise automation"], status: "R&D; research stage", index: "12", ...reviewed },
 
   // ── DEVELOPER & IDENTITY ───────────────────────────────────────────────────
   { slug: "varizen-api-platform", name: "Varizen API Platform", category: "Developer & Identity", stage: "Architecture", summary: "API gateway, management and developer access.", outcome: "Governed, observable API access across Varizen services.", capabilities: ["API gateway", "API management", "Authentication", "Authorization", "Rate limiting", "Logging", "API keys", "Webhooks"], status: "Architecture direction; availability not published", index: "16", ...reviewed },
