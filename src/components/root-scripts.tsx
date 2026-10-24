@@ -1,0 +1,4 @@
+import { headers } from "next/headers";
+const themeScript = `try{if(localStorage.getItem('vz-theme')==='dark'||(!localStorage.getItem('vz-theme')&&matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.dataset.theme='dark'}}catch(e){}`;
+const organization = { "@context": "https://schema.org", "@type": "Organization", name: "Varizen Inc.", url: "https://varizen.co", email: "hi@varizen.co", address: [{ "@type": "PostalAddress", streetAddress: "1712 Pioneer Ave", addressLocality: "Cheyenne", addressRegion: "WY", addressCountry: "US" }] };
+export async function RootScripts() { const nonce = (await headers()).get("x-nonce") ?? undefined; return <><script nonce={nonce} dangerouslySetInnerHTML={{ __html: themeScript }} /><script nonce={nonce} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organization) }} /></>; }

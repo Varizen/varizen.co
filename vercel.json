@@ -1,0 +1,9 @@
+{
+  "framework": "nextjs",
+  "regions": ["iad1"],
+  "headers": [
+    { "source": "/app/(.*)", "headers": [{ "key": "Cache-Control", "value": "private, no-store" }] },
+    { "source": "/admin/(.*)", "headers": [{ "key": "Cache-Control", "value": "private, no-store" }] },
+    { "source": "/api/(.*)", "headers": [{ "key": "Cache-Control", "value": "no-store" }] }
+  ]
+}

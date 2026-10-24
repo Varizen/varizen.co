@@ -1,0 +1,12 @@
+{
+  "name": "eye-ai-gateway",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Varizen Eye AI Gateway — free-model-only proxy for AiBrowser",
+  "main": "index.js",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "start": "node index.js",
+    "test": "node test.js"
+  }
+}

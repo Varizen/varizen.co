@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Standalone CommonJS Electron app has its own toolchain and linting
+    "browser/**",
   ]),
 ]);
 

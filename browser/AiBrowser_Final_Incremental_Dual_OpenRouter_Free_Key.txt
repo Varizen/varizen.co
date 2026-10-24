@@ -1,0 +1,396 @@
+AiBrowser — FINAL INCREMENTAL UPDATE Dual OpenRouter Free-Key
+Architecture
+
+Apply this as the FINAL incremental modification to the existing
+AiBrowser / Eye Browser master specification.
+
+Do not change the existing browser, Eye Vault, Eye ID, MCP Claw Agent,
+Eye Shield, Eye Download, Shopping, DeFi, security, privacy, or UI
+requirements except as specified here.
+
+1.  EYE AI MUST REMAIN FREE
+
+Eye Browser shall provide its built-in Eye AI to users at $0.
+
+For the initial production version: - Users do not provide an AI API
+key. - Users do not create an OpenRouter account. - Users do not pay for
+Eye AI. - Varizen shall not intentionally incur inference charges. - Eye
+AI may use ONLY OpenRouter models currently designated as free/$0
+inference models. - Paid OpenRouter models are strictly prohibited. -
+The browser must never silently fall back to a paid model.
+
+If no eligible free model is available: “Eye AI is temporarily
+unavailable. Please try again later.”
+
+Never automatically spend money to complete the request.
+
+2.  OPENROUTER IS THE INITIAL AI PROVIDER
+
+Use this architecture:
+
+AiBrowser ↓ Varizen Eye AI Gateway ↓ OpenRouter ↓ FREE/$0 MODELS ONLY
+
+Do NOT implement direct browser-to-OpenRouter API access.
+
+3.  TWO SERVER-SIDE OPENROUTER KEYS
+
+Support exactly two initial OpenRouter production API credentials:
+
+OPENROUTER_API_KEY_1 OPENROUTER_API_KEY_2
+
+The administrator will enter the replacement secrets into the secure
+server-side deployment environment.
+
+NEVER place either key inside AiBrowser. NEVER expose either key to
+customers. NEVER return either key through an API. NEVER store either
+key in Eye Vault. NEVER expose either key to Eye AI or MCP.
+
+4.  OPENROUTER API KEYS ARE ABSOLUTE SERVER SECRETS
+
+The OpenRouter credentials must exist only in the trusted server-side
+Eye AI Gateway environment.
+
+Never: - hard-code them into source code - put them into the Chromium
+binary - put them into JavaScript, HTML, CSS, extensions, or browser
+resources - ship them in installers or update packages - store them in
+browser storage, cookies, localStorage, IndexedDB, or Eye Vault - expose
+them through DevTools - expose them through WebSocket/IPC messages -
+expose them through logs, analytics, crash reports, telemetry, or error
+messages - expose them to webpages - expose them to MCP - expose them to
+Eye AI
+
+The browser may receive a short-lived authorization/session token for
+using Eye AI, but NEVER the upstream OpenRouter credential.
+
+5.  CUSTOMER MUST NEVER BE ABLE TO REVEAL THE API KEYS
+
+Assume the customer is technically sophisticated and actively attempts
+extraction.
+
+Threat model includes: - reverse engineering - inspecting network
+requests - DevTools - examining binaries and memory - debugging
+Chromium - modifying the browser - intercepting their own traffic -
+malicious webpages - malicious extensions - prompt injection - malicious
+MCP tools
+
+The architecture must ensure that reverse-engineering the client does
+not reveal either OpenRouter key.
+
+Security invariant:
+
+CLIENT = UNTRUSTED GATEWAY = TRUSTED OPENROUTER KEYS = SERVER SECRETS
+
+6.  VARIZEN EYE AI GATEWAY
+
+Create a dedicated Varizen Eye AI Gateway responsible for: -
+authenticating browser installations - authorizing Eye AI requests -
+enforcing the free-model policy - enforcing rate limits - enforcing
+token limits - abuse prevention - routing requests to OpenRouter -
+hiding OpenRouter credentials - normalizing provider responses - safe
+error handling - usage accounting - emergency shutdown - preventing
+accidental paid-model routing
+
+Only this gateway may communicate with OpenRouter using the secret keys.
+
+7.  FREE-MODEL ENFORCEMENT
+
+Never trust the browser to determine whether a model is free.
+
+The gateway maintains the authoritative free-model allowlist/policy.
+
+Before every request: - verify that the model is explicitly allowed -
+verify that its current inference price is $0 - verify that the
+provider/model is allowed
+
+If any check fails, reject the request.
+
+Do not allow arbitrary model identifiers supplied by the browser to
+bypass the free-only policy.
+
+Do not rely solely on a model name ending in “:free”. Verify pricing
+through trusted provider/model metadata or an administrator-maintained
+allowlist.
+
+8.  HARD ZERO-COST GUARD
+
+Implement:
+
+MAX_ALLOWED_INFERENCE_COST = $0
+
+Every request must satisfy:
+
+eligible_model == TRUE AND inference_price == $0 AND provider_policy ==
+allowed
+
+If any condition fails: DO NOT SEND REQUEST.
+
+There must be no paid fallback.
+
+9.  NO PAID FALLBACK
+
+Allowed:
+
+Free Model A ↓ failure Free Model B ↓ failure Free Model C ↓ failure
+Graceful unavailable response
+
+Forbidden:
+
+Free Model ↓ failure Paid Model
+
+The two keys are for redundancy/capacity and reliability, not for
+bypassing provider limits or free-model restrictions.
+
+10. LOAD BALANCING
+
+The gateway shall distribute requests between the two server-side
+OpenRouter credentials.
+
+Conceptually:
+
+Eye Browser ↓ Varizen Eye AI Gateway ↓ Free-model policy ↓ Key load
+balancer /
+Key 1 Key 2  / OpenRouter ↓ FREE MODELS ONLY
+
+Use intelligent distribution rather than blindly alternating requests.
+
+Preferred behavior: 1. Select a healthy key. 2. Prefer a key with
+available capacity. 3. Distribute traffic approximately evenly. 4.
+Detect HTTP 429/rate-limit responses. 5. Temporarily mark the affected
+key as constrained. 6. Retry using the other healthy key when
+appropriate. 7. Never duplicate a non-idempotent operation. 8. Respect
+OpenRouter/provider rate limits. 9. Restore the key automatically after
+cooldown.
+
+11. KEY HEALTH STATES
+
+Maintain server-side health state for each key:
+
+ACTIVE DEGRADED RATE_LIMITED FAILED DISABLED
+
+Example:
+
+Key 1 → RATE_LIMITED Key 2 → ACTIVE
+
+Route new requests to Key 2.
+
+When Key 1 becomes available again, return it to the pool.
+
+12. NO KEY FAILOVER LEAK
+
+If Key 1 fails, the browser must not receive: - key identity -
+authorization information - upstream provider credentials - internal
+gateway details
+
+The browser sees only the normal AI response or a generic availability
+message.
+
+13. SERVER-SIDE KEY SELECTION
+
+The browser must never select: key=1 key=2
+
+The browser sends only the AI request.
+
+The gateway decides which credential to use.
+
+14. KEY ROTATION
+
+Support independent rotation of:
+
+OPENROUTER_API_KEY_1 OPENROUTER_API_KEY_2
+
+The administrator must be able to replace either credential without
+updating or reinstalling Eye Browser.
+
+Rotation: 1. Generate replacement key. 2. Store it securely. 3. Validate
+it server-side. 4. Begin routing traffic. 5. Disable/revoke the old key.
+6. Remove the old secret.
+
+15. SECRET STORAGE
+
+Preferred production hierarchy:
+
+Managed Secret Manager ↓ Environment/secret injection ↓ Eye AI Gateway
+
+Never commit credentials to: - Git - GitHub - Docker image layers -
+committed Docker Compose files - frontend .env files - installers -
+browser resources - update packages - logs - telemetry - crash dumps
+
+For development, use local ignored secrets/environment variables.
+
+16. REQUEST ACCOUNTING
+
+Track safe server-side metrics:
+
+key_1_requests key_2_requests key_1_success key_2_success
+key_1_rate_limits key_2_rate_limits key_1_errors key_2_errors
+
+Never expose the actual credentials.
+
+Use safe identifiers such as KEY-A and KEY-B.
+
+17. EYE AI API
+
+The browser should communicate with an Eye-specific abstraction such as:
+
+POST /api/v1/eye-ai/chat POST /api/v1/eye-ai/stream POST
+/api/v1/eye-ai/vision POST /api/v1/eye-ai/agent GET
+/api/v1/eye-ai/status
+
+Do not expose OpenRouter-specific credentials or internal provider
+secrets.
+
+18. STREAMING
+
+Support streaming responses where appropriate:
+
+Eye Browser ↓ Eye Gateway ↓ OpenRouter ↓ Eye Gateway ↓ Eye Browser
+
+The browser receives only the AI response stream.
+
+19. MCP CLAW AGENT
+
+MCP Claw Agent uses:
+
+MCP Claw Agent ↓ Eye AI Gateway ↓ Verified free model
+
+MCP must never access either OpenRouter key.
+
+20. EYE VAULT SEPARATION
+
+Eye Vault remains completely separate from provider credentials.
+
+The OpenRouter keys: - are NOT stored in Eye Vault - are NOT encrypted
+into Eye Vault - are NOT synced by Eye Vault - are NOT accessible
+through Eye ID - are NOT accessible through MCP - are NOT accessible to
+Eye AI - are NOT exported during browser migration
+
+21. ADMIN CONFIGURATION
+
+Provide a secure deployment configuration mechanism where the
+administrator can paste each OpenRouter key once.
+
+Preferred: - managed secret store - environment secret - encrypted
+server secret
+
+Never display a complete key after saving.
+
+If an administrative status UI exists, show only a masked identifier
+such as:
+
+OpenRouter Connected Key: ••••••••••••7F2A
+
+Never provide a “show full key” function.
+
+22. EMERGENCY KILL SWITCH
+
+Provide a secure gateway-level emergency control:
+
+EYE_AI_ENABLED = true/false
+
+If disabled:
+
+Eye AI temporarily unavailable.
+
+The browser itself must continue functioning normally.
+
+Also allow either key to be independently disabled.
+
+23. RATE LIMITING AND ABUSE PROTECTION
+
+Because Eye AI is free, implement abuse protection using
+privacy-conscious controls such as: - installation/session limits -
+IP-based throttling where appropriate - request frequency - token
+consumption - concurrent requests - MCP agent operation limits
+
+Do not collect unnecessary personal information.
+
+24. FUTURE SCALING
+
+The key manager should support additional server-side credentials later
+without changing the browser protocol.
+
+Initial production configuration: - Key A - Key B
+
+Do not expose the number of upstream credentials to customers.
+
+25. FREE-MODEL ROUTING
+
+Route by task type where appropriate:
+
+General chat → best verified free general model
+
+Coding → best verified free coding model
+
+Vision → best verified free multimodal model
+
+Research → best verified free reasoning model
+
+Shopping → best verified free multimodal/reasoning model
+
+MCP Agent → best verified free agent-capable model
+
+The free-model pool must be dynamically maintainable without requiring a
+browser release.
+
+26. NO CUSTOMER BILLING
+
+The initial Eye Browser release must not ask users for: - credit cards -
+OpenRouter accounts - AI subscriptions - provider accounts - AI API keys
+
+Eye AI is presented as:
+
+Eye AI — Free
+
+27. FINAL SECURITY INVARIANT
+
+A customer may completely reverse-engineer Eye Browser and still cannot
+obtain the Varizen OpenRouter API keys because neither key ever exists
+inside the customer-controlled browser environment.
+
+Customer-controlled environment: ZERO OpenRouter API keys
+
+Eye Browser: ZERO OpenRouter API keys
+
+Eye Vault: ZERO OpenRouter API keys
+
+MCP: ZERO OpenRouter API keys
+
+Webpage: ZERO OpenRouter API keys
+
+Developer Tools: ZERO OpenRouter API keys
+
+Varizen Eye AI Gateway: OpenRouter keys ONLY HERE
+
+28. FINAL ARCHITECTURE
+
+                    EYE BROWSER
+                         |
+                         | HTTPS
+                         v
+              VARIZEN EYE AI GATEWAY
+                         |
+              +----------+----------+
+              |                     |
+          SECRET A              SECRET B
+              |                     |
+              +----------+----------+
+                         |
+                         v
+                    OPENROUTER
+                         |
+                 FREE MODELS ONLY
+                         |
+                         v
+                    EYE AI
+
+Final non-negotiable rule:
+
+Two OpenRouter credentials may be used for redundancy, capacity
+distribution, and reliability, but both remain exclusively server-side
+secrets.
+
+The customer must never receive, inspect, export, recover, or reveal
+either credential through AiBrowser.
+
+The gateway must never route to a paid model. If no verified $0 model is
+available, Eye AI must fail gracefully rather than incur a charge.

@@ -1,0 +1,9 @@
+node_modules
+.next
+.git
+.env*
+coverage
+playwright-report
+test-results
+*.log
+VARIZEN_CO_MEGA_MASTER_BUILD_PROMPT_2026_10.txt

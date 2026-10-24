@@ -1,0 +1,16 @@
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
+import { Brand } from "./brand";
+import { company } from "@/content/site";
+
+const columns = [
+  { title: "Platform", links: [["Platform overview", "/platform"], ["ENOS architecture", "/platform#enos"], ["AI governance", "/platform#ai"], ["Security architecture", "/platform#security"]] },
+  { title: "Solutions", links: [["All solutions", "/solutions"], ["Cyber HealthCheck", "/solutions/cyber-healthcheck"], ["ExposureWatch", "/solutions/exposurewatch"], ["CyberDesk", "/solutions/cyberdesk"], ["Privacy & Compliance", "/solutions/privacy-compliance"], ["AI Governance", "/solutions/ai-governance"], ["Cloud Governance", "/solutions/cloud-governance"]] },
+  { title: "Products", links: [["All products", "/products"], ["Varizen Vector", "/products/varizen-vector"], ["Kidon", "/products/kidon"], ["ZEON CyberBridge", "/products/zeon-cyberbridge"], ["MaxRemit", "/products/maxremit"], ["QiM-AI 2.1", "/products/qim-ai-2-1"], ["MarketBench", "/products/marketbench"], ["OIIX.FUN", "/products/oiix-fun"], ["NGO & Charitable", "/products/ngo-organization-platform"]] },
+  { title: "Industries", links: [["All industries", "/industries"], ["Financial Services", "/industries/financial-services"], ["Healthcare", "/industries/healthcare"], ["Government", "/industries/government"], ["SaaS & Technology", "/industries/saas-technology"], ["Commerce", "/industries/commerce"], ["Professional Services", "/industries/professional-services"]] },
+  { title: "Trust", links: [["Trust Center", "/trust"], ["Security overview", "/trust/security"], ["Privacy notice", "/trust/privacy"], ["Terms of use", "/trust/terms"], ["Data handling", "/trust/data-handling"], ["Responsible disclosure", "/trust/responsible-disclosure"], ["Accessibility", "/trust/accessibility"], ["Subprocessors", "/trust/subprocessors"], ["Certifications", "/trust/compliance"], ["System status", "/trust/status"], ["Cookie notice", "/trust/cookies"]] },
+  { title: "Company", links: [["About Varizen", "/company"], ["Offices", "/company#offices"], ["Portfolio", "/portfolio"], ["Insights", "/insights"], ["Showcase", "/showcase"], ["Investment", "/investment"], ["Contact", "/contact"]] },
+];
+export function Footer() {
+  return <footer className="site-footer"><div className="container"><div className="footer-top"><div className="footer-brand"><Brand footer /><p>Know your exposure.<br />Prove your protection.</p></div><div className="footer-contact"><a href={`mailto:${company.email}`}>{company.email}<ArrowUpRight /></a></div></div><div className="footer-links">{columns.map((col) => <div key={col.title}><h2>{col.title}</h2>{col.links.map(([label, href]) => <Link key={href} href={href}>{label}</Link>)}</div>)}</div><div className="footer-offices"><span>United States</span><span>Malaysia</span><span>Bangladesh</span></div><div className="footer-bottom"><span>© 2026 Varizen Inc.</span><div><Link href="/trust/privacy">Privacy</Link><Link href="/trust/terms">Terms</Link><Link href="/trust/cookies">Cookies</Link></div><span>Digital trust, made operational.</span></div><div className="footer-word" aria-hidden="true">VARIZEN<span>®</span></div></div></footer>;
+}

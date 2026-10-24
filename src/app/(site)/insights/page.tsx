@@ -1,0 +1,7 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
+import { PageHero, Section } from "@/components/ui";
+export const metadata: Metadata = { title: "Insights", description: "Varizen perspectives on digital trust, governance, evidence and controlled AI.", alternates: { canonical: "/insights" } };
+const insights = [["Operating philosophy", "One operating experience does not mean one machine.", "Why common governance should preserve isolated execution and independent failure domains.", "/platform#enos"], ["Evidence", "Trust is not a badge. It is a trail of evidence.", "Connecting policy, changes, tests, approvals and observations into a reviewable record.", "/trust/security"], ["Governed AI", "AI that proposes. People approve.", "A transparent authority model for using AI without uncontrolled administrative power.", "/platform#ai"]];
+export default function InsightsPage() { return <><PageHero eyebrow="PERSPECTIVES" title="Ideas for operating digital trust." copy="A small set of foundational perspectives from Varizen. These are architectural viewpoints, not claims of deployed customer outcomes." /><Section>{insights.map(([category, title, copy, href], i) => <article className="insight-card" key={title}><span>0{i + 1}</span><div><p className="eyebrow">{category}</p><h2>{title}</h2></div><div><p>{copy}</p><Link href={href} className="arrow-link">Read the perspective <ArrowUpRight size={15} /></Link></div></article>)}</Section></>; }

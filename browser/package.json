@@ -1,0 +1,28 @@
+{
+  "name": "aibrowser",
+  "productName": "AiBrowser",
+  "version": "0.1.0",
+  "description": "Eye Browser — Fast. Smart. Secure. Yours.",
+  "author": "Varizen Inc. <hi@varizen.co>",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "gateway": "node server/index.js",
+    "test": "node server/test.js && node --test server/http.test.js src/modules/shield.test.js",
+    "test:e2e": "node --test --test-timeout=90000 tests/electron.smoke.test.js",
+    "check": "npm test && node --check src/main.js && node --check src/preload.js",
+    "check:all": "npm run check && npm run test:e2e",
+    "dist": "electron-builder --win nsis portable"
+  },
+  "devDependencies": {
+    "electron": "^33.0.0",
+    "electron-builder": "^25.0.0"
+  },
+  "build": {
+    "appId": "co.varizen.aibrowser",
+    "productName": "AiBrowser",
+    "files": ["src/**/*", "!src/**/*.test.js"],
+    "extraResources": [],
+    "win": { "target": ["nsis", "portable"] }
+  }
+}
