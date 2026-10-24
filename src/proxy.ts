@@ -22,13 +22,14 @@ export function proxy(request: NextRequest) {
   if (match && !knownSlugs[match[1]].has(decodeURIComponent(match[2]))) {
     return new NextResponse("Not found", { status: 404, headers: { "Content-Type": "text/plain; charset=utf-8", "Cache-Control": "no-store" } });
   }
-  const nonce = Buffer.from(crypto.randomUUID()).toString("base64");
-  // style-src must allow inline styles: React/Next emit style attributes for
-  // image sizing and layout. A nonce would disable 'unsafe-inline' for style
-  // attributes, so styles use 'unsafe-inline' while scripts stay nonce-gated.
-  const csp = `default-src 'self'; script-src 'self' 'nonce-${nonce}' 'strict-dynamic'${process.env.NODE_ENV === "development" ? " 'unsafe-eval'" : ""}; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self'; object-src 'none'; frame-src 'self' https:; base-uri 'self'; form-action 'self'; frame-ancestors 'none';${process.env.NODE_ENV === "production" ? " upgrade-insecure-requests;" : ""}`;
+  // NOTE: a per-request nonce cannot be used here. `cacheComponents` prerenders
+  // pages, so the HTML (and its inline bootstrap scripts) is generated at build
+  // time and served from cache. A nonce minted per request would never match the
+  // cached markup, blocking every script and leaving the loading fallback stuck.
+  // Scripts are therefore restricted to same-origin plus inline, which is what
+  // Next.js requires for prerendered output. All other directives stay strict.
+  const csp = `default-src 'self'; script-src 'self' 'unsafe-inline'${process.env.NODE_ENV === "development" ? " 'unsafe-eval'" : ""}; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self'; object-src 'none'; frame-src 'self' https:; base-uri 'self'; form-action 'self'; frame-ancestors 'none';${process.env.NODE_ENV === "production" ? " upgrade-insecure-requests;" : ""}`;
   const requestHeaders = new Headers(request.headers);
-  requestHeaders.set("x-nonce", nonce);
   requestHeaders.set("Content-Security-Policy", csp);
   const response = NextResponse.next({ request: { headers: requestHeaders } });
   response.headers.set("Content-Security-Policy", csp);

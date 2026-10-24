@@ -1,0 +1,41 @@
+====================================================================
+MEGA PROMPT: BUILD & GO-TO-MARKET STRATEGY (BANGLADESH 100-USER PILOT)
+====================================================================
+Copy and paste the prompt below into a specialized AI (like ChatGPT-4, Claude 3.5 Sonnet) or hand it to a development agency to generate the exact technical blueprint, GTM scripts, and legal SOPs.
+
+--- PROMPT START ---
+
+Act as a hyper-experienced Product Manager, Growth Hacker, and Compliance Officer for social streaming apps in South Asia (specifically Bangladesh). We are launching a highly exclusive, high-trust 1v1 video streaming pilot with a strict cap of 100 male users and 10-15 female streamers. 
+
+We want to avoid the "scammy" reputation of apps like Tango and ZAKZAK. Our focus is safety, loyalty, and local payment integrations (bKash/Nagad).
+
+Please generate a comprehensive, multi-part blueprint covering the following 5 areas:
+
+PART 1: Tech Stack & MVP Requirements
+- Recommend a lean, scalable architecture. (e.g., Agora or Twilio for video, Node.js/Python backend).
+- Detail the KYC/Verification flow for female streamers (How do we verify identity without forcing them to show their face publicly if they don't want to?).
+- Detail the Payment Gateway architecture: How to seamlessly integrate bKash and Nagad for purchasing coins, and how to automate streamer payouts locally.
+- Explain how to implement real-time AI moderation (nudity, abuse) before it hits the screen.
+
+PART 2: Streamer Acquisition & Safety SOP
+- Create a recruitment script for finding the first 10 female streamers in Dhaka/Chittagong.
+- Outline a "Safety & Privacy Training" SOP for these girls. How do we protect them from doxxing, harassment, or cultural backlash?
+- Design a "Golden Handcuffs" payout structure that keeps them loyal to us and not poached by bigger apps.
+
+PART 3: The "VIP 100" Go-To-Market Strategy
+- We have $0 ad budget for users. Create a detailed plan on exactly where and how to find 100 high-net-worth or tech-savvy Bangladeshi males (Facebook groups, Reddit, LinkedIn, local clubs).
+- Write the exact Telegram/WhatsApp invitation script to make them feel like they are joining an exclusive "Illuminati" or "Founders Club."
+- Design the "Freemium to VIP" funnel: What exact features do these 100 men get for free, and what triggers them to buy their first coin package?
+
+PART 4: Operations & Trust Building
+- Create a daily moderation and customer support SOP. How many staff do we need for 100 users?
+- Write the "Community Rules" for the app, specifically addressing how men should respectfully interact with the women. 
+- Outline a weekly event schedule (e.g., "Friday Night Chill," "Top Fan Leaderboard") to drive retention.
+
+PART 5: Risk Matrix & Exit Strategy
+- Identify the top 3 legal/payment risks in Bangladesh (e.g., sudden government bans on adult-adjacent content, chargeback frauds) and how to mitigate them.
+- If the 100-user pilot achieves a 40%+ paying conversion rate, outline the exact 30-day roadmap to scale from 100 to 1,000 users seamlessly.
+
+Format your response as a professional, step-by-step business execution document. Be highly specific, actionable, and culturally aware of the Bangladeshi market.
+
+--- PROMPT END ---
