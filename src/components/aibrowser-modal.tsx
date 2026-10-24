@@ -183,115 +183,34 @@ export function AiBrowserModal({ isOpen, onClose }: AiBrowserModalProps) {
 
             {/* Viewport & AI split */}
             <div className="flex-1 flex overflow-hidden">
-              {/* Interactive Virtual Sandboxed Viewport */}
-              <div className="flex-1 bg-[#0b0d0c] relative flex flex-col overflow-y-auto">
-                <div className="p-6 md:p-8 max-w-4xl mx-auto w-full space-y-5">
-                  {/* Operating Environment Status Grid */}
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-                    <div className="p-3.5 rounded-xl bg-white/[0.03] border border-white/10 flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400">
-                        <Lock className="w-4 h-4" />
-                      </div>
-                      <div>
-                        <span className="block text-[10px] font-mono text-neutral-400 uppercase tracking-wider">Origin Status</span>
-                        <span className="text-xs font-mono font-medium text-white truncate block max-w-[160px]">{currentUrl}</span>
-                      </div>
-                    </div>
+              {/* Real Live-Rendered Sandboxed Viewport using Secure Proxy Route */}
+              <div className="flex-1 bg-white relative flex flex-col overflow-hidden">
+                <iframe
+                  key={currentUrl}
+                  src={`/api/browse?url=${encodeURIComponent(currentUrl)}`}
+                  title="AiBrowser Live Web Session"
+                  className="w-full flex-1 border-none bg-white"
+                  sandbox="allow-same-origin allow-scripts allow-forms allow-popups"
+                  referrerPolicy="no-referrer"
+                />
 
-                    <div className="p-3.5 rounded-xl bg-white/[0.03] border border-white/10 flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400">
-                        <Shield className="w-4 h-4" />
-                      </div>
-                      <div>
-                        <span className="block text-[10px] font-mono text-neutral-400 uppercase tracking-wider">Shield Engine</span>
-                        <span className="text-xs font-semibold text-blue-300">{shieldBlocked} Trackers Quarantined</span>
-                      </div>
-                    </div>
-
-                    <div className="p-3.5 rounded-xl bg-white/[0.03] border border-white/10 flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-lg bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400">
-                        <Cpu className="w-4 h-4" />
-                      </div>
-                      <div>
-                        <span className="block text-[10px] font-mono text-neutral-400 uppercase tracking-wider">Execution Envelope</span>
-                        <span className="text-xs font-semibold text-purple-300">MCP Stdio Zero-Privilege</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Core Virtual Document Canvas */}
-                  <div className="rounded-2xl bg-white/[0.02] border border-white/10 overflow-hidden">
-                    <div className="px-5 py-3.5 bg-white/[0.02] border-b border-white/5 flex items-center justify-between">
-                      <div className="flex items-center gap-2">
-                        <div className="w-2 h-2 rounded-full bg-emerald-400" />
-                        <span className="text-xs font-semibold text-white tracking-wide">
-                          {currentUrl.includes("varizen") ? "Varizen Inc. Digital Headquarters" : "Sandboxed Web Session"}
-                        </span>
-                      </div>
-                      <span className="text-[10px] font-mono text-neutral-400">TLS 1.3 · HTTPS-First Upgraded</span>
-                    </div>
-
-                    <div className="p-6 space-y-4">
-                      <p className="text-xs text-neutral-300 leading-relaxed">
-                        {currentUrl.includes("varizen")
-                          ? "Governed digital infrastructure platform. Turning regulatory and operational uncertainty into evidence-led action. Memory spaces, cryptographic audit chains, and enterprise AI orchestration running in isolated envelopes."
-                          : `Active session rendered inside AiBrowser's zero-leak context for ${currentUrl}. External tracking scripts and cross-site beacons are blocked prior to network transmission.`}
-                      </p>
-
-                      {/* Technical Architecture Specs */}
-                      <div className="grid grid-cols-2 md:grid-cols-4 gap-2.5 pt-2">
-                        <div className="p-2.5 rounded-lg bg-black/40 border border-white/5 text-[11px]">
-                          <span className="block text-[9px] font-mono text-neutral-500 uppercase">Process Isolation</span>
-                          <span className="font-mono text-emerald-400 text-xs font-medium">Chromium Sandbox</span>
-                        </div>
-                        <div className="p-2.5 rounded-lg bg-black/40 border border-white/5 text-[11px]">
-                          <span className="block text-[9px] font-mono text-neutral-500 uppercase">Untrusted Guard</span>
-                          <span className="font-mono text-emerald-400 text-xs font-medium">&lt;web_content&gt;</span>
-                        </div>
-                        <div className="p-2.5 rounded-lg bg-black/40 border border-white/5 text-[11px]">
-                          <span className="block text-[9px] font-mono text-neutral-500 uppercase">Key Protection</span>
-                          <span className="font-mono text-emerald-400 text-xs font-medium">Zero-Leak Gateway</span>
-                        </div>
-                        <div className="p-2.5 rounded-lg bg-black/40 border border-white/5 text-[11px]">
-                          <span className="block text-[9px] font-mono text-neutral-500 uppercase">Distribution</span>
-                          <span className="font-mono text-emerald-400 text-xs font-medium">Portable .exe (77MB)</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Native Desktop Architecture Action */}
-                  <div className="p-5 rounded-2xl bg-gradient-to-r from-emerald-500/10 via-emerald-500/5 to-transparent border border-emerald-500/20 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-                    <div className="space-y-1">
-                      <div className="flex items-center gap-2">
-                        <span className="text-xs font-bold text-white uppercase tracking-wider">Run Full Native Client</span>
-                        <span className="text-[10px] bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded font-mono">No Install Required</span>
-                      </div>
-                      <p className="text-xs text-neutral-400 max-w-lg">
-                        The standalone Windows executable runs natively with direct OS-level MCP servers, multi-tab memory sleeping, and unrestricted real-world web navigation.
-                      </p>
-                    </div>
-
-                    <button
-                      onClick={() => setActiveTab("download")}
-                      className="px-5 py-2.5 bg-emerald-500 hover:bg-emerald-400 text-black text-xs font-bold rounded-xl shrink-0 flex items-center gap-2 transition-all shadow-lg hover:shadow-emerald-500/20"
-                    >
-                      <Download className="w-4 h-4" />
-                      Download Windows App
-                    </button>
-                  </div>
-                </div>
-
-                <div className="mt-auto border-t border-white/10 bg-neutral-950/90 backdrop-blur px-5 py-2.5 flex items-center justify-between text-xs text-neutral-300">
-                  <div className="flex items-center gap-2 text-[11px] text-neutral-400">
-                    <Shield className="w-3.5 h-3.5 text-emerald-400" />
-                    <span>AiBrowser Governed Framework. Memory-isolated virtual sandbox.</span>
+                {/* Bottom Technical Telemetry Strip */}
+                <div className="border-t border-white/10 bg-[#121413] px-4 py-2 flex items-center justify-between text-xs text-neutral-300">
+                  <div className="flex items-center gap-3 text-[11px] text-neutral-400 font-mono">
+                    <span className="flex items-center gap-1.5 text-emerald-400">
+                      <Shield className="w-3.5 h-3.5" />
+                      <span>LIVE PROXIED</span>
+                    </span>
+                    <span>•</span>
+                    <span>{currentUrl}</span>
+                    <span>•</span>
+                    <span className="text-blue-400">{shieldBlocked} Trackers Dropped</span>
                   </div>
                   <button
                     onClick={() => setActiveTab("download")}
-                    className="text-emerald-400 hover:text-emerald-300 text-[11px] font-semibold flex items-center gap-1.5 transition-colors"
+                    className="text-emerald-400 hover:text-emerald-300 text-[11px] font-medium flex items-center gap-1 transition-colors"
                   >
-                    <Download className="w-3 h-3" /> Get Native App for Windows
+                    <Download className="w-3 h-3" /> Get Desktop App (.exe)
                   </button>
                 </div>
               </div>
