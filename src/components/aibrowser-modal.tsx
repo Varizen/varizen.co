@@ -139,30 +139,29 @@ export function AiBrowserModal({ isOpen, onClose }: AiBrowserModalProps) {
         {/* Tab 1: Browser inside browser Simulator */}
         {activeTab === "simulator" && (
           <div className="flex-1 flex flex-col overflow-hidden">
-            {/* Chrome Header */}
-            <div className="bg-[#1e1e1e] border-b border-white/10 px-3 py-2 flex items-center gap-2">
-              <div className="flex items-center gap-1 text-neutral-400">
-                <button className="p-1 hover:bg-white/10 rounded"><ArrowLeft className="w-3.5 h-3.5" /></button>
-                <button className="p-1 hover:bg-white/10 rounded"><ArrowRight className="w-3.5 h-3.5" /></button>
-                <button className="p-1 hover:bg-white/10 rounded" onClick={() => setCurrentUrl(urlInput)}>
-                  <RotateCcw className="w-3.5 h-3.5" />
-                </button>
+            {/* Chrome Header without back/forward buttons, presenting a strong OS control frame */}
+            <div className="bg-[#181a19] border-b border-white/10 px-4 py-2.5 flex items-center gap-3">
+              <div className="flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                <span className="font-mono text-[10px] uppercase tracking-wider text-emerald-400 font-medium">
+                  Isolated Environment
+                </span>
               </div>
 
-              {/* Omnibox */}
+              {/* Omnibox / Security Gateway Input */}
               <form onSubmit={handleNavigate} className="flex-1 flex items-center">
-                <div className="w-full flex items-center bg-[#121212] border border-white/10 rounded-lg px-3 py-1.5 text-xs text-neutral-300 focus-within:border-emerald-500/50">
-                  <Lock className="w-3 h-3 text-emerald-400 mr-2 shrink-0" />
+                <div className="w-full flex items-center bg-[#0d0f0e] border border-white/10 rounded-lg px-3 py-1.5 text-xs text-neutral-300 focus-within:border-emerald-500/50 transition-colors">
+                  <Lock className="w-3.5 h-3.5 text-emerald-400 mr-2 shrink-0" />
                   <input
                     type="text"
                     value={urlInput}
                     onChange={(e) => setUrlInput(e.target.value)}
-                    className="w-full bg-transparent outline-none text-neutral-100"
-                    placeholder="Search or enter URL..."
+                    className="w-full bg-transparent outline-none text-neutral-100 font-mono text-xs"
+                    placeholder="Enter URL to inspect in Eye Shield Sandbox..."
                   />
-                  <div className="flex items-center gap-1.5 ml-2 pl-2 border-l border-white/10 shrink-0">
-                    <Shield className="w-3.5 h-3.5 text-blue-400" />
-                    <span className="text-[11px] text-blue-400 font-mono font-medium">{shieldBlocked} blocked</span>
+                  <div className="flex items-center gap-2 ml-2 pl-2 border-l border-white/10 shrink-0">
+                    <Shield className="w-3.5 h-3.5 text-emerald-400" />
+                    <span className="text-[11px] text-emerald-400 font-mono font-medium">{shieldBlocked} shielded</span>
                   </div>
                 </div>
               </form>
@@ -170,14 +169,14 @@ export function AiBrowserModal({ isOpen, onClose }: AiBrowserModalProps) {
               {/* AI toggle */}
               <button
                 onClick={() => setAiPanelOpen(!aiPanelOpen)}
-                className={`p-1.5 rounded-lg flex items-center gap-1 text-xs border ${
+                className={`px-3 py-1.5 rounded-lg flex items-center gap-1.5 text-xs font-medium border transition-colors ${
                   aiPanelOpen
-                    ? "bg-emerald-500/20 text-emerald-300 border-emerald-500/30"
+                    ? "bg-emerald-500/15 text-emerald-300 border-emerald-500/30"
                     : "bg-white/5 text-neutral-400 border-white/10 hover:text-white"
                 }`}
                 title="Toggle Eye AI Sidebar"
               >
-                <Eye className="w-3.5 h-3.5" />
+                <Sparkles className="w-3.5 h-3.5" />
                 <span>Eye AI</span>
               </button>
             </div>
@@ -185,92 +184,114 @@ export function AiBrowserModal({ isOpen, onClose }: AiBrowserModalProps) {
             {/* Viewport & AI split */}
             <div className="flex-1 flex overflow-hidden">
               {/* Interactive Virtual Sandboxed Viewport */}
-              <div className="flex-1 bg-[#0d0f0e] relative flex flex-col overflow-y-auto">
-                <div className="p-6 md:p-8 max-w-3xl mx-auto w-full space-y-6">
-                  {/* Origin Banner */}
-                  <div className="flex items-center justify-between p-3 rounded-xl bg-white/[0.03] border border-white/10 text-xs text-neutral-300">
-                    <div className="flex items-center gap-2">
-                      <Lock className="w-3.5 h-3.5 text-emerald-400" />
-                      <span className="font-mono text-neutral-200">{currentUrl}</span>
-                      <span className="text-[10px] bg-emerald-500/10 text-emerald-400 px-2 py-0.5 rounded border border-emerald-500/20">
-                        TLS Encrypted · Sandboxed
-                      </span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                      <span className="text-[10px] text-neutral-400 font-mono">Isolated Context</span>
-                    </div>
-                  </div>
-
-                  {/* Shield Interception Card */}
-                  <div className="p-4 rounded-xl bg-blue-500/[0.05] border border-blue-500/20 text-xs space-y-2">
-                    <div className="flex items-center gap-2 text-blue-400 font-semibold">
-                      <Shield className="w-4 h-4" />
-                      <span>Eye Shield Active Protection</span>
-                    </div>
-                    <p className="text-neutral-400 text-[11px] leading-relaxed">
-                      Blocked <strong className="text-blue-300">{shieldBlocked} telemetry beacons</strong>, analytics scripts, and third-party tracking pixels on this origin. No cookies or device fingerprints were permitted to cross origins.
-                    </p>
-                  </div>
-
-                  {/* Mock Page Content Canvas */}
-                  <div className="p-6 rounded-2xl bg-white/[0.02] border border-white/10 space-y-4">
-                    <div className="flex items-center justify-between pb-3 border-b border-white/5">
-                      <h4 className="text-base font-semibold text-white">
-                        {currentUrl.includes("varizen") ? "Varizen Inc. Digital Headquarters" : "Sandboxed Web Session"}
-                      </h4>
-                      <span className="text-[10px] font-mono text-neutral-500">Rendered in Memory</span>
-                    </div>
-                    <p className="text-xs text-neutral-300 leading-relaxed">
-                      {currentUrl.includes("varizen")
-                        ? "Operating platform for digital trust, cybersecurity, and governed AI. Enterprise infrastructure where security posture, evidence-led telemetry, and private execution are mathematically provable."
-                        : `Viewing session for ${currentUrl}. External web content is strictly isolated within zero-privilege memory boundaries to prevent untrusted prompt-injection attacks.`}
-                    </p>
-
-                    <div className="grid grid-cols-2 gap-3 pt-2">
-                      <div className="p-3 rounded-lg bg-white/[0.02] border border-white/5">
-                        <span className="block text-[10px] font-mono text-neutral-400 uppercase tracking-wider mb-1">
-                          MCP Interface
-                        </span>
-                        <span className="text-xs text-neutral-200 font-medium">Model Context Protocol Enabled</span>
+              <div className="flex-1 bg-[#0b0d0c] relative flex flex-col overflow-y-auto">
+                <div className="p-6 md:p-8 max-w-4xl mx-auto w-full space-y-5">
+                  {/* Operating Environment Status Grid */}
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                    <div className="p-3.5 rounded-xl bg-white/[0.03] border border-white/10 flex items-center gap-3">
+                      <div className="w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400">
+                        <Lock className="w-4 h-4" />
                       </div>
-                      <div className="p-3 rounded-lg bg-white/[0.02] border border-white/5">
-                        <span className="block text-[10px] font-mono text-neutral-400 uppercase tracking-wider mb-1">
-                          Execution Boundary
-                        </span>
-                        <span className="text-xs text-emerald-400 font-medium">Chromium Sandboxed (No Leak)</span>
+                      <div>
+                        <span className="block text-[10px] font-mono text-neutral-400 uppercase tracking-wider">Origin Status</span>
+                        <span className="text-xs font-mono font-medium text-white truncate block max-w-[160px]">{currentUrl}</span>
+                      </div>
+                    </div>
+
+                    <div className="p-3.5 rounded-xl bg-white/[0.03] border border-white/10 flex items-center gap-3">
+                      <div className="w-8 h-8 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400">
+                        <Shield className="w-4 h-4" />
+                      </div>
+                      <div>
+                        <span className="block text-[10px] font-mono text-neutral-400 uppercase tracking-wider">Shield Engine</span>
+                        <span className="text-xs font-semibold text-blue-300">{shieldBlocked} Trackers Quarantined</span>
+                      </div>
+                    </div>
+
+                    <div className="p-3.5 rounded-xl bg-white/[0.03] border border-white/10 flex items-center gap-3">
+                      <div className="w-8 h-8 rounded-lg bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400">
+                        <Cpu className="w-4 h-4" />
+                      </div>
+                      <div>
+                        <span className="block text-[10px] font-mono text-neutral-400 uppercase tracking-wider">Execution Envelope</span>
+                        <span className="text-xs font-semibold text-purple-300">MCP Stdio Zero-Privilege</span>
                       </div>
                     </div>
                   </div>
 
-                  {/* Native App Upsell Banner */}
-                  <div className="p-4 rounded-xl bg-gradient-to-r from-emerald-500/10 via-emerald-500/5 to-transparent border border-emerald-500/20 flex items-center justify-between gap-4">
-                    <div className="space-y-0.5">
-                      <p className="text-xs font-semibold text-white">Want to browse any website with native speed?</p>
-                      <p className="text-[11px] text-neutral-400">
-                        The native Windows app has unrestricted real-world navigation, zero iframe limits, and direct MCP tool servers.
+                  {/* Core Virtual Document Canvas */}
+                  <div className="rounded-2xl bg-white/[0.02] border border-white/10 overflow-hidden">
+                    <div className="px-5 py-3.5 bg-white/[0.02] border-b border-white/5 flex items-center justify-between">
+                      <div className="flex items-center gap-2">
+                        <div className="w-2 h-2 rounded-full bg-emerald-400" />
+                        <span className="text-xs font-semibold text-white tracking-wide">
+                          {currentUrl.includes("varizen") ? "Varizen Inc. Digital Headquarters" : "Sandboxed Web Session"}
+                        </span>
+                      </div>
+                      <span className="text-[10px] font-mono text-neutral-400">TLS 1.3 · HTTPS-First Upgraded</span>
+                    </div>
+
+                    <div className="p-6 space-y-4">
+                      <p className="text-xs text-neutral-300 leading-relaxed">
+                        {currentUrl.includes("varizen")
+                          ? "Governed digital infrastructure platform. Turning regulatory and operational uncertainty into evidence-led action. Memory spaces, cryptographic audit chains, and enterprise AI orchestration running in isolated envelopes."
+                          : `Active session rendered inside AiBrowser's zero-leak context for ${currentUrl}. External tracking scripts and cross-site beacons are blocked prior to network transmission.`}
+                      </p>
+
+                      {/* Technical Architecture Specs */}
+                      <div className="grid grid-cols-2 md:grid-cols-4 gap-2.5 pt-2">
+                        <div className="p-2.5 rounded-lg bg-black/40 border border-white/5 text-[11px]">
+                          <span className="block text-[9px] font-mono text-neutral-500 uppercase">Process Isolation</span>
+                          <span className="font-mono text-emerald-400 text-xs font-medium">Chromium Sandbox</span>
+                        </div>
+                        <div className="p-2.5 rounded-lg bg-black/40 border border-white/5 text-[11px]">
+                          <span className="block text-[9px] font-mono text-neutral-500 uppercase">Untrusted Guard</span>
+                          <span className="font-mono text-emerald-400 text-xs font-medium">&lt;web_content&gt;</span>
+                        </div>
+                        <div className="p-2.5 rounded-lg bg-black/40 border border-white/5 text-[11px]">
+                          <span className="block text-[9px] font-mono text-neutral-500 uppercase">Key Protection</span>
+                          <span className="font-mono text-emerald-400 text-xs font-medium">Zero-Leak Gateway</span>
+                        </div>
+                        <div className="p-2.5 rounded-lg bg-black/40 border border-white/5 text-[11px]">
+                          <span className="block text-[9px] font-mono text-neutral-500 uppercase">Distribution</span>
+                          <span className="font-mono text-emerald-400 text-xs font-medium">Portable .exe (77MB)</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Native Desktop Architecture Action */}
+                  <div className="p-5 rounded-2xl bg-gradient-to-r from-emerald-500/10 via-emerald-500/5 to-transparent border border-emerald-500/20 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                    <div className="space-y-1">
+                      <div className="flex items-center gap-2">
+                        <span className="text-xs font-bold text-white uppercase tracking-wider">Run Full Native Client</span>
+                        <span className="text-[10px] bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded font-mono">No Install Required</span>
+                      </div>
+                      <p className="text-xs text-neutral-400 max-w-lg">
+                        The standalone Windows executable runs natively with direct OS-level MCP servers, multi-tab memory sleeping, and unrestricted real-world web navigation.
                       </p>
                     </div>
+
                     <button
                       onClick={() => setActiveTab("download")}
-                      className="px-4 py-2 bg-emerald-500 hover:bg-emerald-400 text-black text-xs font-semibold rounded-lg shrink-0 flex items-center gap-1.5 transition-colors"
+                      className="px-5 py-2.5 bg-emerald-500 hover:bg-emerald-400 text-black text-xs font-bold rounded-xl shrink-0 flex items-center gap-2 transition-all shadow-lg hover:shadow-emerald-500/20"
                     >
-                      <Download className="w-3.5 h-3.5" />
-                      Get Native App
+                      <Download className="w-4 h-4" />
+                      Download Windows App
                     </button>
                   </div>
                 </div>
 
-                <div className="mt-auto border-t border-white/10 bg-neutral-950/90 backdrop-blur px-4 py-2 flex items-center justify-between text-xs text-neutral-300">
-                  <span className="flex items-center gap-1.5 text-[11px] text-neutral-400">
-                    <Shield className="w-3.5 h-3.5 text-emerald-400 inline" />
-                    AiBrowser Web Sandbox. Safe, zero-leak simulated viewport.
-                  </span>
+                <div className="mt-auto border-t border-white/10 bg-neutral-950/90 backdrop-blur px-5 py-2.5 flex items-center justify-between text-xs text-neutral-300">
+                  <div className="flex items-center gap-2 text-[11px] text-neutral-400">
+                    <Shield className="w-3.5 h-3.5 text-emerald-400" />
+                    <span>AiBrowser Governed Framework. Memory-isolated virtual sandbox.</span>
+                  </div>
                   <button
                     onClick={() => setActiveTab("download")}
-                    className="text-emerald-400 hover:text-emerald-300 text-[11px] font-medium flex items-center gap-1 transition-colors"
+                    className="text-emerald-400 hover:text-emerald-300 text-[11px] font-semibold flex items-center gap-1.5 transition-colors"
                   >
-                    <Download className="w-3 h-3" /> Download Native Windows .exe
+                    <Download className="w-3 h-3" /> Get Native App for Windows
                   </button>
                 </div>
               </div>
@@ -396,17 +417,20 @@ export function AiBrowserModal({ isOpen, onClose }: AiBrowserModalProps) {
 
               {/* Terminal CLI Wget / Curl Section */}
               <div className="space-y-4">
-                <div className="flex items-center gap-2">
-                  <Terminal className="w-4 h-4 text-emerald-400" />
-                  <h4 className="text-sm font-semibold text-white uppercase tracking-wider">
-                    Quick CLI Commands (wget / curl / powershell)
-                  </h4>
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <Terminal className="w-4 h-4 text-emerald-400" />
+                    <h4 className="text-sm font-semibold text-white uppercase tracking-wider">
+                      Automated CLI Installation
+                    </h4>
+                  </div>
+                  <span className="text-[10px] font-mono text-neutral-400">Windows x64 / PowerShell 5.1+</span>
                 </div>
 
                 {/* wget */}
-                <div className="rounded-xl border border-white/10 bg-black/60 p-3 font-mono text-xs flex items-center justify-between gap-3">
+                <div className="rounded-xl border border-white/10 bg-black/60 p-3.5 font-mono text-xs flex items-center justify-between gap-3 group hover:border-emerald-500/30 transition-colors">
                   <div className="overflow-x-auto text-neutral-300">
-                    <span className="text-neutral-500"># wget command</span>
+                    <span className="text-neutral-500 text-[10px]"># WGET CLI</span>
                     <br />
                     <code>wget https://varizen.co/api/download/aibrowser -O AiBrowser-win-x64.zip</code>
                   </div>
@@ -417,7 +441,7 @@ export function AiBrowserModal({ isOpen, onClose }: AiBrowserModalProps) {
                         "wget"
                       )
                     }
-                    className="p-2 hover:bg-white/10 rounded-lg text-neutral-400 hover:text-white shrink-0"
+                    className="p-2 hover:bg-white/10 rounded-lg text-neutral-400 hover:text-white shrink-0 transition-colors"
                     title="Copy to clipboard"
                   >
                     {copiedCmd === "wget" ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
@@ -425,9 +449,9 @@ export function AiBrowserModal({ isOpen, onClose }: AiBrowserModalProps) {
                 </div>
 
                 {/* curl */}
-                <div className="rounded-xl border border-white/10 bg-black/60 p-3 font-mono text-xs flex items-center justify-between gap-3">
+                <div className="rounded-xl border border-white/10 bg-black/60 p-3.5 font-mono text-xs flex items-center justify-between gap-3 group hover:border-emerald-500/30 transition-colors">
                   <div className="overflow-x-auto text-neutral-300">
-                    <span className="text-neutral-500"># curl command</span>
+                    <span className="text-neutral-500 text-[10px]"># CURL CLI</span>
                     <br />
                     <code>curl -L https://varizen.co/api/download/aibrowser -o AiBrowser-win-x64.zip</code>
                   </div>
@@ -438,7 +462,7 @@ export function AiBrowserModal({ isOpen, onClose }: AiBrowserModalProps) {
                         "curl"
                       )
                     }
-                    className="p-2 hover:bg-white/10 rounded-lg text-neutral-400 hover:text-white shrink-0"
+                    className="p-2 hover:bg-white/10 rounded-lg text-neutral-400 hover:text-white shrink-0 transition-colors"
                     title="Copy to clipboard"
                   >
                     {copiedCmd === "curl" ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
@@ -446,9 +470,9 @@ export function AiBrowserModal({ isOpen, onClose }: AiBrowserModalProps) {
                 </div>
 
                 {/* PowerShell */}
-                <div className="rounded-xl border border-white/10 bg-black/60 p-3 font-mono text-xs flex items-center justify-between gap-3">
+                <div className="rounded-xl border border-white/10 bg-black/60 p-3.5 font-mono text-xs flex items-center justify-between gap-3 group hover:border-emerald-500/30 transition-colors">
                   <div className="overflow-x-auto text-neutral-300">
-                    <span className="text-neutral-500"># PowerShell one-liner (Download &amp; Extract)</span>
+                    <span className="text-neutral-500 text-[10px]"># POWERSHELL DOWNLOAD &amp; EXTRACT</span>
                     <br />
                     <code>
                       irm https://varizen.co/api/download/aibrowser -OutFile AiBrowser.zip; Expand-Archive AiBrowser.zip .\AiBrowser
@@ -461,7 +485,7 @@ export function AiBrowserModal({ isOpen, onClose }: AiBrowserModalProps) {
                         "ps"
                       )
                     }
-                    className="p-2 hover:bg-white/10 rounded-lg text-neutral-400 hover:text-white shrink-0"
+                    className="p-2 hover:bg-white/10 rounded-lg text-neutral-400 hover:text-white shrink-0 transition-colors"
                     title="Copy to clipboard"
                   >
                     {copiedCmd === "ps" ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
@@ -471,12 +495,36 @@ export function AiBrowserModal({ isOpen, onClose }: AiBrowserModalProps) {
 
               {/* Architecture specs */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-3 pt-2">
-                <div className="p-3.5 rounded-xl border border-white/10 bg-white/[0.02]">
-                  <Shield className="w-4 h-4 text-blue-400 mb-2" />
-                  <h5 className="text-xs font-semibold text-white mb-1">Eye Shield</h5>
-                  <p className="text-[11px] text-neutral-400">Strict permission isolation, tracker blocking, HTTPS-first upgrades.</p>
+                <div className="p-4 rounded-xl border border-white/10 bg-white/[0.02] space-y-1">
+                  <div className="flex items-center gap-2 text-blue-400">
+                    <Shield className="w-4 h-4" />
+                    <h5 className="text-xs font-semibold text-white">Eye Shield Isolation</h5>
+                  </div>
+                  <p className="text-[11px] text-neutral-400 leading-relaxed">
+                    Strict permission isolation, tracker &amp; telemetry blocking, and automatic HTTPS-first upgrades at network layer.
+                  </p>
                 </div>
-                <div className="p-3.5 rounded-xl border border-white/10 bg-white/[0.02]">
+
+                <div className="p-4 rounded-xl border border-white/10 bg-white/[0.02] space-y-1">
+                  <div className="flex items-center gap-2 text-purple-400">
+                    <Cpu className="w-4 h-4" />
+                    <h5 className="text-xs font-semibold text-white">MCP Architecture</h5>
+                  </div>
+                  <p className="text-[11px] text-neutral-400 leading-relaxed">
+                    JSON-RPC stdio protocol. All agent tools are sandboxed behind explicit user cryptographic consent.
+                  </p>
+                </div>
+
+                <div className="p-4 rounded-xl border border-white/10 bg-white/[0.02] space-y-1">
+                  <div className="flex items-center gap-2 text-emerald-400">
+                    <Eye className="w-4 h-4" />
+                    <h5 className="text-xs font-semibold text-white">Zero-Leak Gateway</h5>
+                  </div>
+                  <p className="text-[11px] text-neutral-400 leading-relaxed">
+                    Provider keys live exclusively on the server gateway. Desktop client stores zero secrets and leaks zero telemetry.
+                  </p>
+                </div>
+              </div>
                   <Cpu className="w-4 h-4 text-purple-400 mb-2" />
                   <h5 className="text-xs font-semibold text-white mb-1">MCP Client</h5>
                   <p className="text-[11px] text-neutral-400">JSON-RPC stdio protocol. All agent tools require explicit user consent.</p>
