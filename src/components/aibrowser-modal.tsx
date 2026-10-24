@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useSyncExternalStore } from "react";
 import { createPortal } from "react-dom";
-import { Download, Terminal, Copy, Check, Eye, Shield, Cpu, X, RotateCcw, ArrowLeft, ArrowRight, Lock, Sparkles } from "lucide-react";
+import { Download, Terminal, Copy, Check, Eye, Shield, Cpu, X, Lock, Sparkles } from "lucide-react";
 
 interface AiBrowserModalProps {
   isOpen: boolean;
@@ -523,16 +523,6 @@ export function AiBrowserModal({ isOpen, onClose }: AiBrowserModalProps) {
                   <p className="text-[11px] text-neutral-400 leading-relaxed">
                     Provider keys live exclusively on the server gateway. Desktop client stores zero secrets and leaks zero telemetry.
                   </p>
-                </div>
-              </div>
-                  <Cpu className="w-4 h-4 text-purple-400 mb-2" />
-                  <h5 className="text-xs font-semibold text-white mb-1">MCP Client</h5>
-                  <p className="text-[11px] text-neutral-400">JSON-RPC stdio protocol. All agent tools require explicit user consent.</p>
-                </div>
-                <div className="p-3.5 rounded-xl border border-white/10 bg-white/[0.02]">
-                  <Eye className="w-4 h-4 text-emerald-400 mb-2" />
-                  <h5 className="text-xs font-semibold text-white mb-1">Free Dual-Key AI</h5>
-                  <p className="text-[11px] text-neutral-400">Zero keys in client. Free models only, bounded by OpenRouter policy.</p>
                 </div>
               </div>
             </div>
