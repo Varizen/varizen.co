@@ -348,6 +348,7 @@ svg { flex-shrink: 0; }
 .footer-brand > p { color: var(--ft-muted); font-size: 12px; margin: 20px 0 0; line-height: 1.8; }
 .footer-brand .eyebrow { color: var(--ft-muted); font-size: 8px; margin: 0 0 13px; }
 .footer-contact { text-align: right; }
+.footer-contact > p { color: var(--ft-muted); font-size: 12px; margin: 12px 0 0; line-height: 1.8; }
 .footer-contact .eyebrow { color: var(--ft-muted); font-size: 8px; margin: 0 0 13px; justify-content: flex-end; }
 .footer-contact > a { display: flex; align-items: center; justify-content: flex-end; gap: 30px; font-size: 20px; letter-spacing: -.03em; }
 .footer-contact > a:hover { color: var(--accent); }
