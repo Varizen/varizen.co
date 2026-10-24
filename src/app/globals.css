@@ -343,14 +343,16 @@ svg { flex-shrink: 0; }
 :root[data-theme="dark"] .site-footer { --ft-bg: #171a18; --ft-ink: #e7e9e1; --ft-muted: #929b8b; --ft-link: #c1c7b9; --ft-line: #373c34; --ft-word: #252a23; }
 .site-footer .brand-word { font-size: 26px; }
 .site-footer .brand-descriptor { color: var(--ft-muted); }
-.footer-top { display: grid; grid-template-columns: 1fr 1fr; align-items: start; gap: 40px; padding-bottom: 50px; border-bottom: 1px solid var(--ft-line); }
-.footer-brand { text-align: left; }
-.footer-brand > p { color: var(--ft-muted); font-size: 12px; margin: 20px 0 0; line-height: 1.8; }
+.footer-top { display: flex; align-items: center; justify-content: space-between; gap: 32px; padding-bottom: 38px; border-bottom: 1px solid var(--ft-line); }
+.footer-brand { display: inline-flex; align-items: center; gap: 14px; text-align: left; }
+.footer-descriptor { font-family: var(--font-mono); font-size: 9px; letter-spacing: .2em; color: var(--ft-muted); text-transform: uppercase; border-left: 1px solid var(--ft-line); padding-left: 14px; line-height: 1.4; }
 .footer-brand .eyebrow { color: var(--ft-muted); font-size: 8px; margin: 0 0 13px; }
-.footer-contact { text-align: right; }
-.footer-contact > p { color: var(--ft-muted); font-size: 12px; margin: 12px 0 0; line-height: 1.8; }
+.footer-contact { display: inline-flex; align-items: center; gap: 18px; text-align: right; margin-left: auto; }
+.footer-tagline { font-size: 11px; color: var(--ft-muted); letter-spacing: -.01em; white-space: nowrap; }
+.footer-divider { width: 1px; height: 14px; background: var(--ft-line); display: inline-block; }
 .footer-contact .eyebrow { color: var(--ft-muted); font-size: 8px; margin: 0 0 13px; justify-content: flex-end; }
-.footer-contact > a { display: flex; align-items: center; justify-content: flex-end; gap: 30px; font-size: 20px; letter-spacing: -.03em; }
+.footer-contact > a { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 550; color: var(--ft-ink); letter-spacing: -.02em; transition: color .2s; }
+.footer-contact > a svg { width: 14px; height: 14px; }
 .footer-contact > a:hover { color: var(--accent); }
 .footer-links { display: grid; grid-template-columns: repeat(6, 1fr); gap: 32px; padding: 45px 0; }
 .footer-links h2 { font-family: var(--font-mono); font-size: 8px; font-weight: 400; letter-spacing: .1em; color: var(--ft-muted); margin-bottom: 20px; }
