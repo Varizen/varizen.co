@@ -358,9 +358,11 @@ svg { flex-shrink: 0; }
 .footer-links h2 { font-family: var(--font-mono); font-size: 8px; font-weight: 400; letter-spacing: .1em; color: var(--ft-muted); margin-bottom: 20px; }
 .footer-links a { display: block; color: var(--ft-link); font-size: 11px; padding: 5px 0; }
 .footer-links a:hover { color: var(--ft-ink); }
-.footer-offices { display: flex; gap: 28px; border-top: 1px solid var(--ft-line); padding: 20px 0; }
-.footer-offices span { color: var(--ft-muted); font-family: var(--font-mono); font-size: 8px; display: flex; align-items: center; gap: 8px; }
-.footer-offices span::before { content: ""; width: 4px; height: 4px; background: var(--ft-muted); border-radius: 50%; }
+.footer-offices { display: flex; flex-wrap: wrap; align-items: center; gap: 20px 24px; border-top: 1px solid var(--ft-line); padding: 20px 0; }
+.footer-offices span { color: var(--ft-muted); font-family: var(--font-mono); font-size: 8px; letter-spacing: .08em; text-transform: uppercase; display: flex; align-items: center; gap: 7px; }
+.footer-offices span:not(.footer-office-label)::before { content: ""; width: 4px; height: 4px; background: var(--ft-muted); border-radius: 50%; opacity: .7; }
+.footer-offices .footer-office-label { color: var(--ft-ink); font-weight: 600; letter-spacing: .12em; }
+.footer-office-sep { width: 1px; height: 12px; background: var(--ft-line); display: inline-block; margin: 0 4px; }
 .footer-bottom { border-top: 1px solid var(--ft-line); padding: 22px 0; display: flex; align-items: center; justify-content: space-between; color: var(--ft-muted); font-size: 9px; }
 .footer-bottom > div { display: flex; gap: 20px; }
 .footer-bottom a:hover { color: var(--ft-ink); }
