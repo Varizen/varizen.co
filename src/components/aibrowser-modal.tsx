@@ -184,26 +184,93 @@ export function AiBrowserModal({ isOpen, onClose }: AiBrowserModalProps) {
 
             {/* Viewport & AI split */}
             <div className="flex-1 flex overflow-hidden">
-              {/* Web Content Iframe Container with graceful external preview note */}
-              <div className="flex-1 bg-neutral-900 relative flex flex-col">
-                <iframe
-                  src={currentUrl}
-                  title="AiBrowser Virtual Sandbox"
-                  className="w-full flex-1 border-none bg-white"
-                  sandbox="allow-forms allow-popups"
-                  referrerPolicy="no-referrer"
-                  loading="lazy"
-                />
-                <div className="border-t border-white/10 bg-neutral-950/90 backdrop-blur px-4 py-2 flex items-center justify-between text-xs text-neutral-300">
+              {/* Interactive Virtual Sandboxed Viewport */}
+              <div className="flex-1 bg-[#0d0f0e] relative flex flex-col overflow-y-auto">
+                <div className="p-6 md:p-8 max-w-3xl mx-auto w-full space-y-6">
+                  {/* Origin Banner */}
+                  <div className="flex items-center justify-between p-3 rounded-xl bg-white/[0.03] border border-white/10 text-xs text-neutral-300">
+                    <div className="flex items-center gap-2">
+                      <Lock className="w-3.5 h-3.5 text-emerald-400" />
+                      <span className="font-mono text-neutral-200">{currentUrl}</span>
+                      <span className="text-[10px] bg-emerald-500/10 text-emerald-400 px-2 py-0.5 rounded border border-emerald-500/20">
+                        TLS Encrypted · Sandboxed
+                      </span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                      <span className="text-[10px] text-neutral-400 font-mono">Isolated Context</span>
+                    </div>
+                  </div>
+
+                  {/* Shield Interception Card */}
+                  <div className="p-4 rounded-xl bg-blue-500/[0.05] border border-blue-500/20 text-xs space-y-2">
+                    <div className="flex items-center gap-2 text-blue-400 font-semibold">
+                      <Shield className="w-4 h-4" />
+                      <span>Eye Shield Active Protection</span>
+                    </div>
+                    <p className="text-neutral-400 text-[11px] leading-relaxed">
+                      Blocked <strong className="text-blue-300">{shieldBlocked} telemetry beacons</strong>, analytics scripts, and third-party tracking pixels on this origin. No cookies or device fingerprints were permitted to cross origins.
+                    </p>
+                  </div>
+
+                  {/* Mock Page Content Canvas */}
+                  <div className="p-6 rounded-2xl bg-white/[0.02] border border-white/10 space-y-4">
+                    <div className="flex items-center justify-between pb-3 border-b border-white/5">
+                      <h4 className="text-base font-semibold text-white">
+                        {currentUrl.includes("varizen") ? "Varizen Inc. Digital Headquarters" : "Sandboxed Web Session"}
+                      </h4>
+                      <span className="text-[10px] font-mono text-neutral-500">Rendered in Memory</span>
+                    </div>
+                    <p className="text-xs text-neutral-300 leading-relaxed">
+                      {currentUrl.includes("varizen")
+                        ? "Operating platform for digital trust, cybersecurity, and governed AI. Enterprise infrastructure where security posture, evidence-led telemetry, and private execution are mathematically provable."
+                        : `Viewing session for ${currentUrl}. External web content is strictly isolated within zero-privilege memory boundaries to prevent untrusted prompt-injection attacks.`}
+                    </p>
+
+                    <div className="grid grid-cols-2 gap-3 pt-2">
+                      <div className="p-3 rounded-lg bg-white/[0.02] border border-white/5">
+                        <span className="block text-[10px] font-mono text-neutral-400 uppercase tracking-wider mb-1">
+                          MCP Interface
+                        </span>
+                        <span className="text-xs text-neutral-200 font-medium">Model Context Protocol Enabled</span>
+                      </div>
+                      <div className="p-3 rounded-lg bg-white/[0.02] border border-white/5">
+                        <span className="block text-[10px] font-mono text-neutral-400 uppercase tracking-wider mb-1">
+                          Execution Boundary
+                        </span>
+                        <span className="text-xs text-emerald-400 font-medium">Chromium Sandboxed (No Leak)</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Native App Upsell Banner */}
+                  <div className="p-4 rounded-xl bg-gradient-to-r from-emerald-500/10 via-emerald-500/5 to-transparent border border-emerald-500/20 flex items-center justify-between gap-4">
+                    <div className="space-y-0.5">
+                      <p className="text-xs font-semibold text-white">Want to browse any website with native speed?</p>
+                      <p className="text-[11px] text-neutral-400">
+                        The native Windows app has unrestricted real-world navigation, zero iframe limits, and direct MCP tool servers.
+                      </p>
+                    </div>
+                    <button
+                      onClick={() => setActiveTab("download")}
+                      className="px-4 py-2 bg-emerald-500 hover:bg-emerald-400 text-black text-xs font-semibold rounded-lg shrink-0 flex items-center gap-1.5 transition-colors"
+                    >
+                      <Download className="w-3.5 h-3.5" />
+                      Get Native App
+                    </button>
+                  </div>
+                </div>
+
+                <div className="mt-auto border-t border-white/10 bg-neutral-950/90 backdrop-blur px-4 py-2 flex items-center justify-between text-xs text-neutral-300">
                   <span className="flex items-center gap-1.5 text-[11px] text-neutral-400">
                     <Shield className="w-3.5 h-3.5 text-emerald-400 inline" />
-                    Preview sandbox. External sites may block framing with X-Frame-Options.
+                    AiBrowser Web Sandbox. Safe, zero-leak simulated viewport.
                   </span>
                   <button
                     onClick={() => setActiveTab("download")}
                     className="text-emerald-400 hover:text-emerald-300 text-[11px] font-medium flex items-center gap-1 transition-colors"
                   >
-                    <Download className="w-3 h-3" /> Get Native App for unrestricted browsing
+                    <Download className="w-3 h-3" /> Download Native Windows .exe
                   </button>
                 </div>
               </div>
