@@ -1,0 +1,1 @@
+export default function Loading() { return <div className="container not-found" role="status" aria-live="polite"><span>LOADING</span><h1>Bringing things into focus.</h1><p>Please wait while the page loads.</p></div>; }

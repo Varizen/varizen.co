@@ -1,0 +1,24 @@
+VARIZEN LOGO USAGE MATRIX
+
+LIGHT BACKGROUND
+- Desktop navbar/header: Primary Horizontal Color
+- Footer: Primary Horizontal Color
+- Dashboard/cards/pricing: Primary Horizontal Color
+- Formal monochrome document: Monochrome Horizontal Black
+- Centered/mobile/splash: Primary Stacked Color
+
+DARK BACKGROUND
+- Desktop navbar/header: Reverse Horizontal White
+- Footer: Reverse Horizontal White
+- Dark hero/video/image overlay: Reverse Horizontal White
+- Centered hero/mobile/splash: Reverse Stacked White
+
+ICON-ONLY
+- Favicon/app icon: symbol-only V mark, transparent background
+- Do not use the full wordmark at favicon sizes
+
+NON-NEGOTIABLE
+- Keep >= 0.5x logo-height clear space
+- Never distort, rotate, skew or redraw the mark
+- Maintain optical alignment
+- Preserve transparency when possible

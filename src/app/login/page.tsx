@@ -1,0 +1,6 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import { ArrowLeft } from "lucide-react";
+import { Brand } from "@/components/brand";
+export const metadata: Metadata = { title: "Application Access", robots: { index: false, follow: false } };
+export default function LoginPage() { return <main style={{ minHeight: "100vh", display: "grid", placeItems: "center", padding: 30 }}><div style={{ maxWidth: 440, width: "100%" }}><Brand /><div className="contact-form" style={{ marginTop: 40 }}><p className="eyebrow">PROTECTED APPLICATION</p><h1 style={{ fontSize: 32, fontWeight: 550, margin: "18px 0" }}>Access is provisioned, not assumed.</h1><p style={{ fontSize: 13 }}>Authentication is not connected to an identity provider in this deployment. No local demo account or insecure fallback is provided.</p><p style={{ fontSize: 13 }}>Contact your Varizen administrator to activate an authorized account with multi-factor authentication.</p><Link href="/contact?reason=support" className="button" style={{ marginTop: 10 }}>Contact support</Link></div><p style={{ marginTop: 25 }}><Link href="/" className="arrow-link"><ArrowLeft size={14} />Back to public website</Link></p></div></main>; }

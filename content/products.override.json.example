@@ -1,0 +1,18 @@
+{
+  "kidon": {
+    "stage": "Architecture",
+    "status": "Product direction; availability not published",
+    "summary": "A SaaS operations platform for business workflows and administration.",
+    "contentVersion": "2026-10-24.3",
+    "lastReviewed": "2026-10-24",
+    "reviewedBy": null
+  },
+  "zeon-cyberbridge": {
+    "stage": "Architecture",
+    "status": "Strategic initiative; maturity evidence pending",
+    "summary": "A cybersecurity and digital infrastructure platform.",
+    "contentVersion": "2026-10-24.3",
+    "lastReviewed": "2026-10-24",
+    "reviewedBy": null
+  }
+}

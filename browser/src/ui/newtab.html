@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'unsafe-inline'; script-src 'unsafe-inline'" />
+<title>New Tab</title>
+<style>
+  :root { --accent: #FF6B35; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; }
+  body {
+    display: grid; place-items: center; background: #1A1A1A; color: #FAFAFA;
+    font: 14px/1.5 "Segoe UI", system-ui, sans-serif;
+    background-image: radial-gradient(circle at 50% 0%, rgba(255,107,53,.12), transparent 60%);
+  }
+  @media (prefers-color-scheme: light) { body { background: #FAFAFA; color: #1A1A1A; } }
+  main { text-align: center; width: min(560px, 88vw); }
+  .eye { font-size: 44px; line-height: 1; filter: drop-shadow(0 0 18px rgba(255,107,53,.5)); }
+  h1 { font-size: 22px; font-weight: 600; letter-spacing: .5px; margin: 10px 0 2px; }
+  h1 span { color: var(--accent); }
+  p.tag { margin: 0 0 22px; font-size: 12px; opacity: .55; letter-spacing: 1.5px; text-transform: uppercase; }
+  .search {
+    display: flex; align-items: center; gap: 8px; padding: 0 14px; height: 46px;
+    border: 1px solid rgba(128,128,128,.35); border-radius: 12px; background: rgba(128,128,128,.08);
+  }
+  .search:focus-within { border-color: var(--accent); }
+  input { flex: 1; background: none; border: 0; outline: none; color: inherit; font: inherit; }
+  .quick { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 22px; }
+  .quick a {
+    text-decoration: none; color: inherit; font-size: 12px; padding: 7px 14px;
+    border: 1px solid rgba(128,128,128,.3); border-radius: 999px; opacity: .8;
+  }
+  .quick a:hover { border-color: var(--accent); color: var(--accent); opacity: 1; }
+</style>
+</head>
+<body>
+<main>
+  <div class="eye">👁</div>
+  <h1>Ai<span>Browser</span></h1>
+  <p class="tag">Fast. Smart. Secure. Yours.</p>
+  <form class="search" onsubmit="event.preventDefault(); location.href='https://duckduckgo.com/?q='+encodeURIComponent(this.q.value)">
+    <span>⌕</span>
+    <input name="q" placeholder="Search the web, ask Eye, or enter a Web3 address..." autofocus autocomplete="off" />
+  </form>
+  <div class="quick">
+    <a href="https://duckduckgo.com">Search</a>
+    <a href="https://app.uniswap.org">DeFi</a>
+    <a href="https://github.com">Code</a>
+    <a href="https://news.ycombinator.com">News</a>
+  </div>
+</main>
+</body>
+</html>

@@ -1,0 +1,2 @@
+import type { MetadataRoute } from "next";
+export default function manifest(): MetadataRoute.Manifest { return { name: "Varizen — Digital trust, made operational.", short_name: "Varizen", description: "Cybersecurity, privacy, governed AI and cloud operating platforms.", start_url: "/", display: "standalone", background_color: "#f7f7f5", theme_color: "#f7f7f5", icons: [{ src: "/icon.svg", sizes: "any", type: "image/svg+xml", purpose: "any" }] }; }

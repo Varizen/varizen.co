@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'" />
+<title>AiBrowser</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header id="chrome">
+  <div id="tabstrip">
+    <div id="tabs"></div>
+    <button id="newtab" title="New tab">+</button>
+  </div>
+  <div id="toolbar">
+    <button data-nav="back" title="Back">‹</button>
+    <button data-nav="forward" title="Forward">›</button>
+    <button data-nav="reload" title="Reload">⟳</button>
+    <div id="omnibox-wrap">
+      <span id="lock" title="Connection">🔒</span>
+      <input id="omnibox" placeholder="Search the web, ask Eye, or enter a Web3 address..." spellcheck="false" />
+      <span id="shield" title="Eye Shield">🛡 <b id="blocked">0</b></span>
+    </div>
+    <button id="btn-ai" title="Eye AI">👁</button>
+    <button id="btn-dl" title="Eye Download">⤓</button>
+    <button id="btn-menu" title="Menu">☰</button>
+  </div>
+  <div id="findbar" class="hidden">
+    <input id="find-input" placeholder="Find in page..." spellcheck="false" />
+    <span id="find-count" class="muted"></span>
+    <button id="find-close">×</button>
+  </div>
+</header>
+
+<div id="crash" class="hidden">
+  <p>This tab crashed.</p>
+  <div>
+    <button id="crash-reload" class="primary">Reload</button>
+    <button id="crash-close">Close tab</button>
+  </div>
+</div>
+
+<aside id="panel" class="hidden">
+  <div class="panel-head">
+    <nav id="panel-tabs">
+      <button data-panel="ai" class="active">Eye AI</button>
+      <button data-panel="dl">Downloads</button>
+      <button data-panel="mcp">MCP</button>
+      <button data-panel="perf">Perf</button>
+      <button data-panel="settings">Settings</button>
+    </nav>
+    <button id="panel-close">×</button>
+  </div>
+
+  <section id="p-ai" class="pane">
+    <div id="chat"></div>
+    <div class="chips">
+      <button data-prompt="Summarize this page">Summarize page</button>
+      <button data-prompt="Explain this page simply">Explain</button>
+      <button data-prompt="Extract the key facts and links">Extract</button>
+      <button id="agent-toggle" title="Let Eye AI use approved MCP tools">Agent: off</button>
+    </div>
+    <form id="ask-form">
+      <input id="ask" placeholder="Ask anything..." autocomplete="off" />
+      <button type="submit">➤</button>
+    </form>
+  </section>
+
+  <section id="p-dl" class="pane hidden">
+    <div id="dl-list"><p class="muted">No downloads yet.</p></div>
+  </section>
+
+  <section id="p-mcp" class="pane hidden">
+    <div id="mcp-list"><p class="muted">No MCP servers configured.</p></div>
+    <hr />
+    <label>Name<input id="mcp-name" placeholder="filesystem" /></label>
+    <label>Command<input id="mcp-cmd" placeholder="npx" /></label>
+    <label>Args (space separated)<input id="mcp-args" placeholder="-y @modelcontextprotocol/server-filesystem C:\docs" /></label>
+    <button id="mcp-add" class="primary">Add server</button>
+    <p class="muted">Tools stay blocked until you approve each one. Nothing runs automatically.</p>
+  </section>
+
+  <section id="p-perf" class="pane hidden">
+    <div class="stats">
+      <div><span>Processes</span><b id="pf-proc">—</b></div>
+      <div><span>CPU</span><b id="pf-cpu">—</b></div>
+      <div><span>Memory</span><b id="pf-mem">—</b></div>
+      <div><span>Tabs</span><b id="pf-tabs">—</b></div>
+      <div><span>Sleeping</span><b id="pf-sleep">—</b></div>
+    </div>
+    <p class="muted">Measured live from the OS process table. No simulated numbers.</p>
+  </section>
+
+  <section id="p-settings" class="pane hidden">
+    <div class="menu">
+      <button id="m-private">New private tab</button>
+      <button id="m-find">Find in page</button>
+      <button id="m-zoomin">Zoom in</button>
+      <button id="m-zoomout">Zoom out</button>
+      <button id="m-zoomreset">Reset zoom</button>
+    </div>
+    <hr />
+
+    <div class="stats">
+      <div><span>Eye AI</span><b id="gw-state">Free</b></div>
+    </div>
+    <label>Eye AI Gateway<input id="s-gw-url" placeholder="https://varizen.co" /></label>
+    <label>Install token<input id="s-gw-token" type="password" placeholder="issued by the gateway" /></label>
+    <label class="row"><input id="s-enabled" type="checkbox" /> Enable Eye AI</label>
+    <label class="row"><input id="s-local" type="checkbox" /> Use a local model instead of the gateway</label>
+    <label id="local-box" class="hidden">Local endpoint<input id="s-endpoint" placeholder="http://localhost:11434/v1" /></label>
+    <label id="local-model-box" class="hidden">Local model<input id="s-model" placeholder="llama3.2" /></label>
+    <label id="local-key-box" class="hidden">Local API key<input id="s-key" type="password" placeholder="optional" /></label>
+    <button id="s-save" class="primary">Save</button>
+    <hr />
+
+    <div class="stats">
+      <div><span>Eye Shield on this site</span><b id="sh-host">—</b></div>
+    </div>
+    <button id="sh-toggle">Exempt this site from blocking</button>
+    <label class="row"><input id="s-https" type="checkbox" /> HTTPS-first (upgrade http to https)</label>
+    <label>Sleep background tabs after (minutes)<input id="s-sleep" type="number" min="1" max="120" /></label>
+    <hr />
+    <button id="s-reset" class="danger">Reset AiBrowser</button>
+    <p class="muted" id="version"></p>
+  </section>
+</aside>
+
+<script src="app.js"></script>
+</body>
+</html>
