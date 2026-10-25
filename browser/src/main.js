@@ -6,6 +6,9 @@ const shield = require('./modules/shield');
 const downloads = require('./modules/downloads');
 const ai = require('./modules/ai');
 const mcp = require('./modules/mcp');
+const zenbox = require('./modules/zenbox');
+const bookmarks = require('./modules/bookmarks');
+const xdm = require('./modules/xdm');
 
 let chromeH = 76; // grows when the find bar is visible
 let win, ui;
@@ -157,9 +160,15 @@ function createWindow() {
     onBlock: (host) => send('shield:blocked', host)
   });
   downloads.install(ses, (d) => send('downloads:update', d));
+  xdm.install(ses, (d) => send('downloads:update', d));
   ses.setUserAgent(ses.getUserAgent().replace(/Electron\/\S+\s/, '').replace(/AiBrowser\/\S+\s/, ''));
 
-  win.webContents.once('did-finish-load', restoreSession);
+  win.webContents.once('did-finish-load', () => {
+    zenbox.init(app.getPath('userData'));
+    bookmarks.init(app.getPath('userData'));
+    xdm.init();
+    restoreSession();
+  });
 }
 
 // ---- IPC ----
@@ -178,6 +187,16 @@ ipcMain.handle('nav:go', (_e, input) => {
 ipcMain.handle('nav:back', () => tabs.get(activeId)?.view.webContents.navigationHistory.goBack());
 ipcMain.handle('nav:forward', () => tabs.get(activeId)?.view.webContents.navigationHistory.goForward());
 ipcMain.handle('nav:reload', () => tabs.get(activeId)?.view.webContents.reload());
+ipcMain.handle('nav:stop', () => tabs.get(activeId)?.view.webContents.stop());
+ipcMain.handle('nav:state', () => {
+  const wc = tabs.get(activeId)?.view.webContents;
+  if (!wc) return { canGoBack: false, canGoForward: false, isLoading: false };
+  return {
+    canGoBack: wc.navigationHistory.canGoBack(),
+    canGoForward: wc.navigationHistory.canGoForward(),
+    isLoading: wc.isLoading()
+  };
+});
 ipcMain.handle('panel:width', (_e, w) => { panelWidth = Math.max(0, Number(w) || 0); layout(); });
 ipcMain.handle('chrome:height', (_e, h) => { chromeH = Math.max(0, Number(h) || 76); layout(); });
 ipcMain.handle('tab:private', () => createTab('aibrowser://newtab', true, true));
@@ -320,6 +339,35 @@ ipcMain.handle('settings:get', (_e, k) => settings.get(k));
 ipcMain.handle('settings:set', (_e, k, v) => { settings.load()[k] = v; settings.save(); });
 ipcMain.handle('app:reset', () => { settings.reset(); session.fromPartition('persist:main').clearStorageData(); });
 ipcMain.handle('shell:open', (_e, url) => shell.openExternal(url));
+
+// ---- ZenBox IPC handlers ----
+ipcMain.handle('zenbox:accounts', () => zenbox.getAccounts());
+ipcMain.handle('zenbox:account:add', (_e, acc) => zenbox.addAccount(acc));
+ipcMain.handle('zenbox:account:remove', (_e, id) => zenbox.removeAccount(id));
+ipcMain.handle('zenbox:list', (_e, filter) => zenbox.listEmails(filter));
+ipcMain.handle('zenbox:get', (_e, id) => zenbox.getEmail(id));
+ipcMain.handle('zenbox:markRead', (_e, id, read) => zenbox.markRead(id, read));
+ipcMain.handle('zenbox:star', (_e, id) => zenbox.toggleStar(id));
+ipcMain.handle('zenbox:move', (_e, id, folder) => zenbox.moveFolder(id, folder));
+ipcMain.handle('zenbox:send', (_e, payload) => zenbox.sendEmail(payload));
+ipcMain.handle('zenbox:secureSession', (_e, msgId, pass) => zenbox.establishSecureSession(msgId, pass));
+ipcMain.handle('zenbox:analyze', () => zenbox.analyzeMailbox());
+ipcMain.handle('zenbox:aiAction', (_e, action, id, opts) => zenbox.executeAiAction(action, id, opts));
+ipcMain.handle('zenbox:signatures', () => zenbox.getSignatures());
+
+// ---- Bookmarks & One-Way Sync Handlers ----
+ipcMain.handle('bookmarks:list', () => bookmarks.list());
+ipcMain.handle('bookmarks:add', (_e, item) => bookmarks.add(item));
+ipcMain.handle('bookmarks:remove', (_e, id) => bookmarks.remove(id));
+ipcMain.handle('bookmarks:update', (_e, id, up) => bookmarks.update(id, up));
+ipcMain.handle('bookmarks:toggleBar', (_e, id) => bookmarks.toggleBar(id));
+ipcMain.handle('bookmarks:import', () => bookmarks.importFromExternalBrowsers());
+
+// ---- XDM Content Transport & Storage Drives ----
+ipcMain.handle('xdm:drives:get', () => xdm.getStorageDrives());
+ipcMain.handle('xdm:drives:set', (_e, cfg) => xdm.setStorageDrives(cfg));
+ipcMain.handle('xdm:download', (_e, url) => xdm.startXdmDownload(url, (d) => send('downloads:update', d)));
+ipcMain.handle('xdm:control', (_e, id, act) => xdm.control(id, act));
 
 async function pageContext() {
   const tab = tabs.get(activeId);

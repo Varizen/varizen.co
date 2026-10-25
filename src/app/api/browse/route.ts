@@ -37,10 +37,11 @@ export async function GET(req: NextRequest) {
       redirect: "follow",
     });
 
+    const finalUrl = new URL(res.url || target.href);
     let html = await res.text();
 
-    // Inject <base> tag so relative CSS, JS, and images resolve correctly to the target origin
-    const baseTag = `<base href="${target.origin}${target.pathname}">`;
+    // Inject <base> tag using final URL after all redirects so relative CSS, JS, and images resolve correctly
+    const baseTag = `<base href="${finalUrl.origin}${finalUrl.pathname}">`;
     if (html.includes("<head>")) {
       html = html.replace("<head>", `<head>${baseTag}`);
     } else if (html.includes("<html>")) {

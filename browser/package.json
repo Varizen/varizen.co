@@ -8,7 +8,7 @@
   "scripts": {
     "start": "electron .",
     "gateway": "node server/index.js",
-    "test": "node server/test.js && node --test server/http.test.js src/modules/shield.test.js",
+    "test": "node server/test.js && node --test server/http.test.js src/modules/shield.test.js src/modules/zenbox.test.js src/modules/xdm_bm.test.js",
     "test:e2e": "node --test --test-timeout=90000 tests/electron.smoke.test.js",
     "check": "npm test && node --check src/main.js && node --check src/preload.js",
     "check:all": "npm run check && npm run test:e2e",

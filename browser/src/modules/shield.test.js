@@ -182,3 +182,25 @@ test('permission check handler agrees with the request handler', () => {
   assert.strictEqual(ses.handlers.permissionCheck(null, 'fullscreen'), true);
   assert.strictEqual(ses.handlers.permissionCheck(null, 'geolocation'), false);
 });
+
+// ---- Adware, Malware & Permanent Shield Protection ----
+
+test('blocks aggressive adware and popunder domains', () => {
+  const { ses, blocked } = install();
+  const r = request(ses, {
+    url: 'https://cdn.popads.net/serve.js',
+    resourceType: 'script'
+  });
+  assert.deepStrictEqual(r, { cancel: true });
+  assert.ok(blocked.length > 0);
+});
+
+test('blocks known malware and phishing domain even on mainFrame navigation', () => {
+  const { ses, blocked } = install();
+  const r = request(ses, {
+    url: 'http://auth-verify-portal.top/login',
+    resourceType: 'mainFrame'
+  });
+  assert.deepStrictEqual(r, { cancel: true });
+  assert.ok(blocked.includes('auth-verify-portal.top'));
+});

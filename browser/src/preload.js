@@ -15,7 +15,9 @@ contextBridge.exposeInMainWorld('eye', {
     go: (input) => ipcRenderer.invoke('nav:go', input),
     back: () => ipcRenderer.invoke('nav:back'),
     forward: () => ipcRenderer.invoke('nav:forward'),
-    reload: () => ipcRenderer.invoke('nav:reload')
+    reload: () => ipcRenderer.invoke('nav:reload'),
+    stop: () => ipcRenderer.invoke('nav:stop'),
+    state: () => ipcRenderer.invoke('nav:state')
   },
   tab: {
     createPrivate: () => ipcRenderer.invoke('tab:private'),
@@ -54,6 +56,35 @@ contextBridge.exposeInMainWorld('eye', {
   downloads: { control: (id, a) => ipcRenderer.invoke('downloads:control', id, a), onUpdate: on('downloads:update') },
   panelWidth: (w) => ipcRenderer.invoke('panel:width', w),
   shield: { onBlocked: on('shield:blocked') },
+  bookmarks: {
+    list: () => ipcRenderer.invoke('bookmarks:list'),
+    add: (b) => ipcRenderer.invoke('bookmarks:add', b),
+    remove: (id) => ipcRenderer.invoke('bookmarks:remove', id),
+    update: (id, up) => ipcRenderer.invoke('bookmarks:update', id, up),
+    toggleBar: (id) => ipcRenderer.invoke('bookmarks:toggleBar', id),
+    importExternal: () => ipcRenderer.invoke('bookmarks:import')
+  },
+  xdm: {
+    getDrives: () => ipcRenderer.invoke('xdm:drives:get'),
+    setDrives: (cfg) => ipcRenderer.invoke('xdm:drives:set', cfg),
+    download: (url) => ipcRenderer.invoke('xdm:download', url),
+    control: (id, act) => ipcRenderer.invoke('xdm:control', id, act)
+  },
+  zenbox: {
+    accounts: () => ipcRenderer.invoke('zenbox:accounts'),
+    addAccount: (acc) => ipcRenderer.invoke('zenbox:account:add', acc),
+    removeAccount: (id) => ipcRenderer.invoke('zenbox:account:remove', id),
+    list: (filter) => ipcRenderer.invoke('zenbox:list', filter),
+    get: (id) => ipcRenderer.invoke('zenbox:get', id),
+    markRead: (id, read) => ipcRenderer.invoke('zenbox:markRead', id, read),
+    star: (id) => ipcRenderer.invoke('zenbox:star', id),
+    move: (id, folder) => ipcRenderer.invoke('zenbox:move', id, folder),
+    send: (payload) => ipcRenderer.invoke('zenbox:send', payload),
+    secureSession: (id, pass) => ipcRenderer.invoke('zenbox:secureSession', id, pass),
+    analyze: () => ipcRenderer.invoke('zenbox:analyze'),
+    aiAction: (action, id, opts) => ipcRenderer.invoke('zenbox:aiAction', action, id, opts),
+    signatures: () => ipcRenderer.invoke('zenbox:signatures')
+  },
   settings: { get: (k) => ipcRenderer.invoke('settings:get', k), set: (k, v) => ipcRenderer.invoke('settings:set', k, v) },
   reset: () => ipcRenderer.invoke('app:reset'),
   openExternal: (url) => ipcRenderer.invoke('shell:open', url)

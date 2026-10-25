@@ -28,11 +28,21 @@ export function AiBrowserModal({ isOpen, onClose }: AiBrowserModalProps) {
   }, [isOpen, onClose]);
 
   // Simulator state
-  const [urlInput, setUrlInput] = useState("https://varizen.co");
-  const [currentUrl, setCurrentUrl] = useState("https://varizen.co");
+  const [urlInput, setUrlInput] = useState("https://www.varizen.co");
+  const [currentUrl, setCurrentUrl] = useState("https://www.varizen.co");
+  const [history, setHistory] = useState<string[]>(["https://www.varizen.co"]);
+  const [historyIndex, setHistoryIndex] = useState(0);
+  const [isLoading, setIsLoading] = useState(false);
   const [aiPanelOpen, setAiPanelOpen] = useState(true);
   const [aiQuery, setAiQuery] = useState("");
-  const [shieldBlocked, setShieldBlocked] = useState(3);
+  const [shieldBlocked, setShieldBlocked] = useState(14);
+  const [showBookmarks] = useState(true);
+  const [bookmarks, setBookmarks] = useState<Array<{ title: string; url: string }>>([
+    { title: "Varizen Trust", url: "https://www.varizen.co" },
+    { title: "GitHub", url: "https://github.com" },
+    { title: "DuckDuckGo", url: "https://duckduckgo.com" },
+    { title: "Hacker News", url: "https://news.ycombinator.com" },
+  ]);
   const [chatLog, setChatLog] = useState<Array<{ sender: "user" | "eye"; text: string }>>([
     {
       sender: "eye",
@@ -54,9 +64,56 @@ export function AiBrowserModal({ isOpen, onClose }: AiBrowserModalProps) {
     if (!target.startsWith("http://") && !target.startsWith("https://")) {
       target = "https://" + target;
     }
+    setIsLoading(true);
     setCurrentUrl(target);
     setUrlInput(target);
+    const newHist = history.slice(0, historyIndex + 1);
+    newHist.push(target);
+    setHistory(newHist);
+    setHistoryIndex(newHist.length - 1);
     setShieldBlocked((prev) => prev + Math.floor(Math.random() * 3) + 1);
+    setTimeout(() => setIsLoading(false), 600);
+  };
+
+  const handleBack = () => {
+    if (historyIndex > 0) {
+      const prev = history[historyIndex - 1];
+      setHistoryIndex(historyIndex - 1);
+      setCurrentUrl(prev);
+      setUrlInput(prev);
+    }
+  };
+
+  const handleForward = () => {
+    if (historyIndex < history.length - 1) {
+      const next = history[historyIndex + 1];
+      setHistoryIndex(historyIndex + 1);
+      setCurrentUrl(next);
+      setUrlInput(next);
+    }
+  };
+
+  const handleReload = () => {
+    setIsLoading(true);
+    const temp = currentUrl;
+    setCurrentUrl("");
+    setTimeout(() => {
+      setCurrentUrl(temp);
+      setIsLoading(false);
+    }, 150);
+  };
+
+  const handleStop = () => {
+    setIsLoading(false);
+  };
+
+  const toggleBookmark = () => {
+    const exists = bookmarks.find((b) => b.url === currentUrl);
+    if (exists) {
+      setBookmarks(bookmarks.filter((b) => b.url !== currentUrl));
+    } else {
+      setBookmarks([...bookmarks, { title: currentUrl.replace(/https?:\/\//, "").split("/")[0], url: currentUrl }]);
+    }
   };
 
   const handleAskAi = (e: React.FormEvent) => {
@@ -139,13 +196,43 @@ export function AiBrowserModal({ isOpen, onClose }: AiBrowserModalProps) {
         {/* Tab 1: Browser inside browser Simulator */}
         {activeTab === "simulator" && (
           <div className="flex-1 flex flex-col overflow-hidden">
-            {/* Chrome Header without back/forward buttons, presenting a strong OS control frame */}
-            <div className="bg-[#181a19] border-b border-white/10 px-4 py-2.5 flex items-center gap-3">
-              <div className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                <span className="font-mono text-[10px] uppercase tracking-wider text-emerald-400 font-medium">
-                  Isolated Environment
-                </span>
+            {/* Navigation & Omnibox Toolbar */}
+            <div className="bg-[#181a19] border-b border-white/10 px-4 py-2 flex items-center gap-2">
+              {/* Back, Forward, Reload/Stop Controls */}
+              <div className="flex items-center gap-1">
+                <button
+                  onClick={handleBack}
+                  disabled={historyIndex <= 0}
+                  className="p-1.5 rounded-lg text-neutral-300 hover:text-white hover:bg-white/10 disabled:opacity-30 disabled:pointer-events-none transition-colors"
+                  title="Back"
+                >
+                  ‹
+                </button>
+                <button
+                  onClick={handleForward}
+                  disabled={historyIndex >= history.length - 1}
+                  className="p-1.5 rounded-lg text-neutral-300 hover:text-white hover:bg-white/10 disabled:opacity-30 disabled:pointer-events-none transition-colors"
+                  title="Forward"
+                >
+                  ›
+                </button>
+                {isLoading ? (
+                  <button
+                    onClick={handleStop}
+                    className="p-1.5 rounded-lg text-amber-400 hover:text-amber-300 hover:bg-white/10 transition-colors"
+                    title="Stop Loading"
+                  >
+                    ✕
+                  </button>
+                ) : (
+                  <button
+                    onClick={handleReload}
+                    className="p-1.5 rounded-lg text-neutral-300 hover:text-white hover:bg-white/10 transition-colors"
+                    title="Reload Page"
+                  >
+                    ⟳
+                  </button>
+                )}
               </div>
 
               {/* Omnibox / Security Gateway Input */}
@@ -159,9 +246,23 @@ export function AiBrowserModal({ isOpen, onClose }: AiBrowserModalProps) {
                     className="w-full bg-transparent outline-none text-neutral-100 font-mono text-xs"
                     placeholder="Enter URL to inspect in Eye Shield Sandbox..."
                   />
+                  <button
+                    type="button"
+                    onClick={toggleBookmark}
+                    className={`ml-2 text-xs transition-colors ${
+                      bookmarks.some((b) => b.url === currentUrl)
+                        ? "text-amber-400"
+                        : "text-neutral-500 hover:text-neutral-300"
+                    }`}
+                    title="Bookmark this page"
+                  >
+                    ★
+                  </button>
                   <div className="flex items-center gap-2 ml-2 pl-2 border-l border-white/10 shrink-0">
                     <Shield className="w-3.5 h-3.5 text-emerald-400" />
-                    <span className="text-[11px] text-emerald-400 font-mono font-medium">{shieldBlocked} shielded</span>
+                    <span className="text-[11px] text-emerald-400 font-mono font-medium" title="Permanent Adware, Malware & Tracker Blocker">
+                      {shieldBlocked} shielded
+                    </span>
                   </div>
                 </div>
               </form>
@@ -180,6 +281,25 @@ export function AiBrowserModal({ isOpen, onClose }: AiBrowserModalProps) {
                 <span>Eye AI</span>
               </button>
             </div>
+
+            {/* Bookmarks Bar */}
+            {showBookmarks && (
+              <div className="bg-[#121413] border-b border-white/5 px-4 py-1 flex items-center gap-2 overflow-x-auto text-[11px]">
+                <span className="text-neutral-500 text-[10px] font-mono mr-1">★ BAR:</span>
+                {bookmarks.map((bm, i) => (
+                  <button
+                    key={i}
+                    onClick={() => {
+                      setUrlInput(bm.url);
+                      setCurrentUrl(bm.url);
+                    }}
+                    className="px-2 py-0.5 rounded text-neutral-400 hover:text-white hover:bg-white/5 whitespace-nowrap transition-colors"
+                  >
+                    {bm.title}
+                  </button>
+                ))}
+              </div>
+            )}
 
             {/* Viewport & AI split */}
             <div className="flex-1 flex overflow-hidden">

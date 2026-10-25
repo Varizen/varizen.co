@@ -13,17 +13,25 @@
     <button id="newtab" title="New tab">+</button>
   </div>
   <div id="toolbar">
-    <button data-nav="back" title="Back">‹</button>
-    <button data-nav="forward" title="Forward">›</button>
-    <button data-nav="reload" title="Reload">⟳</button>
+    <button data-nav="back" id="btn-back" title="Back (Alt+Left)">‹</button>
+    <button data-nav="forward" id="btn-forward" title="Forward (Alt+Right)">›</button>
+    <button data-nav="reload" id="btn-reload" title="Reload (Ctrl+R)">⟳</button>
+    <button data-nav="stop" id="btn-stop" class="hidden" title="Stop Loading (Esc)">✕</button>
     <div id="omnibox-wrap">
       <span id="lock" title="Connection">🔒</span>
       <input id="omnibox" placeholder="Search the web, ask Eye, or enter a Web3 address..." spellcheck="false" />
-      <span id="shield" title="Eye Shield">🛡 <b id="blocked">0</b></span>
+      <button id="btn-star-page" title="Bookmark this page">☆</button>
+      <span id="shield" title="Eye Shield: Permanent Ad, Adware, Malware & Tracker Blocker">🛡 <b id="blocked">0</b></span>
     </div>
+    <button id="btn-bm" title="Bookmark Library & One-Way Sync">★</button>
+    <button id="btn-zenbox" title="ZenBox Universal AI Mailbox">✉</button>
     <button id="btn-ai" title="Eye AI">👁</button>
-    <button id="btn-dl" title="Eye Download">⤓</button>
+    <button id="btn-dl" title="XDM Content Transport & Downloads">⤓</button>
     <button id="btn-menu" title="Menu">☰</button>
+  </div>
+  <div id="bookmark-bar">
+    <div id="bm-bar-items"></div>
+    <button id="bm-bar-overflow" title="All Bookmarks">»</button>
   </div>
   <div id="findbar" class="hidden">
     <input id="find-input" placeholder="Find in page..." spellcheck="false" />
@@ -43,8 +51,10 @@
 <aside id="panel" class="hidden">
   <div class="panel-head">
     <nav id="panel-tabs">
-      <button data-panel="ai" class="active">Eye AI</button>
-      <button data-panel="dl">Downloads</button>
+      <button data-panel="zenbox" class="active">ZenBox</button>
+      <button data-panel="bm">Bookmarks</button>
+      <button data-panel="ai">Eye AI</button>
+      <button data-panel="dl">XDM Downloads</button>
       <button data-panel="mcp">MCP</button>
       <button data-panel="perf">Perf</button>
       <button data-panel="settings">Settings</button>
@@ -52,7 +62,118 @@
     <button id="panel-close">×</button>
   </div>
 
-  <section id="p-ai" class="pane">
+  <section id="p-zenbox" class="pane">
+    <div class="zb-header">
+      <div class="zb-accounts-row">
+        <select id="zb-account-select" title="Unified Mailbox Selector">
+          <option value="all">Unified Inbox (All Accounts)</option>
+        </select>
+        <button id="zb-btn-compose" class="primary" title="Compose New Email">+ Compose</button>
+      </div>
+
+      <div class="zb-toolbar-row">
+        <input id="zb-search" placeholder="Search emails, subjects, contacts..." />
+        <button id="zb-btn-agent-mode" class="zb-badge-btn" title="Toggle AI Agent Mode">🤖 Agent Mode</button>
+      </div>
+
+      <div class="zb-folder-chips">
+        <button class="zb-chip active" data-folder="inbox">Inbox</button>
+        <button class="zb-chip" data-folder="sent">Sent</button>
+        <button class="zb-chip" data-folder="archive">Archive</button>
+        <button class="zb-chip" data-folder="spam">Spam</button>
+      </div>
+    </div>
+
+    <!-- AI Agent Mode Triage Banner -->
+    <div id="zb-agent-banner" class="zb-agent-panel hidden">
+      <div class="zb-agent-title">
+        <span>⚡ ZenBox AI Agent Triage</span>
+        <button id="zb-agent-close">×</button>
+      </div>
+      <div id="zb-agent-stats" class="zb-agent-stats"></div>
+      <div id="zb-agent-actions" class="zb-agent-actions"></div>
+    </div>
+
+    <!-- Master-Detail or List View -->
+    <div id="zb-split-container">
+      <div id="zb-email-list" class="zb-list"></div>
+
+      <!-- Detail view for opened email -->
+      <div id="zb-email-detail" class="zb-detail hidden">
+        <div class="zb-detail-nav">
+          <button id="zb-detail-back">← Back</button>
+          <div class="zb-detail-actions">
+            <button id="zb-act-star" title="Star/Flag">★</button>
+            <button id="zb-act-archive" title="Archive">📥</button>
+            <button id="zb-act-spam" title="Spam">🚫</button>
+            <button id="zb-act-reply" title="Reply">↩ Reply</button>
+          </div>
+        </div>
+
+        <div id="zb-detail-content"></div>
+
+        <!-- AI Assistant Helper for Selected Email -->
+        <div class="zb-ai-dock">
+          <div class="zb-ai-dock-title">
+            <span>👁 Eye AI Mailbox Co-Pilot</span>
+            <span class="muted" id="zb-boundary-indicator">Audited Boundary</span>
+          </div>
+          <div class="zb-ai-dock-chips">
+            <button id="zb-ai-sum">Summarize</button>
+            <button id="zb-ai-commitments">Extract Tasks</button>
+            <button id="zb-ai-draft-tomorrow">Reply: "Review tomorrow"</button>
+            <button id="zb-ai-phishing">Check Phishing</button>
+          </div>
+          <div id="zb-ai-result" class="zb-ai-result hidden"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Compose Modal / Floating Card -->
+    <div id="zb-compose-modal" class="zb-compose hidden">
+      <div class="zb-compose-head">
+        <span id="zb-compose-title">New Message</span>
+        <button id="zb-compose-close">×</button>
+      </div>
+      <div class="zb-compose-body">
+        <label class="row">
+          <span>From</span>
+          <select id="zb-comp-from"></select>
+        </label>
+        <label class="row">
+          <span>To</span>
+          <input id="zb-comp-to" placeholder="recipient@domain.com" />
+        </label>
+        <label class="row">
+          <span>Subject</span>
+          <input id="zb-comp-subject" placeholder="Subject" />
+        </label>
+        <label class="row zb-secure-option">
+          <input id="zb-comp-secure" type="checkbox" />
+          <b>ZenBox Secure Session (Zero-Knowledge End-to-End Encrypted)</b>
+        </label>
+        <textarea id="zb-comp-body" placeholder="Write your message here..."></textarea>
+        <div class="zb-compose-footer">
+          <div class="zb-comp-sign muted" id="zb-comp-signature"></div>
+          <button id="zb-comp-send" class="primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="p-bm" class="pane hidden">
+    <div class="bm-header">
+      <div style="display:flex; justify-content:space-between; align-items:center;">
+        <span style="font-weight:600; font-size:13px;">Bookmark Library</span>
+        <button id="btn-bm-import" class="primary" style="font-size:11px; padding:4px 8px;" title="Import from Chrome, Edge, Brave, Firefox">One-Way Import</button>
+      </div>
+      <p class="muted" style="margin:4px 0 8px 0;">Isolated local library. Strictly one-way: external browsers can NEVER read or extract from AiBrowser.</p>
+      <input id="bm-search" placeholder="Search bookmarks..." style="padding:5px 8px; font-size:12px; margin-bottom:6px;" />
+    </div>
+    <div id="bm-list" style="display:flex; flex-direction:column; gap:6px; flex:1; overflow-y:auto;"></div>
+  </section>
+
+  <section id="p-ai" class="pane hidden">
     <div id="chat"></div>
     <div class="chips">
       <button data-prompt="Summarize this page">Summarize page</button>
@@ -67,6 +188,24 @@
   </section>
 
   <section id="p-dl" class="pane hidden">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+      <span style="font-weight:600; font-size:13px;">XDM Accelerated Content Transport</span>
+      <span class="zb-badge" style="background:var(--accent); color:#fff; border:none;">XDM 8x Turbo</span>
+    </div>
+    <div style="background:var(--bg); border:1px solid var(--line); border-radius:8px; padding:8px; font-size:11px; margin-bottom:8px;">
+      <div style="display:flex; justify-content:space-between; margin-bottom:4px;">
+        <span class="muted">Storage Drive Target:</span>
+        <b id="xdm-drive-status" style="color:var(--accent);">Drive D:\ (Non-C:)</b>
+      </div>
+      <div style="display:flex; justify-content:space-between;">
+        <span class="muted">Temp Download Dir:</span>
+        <span id="xdm-temp-path" style="font-family:monospace; font-size:10px;">D:\AiBrowserDownloads\.temp</span>
+      </div>
+    </div>
+    <form id="xdm-manual-form" style="display:flex; gap:6px; margin-bottom:8px;">
+      <input id="xdm-url-input" placeholder="Paste URL to accelerate with XDM..." style="font-size:11px;" />
+      <button type="submit" class="primary" style="font-size:11px; white-space:nowrap;">Download</button>
+    </form>
     <div id="dl-list"><p class="muted">No downloads yet.</p></div>
   </section>
 
@@ -118,6 +257,13 @@
       <div><span>Eye Shield on this site</span><b id="sh-host">—</b></div>
     </div>
     <button id="sh-toggle">Exempt this site from blocking</button>
+    <hr />
+
+    <div style="font-weight:600; font-size:12px; margin-bottom:4px;">XDM Storage Drives (Custom Path)</div>
+    <p class="muted">All temp download files and completed downloads are stored away from C: drive by default.</p>
+    <label>Completed Downloads Directory<input id="s-xdm-final" placeholder="D:\AiBrowserDownloads" /></label>
+    <label>Temp In-Progress Files Directory<input id="s-xdm-temp" placeholder="D:\AiBrowserDownloads\.temp" /></label>
+    <button id="s-xdm-save" class="primary" style="margin-top:4px;">Apply Storage Paths</button>
     <label class="row"><input id="s-https" type="checkbox" /> HTTPS-first (upgrade http to https)</label>
     <label>Sleep background tabs after (minutes)<input id="s-sleep" type="number" min="1" max="120" /></label>
     <hr />

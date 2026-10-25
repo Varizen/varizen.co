@@ -25,7 +25,34 @@ $('#newtab').onclick = () => eye.tabs.create();
 $('#omnibox').addEventListener('keydown', (e) => {
   if (e.key === 'Enter') { eye.nav.go(e.target.value.trim()); e.target.blur(); }
 });
-document.querySelectorAll('[data-nav]').forEach((b) => { b.onclick = () => eye.nav[b.dataset.nav](); });
+function syncNavState() {
+  if (eye.nav.state) {
+    eye.nav.state().then((s) => {
+      if (!s) return;
+      $('#btn-back').style.opacity = s.canGoBack ? '1' : '0.4';
+      $('#btn-forward').style.opacity = s.canGoForward ? '1' : '0.4';
+      if (s.isLoading) {
+        $('#btn-reload').classList.add('hidden');
+        $('#btn-stop').classList.remove('hidden');
+      } else {
+        $('#btn-stop').classList.add('hidden');
+        $('#btn-reload').classList.remove('hidden');
+      }
+    }).catch(() => {});
+  }
+}
+setInterval(syncNavState, 800);
+
+eye.tabs.onLoading((id, loading) => {
+  if (loading) {
+    $('#btn-reload').classList.add('hidden');
+    $('#btn-stop').classList.remove('hidden');
+  } else {
+    $('#btn-stop').classList.add('hidden');
+    $('#btn-reload').classList.remove('hidden');
+  }
+  syncNavState();
+});
 
 // ---------- Chrome height (find bar changes it) ----------
 function syncChromeHeight() {
@@ -82,7 +109,10 @@ function openPanel(name) {
   eye.panelWidth(panel.offsetWidth);
   watchPerf(name === 'perf');
   if (name === 'mcp') renderMcp();
-  if (name === 'settings') { refreshShield(); refreshGateway(); }
+  if (name === 'zenbox') initZenBox();
+  if (name === 'bm') renderBookmarkLibrary();
+  if (name === 'dl') refreshXdmDrives();
+  if (name === 'settings') { refreshShield(); refreshGateway(); refreshSettingsDrives(); }
 }
 
 async function refreshGateway() {
@@ -95,6 +125,8 @@ function closePanel() {
   eye.panelWidth(0);
   watchPerf(false);
 }
+$('#btn-bm').onclick = () => openPanel('bm');
+$('#btn-zenbox').onclick = () => openPanel('zenbox');
 $('#btn-ai').onclick = () => openPanel('ai');
 $('#btn-dl').onclick = () => openPanel('dl');
 $('#btn-menu').onclick = () => openPanel('settings');
@@ -312,9 +344,493 @@ addEventListener('keydown', (e) => {
   else if (mod && e.key === 'l') { e.preventDefault(); $('#omnibox').focus(); $('#omnibox').select(); }
   else if (mod && e.key === 'j') { e.preventDefault(); openPanel('dl'); }
   else if (mod && e.key === 'i') { e.preventDefault(); openPanel('ai'); }
+  else if (mod && e.key === 'm') { e.preventDefault(); openPanel('zenbox'); }
   else if (mod && e.key === 'f') { e.preventDefault(); openFind(); }
   else if (mod && e.shiftKey && e.key === 'N') { e.preventDefault(); eye.tab.createPrivate(); }
   else if (mod && (e.key === '=' || e.key === '+')) { e.preventDefault(); eye.zoom.set(0.1); }
   else if (mod && e.key === '-') { e.preventDefault(); eye.zoom.set(-0.1); }
   else if (mod && e.key === '0') { e.preventDefault(); eye.zoom.reset(); }
+});
+
+// ---------- ZenBox UI Logic ----------
+let zbCurrentAccount = 'all';
+let zbCurrentFolder = 'inbox';
+let zbCurrentEmailId = null;
+let zbAgentActive = false;
+let zbAccountsList = [];
+let zbSignaturesList = [];
+
+async function initZenBox() {
+  zbAccountsList = await eye.zenbox.accounts();
+  zbSignaturesList = await eye.zenbox.signatures();
+  renderZenBoxAccounts();
+  await loadZenBoxEmails();
+}
+
+function renderZenBoxAccounts() {
+  const select = $('#zb-account-select');
+  const compFrom = $('#zb-comp-from');
+  select.innerHTML = '<option value="all">Unified Inbox (All Accounts)</option>';
+  compFrom.innerHTML = '';
+
+  zbAccountsList.forEach((a) => {
+    const opt = el('option', null, `${a.name} (${a.email})`);
+    opt.value = a.id;
+    select.append(opt);
+
+    const compOpt = el('option', null, `${a.name} <${a.email}>`);
+    compOpt.value = a.id;
+    compFrom.append(compOpt);
+  });
+
+  select.value = zbCurrentAccount;
+  select.onchange = () => {
+    zbCurrentAccount = select.value;
+    loadZenBoxEmails();
+  };
+
+  const defaultSig = zbSignaturesList.find((s) => s.isDefault) || zbSignaturesList[0];
+  if (defaultSig) $('#zb-comp-signature').textContent = defaultSig.text;
+}
+
+async function loadZenBoxEmails() {
+  const query = $('#zb-search').value.trim();
+  const filter = {
+    accountId: zbCurrentAccount,
+    folder: zbCurrentFolder,
+    search: query || undefined
+  };
+  const list = await eye.zenbox.list(filter);
+  renderZenBoxList(list);
+}
+
+function renderZenBoxList(list) {
+  const container = $('#zb-email-list');
+  container.innerHTML = '';
+  if (!list.length) {
+    container.innerHTML = '<p class="muted" style="text-align:center; padding:20px 0;">No emails in this view.</p>';
+    return;
+  }
+
+  list.forEach((m) => {
+    const item = el('div', 'zb-mail-item' + (!m.isRead ? ' unread' : ''));
+    const top = el('div', 'zb-mail-top');
+    const sender = el('div', 'zb-mail-sender');
+
+    const acc = zbAccountsList.find((a) => a.id === m.accountId);
+    const dot = el('span', 'zb-provider-dot');
+    dot.style.background = acc?.color || '#FF6B35';
+    sender.append(dot);
+    sender.append(el('span', null, m.from.name || m.from.email));
+
+    const time = el('span', 'zb-mail-time', new Date(m.date).toLocaleDateString([], { month: 'short', day: 'numeric' }));
+    top.append(sender, time);
+
+    const subj = el('div', 'zb-mail-subj', m.subject || '(No Subject)');
+    const snip = el('div', 'zb-mail-snippet', m.snippet || '');
+
+    const badges = el('div', 'zb-mail-badges');
+    if (m.isSecureSession) badges.append(el('span', 'zb-badge secure', '🔒 E2EE Secure Session'));
+    if (m.tags?.includes('Suspicious')) badges.append(el('span', 'zb-badge phishing', '⚠ Phishing Risk'));
+    if (m.hasAttachments) badges.append(el('span', 'zb-badge', '📎 Attachments'));
+    if (m.isStarred) badges.append(el('span', 'zb-badge', '★ Starred'));
+
+    item.append(top, subj, snip, badges);
+    item.onclick = () => openZenBoxDetail(m.id);
+    container.append(item);
+  });
+}
+
+async function openZenBoxDetail(id) {
+  zbCurrentEmailId = id;
+  const msg = await eye.zenbox.get(id);
+  if (!msg) return;
+
+  await eye.zenbox.markRead(id, true);
+  $('#zb-email-list').classList.add('hidden');
+  $('#zb-email-detail').classList.remove('hidden');
+  $('#zb-ai-result').classList.add('hidden');
+  $('#zb-ai-result').textContent = '';
+
+  const detailBox = $('#zb-detail-content');
+  detailBox.innerHTML = '';
+
+  // Meta header
+  const meta = el('div', 'zb-detail-meta');
+  meta.append(el('h3', null, msg.subject));
+  const r1 = el('div', 'zb-detail-row');
+  r1.append(el('span', null, `From: ${msg.from.name} <${msg.from.email}>`), el('span', null, new Date(msg.date).toLocaleString()));
+  const r2 = el('div', 'zb-detail-row');
+  r2.append(el('span', null, `To: ${(msg.to || []).map((t) => t.email || t.name).join(', ')}`));
+  meta.append(r1, r2);
+
+  // Attachments bar if present
+  if (msg.attachments && msg.attachments.length) {
+    const attRow = el('div', 'zb-detail-row', `Attachments: ${msg.attachments.map((a) => `${a.name} (${a.size})`).join(' · ')}`);
+    meta.append(attRow);
+  }
+  detailBox.append(meta);
+
+  // Secure Session or Plain Body
+  if (msg.isSecureSession && !msg.isDecrypted) {
+    const vault = el('div', 'zb-secure-vault');
+    vault.append(el('h4', null, '🔒 ZenBox Secure Session Protected'));
+    vault.append(el('p', 'muted', 'This message was delivered with zero-knowledge end-to-end encryption. It is isolated from regular email storage and unauthenticated readers.'));
+    const decryptBtn = el('button', 'primary', 'Authenticate & Establish Secure Session');
+    decryptBtn.onclick = async () => {
+      decryptBtn.textContent = 'Verifying Keys…';
+      try {
+        const sess = await eye.zenbox.secureSession(msg.id);
+        openZenBoxDetail(msg.id);
+      } catch (err) {
+        alert('Authentication failed: ' + err.message);
+      }
+    };
+    vault.append(decryptBtn);
+    detailBox.append(vault);
+  } else {
+    const bodyBox = el('div', 'zb-detail-body', msg.body || msg.snippet || '');
+    if (msg.isSecureSession) {
+      const banner = el('div', 'zb-badge secure', '🔒 End-to-End Encrypted Session Active · Zero-Knowledge Memory Bounds');
+      banner.style.marginBottom = '6px';
+      detailBox.append(banner);
+    }
+    detailBox.append(bodyBox);
+  }
+
+  // Update actions state
+  $('#zb-act-star').textContent = msg.isStarred ? '★' : '☆';
+  $('#zb-boundary-indicator').textContent = msg.isSecureSession ? '🔒 Secure Session Isolated' : 'Audited Boundary';
+}
+
+function closeZenBoxDetail() {
+  zbCurrentEmailId = null;
+  $('#zb-email-detail').classList.add('hidden');
+  $('#zb-email-list').classList.remove('hidden');
+  loadZenBoxEmails();
+}
+
+// Detail View Buttons
+$('#zb-detail-back').onclick = closeZenBoxDetail;
+$('#zb-act-star').onclick = async () => {
+  if (!zbCurrentEmailId) return;
+  const updated = await eye.zenbox.star(zbCurrentEmailId);
+  $('#zb-act-star').textContent = updated.isStarred ? '★' : '☆';
+};
+$('#zb-act-archive').onclick = async () => {
+  if (!zbCurrentEmailId) return;
+  await eye.zenbox.move(zbCurrentEmailId, 'archive');
+  closeZenBoxDetail();
+};
+$('#zb-act-spam').onclick = async () => {
+  if (!zbCurrentEmailId) return;
+  await eye.zenbox.move(zbCurrentEmailId, 'spam');
+  closeZenBoxDetail();
+};
+$('#zb-act-reply').onclick = async () => {
+  if (!zbCurrentEmailId) return;
+  const msg = await eye.zenbox.get(zbCurrentEmailId);
+  if (!msg) return;
+  openCompose({
+    to: msg.from.email,
+    subject: msg.subject.startsWith('Re:') ? msg.subject : `Re: ${msg.subject}`,
+    isSecureSession: msg.isSecureSession
+  });
+};
+
+// Folder Chips
+document.querySelectorAll('.zb-chip').forEach((chip) => {
+  chip.onclick = () => {
+    document.querySelectorAll('.zb-chip').forEach((c) => c.classList.remove('active'));
+    chip.classList.add('active');
+    zbCurrentFolder = chip.dataset.folder;
+    closeZenBoxDetail();
+    loadZenBoxEmails();
+  };
+});
+
+// Search input
+$('#zb-search').addEventListener('input', () => {
+  closeZenBoxDetail();
+  loadZenBoxEmails();
+});
+
+// AI Mailbox Dock Actions
+async function runDetailAi(action, opts = {}) {
+  if (!zbCurrentEmailId) return;
+  const resBox = $('#zb-ai-result');
+  resBox.classList.remove('hidden');
+  resBox.textContent = 'Eye AI processing…';
+
+  const res = await eye.zenbox.aiAction(action, zbCurrentEmailId, opts);
+  if (!res.ok) {
+    if (res.blockedByBoundary) {
+      resBox.innerHTML = `<b>AI Security Barrier:</b> ${res.text}<br/><button id="zb-btn-grant-sec" class="primary" style="margin-top:6px; font-size:10px;">Grant One-Time Explicit Authorization</button>`;
+      $('#zb-btn-grant-sec').onclick = () => runDetailAi(action, { explicitSecurePermission: true });
+    } else {
+      resBox.textContent = 'AI error: ' + (res.text || 'Unable to execute');
+    }
+    return;
+  }
+
+  if (action === 'summarize') resBox.textContent = res.text;
+  else if (action === 'extractCommitments') {
+    resBox.innerHTML = '<b>Extracted Tasks & Commitments:</b><br/>' +
+      res.commitments.map((c) => `• [${c.type}] ${c.item}${c.due ? ' (Due: ' + c.due + ')' : ''}`).join('<br/>');
+  } else if (action === 'draftReply') {
+    resBox.innerHTML = `<b>Draft Reply:</b><br/>${res.draft}<br/><button id="zb-btn-use-draft" class="primary" style="margin-top:6px; font-size:10px;">Insert into Compose</button>`;
+    $('#zb-btn-use-draft').onclick = () => {
+      openCompose({ to: res.to, subject: res.subject, body: res.draft });
+    };
+  } else if (action === 'detectPhishing') {
+    resBox.innerHTML = `<b>Phishing Risk: ${res.riskScore}</b><br/>${res.details}`;
+  }
+}
+
+$('#zb-ai-sum').onclick = () => runDetailAi('summarize');
+$('#zb-ai-commitments').onclick = () => runDetailAi('extractCommitments');
+$('#zb-ai-draft-tomorrow').onclick = () => runDetailAi('draftReply', { prompt: 'review it tomorrow' });
+$('#zb-ai-phishing').onclick = () => runDetailAi('detectPhishing');
+
+// Agent Mode
+$('#zb-btn-agent-mode').onclick = async () => {
+  zbAgentActive = !zbAgentActive;
+  $('#zb-agent-banner').classList.toggle('hidden', !zbAgentActive);
+  $('#zb-btn-agent-mode').classList.toggle('on', zbAgentActive);
+  if (zbAgentActive) {
+    const analysis = await eye.zenbox.analyze();
+    const statsBox = $('#zb-agent-stats');
+    statsBox.innerHTML = `
+      <div class="zb-agent-stat-card"><span>Needs Me</span><b>${analysis.needsMe.length}</b></div>
+      <div class="zb-agent-stat-card"><span>AI Can Handle</span><b>${analysis.aiCanHandle.length}</b></div>
+      <div class="zb-agent-stat-card"><span>Waiting</span><b>${analysis.waiting.length}</b></div>
+      <div class="zb-agent-stat-card"><span>Important</span><b>${analysis.important.length}</b></div>
+    `;
+
+    const actsBox = $('#zb-agent-actions');
+    actsBox.innerHTML = '';
+    analysis.needsMe.forEach((n) => {
+      const item = el('div', 'zb-agent-item');
+      item.innerHTML = `<span><b>${n.from}:</b> ${n.recommendation}</span>`;
+      const btn = el('button', null, 'Resolve');
+      btn.onclick = () => openZenBoxDetail(n.id);
+      item.append(btn);
+      actsBox.append(item);
+    });
+    analysis.aiCanHandle.forEach((h) => {
+      const item = el('div', 'zb-agent-item');
+      item.innerHTML = `<span>🤖 ${h.recommendation}</span>`;
+      const btn = el('button', null, 'Approve');
+      btn.onclick = () => {
+        item.style.opacity = '0.5';
+        btn.textContent = 'Done ✓';
+      };
+      item.append(btn);
+      actsBox.append(item);
+    });
+  }
+};
+$('#zb-agent-close').onclick = () => {
+  zbAgentActive = false;
+  $('#zb-agent-banner').classList.add('hidden');
+};
+
+// Compose
+function openCompose(opts = {}) {
+  $('#zb-compose-modal').classList.remove('hidden');
+  $('#zb-comp-to').value = opts.to || '';
+  $('#zb-comp-subject').value = opts.subject || '';
+  $('#zb-comp-body').value = opts.body || '';
+  $('#zb-comp-secure').checked = Boolean(opts.isSecureSession);
+}
+
+$('#zb-btn-compose').onclick = () => openCompose();
+$('#zb-compose-close').onclick = () => $('#zb-compose-modal').classList.add('hidden');
+$('#zb-comp-send').onclick = async () => {
+  const accountId = $('#zb-comp-from').value;
+  const to = $('#zb-comp-to').value.trim();
+  const subject = $('#zb-comp-subject').value.trim();
+  const body = $('#zb-comp-body').value;
+  const isSecureSession = $('#zb-comp-secure').checked;
+
+  if (!to) { alert('Please enter recipient'); return; }
+
+  await eye.zenbox.send({ accountId, to, subject, body, isSecureSession });
+  $('#zb-compose-modal').classList.add('hidden');
+  loadZenBoxEmails();
+};
+
+// ---------- Bookmark Bar & Library Logic ----------
+async function renderBookmarkBar() {
+  const items = await eye.bookmarks.list();
+  const barContainer = $('#bm-bar-items');
+  if (!barContainer) return;
+  barContainer.innerHTML = '';
+
+  const barItems = items.filter((b) => b.bar);
+  barItems.forEach((b) => {
+    const it = el('div', 'bm-item');
+    it.append(el('span', 'fav', '🌐'));
+    it.append(el('span', null, b.title));
+    it.title = `${b.title}\n${b.url}`;
+    it.onclick = () => eye.nav.go(b.url);
+    barContainer.append(it);
+  });
+}
+renderBookmarkBar();
+
+$('#bm-bar-overflow').onclick = () => openPanel('bm');
+
+$('#btn-star-page').onclick = async () => {
+  const activeTabs = await eye.tabs.list();
+  const active = activeTabs.find((t) => t.active);
+  if (!active || !active.url || active.url.startsWith('aibrowser://')) return;
+
+  const list = await eye.bookmarks.list();
+  const existing = list.find((b) => b.url === active.url);
+  if (existing) {
+    await eye.bookmarks.remove(existing.id);
+    $('#btn-star-page').classList.remove('active');
+    $('#btn-star-page').textContent = '☆';
+  } else {
+    await eye.bookmarks.add({
+      title: active.title || active.url,
+      url: active.url,
+      bar: true,
+      folder: 'Favorites'
+    });
+    $('#btn-star-page').classList.add('active');
+    $('#btn-star-page').textContent = '★';
+  }
+  renderBookmarkBar();
+};
+
+async function renderBookmarkLibrary() {
+  const query = ($('#bm-search')?.value || '').toLowerCase();
+  let list = await eye.bookmarks.list();
+  if (query) {
+    list = list.filter((b) => b.title.toLowerCase().includes(query) || b.url.toLowerCase().includes(query));
+  }
+
+  const container = $('#bm-list');
+  container.innerHTML = '';
+  if (!list.length) {
+    container.innerHTML = '<p class="muted" style="text-align:center; padding:15px 0;">No bookmarks found.</p>';
+    return;
+  }
+
+  list.forEach((b) => {
+    const row = el('div', 'zb-mail-item');
+    const top = el('div', 'zb-mail-top');
+    const titleSpan = el('span', null, b.title);
+    titleSpan.style.fontWeight = '600';
+
+    const right = el('div', null);
+    const starBtn = el('button', null, b.bar ? '★ On Bar' : '☆ Bar');
+    starBtn.style.fontSize = '10px';
+    starBtn.onclick = async (e) => {
+      e.stopPropagation();
+      await eye.bookmarks.toggleBar(b.id);
+      renderBookmarkBar();
+      renderBookmarkLibrary();
+    };
+
+    const delBtn = el('button', null, '×');
+    delBtn.style.fontSize = '13px';
+    delBtn.style.color = '#e66';
+    delBtn.onclick = async (e) => {
+      e.stopPropagation();
+      await eye.bookmarks.remove(b.id);
+      renderBookmarkBar();
+      renderBookmarkLibrary();
+    };
+
+    right.append(starBtn, delBtn);
+    top.append(titleSpan, right);
+
+    const urlSpan = el('div', 'muted', b.url);
+    urlSpan.style.fontSize = '11px';
+    urlSpan.style.overflow = 'hidden';
+    urlSpan.style.textOverflow = 'ellipsis';
+    urlSpan.style.whiteSpace = 'nowrap';
+
+    row.append(top, urlSpan);
+    row.onclick = () => {
+      eye.nav.go(b.url);
+      closePanel();
+    };
+    container.append(row);
+  });
+}
+
+$('#bm-search')?.addEventListener('input', renderBookmarkLibrary);
+
+$('#btn-bm-import').onclick = async () => {
+  $('#btn-bm-import').textContent = 'Importing…';
+  const res = await eye.bookmarks.importExternal();
+  alert(`One-Way Import Complete!\nImported: ${res.importedCount} new bookmarks.\n${res.securityGuarantee}`);
+  $('#btn-bm-import').textContent = 'One-Way Import';
+  renderBookmarkBar();
+  renderBookmarkLibrary();
+};
+
+// ---------- XDM Accelerated Transport & Storage Logic ----------
+async function refreshXdmDrives() {
+  const drives = await eye.xdm.getDrives();
+  if ($('#xdm-drive-status')) {
+    const isNonC = !drives.finalDir.toLowerCase().startsWith('c:');
+    $('#xdm-drive-status').textContent = isNonC ? `Non-C Drive (${drives.finalDir.slice(0, 3)})` : drives.finalDir.slice(0, 3);
+    $('#xdm-drive-status').style.color = isNonC ? 'var(--accent)' : 'inherit';
+  }
+  if ($('#xdm-temp-path')) $('#xdm-temp-path').textContent = drives.tempDir;
+}
+
+async function refreshSettingsDrives() {
+  const drives = await eye.xdm.getDrives();
+  if ($('#s-xdm-final')) $('#s-xdm-final').value = drives.finalDir;
+  if ($('#s-xdm-temp')) $('#s-xdm-temp').value = drives.tempDir;
+}
+
+$('#s-xdm-save').onclick = async () => {
+  const finalDir = $('#s-xdm-final').value.trim();
+  const tempDir = $('#s-xdm-temp').value.trim();
+  await eye.xdm.setDrives({ finalDir, tempDir });
+  $('#s-xdm-save').textContent = 'Applied ✓';
+  setTimeout(() => { $('#s-xdm-save').textContent = 'Apply Storage Paths'; }, 1200);
+  refreshXdmDrives();
+};
+
+$('#xdm-manual-form').onsubmit = async (e) => {
+  e.preventDefault();
+  const input = $('#xdm-url-input');
+  const url = input.value.trim();
+  if (!url) return;
+  input.value = '';
+  await eye.xdm.download(url);
+};
+
+// Hook downloads list renderer to display XDM transport badges and custom target path
+eye.downloads.onUpdate((d) => {
+  let item = document.getElementById(`dl-${d.id}`);
+  const list = $('#dl-list');
+  if (!item) {
+    if (list.querySelector('.muted')) list.innerHTML = '';
+    item = el('div', 'dl');
+    item.id = `dl-${d.id}`;
+    list.prepend(item);
+  }
+  const pct = d.total ? Math.round((d.got / d.total) * 100) : 0;
+  item.innerHTML = `
+    <div style="display:flex; justify-content:space-between; align-items:center;">
+      <span class="name" title="${d.name}">${d.name}</span>
+      <span class="zb-badge" style="background:var(--accent); color:#fff; border:none; font-size:9px;">${d.transport || 'XDM Turbo'}</span>
+    </div>
+    <div class="bar"><i style="width:${pct}%"></i></div>
+    <div class="meta">
+      <span>${(d.got / 1024 / 1024).toFixed(1)} MB ${d.total ? '/ ' + (d.total / 1024 / 1024).toFixed(1) + ' MB' : ''}</span>
+      <span>${(d.speed / 1024 / 1024).toFixed(2)} MB/s</span>
+      <span>${d.state}</span>
+    </div>
+    <div class="muted" style="font-size:10px; margin-top:4px; font-family:monospace;">Target: ${d.finalDir || 'Configured non-C drive'}</div>
+  `;
 });
