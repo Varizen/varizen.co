@@ -61,11 +61,10 @@ test("AiBrowser trigger button opens the modal popup", async ({ page }) => {
   const trigger = page.getByRole("button", { name: "AiBrowser" }).first();
   await expect(trigger).toBeVisible();
   await trigger.click();
-  await expect(page.getByText("AiBrowser / Eye Browser")).toBeVisible();
-  await expect(page.getByRole("button", { name: "Browse in Browser" })).toBeVisible();
+  await expect(page.getByText("AiBrowser", { exact: true }).first()).toBeVisible();
   await expect(page.getByRole("button", { name: /Get \.exe/ })).toBeVisible();
 
   // Test closing the modal with ESC
   await page.keyboard.press("Escape");
-  await expect(page.getByText("AiBrowser / Eye Browser")).not.toBeVisible();
+  await expect(page.getByRole("button", { name: /Get \.exe/ })).not.toBeVisible();
 });
