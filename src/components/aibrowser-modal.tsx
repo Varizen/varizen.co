@@ -183,27 +183,25 @@ export function AiBrowserModal({ isOpen, onClose }: AiBrowserModalProps) {
           <div className="flex items-center gap-1">
             <button
               onClick={() => setActiveTab("simulator")}
-              className={`p-1.5 rounded-md flex items-center gap-1.5 text-xs transition-colors ${
+              className={`p-1.5 rounded-md flex items-center justify-center transition-colors ${
                 activeTab === "simulator"
-                  ? "bg-white/15 text-white"
+                  ? "bg-white/15 text-emerald-400"
                   : "text-neutral-400 hover:text-white hover:bg-white/5"
               }`}
-              title="Browser Simulator (Interactive View)"
+              title="Browser Simulator"
             >
-              <Eye className="w-3.5 h-3.5" />
-              <span className="text-[11px] hidden sm:inline">Web Preview</span>
+              <Eye className="w-4 h-4" />
             </button>
             <button
               onClick={() => setActiveTab("download")}
-              className={`p-1.5 rounded-md flex items-center gap-1.5 text-xs transition-colors ${
+              className={`p-1.5 rounded-md flex items-center justify-center transition-colors ${
                 activeTab === "download"
-                  ? "bg-emerald-500 text-black font-semibold shadow-sm"
+                  ? "bg-emerald-500 text-black shadow-sm"
                   : "text-neutral-400 hover:text-white hover:bg-white/5"
               }`}
               title="Download Desktop Binary (.exe / .zip)"
             >
-              <Download className="w-3.5 h-3.5" />
-              <span className="text-[11px] hidden sm:inline">Get .exe</span>
+              <Download className="w-4 h-4" />
             </button>
             <div className="h-3 w-px bg-white/10 mx-1" />
             <button
@@ -293,10 +291,10 @@ export function AiBrowserModal({ isOpen, onClose }: AiBrowserModalProps) {
                 </div>
               </form>
 
-              {/* Eye AI Toggle Button */}
+              {/* Eye AI Toggle Button - Pure Iconized */}
               <button
                 onClick={() => setAiPanelOpen(!aiPanelOpen)}
-                className={`p-1.5 rounded-md flex items-center gap-1 border transition-colors ${
+                className={`p-1.5 rounded-md flex items-center justify-center border transition-colors ${
                   aiPanelOpen
                     ? "bg-emerald-500/20 text-emerald-300 border-emerald-500/40"
                     : "bg-white/5 text-neutral-400 border-white/10 hover:text-white"
@@ -304,7 +302,6 @@ export function AiBrowserModal({ isOpen, onClose }: AiBrowserModalProps) {
                 title="Toggle Eye AI Sidecar"
               >
                 <Sparkles className="w-3.5 h-3.5 text-emerald-400" />
-                <span className="text-[11px] font-mono hidden sm:inline">AI</span>
               </button>
             </div>
 
@@ -319,7 +316,7 @@ export function AiBrowserModal({ isOpen, onClose }: AiBrowserModalProps) {
                       setUrlInput(bm.url);
                       setCurrentUrl(bm.url);
                     }}
-                    className="px-1.5 py-0.5 rounded text-neutral-400 hover:text-white hover:bg-white/5 whitespace-nowrap transition-colors flex items-center gap-1"
+                    className="px-1.5 py-0.5 rounded text-neutral-400 hover:text-white hover:bg-white/5 whitespace-nowrap transition-colors flex items-center gap-1 font-mono"
                   >
                     <span>{bm.title}</span>
                   </button>
