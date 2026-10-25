@@ -22,12 +22,10 @@ export function proxy(request: NextRequest) {
   if (match && !knownSlugs[match[1]].has(decodeURIComponent(match[2]))) {
     return new NextResponse("Not found", { status: 404, headers: { "Content-Type": "text/plain; charset=utf-8", "Cache-Control": "no-store" } });
   }
-  // NOTE: a per-request nonce cannot be used here. `cacheComponents` prerenders
-  // pages, so the HTML (and its inline bootstrap scripts) is generated at build
-  // time and served from cache. A nonce minted per request would never match the
-  // cached markup, blocking every script and leaving the loading fallback stuck.
-  // Scripts are therefore restricted to same-origin plus inline, which is what
-  // Next.js requires for prerendered output. All other directives stay strict.
+  if (path.startsWith("/api/browse")) {
+    return NextResponse.next();
+  }
+
   const csp = `default-src 'self'; script-src 'self' 'unsafe-inline'${process.env.NODE_ENV === "development" ? " 'unsafe-eval'" : ""}; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self'; object-src 'none'; frame-src 'self' https:; base-uri 'self'; form-action 'self'; frame-ancestors 'none';${process.env.NODE_ENV === "production" ? " upgrade-insecure-requests;" : ""}`;
   const requestHeaders = new Headers(request.headers);
   requestHeaders.set("Content-Security-Policy", csp);

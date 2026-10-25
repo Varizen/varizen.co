@@ -56,8 +56,9 @@ export async function GET(req: NextRequest) {
     return new NextResponse(html, {
       headers: {
         "Content-Type": "text/html; charset=utf-8",
-        // Crucial: Omit X-Frame-Options and frame-ancestors so it renders cleanly in the modal!
         "Cache-Control": "public, max-age=60",
+        "X-Frame-Options": "SAMEORIGIN",
+        "Content-Security-Policy": "frame-ancestors 'self'",
       },
     });
   } catch (err: unknown) {

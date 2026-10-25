@@ -15,7 +15,14 @@ const nextConfig: NextConfig = {
   output: "standalone",
   poweredByHeader: false,
   allowedDevOrigins: ["127.0.0.1", "localhost"],
-  async headers() { return [{ source: "/:path*", headers: securityHeaders }]; },
+  async headers() {
+    return [
+      {
+        source: "/((?!api/browse).*)",
+        headers: securityHeaders,
+      },
+    ];
+  },
   turbopack: { rules: { "*.css": { loaders: ["@tailwindcss/turbopack"], as: "*.css" } } },
 };
 export default nextConfig;
