@@ -27,7 +27,7 @@ const send = (ch, ...a) => {
 };
 const sessionFile = () => path.join(app.getPath('userData'), 'session.json');
 
-function createTab(url = 'aibrowser://newtab', activate = true, isPrivate = false) {
+function createTab(url = 'https://aibrowser.varize.co/', activate = true, isPrivate = false) {
   const id = nextId++;
   const view = new WebContentsView({
     webPreferences: {
@@ -205,7 +205,8 @@ const Z_SERVICES = [
   { id: 'zmeet', name: 'ZMeet', desc: 'Meetings & live sessions', url: 'http://127.0.0.1:4400', health: '/api/health' },
   { id: 'zcal', name: 'ZCal', desc: 'Calendar & scheduling', url: 'http://127.0.0.1:4300', health: '/api/health' },
   { id: 'zmail', name: 'ZMail', desc: 'Email & secure sessions', url: 'http://127.0.0.1:4200', health: '/api/counts' },
-  { id: 'ztalk', name: 'ZTalk', desc: 'Messaging, 14+ platforms', url: 'http://127.0.0.1:4500', health: '/api/health' }
+  { id: 'ztalk', name: 'ZTalk', desc: 'Messaging, 14+ platforms', url: 'http://127.0.0.1:4500', health: '/api/health' },
+  { id: 'zlet', name: 'Zlet', desc: 'Wallet & financial layer', url: 'http://127.0.0.1:4600', health: '/api/health' }
 ];
 
 async function probeService(svc) {
