@@ -25,6 +25,12 @@ import {
   ArrowDown,
   ArrowUp,
   Activity,
+  X,
+  Plus,
+  MoreHorizontal,
+  ShieldCheck,
+  ChevronRight,
+  List,
 } from "lucide-react";
 import { UserProfileData } from "@/lib/aibrowser-profile";
 import { AiBrowserProfileModal } from "./aibrowser-profile-modal";
@@ -207,129 +213,97 @@ export function AiBrowserModal({ isOpen, onClose }: AiBrowserModalProps) {
         if (e.target === e.currentTarget) onClose();
       }}
     >
-      <div className="relative w-full max-w-7xl h-[94vh] bg-[#0c0e0d] border border-white/10 rounded-xl shadow-2xl flex flex-col overflow-hidden text-neutral-200 antialiased">
-        {/* Sleek Ultra-Slim OS Header */}
-        <div className="flex items-center justify-between border-b border-white/10 px-3 py-1.5 bg-[#111312] select-none">
-          {/* Left: Window Controls + Brand Icon */}
-          <div className="flex items-center gap-3">
-            <div className="flex gap-1.5 items-center">
-              <span className="w-2.5 h-2.5 rounded-full bg-red-500/80 hover:bg-red-500 cursor-pointer transition-colors" onClick={onClose} title="Close" />
-              <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80 hover:bg-yellow-500 cursor-pointer transition-colors" title="Minimize" />
-              <span className="w-2.5 h-2.5 rounded-full bg-green-500/80 hover:bg-green-500 cursor-pointer transition-colors" title="Maximize" />
-            </div>
-            <div className="h-3 w-px bg-white/10 mx-1" />
-            <div className="flex items-center gap-1.5">
-              <Eye className="w-3.5 h-3.5 text-emerald-400" />
-              <span className="font-semibold text-xs tracking-tight text-white font-mono">AiBrowser</span>
-              <span className="text-[9px] bg-emerald-500/10 text-emerald-400 px-1.5 py-0.2 rounded border border-emerald-500/20 font-mono">
-                v0.1
-              </span>
-            </div>
+      <div className="relative w-full max-w-7xl h-[94vh] bg-[#0c0c11] border border-white/[0.12] rounded-2xl shadow-[0_50px_120px_rgba(0,0,0,0.75)] flex flex-col overflow-hidden text-[#f0f0f5] antialiased font-sans">
+        {/* Title bar */}
+        <div className="h-10 shrink-0 flex items-center gap-3 px-3.5 bg-gradient-to-b from-[#13131a] to-[#0c0c11] border-b border-white/[0.06] select-none">
+          <div className="flex gap-2 items-center">
+            <span className="w-3 h-3 rounded-full bg-[#ff5f57] cursor-pointer" onClick={onClose} title="Close" />
+            <span className="w-3 h-3 rounded-full bg-[#febc2e]" title="Minimize" />
+            <span className="w-3 h-3 rounded-full bg-[#28c840]" title="Maximize" />
           </div>
-
-          {/* Right: Iconized Mode Switchers, Native Apps & Close */}
-          <div className="flex items-center gap-1">
-            {/* Native App Placeholders: Email, Calendar, Meetings */}
-            <button
-              onClick={() => setActivePlaceholder("email")}
-              className={`p-1.5 rounded-md transition-colors ${
-                activePlaceholder === "email"
-                  ? "bg-emerald-500/20 text-emerald-300"
-                  : "text-neutral-400 hover:text-white hover:bg-white/5"
-              }`}
-              title="ZMail Mailbox"
-            >
-              <Mail className="w-3.5 h-3.5" />
-            </button>
-
-            <button
-              onClick={() => setActivePlaceholder("calendar")}
-              className={`p-1.5 rounded-md transition-colors ${
-                activePlaceholder === "calendar"
-                  ? "bg-emerald-500/20 text-emerald-300"
-                  : "text-neutral-400 hover:text-white hover:bg-white/5"
-              }`}
-              title="Calendar & Timekeeper"
-            >
-              <Calendar className="w-3.5 h-3.5" />
-            </button>
-
-            <button
-              onClick={() => setActivePlaceholder("meetings")}
-              className={`p-1.5 rounded-md transition-colors ${
-                activePlaceholder === "meetings"
-                  ? "bg-emerald-500/20 text-emerald-300"
-                  : "text-neutral-400 hover:text-white hover:bg-white/5"
-              }`}
-              title="Peer Meetings & Voice"
-            >
-              <Video className="w-3.5 h-3.5" />
-            </button>
-
-            <div className="h-3 w-px bg-white/10 mx-0.5" />
-
-            {/* Isolated Zlet Wallet Button */}
+          <div className="flex items-center gap-2 ml-1">
+            <span className="w-5 h-5 grid place-items-center rounded-[5px] text-[11px] font-extrabold text-white bg-gradient-to-br from-[#ff762f] to-[#e85a1a]">V</span>
+            <b className="text-[13px] font-semibold tracking-tight">AiBrowser</b>
+            <span className="text-[9px] font-semibold text-[#ff762f] border border-[#ff762f]/30 rounded px-[5px] py-px bg-[#ff762f]/[0.08]">v0.1</span>
+          </div>
+          <div className="flex-1" />
+          <div className="flex items-center gap-1.5">
+            {(
+              [
+                ["email", Mail, "ZMail Mailbox"],
+                ["calendar", Calendar, "Calendar & Timekeeper"],
+                ["meetings", Video, "Peer Meetings & Voice"],
+              ] as const
+            ).map(([key, Icon, label]) => (
+              <button
+                key={key}
+                onClick={() => setActivePlaceholder(key)}
+                className={`w-[30px] h-[30px] grid place-items-center rounded-[7px] transition-colors ${
+                  activePlaceholder === key
+                    ? "bg-[#ff762f]/20 text-[#ff762f]"
+                    : "text-[#b8b8c4] hover:bg-white/[0.06] hover:text-[#f0f0f5]"
+                }`}
+                title={label}
+              >
+                <Icon className="w-4 h-4" strokeWidth={1.5} />
+              </button>
+            ))}
             <button
               onClick={() => setActivePlaceholder("zlet")}
-              className={`px-1.5 py-1 rounded-md flex items-center gap-1 transition-colors border ${
+              className={`h-[26px] px-2.5 rounded-md flex items-center gap-[5px] text-[11px] font-semibold leading-none border transition-colors ${
                 activePlaceholder === "zlet"
-                  ? "bg-amber-500/20 text-amber-300 border-amber-500/40"
-                  : "bg-white/[0.03] text-neutral-300 border-white/10 hover:border-amber-400/40 hover:text-amber-300"
+                  ? "bg-[#ff762f]/20 border-[#ff762f]/50 text-[#ff762f]"
+                  : "bg-[#ff762f]/[0.08] border-[#ff762f]/30 text-[#ff762f] hover:bg-[#ff762f]/[0.14]"
               }`}
               title="Zlet: Universal Sandbox Wallet & Payments"
             >
-              <Wallet className="w-3.5 h-3.5 text-amber-400" />
-              <span className="text-[10px] font-mono font-medium">Zlet</span>
+              <Wallet className="w-3.5 h-3.5" strokeWidth={1.6} />
+              <span>Zlet</span>
             </button>
-
-            <div className="h-3 w-px bg-white/10 mx-0.5" />
-
-            {/* Zero-Knowledge Profile Custody Center */}
             <button
               onClick={() => setProfileModalOpen(true)}
-              className={`px-1.5 py-1 rounded-md flex items-center gap-1 transition-colors border ${
-                profile
-                  ? "bg-white/[0.03] text-emerald-400 border-emerald-500/30 hover:bg-emerald-500/10"
-                  : "bg-white/[0.03] text-neutral-400 border-white/10 hover:text-white"
+              className={`h-[30px] px-2 rounded-[7px] flex items-center gap-1.5 transition-colors ${
+                profile ? "text-[#13d69a] hover:bg-white/[0.06]" : "text-[#b8b8c4] hover:bg-white/[0.06] hover:text-[#f0f0f5]"
               }`}
               title="Zero-Knowledge Profile & Passphrase Custody"
             >
-              <User className="w-3.5 h-3.5" />
-              <span className="text-[10px] font-mono">
-                {profile ? `@${profile.username}` : "Profile"}
-              </span>
+              <User className="w-4 h-4" strokeWidth={1.5} />
+              {profile && <span className="text-[11px]">@{profile.username}</span>}
             </button>
-
-            <div className="h-3 w-px bg-white/10 mx-0.5" />
-
-            {/* Viewport switch: Preview vs Download */}
             <button
               onClick={() => {
                 setActiveTab("simulator");
                 setActivePlaceholder(null);
               }}
-              className={`p-1.5 rounded-md flex items-center justify-center transition-colors ${
+              className={`w-[30px] h-[30px] grid place-items-center rounded-[7px] transition-colors ${
                 activeTab === "simulator" && !activePlaceholder
-                  ? "bg-white/15 text-emerald-400"
-                  : "text-neutral-400 hover:text-white hover:bg-white/5"
+                  ? "bg-white/[0.08] text-[#f0f0f5]"
+                  : "text-[#b8b8c4] hover:bg-white/[0.06] hover:text-[#f0f0f5]"
               }`}
               title="Browser Viewport"
             >
-              <Eye className="w-3.5 h-3.5" />
+              <Eye className="w-4 h-4" strokeWidth={1.5} />
             </button>
             <button
               onClick={() => {
                 setActiveTab("download");
                 setActivePlaceholder(null);
               }}
-              className={`p-1.5 rounded-md flex items-center justify-center transition-colors ${
+              className={`w-[30px] h-[30px] grid place-items-center rounded-[7px] transition-colors ${
                 activeTab === "download" && !activePlaceholder
-                  ? "bg-emerald-500 text-black shadow-sm"
-                  : "text-neutral-400 hover:text-white hover:bg-white/5"
+                  ? "bg-[#ff762f] text-white"
+                  : "text-[#b8b8c4] hover:bg-white/[0.06] hover:text-[#f0f0f5]"
               }`}
               title="Download Desktop Binary (.exe / .zip)"
             >
-              <Download className="w-3.5 h-3.5" />
+              <Download className="w-4 h-4" strokeWidth={1.5} />
+            </button>
+            <button
+              onClick={onClose}
+              className="w-[30px] h-[30px] grid place-items-center rounded-[7px] text-[#b8b8c4] hover:bg-white/[0.06] hover:text-[#f0f0f5] transition-colors"
+              title="Close"
+            >
+              <X className="w-4 h-4" strokeWidth={1.5} />
             </button>
           </div>
         </div>
@@ -337,8 +311,19 @@ export function AiBrowserModal({ isOpen, onClose }: AiBrowserModalProps) {
         {/* Tab 1: Browser inside browser Simulator */}
         {activeTab === "simulator" && (
           <div className="flex-1 flex flex-col overflow-hidden">
-            {/* Slim Sharper Navigation & Omnibox Toolbar */}
-            <div className="bg-[#141615] border-b border-white/10 px-2.5 py-1.5 flex items-center gap-2">
+            {/* Tab strip */}
+            <div className="h-[38px] shrink-0 flex items-center gap-1.5 px-3 bg-[#0c0c11] border-b border-white/[0.06]">
+              <div className="flex items-center gap-2 px-3 py-[5px] rounded-t-lg text-xs text-[#f0f0f5] bg-gradient-to-b from-[#1a1a24] to-[#0c0c11] border border-white/[0.12] border-b-0 shadow-[inset_0_2px_0_#ff762f]">
+                <span className="w-3.5 h-3.5 grid place-items-center rounded-[3px] text-[8px] font-bold text-white bg-gradient-to-br from-[#ff762f] to-[#e85a1a]">V</span>
+                <span className="max-w-[180px] truncate">{currentUrl.replace(/https?:\/\/(www\.)?/, "").split("/")[0] || "Varizen"}</span>
+                <X className="w-3 h-3 opacity-45" />
+              </div>
+              <div className="w-[26px] h-[26px] grid place-items-center rounded-md text-[#6e6e7a]">
+                <Plus className="w-3.5 h-3.5" />
+              </div>
+            </div>
+            {/* Navigation & Omnibox Toolbar */}
+            <div className="h-11 shrink-0 bg-[#0c0c11] border-b border-white/[0.06] px-3 flex items-center gap-1.5">
               {/* Back, Forward, Reload/Stop Icons */}
               <div className="flex items-center gap-0.5">
                 <button
@@ -378,13 +363,13 @@ export function AiBrowserModal({ isOpen, onClose }: AiBrowserModalProps) {
 
               {/* Slim Unified Address Input */}
               <form onSubmit={handleNavigate} className="flex-1 flex items-center">
-                <div className="w-full flex items-center bg-[#080908] border border-white/10 rounded-md px-2.5 py-1 text-xs text-neutral-300 focus-within:border-emerald-500/50 transition-colors">
-                  <Lock className="w-3 h-3 text-emerald-400 mr-2 shrink-0" />
+                <div className="w-full h-[34px] flex items-center gap-2.5 bg-[#06060a] border border-white/[0.12] rounded-[10px] px-3 text-xs shadow-[inset_0_1px_3px_rgba(0,0,0,0.4)] focus-within:border-[#0ea070] focus-within:shadow-[0_0_0_2px_rgba(19,214,154,0.18)] transition-colors">
+                  <Lock className="w-3.5 h-3.5 text-[#13d69a] shrink-0" />
                   <input
                     type="text"
                     value={urlInput}
                     onChange={(e) => setUrlInput(e.target.value)}
-                    className="w-full bg-transparent outline-none text-neutral-100 font-mono text-xs"
+                    className="w-full bg-transparent outline-none text-[#f0f0f5] text-[12.5px]"
                     placeholder="Search or enter URL..."
                   />
                   <button
@@ -401,33 +386,33 @@ export function AiBrowserModal({ isOpen, onClose }: AiBrowserModalProps) {
                       }`}
                     />
                   </button>
-                  <div className="flex items-center gap-1.5 ml-1 pl-2 border-l border-white/10 shrink-0">
-                    <Shield className="w-3 h-3 text-emerald-400" />
-                    <span className="text-[10px] text-emerald-400 font-mono" title="Eye Shield">
+                  <div className="flex items-center gap-1 shrink-0 text-[#b8b8c4]">
+                    <ShieldCheck className="w-3.5 h-3.5" />
+                    <b className="text-[11px] font-semibold text-[#ff762f]" title="Eye Shield">
                       {shieldBlocked}
-                    </span>
+                    </b>
                   </div>
+                  <MoreHorizontal className="w-3.5 h-3.5 text-[#b8b8c4] shrink-0" />
                 </div>
               </form>
 
               {/* Eye AI Toggle Button - Pure Iconized */}
               <button
                 onClick={() => setAiPanelOpen(!aiPanelOpen)}
-                className={`p-1.5 rounded-md flex items-center justify-center border transition-colors ${
+                className={`w-8 h-8 rounded-[7px] flex items-center justify-center border transition-colors ${
                   aiPanelOpen
-                    ? "bg-emerald-500/20 text-emerald-300 border-emerald-500/40"
-                    : "bg-white/5 text-neutral-400 border-white/10 hover:text-white"
+                    ? "bg-[#ff762f]/[0.12] text-[#ff762f] border-[#ff762f]/30"
+                    : "border-transparent text-[#b8b8c4] hover:bg-white/[0.06]"
                 }`}
                 title="Toggle Eye AI Sidecar"
               >
-                <Sparkles className="w-3.5 h-3.5 text-emerald-400" />
+                <Sparkles className="w-4 h-4" strokeWidth={1.5} />
               </button>
             </div>
 
             {/* Ultra-Slim Bookmarks Bar */}
             {showBookmarks && (
-              <div className="bg-[#0f1110] border-b border-white/5 px-3 py-1 flex items-center gap-1.5 overflow-x-auto text-[10px]">
-                <Star className="w-3 h-3 text-neutral-500 shrink-0" />
+              <div className="h-8 shrink-0 bg-[#0c0c11] border-b border-white/[0.06] px-3 flex items-center gap-1 overflow-x-auto text-[11.5px]">
                 {bookmarks.map((bm, i) => (
                   <button
                     key={i}
@@ -435,11 +420,19 @@ export function AiBrowserModal({ isOpen, onClose }: AiBrowserModalProps) {
                       setUrlInput(bm.url);
                       setCurrentUrl(bm.url);
                     }}
-                    className="px-1.5 py-0.5 rounded text-neutral-400 hover:text-white hover:bg-white/5 whitespace-nowrap transition-colors flex items-center gap-1 font-mono"
+                    className="px-2.5 py-[3px] rounded-md border border-transparent text-[#b8b8c4] hover:text-[#f0f0f5] hover:bg-[#13131a] hover:border-white/[0.12] whitespace-nowrap transition-colors flex items-center gap-1.5"
                   >
+                    <span className="w-4 h-4 grid place-items-center rounded-full text-[7px] font-bold text-white bg-gradient-to-br from-[#ff762f] to-[#e85a1a]">
+                      {bm.title.charAt(0).toUpperCase()}
+                    </span>
                     <span>{bm.title}</span>
                   </button>
                 ))}
+                <div className="flex-1" />
+                <span className="flex items-center gap-1.5 px-2.5 text-[#6e6e7a] whitespace-nowrap">
+                  <List className="w-3.5 h-3.5" />
+                  All Bookmarks
+                </span>
               </div>
             )}
 
@@ -457,23 +450,25 @@ export function AiBrowserModal({ isOpen, onClose }: AiBrowserModalProps) {
                 />
 
                 {/* Bottom Technical Telemetry Strip with Live Network Speed Meter */}
-                <div className="border-t border-white/10 bg-[#0e100f] px-3 py-1.5 flex items-center justify-between text-[11px] text-neutral-400 font-mono select-none">
-                  <div className="flex items-center gap-2">
-                    <span className="flex items-center gap-1 text-emerald-400">
-                      <Shield className="w-3 h-3" />
-                      <span>PROXIED</span>
+                <div className="h-[30px] shrink-0 border-t border-white/[0.06] bg-[#06060a] px-3.5 flex items-center justify-between text-[10px] text-[#6e6e7a] select-none">
+                  <div className="flex items-center gap-3.5">
+                    <span className="w-[7px] h-[7px] rounded-full bg-[#13d69a] shadow-[0_0_7px_rgba(19,214,154,0.5)]" />
+                    <b className="font-medium text-[#b8b8c4]">Protected by Varizen Trust</b>
+                    <span className="h-3 border-l border-white/[0.12]" />
+                    <span>Proxied</span>
+                    <span className="h-3 border-l border-white/[0.12]" />
+                    <span className="truncate max-w-[220px] sm:max-w-xs">{currentUrl.replace(/https?:\/\//, "")}</span>
+                    <span className="h-3 border-l border-white/[0.12]" />
+                    <span className="flex items-center gap-1.5 px-2 py-0.5 rounded-[10px] border border-white/[0.12] bg-[#13131a]">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#13d69a]" />
+                      Isolation Mode
                     </span>
-                    <span>/</span>
-                    <span className="truncate max-w-[220px] sm:max-w-md text-neutral-300">
-                      {currentUrl}
-                    </span>
-                    <span>/</span>
-                    <span className="text-emerald-400">{shieldBlocked} shielded</span>
+                    <span>{shieldBlocked} shielded</span>
                   </div>
 
                   {/* Real-Time Download/Upload Speed Meter */}
                   <div className="flex items-center gap-2.5 bg-black/50 px-2.5 py-0.5 rounded border border-white/10 text-[10px]">
-                    <div className="flex items-center gap-1 text-emerald-400" title="Virtual Inbound Speed">
+                    <div className="flex items-center gap-1 text-[#13d69a]" title="Virtual Inbound Speed">
                       <ArrowDown className="w-3 h-3 animate-pulse" />
                       <span className="font-semibold">{dlSpeed}</span>
                       <span className="text-[9px] text-neutral-500">MB/s</span>
@@ -490,13 +485,34 @@ export function AiBrowserModal({ isOpen, onClose }: AiBrowserModalProps) {
 
               {/* Eye AI Lateral Panel */}
               {aiPanelOpen && (
-                <div className="w-72 border-l border-white/10 bg-[#0d0f0e] flex flex-col justify-between">
-                  <div className="p-2.5 border-b border-white/10 flex items-center justify-between">
-                    <div className="flex items-center gap-1.5">
-                      <Sparkles className="w-3.5 h-3.5 text-emerald-400" />
-                      <span className="text-[11px] font-mono uppercase tracking-wider text-white">Eye AI</span>
+                <div className="w-[340px] shrink-0 border-l border-white/[0.06] bg-gradient-to-br from-[#13131a] to-[#06060a] flex flex-col justify-between">
+                  <div className="p-4 pb-3 flex flex-col gap-3.5">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-2 text-[#ff762f]">
+                        <Sparkles className="w-[18px] h-[18px]" strokeWidth={1.5} />
+                        <span className="text-[13px] font-semibold tracking-wide text-[#f0f0f5]">EYE AI</span>
+                        <span className="text-[9px] font-semibold text-[#13d69a] border border-[#13d69a]/30 rounded px-[5px] py-px bg-[#13d69a]/[0.08]">BETA</span>
+                      </div>
+                      <span className="text-[9px] text-[#6e6e7a]">Free Gateway</span>
                     </div>
-                    <span className="text-[9px] text-neutral-400 font-mono">Free Gateway</span>
+                    <div className="flex items-center gap-2.5 px-3 py-2.5 rounded-lg border border-[#13d69a]/15 bg-gradient-to-br from-[#13d69a]/[0.06] to-transparent">
+                      <span className="w-2 h-2 rounded-full bg-[#13d69a] shadow-[0_0_8px_#13d69a] animate-pulse" />
+                      <div className="text-xs">
+                        <b className="font-semibold text-[#13d69a]">Active Protection</b>
+                        <div className="text-[11px] text-[#6e6e7a]">{shieldBlocked} trackers shielded on this page.</div>
+                      </div>
+                    </div>
+                    <div className="flex flex-col gap-2">
+                      <h5 className="text-[9px] font-medium tracking-[0.12em] uppercase text-[#6e6e7a]">Current Page</h5>
+                      <div className="flex items-center gap-2.5 px-3 py-2.5 rounded-lg border border-white/[0.06] bg-[#13131a]">
+                        <ShieldCheck className="w-4 h-4 text-[#13d69a] shrink-0" />
+                        <div className="flex-1 min-w-0">
+                          <div className="text-xs font-medium truncate">{currentUrl.replace(/https?:\/\//, "").split("/")[0]}</div>
+                          <span className="text-[10px] text-[#6e6e7a]">Content isolated in secure sandbox.</span>
+                        </div>
+                        <ChevronRight className="w-3 h-3 text-[#4a4a56]" />
+                      </div>
+                    </div>
                   </div>
 
                   {/* Chat messages */}
@@ -506,8 +522,8 @@ export function AiBrowserModal({ isOpen, onClose }: AiBrowserModalProps) {
                         key={idx}
                         className={`p-2 rounded-lg text-xs ${
                           msg.sender === "user"
-                            ? "bg-emerald-500/10 border border-emerald-500/20 text-emerald-200 ml-3"
-                            : "bg-white/5 border border-white/10 text-neutral-300 mr-3"
+                            ? "bg-[#ff762f]/10 border border-[#ff762f]/20 text-[#ffd2b8] ml-3"
+                            : "bg-[#13131a] border border-white/[0.06] text-[#b8b8c4] mr-3"
                         }`}
                       >
                         <div className="text-[9px] text-neutral-500 font-mono uppercase mb-0.5">
@@ -530,7 +546,7 @@ export function AiBrowserModal({ isOpen, onClose }: AiBrowserModalProps) {
                           ]);
                         }, 400);
                       }}
-                      className="px-2 py-0.5 bg-white/5 hover:bg-white/10 rounded border border-white/10 text-neutral-300 whitespace-nowrap"
+                      className="px-2.5 py-1 bg-[#13131a] hover:bg-[#1a1a24] rounded-md border border-white/[0.12] text-[#b8b8c4] whitespace-nowrap"
                     >
                       Summarize
                     </button>
@@ -544,24 +560,24 @@ export function AiBrowserModal({ isOpen, onClose }: AiBrowserModalProps) {
                           ]);
                         }, 400);
                       }}
-                      className="px-2 py-0.5 bg-white/5 hover:bg-white/10 rounded border border-white/10 text-neutral-300 whitespace-nowrap"
+                      className="px-2.5 py-1 bg-[#13131a] hover:bg-[#1a1a24] rounded-md border border-white/[0.12] text-[#b8b8c4] whitespace-nowrap"
                     >
                       Shield
                     </button>
                   </div>
 
                   {/* Query input */}
-                  <form onSubmit={handleAskAi} className="p-2 border-t border-white/10 flex gap-1.5">
+                  <form onSubmit={handleAskAi} className="m-3 p-2 pl-2.5 rounded-lg border border-white/[0.12] bg-[#06060a] flex items-center gap-2">
                     <input
                       type="text"
                       value={aiQuery}
                       onChange={(e) => setAiQuery(e.target.value)}
                       placeholder="Ask Eye AI..."
-                      className="flex-1 bg-[#070807] border border-white/10 rounded-md px-2 py-1 text-xs text-neutral-200 outline-none focus:border-emerald-500/50 font-mono"
+                      className="flex-1 bg-transparent text-xs text-[#f0f0f5] outline-none placeholder:text-[#4a4a56]"
                     />
                     <button
                       type="submit"
-                      className="p-1.5 bg-emerald-500 hover:bg-emerald-400 text-black rounded-md transition-colors"
+                      className="w-7 h-7 grid place-items-center bg-[#13d69a] hover:brightness-110 text-[#071a12] rounded-[7px] transition"
                       title="Send"
                     >
                       <Send className="w-3.5 h-3.5" />
