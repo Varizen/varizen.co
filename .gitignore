@@ -45,6 +45,10 @@ yarn-error.log*
 # ...but the documented template must ship, or deployers have nothing to copy.
 !.env.example
 
+# z-app runtime data: encryption keys, host tokens, encrypted stores.
+# NEVER commit these — keys in git history = compromised.
+z*/.data/
+
 # vercel
 .vercel
 
