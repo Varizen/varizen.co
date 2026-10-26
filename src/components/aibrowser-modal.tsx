@@ -82,9 +82,7 @@ export function AiBrowserModal({ isOpen, onClose }: AiBrowserModalProps) {
   const [showBookmarks] = useState(true);
   const [bookmarks, setBookmarks] = useState<Array<{ title: string; url: string }>>([
     { title: "Varizen Trust", url: "https://www.varizen.co" },
-    { title: "GitHub", url: "https://github.com" },
     { title: "DuckDuckGo", url: "https://duckduckgo.com" },
-    { title: "Hacker News", url: "https://news.ycombinator.com" },
   ]);
   const [chatLog, setChatLog] = useState<Array<{ sender: "user" | "eye"; text: string }>>([
     {
