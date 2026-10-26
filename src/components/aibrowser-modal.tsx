@@ -25,6 +25,8 @@ import {
   ArrowDown,
   ArrowUp,
   Activity,
+  Key,
+  Ban,
   X,
   Plus,
   MoreHorizontal,
@@ -34,6 +36,7 @@ import {
 } from "lucide-react";
 import { UserProfileData } from "@/lib/aibrowser-profile";
 import { AiBrowserProfileModal } from "./aibrowser-profile-modal";
+import { Panel, newPanel, togglePanel, type PanelState } from "./aibrowser-panel";
 
 interface AiBrowserModalProps {
   isOpen: boolean;
@@ -76,7 +79,10 @@ export function AiBrowserModal({ isOpen, onClose }: AiBrowserModalProps) {
   const [history, setHistory] = useState<string[]>(["https://www.varizen.co"]);
   const [historyIndex, setHistoryIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
-  const [aiPanelOpen, setAiPanelOpen] = useState(true);
+  const [aiPanel, setAiPanel] = useState<PanelState>(() => newPanel("docked", true));
+  const [zkPanel, setZkPanel] = useState<PanelState>(() => newPanel("floating", false));
+  const patchAi = (p: Partial<PanelState>) => setAiPanel((s) => ({ ...s, ...p }));
+  const patchZk = (p: Partial<PanelState>) => setZkPanel((s) => ({ ...s, ...p }));
   const [aiQuery, setAiQuery] = useState("");
   const [shieldBlocked, setShieldBlocked] = useState(14);
   const [showBookmarks] = useState(true);
@@ -259,9 +265,9 @@ export function AiBrowserModal({ isOpen, onClose }: AiBrowserModalProps) {
               <span>Zlet</span>
             </button>
             <button
-              onClick={() => setProfileModalOpen(true)}
+              onClick={() => setZkPanel(togglePanel)}
               className={`h-[30px] px-2 rounded-[7px] flex items-center gap-1.5 transition-colors ${
-                profile ? "text-[#13d69a] hover:bg-white/[0.06]" : "text-[#b8b8c4] hover:bg-white/[0.06] hover:text-[#f0f0f5]"
+                zkPanel.open ? "bg-white/[0.08] text-[#ff762f]" : profile ? "text-[#13d69a] hover:bg-white/[0.06]" : "text-[#b8b8c4] hover:bg-white/[0.06] hover:text-[#f0f0f5]"
               }`}
               title="Zero-Knowledge Profile & Passphrase Custody"
             >
@@ -396,9 +402,9 @@ export function AiBrowserModal({ isOpen, onClose }: AiBrowserModalProps) {
 
               {/* Eye AI Toggle Button - Pure Iconized */}
               <button
-                onClick={() => setAiPanelOpen(!aiPanelOpen)}
+                onClick={() => setAiPanel(togglePanel)}
                 className={`w-8 h-8 rounded-[7px] flex items-center justify-center border transition-colors ${
-                  aiPanelOpen
+                  aiPanel.open
                     ? "bg-[#ff762f]/[0.12] text-[#ff762f] border-[#ff762f]/30"
                     : "border-transparent text-[#b8b8c4] hover:bg-white/[0.06]"
                 }`}
@@ -434,8 +440,8 @@ export function AiBrowserModal({ isOpen, onClose }: AiBrowserModalProps) {
               </div>
             )}
 
-            {/* Viewport & AI split */}
-            <div className="flex-1 flex overflow-hidden">
+            {/* Viewport + dockable / floating panels */}
+            <div className="relative flex-1 flex overflow-hidden">
               {/* Real Live-Rendered Sandboxed Viewport using Secure Proxy Route */}
               <div className="flex-1 bg-white relative flex flex-col overflow-hidden">
                 <iframe
@@ -481,23 +487,23 @@ export function AiBrowserModal({ isOpen, onClose }: AiBrowserModalProps) {
                 </div>
               </div>
 
-              {/* Eye AI Lateral Panel */}
-              {aiPanelOpen && (
-                <div className="w-[340px] shrink-0 border-l border-white/[0.06] bg-gradient-to-br from-[#13131a] to-[#06060a] flex flex-col justify-between">
+              {/* Eye AI panel: dock / float / auto-hide / minimize */}
+              <Panel
+                state={aiPanel}
+                onChange={patchAi}
+                title="EYE AI"
+                badge="BETA"
+                icon={<Sparkles className="w-[18px] h-[18px]" strokeWidth={1.5} />}
+                width={340}
+                floatHeight={560}
+                slot={0}
+              >
                   <div className="p-4 pb-3 flex flex-col gap-3.5">
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-2 text-[#ff762f]">
-                        <Sparkles className="w-[18px] h-[18px]" strokeWidth={1.5} />
-                        <span className="text-[13px] font-semibold tracking-wide text-[#f0f0f5]">EYE AI</span>
-                        <span className="text-[9px] font-semibold text-[#13d69a] border border-[#13d69a]/30 rounded px-[5px] py-px bg-[#13d69a]/[0.08]">BETA</span>
-                      </div>
-                      <span className="text-[9px] text-[#6e6e7a]">Free Gateway</span>
-                    </div>
                     <div className="flex items-center gap-2.5 px-3 py-2.5 rounded-lg border border-[#13d69a]/15 bg-gradient-to-br from-[#13d69a]/[0.06] to-transparent">
                       <span className="w-2 h-2 rounded-full bg-[#13d69a] shadow-[0_0_8px_#13d69a] animate-pulse" />
                       <div className="text-xs">
                         <b className="font-semibold text-[#13d69a]">Active Protection</b>
-                        <div className="text-[11px] text-[#6e6e7a]">{shieldBlocked} trackers shielded on this page.</div>
+                        <div className="text-[11px] text-[#6e6e7a]">{shieldBlocked} trackers shielded · Free Gateway</div>
                       </div>
                     </div>
                     <div className="flex flex-col gap-2">
@@ -514,7 +520,7 @@ export function AiBrowserModal({ isOpen, onClose }: AiBrowserModalProps) {
                   </div>
 
                   {/* Chat messages */}
-                  <div className="flex-1 p-2.5 overflow-y-auto space-y-2 text-xs">
+                  <div className="flex-1 min-h-0 p-2.5 overflow-y-auto space-y-2 text-xs">
                     {chatLog.map((msg, idx) => (
                       <div
                         key={idx}
@@ -581,8 +587,82 @@ export function AiBrowserModal({ isOpen, onClose }: AiBrowserModalProps) {
                       <Send className="w-3.5 h-3.5" />
                     </button>
                   </form>
+              </Panel>
+
+              {/* Zero-Knowledge Profile panel: floating by default */}
+              <Panel
+                state={zkPanel}
+                onChange={patchZk}
+                title="Zero-Knowledge Profile"
+                icon={<User className="w-[18px] h-[18px]" strokeWidth={1.5} />}
+                width={300}
+                slot={aiPanel.open && aiPanel.mode === "min" ? 1 : 0}
+              >
+                <div className="p-4 flex flex-col gap-3.5 overflow-y-auto">
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-9 h-9 shrink-0 grid place-items-center rounded-full text-white bg-gradient-to-br from-[#ff762f] to-[#e85a1a]">
+                      <User className="w-4 h-4" />
+                    </div>
+                    <div className="min-w-0">
+                      <div className="text-[13px] font-semibold truncate">
+                        {profile ? `@${profile.username}` : "Your secure profile"}
+                      </div>
+                      <span className="text-[10px] text-[#6e6e7a]">Your data. Your keys. Always private.</span>
+                    </div>
+                  </div>
+                  <span className="self-start inline-flex items-center gap-1.5 px-2.5 py-[3px] rounded-full text-[10px] font-medium text-[#13d69a] border border-[#13d69a]/20 bg-[#13d69a]/[0.06]">
+                    <Lock className="w-3 h-3" />
+                    Local custody
+                  </span>
+                  <div className="flex flex-col items-center gap-3 p-5 rounded-xl border border-white/[0.06] bg-white/[0.02] text-center">
+                    <Lock className="w-12 h-12 text-[#ff762f] drop-shadow-[0_0_12px_rgba(255,118,47,0.25)]" strokeWidth={1.05} />
+                    <h4 className="text-sm font-semibold">Nothing stored by Varizen.</h4>
+                    <p className="text-[11px] leading-relaxed text-[#6e6e7a]">
+                      Your profile, secrets and sensitive data are encrypted on your device before storage. Only you hold the keys.
+                    </p>
+                  </div>
+                  <div className="flex gap-2">
+                    {(
+                      [
+                        [Lock, "Encrypted before storage"],
+                        [Key, "You hold the keys"],
+                        [Ban, "No plaintext secrets"],
+                      ] as const
+                    ).map(([Icon, label]) => (
+                      <div key={label} className="flex-1 flex flex-col items-center gap-1.5 px-2 py-3 rounded-lg border border-white/[0.06] bg-[#13131a] text-center text-[#13d69a]">
+                        <Icon className="w-[18px] h-[18px]" strokeWidth={1.45} />
+                        <div className="text-[10px] font-medium text-[#b8b8c4]">{label}</div>
+                      </div>
+                    ))}
+                  </div>
+                  <button
+                    onClick={() => setProfileModalOpen(true)}
+                    className="w-full py-2.5 rounded-lg text-xs font-medium text-white bg-gradient-to-br from-[#ff762f] to-[#e85a1a] flex items-center justify-center gap-1.5 hover:brightness-110 transition"
+                  >
+                    {profile ? "Manage profile" : "Create profile"}
+                    <ArrowRight className="w-3 h-3" />
+                  </button>
+                  {!profile && (
+                    <div className="flex gap-2.5 text-center">
+                      {(
+                        [
+                          ["1", "12-word passphrase", "Write it down and keep it safe."],
+                          ["2", "Generate vault file", "Stored only on your device."],
+                          ["3", "4-digit rescue code", "To recover access if needed."],
+                        ] as const
+                      ).map(([n, t, d]) => (
+                        <div key={n} className="flex-1">
+                          <div className="w-[22px] h-[22px] mx-auto mb-1.5 grid place-items-center rounded-full border border-white/[0.12] text-[10px] font-semibold text-[#b8b8c4]">
+                            {n}
+                          </div>
+                          <div className="text-[10px] font-medium">{t}</div>
+                          <span className="text-[9px] text-[#6e6e7a]">{d}</span>
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </div>
-              )}
+              </Panel>
             </div>
           </div>
         )}
