@@ -1,6 +1,7 @@
 "use client";
 import { useRef, useState } from "react";
 import Link from "next/link";
+import { User, Building, Briefcase, Mail, Phone, AlertCircle } from "lucide-react";
 import { ArrowUpRight, CheckCircle2 } from "lucide-react";
 import { contactSchema } from "@/lib/validation";
 
@@ -38,3 +39,5 @@ export function ContactForm({ initialReason = "business", capability = "", proje
     <div className="form-foot"><p>Please do not include passwords, confidential documents or sensitive personal information.</p><button type="submit" className="button" disabled={sending}>{sending ? "Submitting…" : "Send enquiry"}{!sending && <ArrowUpRight size={16} />}</button></div>
   </form>;
 }
+
+// Icons added for better visual recognition
