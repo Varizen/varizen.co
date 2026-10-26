@@ -9,12 +9,12 @@ export interface PanelState {
   mode: PanelMode;
   autohide: boolean;
   open: boolean;
-  /** Left offset while floating. Negative = snapped to the right edge. */
+  /** Left offset while floating. Negative = offset from the right edge (|x| px). */
   x: number;
   y: number;
 }
 
-export const newPanel = (mode: PanelMode, open: boolean): PanelState => ({ mode, autohide: false, open, x: -1, y: 12 });
+export const newPanel = (mode: PanelMode, open: boolean, x = -12): PanelState => ({ mode, autohide: false, open, x, y: 12 });
 
 /** Toolbar toggle: closed -> open, minimized -> restored, open -> closed. */
 export const togglePanel = (s: PanelState): PanelState => {
@@ -33,6 +33,8 @@ interface PanelProps {
   floatHeight?: number;
   /** Position among minimized dots (0 = bottom-most). */
   slot: number;
+  /** Floating x position restored when un-docking (negative = from right edge). */
+  defaultX?: number;
   children: ReactNode;
 }
 
@@ -42,7 +44,7 @@ const btn =
   "w-[22px] h-[22px] grid place-items-center rounded-[5px] text-[#6e6e7a] hover:bg-white/[0.06] hover:text-[#f0f0f5] transition-colors";
 const btnOn = "bg-[#ff762f]/15 !text-[#ff762f]";
 
-export function Panel({ state, onChange, title, badge, icon, width, floatHeight, slot, children }: PanelProps) {
+export function Panel({ state, onChange, title, badge, icon, width, floatHeight, slot, defaultX = -12, children }: PanelProps) {
   const ref = useRef<HTMLDivElement>(null);
   const drag = useRef<{ sx: number; sy: number; ox: number; oy: number } | null>(null);
 
@@ -111,7 +113,7 @@ export function Panel({ state, onChange, title, badge, icon, width, floatHeight,
       height: floatHeight,
       maxHeight: "calc(100% - 24px)",
       top: state.y,
-      ...(state.x < 0 ? { right: 12 } : { left: state.x }),
+      ...(state.x < 0 ? { right: -state.x } : { left: state.x }),
     };
   } else if (autohide) {
     cls =
@@ -156,7 +158,7 @@ export function Panel({ state, onChange, title, badge, icon, width, floatHeight,
               <PanelRight className="w-3 h-3" />
             </button>
           ) : (
-            <button className={btn} title="Float panel" onClick={() => onChange({ mode: "floating", autohide: false, x: -1, y: 12 })}>
+            <button className={btn} title="Float panel" onClick={() => onChange({ mode: "floating", autohide: false, x: defaultX, y: 12 })}>
               <PictureInPicture2 className="w-3 h-3" />
             </button>
           )}

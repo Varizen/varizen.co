@@ -79,8 +79,8 @@ export function AiBrowserModal({ isOpen, onClose }: AiBrowserModalProps) {
   const [history, setHistory] = useState<string[]>(["https://www.varizen.co"]);
   const [historyIndex, setHistoryIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
-  const [aiPanel, setAiPanel] = useState<PanelState>(() => newPanel("docked", true));
-  const [zkPanel, setZkPanel] = useState<PanelState>(() => newPanel("floating", false));
+  const [aiPanel, setAiPanel] = useState<PanelState>(() => newPanel("floating", true, -12));
+  const [zkPanel, setZkPanel] = useState<PanelState>(() => newPanel("floating", true, -364));
   const patchAi = (p: Partial<PanelState>) => setAiPanel((s) => ({ ...s, ...p }));
   const patchZk = (p: Partial<PanelState>) => setZkPanel((s) => ({ ...s, ...p }));
   const [aiQuery, setAiQuery] = useState("");
@@ -497,6 +497,7 @@ export function AiBrowserModal({ isOpen, onClose }: AiBrowserModalProps) {
                 width={340}
                 floatHeight={560}
                 slot={0}
+                defaultX={-12}
               >
                   <div className="p-4 pb-3 flex flex-col gap-3.5">
                     <div className="flex items-center gap-2.5 px-3 py-2.5 rounded-lg border border-[#13d69a]/15 bg-gradient-to-br from-[#13d69a]/[0.06] to-transparent">
@@ -597,6 +598,7 @@ export function AiBrowserModal({ isOpen, onClose }: AiBrowserModalProps) {
                 icon={<User className="w-[18px] h-[18px]" strokeWidth={1.5} />}
                 width={300}
                 slot={aiPanel.open && aiPanel.mode === "min" ? 1 : 0}
+                defaultX={-364}
               >
                 <div className="p-4 flex flex-col gap-3.5 overflow-y-auto">
                   <div className="flex items-center gap-2.5">
