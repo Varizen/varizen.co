@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ZReflex by Varizen — Human Skill Game</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: linear-gradient(to bottom right, #0a0a0c, #121214, #1a1a1e);
+      color: white;
+      overflow: hidden;
+    }
+
+    .container {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      height: 4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.5rem;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), transparent);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      z-index: 20;
+    }
+
+    .logo-group {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .logo {
+      width: 2rem;
+      height: 2rem;
+      border-radius: 0.5rem;
+      background: linear-gradient(to bottom right, #FF6B35, #FF4500);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 1.25rem;
+    }
+
+    .logo-text h1 {
+      font-size: 1.25rem;
+      font-weight: bold;
+      letter-spacing: -0.02em;
+    }
+
+    .logo-text span {
+      font-size: 0.75rem;
+      color: #FF6B35;
+      font-weight: 600;
+      display: block;
+      line-height: 1;
+    }
+
+    .anti-cheat {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.02);
+      font-size: 0.75rem;
+      font-family: monospace;
+    }
+
+    .anti-cheat::before {
+      content: "🛡️";
+      font-size: 1rem;
+    }
+
+    #gameArea {
+      flex: 1;
+      position: relative;
+      background: radial-gradient(ellipse at center, rgba(255, 107, 53, 0.04), transparent);
+      overflow: hidden;
+    }
+
+    svg.grid {
+      position: absolute;
+      inset: 0;
+      opacity: 0.03;
+    }
+
+    .target {
+      position: absolute;
+      width: 4rem;
+      height: 4rem;
+      border-radius: 0.5rem;
+      border: 1px solid rgba(255, 107, 53, 0.5);
+      background: radial-gradient(circle, #FF6B35 0%, #FF4500 70%);
+      box-shadow: 0 0 30px rgba(255, 107, 53, 0.6), inset 0 0 20px rgba(255, 255, 255, 0.2);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.6, 1);
+      animation: pulse 1s infinite;
+    }
+
+    .target:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 40px rgba(255, 107, 53, 0.8), inset 0 0 20px rgba(255, 255, 255, 0.3);
+    }
+
+    .target.hit {
+      transform: scale(0.3);
+      opacity: 0;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.8;
+      }
+    }
+
+    .overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(4px);
+      background: rgba(0, 0, 0, 0.3);
+      z-index: 30;
+    }
+
+    .overlay.hidden {
+      display: none;
+    }
+
+    .countdown-text {
+      font-size: 8rem;
+      font-weight: 900;
+      color: #FF6B35;
+      animation: countdown-bounce 1s infinite;
+    }
+
+    @keyframes countdown-bounce {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+
+    .countdown-subtitle {
+      font-size: 0.875rem;
+      color: #999;
+      margin-top: 1rem;
+    }
+
+    .modal {
+      max-width: 40rem;
+      width: calc(100% - 2rem);
+      padding: 2rem;
+      border-radius: 1rem;
+      border: 1px solid rgba(255, 107, 53, 0.3);
+      background: linear-gradient(to bottom right, #1a1a1e, #0a0a0c);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+    }
+
+    .modal-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .modal-header .icon {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+    }
+
+    .modal-header h2 {
+      font-size: 2rem;
+      font-weight: 900;
+      margin-bottom: 0.5rem;
+    }
+
+    .modal-header p {
+      font-size: 0.875rem;
+      color: #999;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .stat-card {
+      padding: 1rem;
+      border-radius: 0.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .stat-value {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #FF6B35;
+    }
+
+    .stat-label {
+      font-size: 0.75rem;
+      color: #666;
+      margin-top: 0.25rem;
+    }
+
+    .mini-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+      text-align: center;
+      font-size: 0.875rem;
+    }
+
+    .mini-stat {
+      padding: 1rem 0.5rem;
+      border-radius: 0.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .mini-stat-icon {
+      font-size: 1rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .mini-stat-value {
+      font-weight: bold;
+      color: #FF6B35;
+    }
+
+    .mini-stat-label {
+      font-size: 0.7rem;
+      color: #666;
+      margin-top: 0.25rem;
+    }
+
+    .play-button {
+      width: 100%;
+      padding: 0.75rem;
+      border-radius: 0.5rem;
+      background: linear-gradient(to right, #FF6B35, #FF4500);
+      color: black;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      margin-bottom: 1.5rem;
+      transition: all 0.3s;
+    }
+
+    .play-button:hover {
+      box-shadow: 0 0 30px rgba(255, 107, 53, 0.4);
+      transform: translateY(-2px);
+    }
+
+    .fair-play-box {
+      padding: 1rem;
+      border-radius: 0.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.02);
+      text-align: center;
+      font-size: 0.75rem;
+    }
+
+    .fair-play-box p {
+      line-height: 1.5;
+    }
+
+    .fair-play-box strong {
+      color: #999;
+    }
+
+    .idle-button {
+      padding: 1.5rem 3rem;
+      border-radius: 0.75rem;
+      background: linear-gradient(to right, #FF6B35, #FF4500);
+      color: black;
+      font-weight: bold;
+      font-size: 1.25rem;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .idle-button:hover {
+      box-shadow: 0 0 40px rgba(255, 107, 53, 0.4);
+      transform: scale(1.05);
+    }
+
+    .stats-live {
+      position: absolute;
+      top: 5rem;
+      right: 1.5rem;
+      z-index: 20;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .stat-badge {
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(4px);
+      text-align: right;
+    }
+
+    .badge-value {
+      font-size: 1.25rem;
+      font-weight: 900;
+      color: #FF6B35;
+    }
+
+    .badge-label {
+      font-size: 0.75rem;
+      color: #999;
+    }
+
+    footer {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      text-align: center;
+      padding-bottom: 1.5rem;
+      font-weight: 900;
+      font-size: 0.875rem;
+      letter-spacing: 0.05em;
+      color: #444;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo-group">
+        <div class="logo">⚡</div>
+        <div class="logo-text">
+          <h1>ZReflex</h1>
+          <span>Human Skill Only</span>
+        </div>
+      </div>
+      <div class="anti-cheat">Anti-Cheat Verified</div>
+    </header>
+
+    <div id="gameArea">
+      <!-- Grid background -->
+      <svg class="grid" preserveAspectRatio="none">
+        <defs>
+          <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" stroke-width="0.5" />
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#grid)" />
+      </svg>
+
+      <!-- Live stats -->
+      <div class="stats-live hidden" id="statsLive">
+        <div class="stat-badge">
+          <div class="badge-value" id="liveScore">0</div>
+          <div class="badge-label">Score</div>
+        </div>
+        <div class="stat-badge">
+          <div class="badge-value" id="liveCombo">0x</div>
+          <div class="badge-label">Combo</div>
+        </div>
+        <div class="stat-badge">
+          <div class="badge-value" id="liveTime">0s</div>
+          <div class="badge-label">Time</div>
+        </div>
+      </div>
+
+      <!-- Countdown overlay -->
+      <div class="overlay hidden" id="countdownOverlay">
+        <div>
+          <div class="countdown-text" id="countdownText">3</div>
+          <p class="countdown-subtitle">Get ready to react...</p>
+        </div>
+      </div>
+
+      <!-- Game over overlay -->
+      <div class="overlay hidden" id="gameOverOverlay">
+        <div class="modal">
+          <div class="modal-header">
+            <div class="icon">🏆</div>
+            <h2>Challenge Complete!</h2>
+            <p>Your skill is being verified...</p>
+          </div>
+
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-value" id="finalScore">0</div>
+              <div class="stat-label">SCORE</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-value" id="finalAccuracy">0%</div>
+              <div class="stat-label">ACCURACY</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-value" id="finalReaction">0ms</div>
+              <div class="stat-label">AVG REACTION</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-value" id="finalRank">#1</div>
+              <div class="stat-label">LEADERBOARD</div>
+            </div>
+          </div>
+
+          <div class="mini-stats">
+            <div class="mini-stat">
+              <div class="mini-stat-icon">🔥</div>
+              <div class="mini-stat-value" id="finalCombo">0</div>
+              <div class="mini-stat-label">Max Combo</div>
+            </div>
+            <div class="mini-stat">
+              <div class="mini-stat-icon">🎯</div>
+              <div class="mini-stat-value" id="finalHits">0/0</div>
+              <div class="mini-stat-label">Hits</div>
+            </div>
+            <div class="mini-stat">
+              <div class="mini-stat-icon">⏱️</div>
+              <div class="mini-stat-value" id="finalDifficulty">1x</div>
+              <div class="mini-stat-label">Difficulty</div>
+            </div>
+          </div>
+
+          <button class="play-button" onclick="startGame()">Play Again</button>
+
+          <div class="fair-play-box">
+            <p>🔐 <strong>Fair-Play Verified:</strong> No AI, bots, or macros detected.</p>
+            <p style="margin-top: 0.5rem; color: #666;">Your skill is genuine. Keep improving and climb the leaderboard.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Idle state -->
+      <div class="overlay" id="idleOverlay">
+        <button class="idle-button" onclick="startGame()">PLAY. REACT. IMPROVE.</button>
+      </div>
+    </div>
+
+    <footer>PLAY. REACT. IMPROVE. EARN. — ZReflex by Varizen</footer>
+  </div>
+
+  <script>
+    let gameState = "idle"; // idle, countdown, playing, ended
+    let countdown = 3;
+    let score = 0;
+    let combo = 0;
+    let maxCombo = 0;
+    let taps = 0;
+    let hits = 0;
+    let reactionTime = 0;
+    let accuracy = 0;
+    let difficulty = 1;
+    let elapsed = 0;
+    let startTime = 0;
+    let targets = [];
+    let targetId = 0;
+
+    const gameArea = document.getElementById("gameArea");
+    const countdownOverlay = document.getElementById("countdownOverlay");
+    const gameOverOverlay = document.getElementById("gameOverOverlay");
+    const idleOverlay = document.getElementById("idleOverlay");
+    const statsLive = document.getElementById("statsLive");
+    const countdownText = document.getElementById("countdownText");
+
+    function startGame() {
+      gameState = "countdown";
+      countdown = 3;
+      score = 0;
+      combo = 0;
+      maxCombo = 0;
+      taps = 0;
+      hits = 0;
+      reactionTime = 0;
+      accuracy = 0;
+      difficulty = 1;
+      elapsed = 0;
+      targets = [];
+      targetId = 0;
+
+      updateOverlays();
+      countdownLoop();
+    }
+
+    function countdownLoop() {
+      if (countdown > 0) {
+        countdownText.textContent = countdown;
+        countdown--;
+        setTimeout(countdownLoop, 1000);
+      } else {
+        countdownText.textContent = "GO!";
+        setTimeout(() => {
+          gameState = "playing";
+          startTime = Date.now();
+          updateOverlays();
+          gameLoop();
+          spawnLoop();
+        }, 500);
+      }
+    }
+
+    function gameLoop() {
+      if (gameState !== "playing") return;
+
+      elapsed = (Date.now() - startTime) / 1000;
+      difficulty = Math.floor(elapsed / 10) + 1;
+
+      document.getElementById("liveScore").textContent = Math.floor(score);
+      document.getElementById("liveCombo").textContent = combo + "x";
+      document.getElementById("liveTime").textContent = Math.floor(elapsed) + "s";
+
+      if (elapsed > 30) {
+        endGame();
+        return;
+      }
+
+      requestAnimationFrame(gameLoop);
+    }
+
+    function spawnLoop() {
+      if (gameState !== "playing") return;
+
+      const spawnInterval = Math.max(300, 1000 - difficulty * 50);
+
+      const rect = gameArea.getBoundingClientRect();
+      const x = Math.random() * (rect.width - 240); // 60px target
+      const y = Math.random() * (rect.height - 240);
+
+      const target = document.createElement("button");
+      target.className = "target";
+      target.innerHTML = "🎯";
+      target.style.left = x + "px";
+      target.style.top = y + "px";
+
+      const id = targetId++;
+      let isHit = false;
+      const timestamp = Date.now();
+
+      target.onclick = (e) => {
+        e.stopPropagation();
+        if (isHit || gameState !== "playing") return;
+        isHit = true;
+
+        taps++;
+        hits++;
+        const hitTime = Date.now() - timestamp;
+        reactionTime = hitTime;
+        combo++;
+        if (combo > maxCombo) maxCombo = combo;
+
+        const points = Math.max(10, 100 - hitTime * 0.2) * difficulty * (1 + combo * 0.1);
+        score += Math.floor(points);
+
+        target.classList.add("hit");
+        setTimeout(() => target.remove(), 300);
+      };
+
+      gameArea.appendChild(target);
+
+      setTimeout(() => {
+        if (!isHit) {
+          taps++;
+          combo = 0;
+        }
+        if (target.parentNode) target.remove();
+      }, 2000);
+
+      setTimeout(spawnLoop, spawnInterval);
+    }
+
+    function endGame() {
+      gameState = "ended";
+      accuracy = taps > 0 ? Math.floor((hits / taps) * 100) : 0;
+      const leaderboardRank = Math.max(1, Math.floor(150 - score / 20));
+
+      document.getElementById("finalScore").textContent = Math.floor(score);
+      document.getElementById("finalAccuracy").textContent = accuracy + "%";
+      document.getElementById("finalReaction").textContent = Math.round(reactionTime) + "ms";
+      document.getElementById("finalRank").textContent = "#" + leaderboardRank;
+      document.getElementById("finalCombo").textContent = maxCombo;
+      document.getElementById("finalHits").textContent = hits + "/" + taps;
+      document.getElementById("finalDifficulty").textContent = difficulty + "x";
+
+      updateOverlays();
+      
+      // Clear targets
+      gameArea.querySelectorAll(".target").forEach(t => t.remove());
+    }
+
+    function updateOverlays() {
+      countdownOverlay.classList.toggle("hidden", gameState !== "countdown");
+      gameOverOverlay.classList.toggle("hidden", gameState !== "ended");
+      idleOverlay.classList.toggle("hidden", gameState !== "idle");
+      statsLive.classList.toggle("hidden", gameState !== "playing");
+    }
+
+    // Miss on area click
+    gameArea.addEventListener("click", (e) => {
+      if (gameState === "playing" && e.target === gameArea) {
+        taps++;
+        combo = 0;
+      }
+    });
+
+    updateOverlays();
+  </script>
+</body>
+</html>

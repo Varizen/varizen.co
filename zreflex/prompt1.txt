@@ -1,0 +1,11 @@
+Create a polished animated demo for **ZReflex by Varizen**, a human-skill reaction game.
+
+Show the complete flow: **Start → 3-second countdown → random targets appear → player taps targets rapidly → speed and difficulty increase → challenge ends → score, accuracy, reaction time, leaderboard rank and reward appear.**
+
+Use fast, smooth micro-animations, realistic tap feedback, glowing targets, score/combo updates and seamless transitions. Clearly communicate **“Human Skill Only — No AI, Bots or Macros”**, with anti-cheat verification and fair-play messaging.
+
+Visual style: **premium Varizen Titanium**, dark charcoal/black, white, Varizen orange #FF6B35, subtle neon accents, glass panels, precise typography, minimal futuristic enterprise UI.
+
+End with: **“PLAY. REACT. IMPROVE. EARN.” — ZReflex by Varizen.**
+
+Make it feel like a real production-ready mobile game/product demo, not a static mockup.
