@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ZSee by Varizen — Do You See What I See?</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: linear-gradient(to bottom right, #0a0a0c, #121214, #1a1a1e);
+      color: white;
+      overflow: hidden;
+    }
+
+    .screen {
+      width: 100vw;
+      height: 100vh;
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      inset: 0;
+    }
+
+    .screen.active {
+      display: flex;
+    }
+
+    /* Menu Screen */
+    #menuScreen {
+      align-items: center;
+      justify-content: center;
+    }
+
+    .menu-content {
+      text-align: center;
+      max-width: 600px;
+      padding: 2rem;
+    }
+
+    .menu-content h2 {
+      font-size: 3rem;
+      font-weight: 900;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .menu-content .highlight {
+      color: #FF6B35;
+    }
+
+    .menu-content .tagline {
+      font-size: 1.125rem;
+      color: #999;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      margin-bottom: 2rem;
+    }
+
+    .menu-content p {
+      font-size: 0.875rem;
+      color: #666;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .stats-preview {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .stat-box {
+      padding: 1.5rem;
+      border-radius: 0.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .stat-label {
+      font-size: 0.75rem;
+      color: #666;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-value {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #FF6B35;
+    }
+
+    .btn-primary {
+      padding: 1rem 3rem;
+      border-radius: 0.75rem;
+      background: linear-gradient(to right, #FF6B35, #FF4500);
+      color: black;
+      font-weight: bold;
+      font-size: 1rem;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s;
+      margin-bottom: 2rem;
+    }
+
+    .btn-primary:hover {
+      box-shadow: 0 0 40px rgba(255, 107, 53, 0.4);
+      transform: scale(1.05);
+    }
+
+    .fair-play-box {
+      padding: 1.5rem;
+      border-radius: 0.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.02);
+      font-size: 0.75rem;
+      line-height: 1.6;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      text-align: center;
+      font-size: 0.75rem;
+    }
+
+    .feature-item {
+      color: #666;
+    }
+
+    .feature-icon {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Countdown Screen */
+    #countdownScreen {
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(to bottom right, #0a0a0c, #121214, #1a1a1e);
+    }
+
+    .countdown-content {
+      text-align: center;
+    }
+
+    .level-text {
+      font-size: 1.5rem;
+      color: #666;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    .countdown-number {
+      font-size: 6rem;
+      font-weight: 900;
+      color: #FF6B35;
+      animation: bounce 1s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+
+    .countdown-text {
+      font-size: 0.875rem;
+      color: #666;
+      margin-top: 1rem;
+    }
+
+    /* Viewing Screen */
+    #viewingScreen {
+      position: relative;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .viewing-timer {
+      position: absolute;
+      top: 2rem;
+      right: 2rem;
+      text-align: right;
+    }
+
+    .viewing-time {
+      font-size: 2rem;
+      font-weight: 900;
+    }
+
+    .viewing-label {
+      font-size: 0.75rem;
+      color: rgba(255, 255, 255, 0.6);
+      margin-top: 0.25rem;
+    }
+
+    .viewing-scene-name {
+      position: absolute;
+      top: 2rem;
+      left: 2rem;
+      font-size: 0.875rem;
+      color: rgba(255, 255, 255, 0.8);
+      font-weight: 600;
+    }
+
+    .scene-emoji {
+      font-size: 5rem;
+      animation: pulse 1s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.8; }
+    }
+
+    /* Answering Screen */
+    #answeringScreen {
+      flex-direction: column;
+    }
+
+    .answer-header {
+      height: 4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.5rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .question-counter {
+      font-size: 0.875rem;
+      color: #666;
+    }
+
+    .answer-stats {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .stat-item {
+      text-align: right;
+    }
+
+    .stat-item-value {
+      font-size: 1.5rem;
+      font-weight: 900;
+    }
+
+    .stat-item-label {
+      font-size: 0.75rem;
+      color: #666;
+      margin-top: 0.25rem;
+    }
+
+    .answer-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .question-text {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 3rem;
+      max-width: 600px;
+      text-align: center;
+    }
+
+    .options-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      max-width: 500px;
+      width: 100%;
+    }
+
+    .option-button {
+      padding: 1.5rem;
+      border-radius: 0.5rem;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.02);
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .option-button:hover:not(:disabled) {
+      border-color: #FF6B35;
+      background: rgba(255, 107, 53, 0.05);
+    }
+
+    .option-button:disabled {
+      cursor: default;
+    }
+
+    .option-button.correct {
+      border-color: #22c55e;
+      background: rgba(34, 197, 94, 0.1);
+    }
+
+    .option-button.wrong {
+      border-color: #ef4444;
+      background: rgba(239, 68, 68, 0.1);
+    }
+
+    /* Feedback Screen */
+    .feedback-content {
+      text-align: center;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .feedback-icon {
+      font-size: 6rem;
+      margin-bottom: 1rem;
+      animation: bounce 1s infinite;
+    }
+
+    .feedback-title {
+      font-size: 2.5rem;
+      font-weight: 900;
+      margin-bottom: 1rem;
+    }
+
+    .feedback-points {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #FF6B35;
+      margin-bottom: 2rem;
+    }
+
+    .feedback-stats {
+      display: flex;
+      gap: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .feedback-stat {
+      text-align: center;
+      font-size: 0.875rem;
+    }
+
+    .feedback-stat-value {
+      font-size: 1.25rem;
+      font-weight: 900;
+    }
+
+    .feedback-message {
+      font-size: 0.875rem;
+      color: #666;
+      margin-top: 1rem;
+    }
+
+    /* Complete Screen */
+    #completeScreen {
+      flex-direction: column;
+    }
+
+    .complete-header {
+      height: 4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.5rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .complete-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .complete-icon {
+      font-size: 5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .complete-title {
+      font-size: 2.5rem;
+      font-weight: 900;
+      margin-bottom: 0.5rem;
+    }
+
+    .complete-subtitle {
+      font-size: 0.875rem;
+      color: #666;
+      margin-bottom: 3rem;
+    }
+
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      max-width: 500px;
+      width: 100%;
+      margin-bottom: 2rem;
+    }
+
+    .result-card {
+      padding: 1.5rem;
+      border-radius: 0.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.02);
+      text-align: center;
+    }
+
+    .result-value {
+      font-size: 2rem;
+      font-weight: 900;
+      margin-bottom: 0.5rem;
+    }
+
+    .result-label {
+      font-size: 0.75rem;
+      color: #666;
+    }
+
+    .complete-footer {
+      height: 3rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      color: #444;
+    }
+  </style>
+</head>
+<body>
+  <!-- Menu Screen -->
+  <div id="menuScreen" class="screen active">
+    <div class="menu-content">
+      <h2>Do You See <span class="highlight">What I See?</span></h2>
+      <p class="tagline">LOOK. REMEMBER. ANSWER. EARN.</p>
+      <p>
+        Test your visual perception in a challenging game of observation. Watch scenes carefully,
+        remember what you saw, and answer questions about what you observed.
+      </p>
+
+      <div class="stats-preview">
+        <div class="stat-box">
+          <div class="stat-label">Challenges</div>
+          <div class="stat-value">5</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">Difficulty</div>
+          <div class="stat-value">Progressive</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">Rewards</div>
+          <div class="stat-value">Points+</div>
+        </div>
+      </div>
+
+      <button class="btn-primary" onclick="startGame()">START CHALLENGE →</button>
+
+      <div class="fair-play-box">
+        🔐 <strong>Fair-Play Verified:</strong> Real human skills only. No AI assistance, no bots, no macros.
+      </div>
+    </div>
+
+    <div class="features">
+      <div class="feature-item">
+        <div class="feature-icon">🧠</div>
+        <div>Memory Test</div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">👁️</div>
+        <div>Visual Perception</div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">⏱️</div>
+        <div>Speed Challenge</div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">🏆</div>
+        <div>Earn Rewards</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Countdown Screen -->
+  <div id="countdownScreen" class="screen">
+    <div class="countdown-content">
+      <div class="level-text" id="levelText">Level 1</div>
+      <div class="countdown-number" id="countdownNum">3</div>
+      <p class="countdown-text">Get ready to observe carefully...</p>
+    </div>
+  </div>
+
+  <!-- Viewing Screen -->
+  <div id="viewingScreen" class="screen" style="background: linear-gradient(to bottom right, #1a472a, #0f5e3d);">
+    <div class="viewing-scene-name" id="sceneName">Scene: Cozy Room</div>
+    <div class="scene-emoji">🏠</div>
+    <div class="viewing-timer">
+      <div class="viewing-time" id="viewingTime">4.0s</div>
+      <div class="viewing-label">LOOK CAREFULLY</div>
+    </div>
+  </div>
+
+  <!-- Answering Screen -->
+  <div id="answeringScreen" class="screen">
+    <div class="answer-header">
+      <div class="question-counter" id="questionCounter">Question 1 of 5</div>
+      <div class="answer-stats">
+        <div class="stat-item">
+          <div class="stat-item-value" id="scoreDisplay">0</div>
+          <div class="stat-item-label">Points</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-item-value" id="accuracyDisplay">0%</div>
+          <div class="stat-item-label">Accuracy</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-item-value" id="streakDisplay">0x</div>
+          <div class="stat-item-label">Streak</div>
+        </div>
+      </div>
+    </div>
+    <div class="answer-content">
+      <div class="question-text" id="questionText">What changed in the scene?</div>
+      <div class="options-grid" id="optionsGrid"></div>
+    </div>
+  </div>
+
+  <!-- Complete Screen -->
+  <div id="completeScreen" class="screen">
+    <div class="complete-header">
+      <h1 style="font-size: 1.25rem; font-weight: bold;">Challenge Complete</h1>
+      <div>🏆</div>
+    </div>
+    <div class="complete-content">
+      <div class="complete-icon">🏆</div>
+      <h2 class="complete-title">Challenge Complete!</h2>
+      <p class="complete-subtitle">Your perception skills have been verified.</p>
+
+      <div class="results-grid">
+        <div class="result-card">
+          <div class="result-value" id="finalScore">0</div>
+          <div class="result-label">Total Score</div>
+        </div>
+        <div class="result-card">
+          <div class="result-value" id="finalAccuracy">0%</div>
+          <div class="result-label">Accuracy</div>
+        </div>
+        <div class="result-card">
+          <div class="result-value" id="finalCorrect">0/5</div>
+          <div class="result-label">Correct</div>
+        </div>
+        <div class="result-card">
+          <div class="result-value" id="finalRank">#150</div>
+          <div class="result-label">Rank</div>
+        </div>
+      </div>
+
+      <button class="btn-primary" onclick="startGame()">PLAY AGAIN →</button>
+
+      <div class="fair-play-box">
+        🔐 <strong>Fair-Play Verified:</strong> No AI assistance, bots, or macros detected. Your score is genuine.
+      </div>
+    </div>
+    <div class="complete-footer">
+      LOOK. REMEMBER. ANSWER. EARN. — ZSee by Varizen
+    </div>
+  </div>
+
+  <script>
+    const CHALLENGES = [
+      { type: "missing", question: "Which object was missing?", options: ["Red car", "Plant pot", "Coffee mug", "Laptop"], correct: 0, viewTime: 4000, sceneName: "Cozy Room", emoji: "🏠" },
+      { type: "changed", question: "What changed in the scene?", options: ["Color of sofa", "Position of lamp", "Number of pillows", "Door color"], correct: 1, viewTime: 3500, sceneName: "Living Room", emoji: "🛋️" },
+      { type: "appeared", question: "What object appeared?", options: ["Phone", "Book", "Cup", "Picture frame"], correct: 2, viewTime: 3000, sceneName: "Study Desk", emoji: "📚" },
+      { type: "memory", question: "How many objects were in the scene?", options: ["8", "10", "12", "15"], correct: 2, viewTime: 2500, sceneName: "Kitchen", emoji: "🍽️" },
+      { type: "missing", question: "Which color was missing?", options: ["Purple", "Yellow", "Green", "Red"], correct: 1, viewTime: 2000, sceneName: "Art Gallery", emoji: "🎨" },
+    ];
+
+    let gameState = "menu";
+    let currentChallenge = 0;
+    let score = 0;
+    let accuracy = 0;
+    let correct = 0;
+    let streak = 0;
+    let level = 1;
+    let countdown = 3;
+    let viewing = 0;
+    let answered = null;
+    let totalTaps = 0;
+
+    function showScreen(screenId) {
+      document.querySelectorAll(".screen").forEach(s => s.classList.remove("active"));
+      document.getElementById(screenId).classList.add("active");
+    }
+
+    function startGame() {
+      gameState = "countdown";
+      currentChallenge = 0;
+      score = 0;
+      accuracy = 0;
+      correct = 0;
+      streak = 0;
+      level = 1;
+      totalTaps = 0;
+      countdown = 3;
+      answered = null;
+      showScreen("countdownScreen");
+      countdownLoop();
+    }
+
+    function countdownLoop() {
+      if (gameState !== "countdown") return;
+      if (countdown > 0) {
+        document.getElementById("countdownNum").textContent = countdown;
+        document.getElementById("levelText").textContent = `Level ${level}`;
+        countdown--;
+        setTimeout(countdownLoop, 1000);
+      } else {
+        gameState = "viewing";
+        startViewingPhase();
+      }
+    }
+
+    function startViewingPhase() {
+      const challenge = CHALLENGES[currentChallenge];
+      viewing = challenge.viewTime / 1000;
+      document.getElementById("sceneName").textContent = `Scene: ${challenge.sceneName}`;
+      document.querySelector(".scene-emoji").textContent = challenge.emoji;
+      showScreen("viewingScreen");
+      viewingLoop();
+    }
+
+    function viewingLoop() {
+      if (gameState !== "viewing") return;
+      viewing -= 0.1;
+      document.getElementById("viewingTime").textContent = viewing.toFixed(1) + "s";
+      if (viewing > 0) {
+        setTimeout(viewingLoop, 100);
+      } else {
+        startAnsweringPhase();
+      }
+    }
+
+    function startAnsweringPhase() {
+      gameState = "answering";
+      const challenge = CHALLENGES[currentChallenge];
+      document.getElementById("questionCounter").textContent = `Question ${currentChallenge + 1} of ${CHALLENGES.length}`;
+      document.getElementById("questionText").textContent = challenge.question;
+      
+      const grid = document.getElementById("optionsGrid");
+      grid.innerHTML = "";
+      challenge.options.forEach((option, idx) => {
+        const btn = document.createElement("button");
+        btn.className = "option-button";
+        btn.textContent = option;
+        btn.onclick = () => selectAnswer(idx);
+        grid.appendChild(btn);
+      });
+      
+      answered = null;
+      showScreen("answeringScreen");
+      updateStats();
+    }
+
+    function selectAnswer(idx) {
+      if (gameState !== "answering" || answered !== null) return;
+      
+      answered = idx;
+      totalTaps++;
+      const challenge = CHALLENGES[currentChallenge];
+      const buttons = document.querySelectorAll(".option-button");
+      
+      const isCorrect = idx === challenge.correct;
+      if (isCorrect) {
+        buttons[idx].classList.add("correct");
+        correct++;
+        streak++;
+        const difficultyMultiplier = level;
+        const points = Math.floor(100 * difficultyMultiplier + (200 - streak * 10));
+        score += points;
+      } else {
+        buttons[idx].classList.add("wrong");
+        buttons[challenge.correct].classList.add("correct");
+        streak = 0;
+      }
+      
+      accuracy = Math.floor((correct / (currentChallenge + 1)) * 100);
+      updateStats();
+      
+      setTimeout(nextQuestion, 2500);
+    }
+
+    function updateStats() {
+      document.getElementById("scoreDisplay").textContent = score;
+      document.getElementById("accuracyDisplay").textContent = accuracy + "%";
+      document.getElementById("streakDisplay").textContent = streak + "x";
+    }
+
+    function nextQuestion() {
+      if (currentChallenge < CHALLENGES.length - 1) {
+        currentChallenge++;
+        level++;
+        countdown = 3;
+        startGame();
+      } else {
+        endGame();
+      }
+    }
+
+    function endGame() {
+      gameState = "complete";
+      const rank = Math.max(1, Math.floor(150 - score / 20));
+      document.getElementById("finalScore").textContent = score;
+      document.getElementById("finalAccuracy").textContent = accuracy + "%";
+      document.getElementById("finalCorrect").textContent = correct + "/" + CHALLENGES.length;
+      document.getElementById("finalRank").textContent = "#" + rank;
+      showScreen("completeScreen");
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+Create **ZSee by Varizen** — a skill-based visual perception game called **“Do You See What I See?”**
+
+Players briefly observe a randomly generated scene, then answer what they saw, what changed, what disappeared, or where an object appeared. Progressively reduce viewing time and increase visual complexity.
+
+Core loop: **LOOK → REMEMBER → ANSWER → VERIFY → SCORE → REWARD.**
+
+Include randomized challenges, multiple game modes, adaptive difficulty, reaction/accuracy scoring, leaderboards, anti-bot/anti-AI assistance detection, and fair-play verification.
+
+Use a premium **Varizen Titanium** aesthetic: minimal, futuristic, dark charcoal, white, #FF6B35 orange, subtle neon/glass UI, precise typography, smooth micro-animations.
+
+**Human skill. No AI assistance. No bots. No macros. Real performance, verified rewards.**
