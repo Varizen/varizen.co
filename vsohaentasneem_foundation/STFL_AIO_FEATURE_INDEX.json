@@ -1,0 +1,1547 @@
+{
+  "system": "STFL Autonomous Enterprise Platform (STFL AIO)",
+  "index_type": "FEATURE_CATALOG_MASTER",
+  "document_id": "STFL-JSON-2026-FEAT-IDX-V1",
+  "master_version": "1.0.0",
+  "generated_at": "2026-10-15T14:15:00+08:00",
+  "attribution": "Made with love from Dhaka, Kuala Lumpur, Wyoming and Varizen Inc.",
+  "production_verification_status": "PENDING (Prompt 13 Gate Closed)",
+  "total_features": 40,
+  "features": [
+    {
+      "id": "FEAT-001",
+      "name": "Hardware Device Attestation Substrate",
+      "category": "Core Security",
+      "description": "Hardware-backed cryptographic device attestation using Android KeyStore RSA/EC keys and challenge-response nonces.",
+      "current_status": "TESTED",
+      "owner": "Security Team / Prompt 1",
+      "canonical_implementation": "apk/security/src/main/java/org/stfl/security/DeviceIdentityProvider.kt",
+      "database_dependency": "device_registrations",
+      "api_dependency": "/api/v1/auth/device-attest",
+      "android_dependency": "apk/security/...",
+      "web_dependency": "WebAuthn / FIDO2 Browser Attestation",
+      "agent_dependency": "None (Agents use software keystores)",
+      "security_classification": "CRITICAL_TIER_1",
+      "project_applicability": "PLATFORM-WIDE",
+      "can_add": true,
+      "can_modify": false,
+      "can_remove": false,
+      "can_replace": false,
+      "dependencies": [
+        "PostgreSQL 16",
+        "Android KeyStore"
+      ],
+      "dependents": [
+        "FEAT-002",
+        "FEAT-005",
+        "FEAT-018"
+      ],
+      "related_documents": [
+        "STFL_AIO_SECURITY_MODEL.md",
+        "STFL_AIO_PHASE_1_IMPLEMENTATION_REPORT.md"
+      ],
+      "related_prompts": [
+        "Prompt 1",
+        "Prompt 2"
+      ],
+      "related_tests": [
+        "apk/api/test/api.test.ts"
+      ],
+      "known_risks": "Dev environment uses software mock fallback when hardware token unavailable.",
+      "production_status": "PENDING_HARDWARE_VERIFICATION"
+    },
+    {
+      "id": "FEAT-002",
+      "name": "Device Binding & Instant Revocation Ledger",
+      "category": "Core Security",
+      "description": "Cryptographic binding of STFL-DVC-* IDs to user identities with instant multi-project session cascade revocation.",
+      "current_status": "TESTED",
+      "owner": "IAM Team / Prompt 1",
+      "canonical_implementation": "apk/api/src/middleware.ts",
+      "database_dependency": "device_registrations, user_sessions",
+      "api_dependency": "/api/v1/auth/revoke-device",
+      "android_dependency": "apk/security/DeviceBindingService.kt",
+      "web_dependency": "apk/web/src/app/admin/devices/page.tsx",
+      "agent_dependency": "None",
+      "security_classification": "CRITICAL_TIER_1",
+      "project_applicability": "PLATFORM-WIDE",
+      "can_add": true,
+      "can_modify": false,
+      "can_remove": false,
+      "can_replace": false,
+      "dependencies": [
+        "FEAT-001"
+      ],
+      "dependents": [
+        "FEAT-005"
+      ],
+      "related_documents": [
+        "STFL_AIO_SECURITY_MODEL.md"
+      ],
+      "related_prompts": [
+        "Prompt 1",
+        "Prompt 2"
+      ],
+      "related_tests": [
+        "apk/api/test/api.test.ts"
+      ],
+      "known_risks": "Network disconnect during revocation handled via short JWT expiry (15 min).",
+      "production_status": "TESTED_IN_CI"
+    },
+    {
+      "id": "FEAT-003",
+      "name": "10-Dimensional Enterprise Audit Substrate",
+      "category": "Core Security",
+      "description": "Immutable append-only enterprise audit trail logging 10 essential dimensions with SHA-256 integrity hashing.",
+      "current_status": "TESTED",
+      "owner": "Audit Team / Prompt 3",
+      "canonical_implementation": "apk/api/migrations/0002_aio_parties_iam.sql",
+      "database_dependency": "enterprise_audit_logs",
+      "api_dependency": "apk/api/src/repositories/audit.ts",
+      "android_dependency": "apk/core/AuditLogger.kt",
+      "web_dependency": "apk/web/src/app/admin/audit/page.tsx",
+      "agent_dependency": "AuditLogged hook",
+      "security_classification": "CONSTITUTIONAL",
+      "project_applicability": "PLATFORM-WIDE",
+      "can_add": true,
+      "can_modify": false,
+      "can_remove": false,
+      "can_replace": false,
+      "dependencies": [
+        "PostgreSQL 16"
+      ],
+      "dependents": [
+        "FEAT-004",
+        "FEAT-005",
+        "FEAT-007",
+        "FEAT-015"
+      ],
+      "related_documents": [
+        "STFL_AUDIT_MODEL.md",
+        "STFL_AIO_PHASE_2_DATABASE_REPORT.md"
+      ],
+      "related_prompts": [
+        "Prompt 3",
+        "Prompt 4"
+      ],
+      "related_tests": [
+        "apk/api/test/migration_destructive.test.ts"
+      ],
+      "known_risks": "High-throughput tables require monthly partition pruning into cold storage.",
+      "production_status": "TESTED_IN_CI"
+    },
+    {
+      "id": "FEAT-004",
+      "name": "PostgreSQL Trigger-Enforced Audit Immutability",
+      "category": "Core Security",
+      "description": "Database-level trigger aborting any UPDATE or DELETE operation on enterprise_audit_logs.",
+      "current_status": "TESTED",
+      "owner": "Database Admin / Prompt 3",
+      "canonical_implementation": "apk/api/migrations/0002_aio_parties_iam.sql (prevent_audit_log_mutation)",
+      "database_dependency": "enterprise_audit_logs",
+      "api_dependency": "None (Database PL/pgSQL Engine)",
+      "android_dependency": "None",
+      "web_dependency": "None",
+      "agent_dependency": "None",
+      "security_classification": "CONSTITUTIONAL",
+      "project_applicability": "PLATFORM-WIDE",
+      "can_add": false,
+      "can_modify": false,
+      "can_remove": false,
+      "can_replace": false,
+      "dependencies": [
+        "FEAT-003"
+      ],
+      "dependents": [
+        "All system mutations"
+      ],
+      "related_documents": [
+        "STFL_AIO_CONSTITUTION.md"
+      ],
+      "related_prompts": [
+        "Prompt 3",
+        "Prompt 4"
+      ],
+      "related_tests": [
+        "apk/api/test/migration_destructive.test.ts"
+      ],
+      "known_risks": "Requires raw DB superuser privileges to disable (blocked via RDS/Managed PG IAM).",
+      "production_status": "TESTED_IN_CI"
+    },
+    {
+      "id": "FEAT-005",
+      "name": "13-Dimensional Contextual Authorization Engine",
+      "category": "Governance",
+      "description": "Multi-dimensional server-side policy evaluation across classes, roles, units, scopes, devices, and training status.",
+      "current_status": "TESTED",
+      "owner": "Security Team / Prompt 5",
+      "canonical_implementation": "apk/api/src/authorization/engine.ts",
+      "database_dependency": "iam_workspace_policies",
+      "api_dependency": "apk/api/src/middleware.ts",
+      "android_dependency": "apk/security/AuthorizationHeaderInterceptor.kt",
+      "web_dependency": "apk/web/src/app/admin/layout.tsx",
+      "agent_dependency": "Agent tool permission boundary",
+      "security_classification": "CRITICAL_TIER_1",
+      "project_applicability": "PLATFORM-WIDE",
+      "can_add": true,
+      "can_modify": true,
+      "can_remove": false,
+      "can_replace": false,
+      "dependencies": [
+        "FEAT-001",
+        "FEAT-003"
+      ],
+      "dependents": [
+        "FEAT-007",
+        "FEAT-018",
+        "FEAT-034"
+      ],
+      "related_documents": [
+        "STFL_AUTHORIZATION_MODEL.md",
+        "STFL_AIO_PHASE_3_AUTHORIZATION_REPORT.md"
+      ],
+      "related_prompts": [
+        "Prompt 5"
+      ],
+      "related_tests": [
+        "apk/api/test/authorization_engine.test.ts"
+      ],
+      "known_risks": "Complex policy rules must be cached in memory to maintain <10ms gateway latency.",
+      "production_status": "TESTED_IN_CI"
+    },
+    {
+      "id": "FEAT-006",
+      "name": "Dynamic Workspace Policy Enforcement",
+      "category": "Governance",
+      "description": "Database-driven console access policies eliminating hard-coded client-side authorization.",
+      "current_status": "TESTED",
+      "owner": "IAM Lead / Prompt 5",
+      "canonical_implementation": "apk/api/src/authorization/engine.ts",
+      "database_dependency": "iam_workspace_policies",
+      "api_dependency": "/api/v1/auth/policies",
+      "android_dependency": "apk/data/PolicyRepository.kt",
+      "web_dependency": "apk/web/src/app/admin/...",
+      "agent_dependency": "None",
+      "security_classification": "HIGH",
+      "project_applicability": "PLATFORM-WIDE",
+      "can_add": true,
+      "can_modify": true,
+      "can_remove": false,
+      "can_replace": false,
+      "dependencies": [
+        "FEAT-005"
+      ],
+      "dependents": [
+        "FEAT-018"
+      ],
+      "related_documents": [
+        "STFL_AIO_USER_CLASS_WORKSPACE_MATRIX.md"
+      ],
+      "related_prompts": [
+        "Prompt 5",
+        "Prompt 12.5"
+      ],
+      "related_tests": [
+        "apk/api/test/authorization_engine.test.ts"
+      ],
+      "known_risks": "Policy misconfiguration could lock out unit heads (mitigated by Super Admin oversight).",
+      "production_status": "TESTED_IN_CI"
+    },
+    {
+      "id": "FEAT-007",
+      "name": "Dual-Custody Approval Engine",
+      "category": "Governance",
+      "description": "Constitutional anti-collusion engine enforcing creator != approver across all financial, lease, and policy mutations.",
+      "current_status": "TESTED",
+      "owner": "Finance & Audit / Prompt 6",
+      "canonical_implementation": "apk/api/src/approval/engine.ts",
+      "database_dependency": "approval_requests, approval_signatures",
+      "api_dependency": "/api/v1/approvals/*",
+      "android_dependency": "apk/app/src/main/java/.../ApprovalDetailScreen.kt",
+      "web_dependency": "apk/web/src/app/admin/approvals/page.tsx",
+      "agent_dependency": "Agents cannot self-approve",
+      "security_classification": "CONSTITUTIONAL",
+      "project_applicability": "PLATFORM-WIDE",
+      "can_add": true,
+      "can_modify": false,
+      "can_remove": false,
+      "can_replace": false,
+      "dependencies": [
+        "FEAT-003",
+        "FEAT-005"
+      ],
+      "dependents": [
+        "FEAT-008",
+        "FEAT-015",
+        "FEAT-028"
+      ],
+      "related_documents": [
+        "STFL_APPROVAL_ENGINE.md",
+        "STFL_AIO_PHASE_4_APPROVAL_REPORT.md"
+      ],
+      "related_prompts": [
+        "Prompt 6"
+      ],
+      "related_tests": [
+        "apk/api/test/approval_engine.test.ts"
+      ],
+      "known_risks": "Deadlocks avoided via delegation to Relief Moderator B or Unit Supervisor.",
+      "production_status": "TESTED_IN_CI"
+    },
+    {
+      "id": "FEAT-008",
+      "name": "Anti-Collusion Separation of Duties Verifier",
+      "category": "Governance",
+      "description": "Automated verification that the disburser of funds is independent from the financial approver.",
+      "current_status": "TESTED",
+      "owner": "Comptroller / Prompt 6",
+      "canonical_implementation": "apk/api/src/approval/engine.ts",
+      "database_dependency": "approval_requests",
+      "api_dependency": "/api/v1/finance/disburse",
+      "android_dependency": "None",
+      "web_dependency": "apk/web/src/app/admin/finance/disburse/page.tsx",
+      "agent_dependency": "Agents blocked from disbursement",
+      "security_classification": "CONSTITUTIONAL",
+      "project_applicability": "PLATFORM-WIDE",
+      "can_add": false,
+      "can_modify": false,
+      "can_remove": false,
+      "can_replace": false,
+      "dependencies": [
+        "FEAT-007"
+      ],
+      "dependents": [
+        "FEAT-028"
+      ],
+      "related_documents": [
+        "STFL_APPROVAL_ENGINE.md"
+      ],
+      "related_prompts": [
+        "Prompt 6"
+      ],
+      "related_tests": [
+        "apk/api/test/approval_engine.test.ts"
+      ],
+      "known_risks": "Small field branches must have at least 2 distinct officers present.",
+      "production_status": "TESTED_IN_CI"
+    },
+    {
+      "id": "FEAT-009",
+      "name": "Cryptographic Counter-Signature Ledger",
+      "category": "Governance",
+      "description": "Dual ECDSA P-256 signatures stored in approval_signatures with SHA-256 voucher payload verification.",
+      "current_status": "TESTED",
+      "owner": "Security / Prompt 6",
+      "canonical_implementation": "apk/api/src/crypto.ts",
+      "database_dependency": "approval_signatures",
+      "api_dependency": "apk/api/src/routes/consoles.ts",
+      "android_dependency": "apk/security/SignatureHelper.kt",
+      "web_dependency": "None",
+      "agent_dependency": "None",
+      "security_classification": "HIGH",
+      "project_applicability": "PLATFORM-WIDE",
+      "can_add": true,
+      "can_modify": false,
+      "can_remove": false,
+      "can_replace": false,
+      "dependencies": [
+        "FEAT-001",
+        "FEAT-007"
+      ],
+      "dependents": [
+        "FEAT-028"
+      ],
+      "related_documents": [
+        "STFL_APPROVAL_ENGINE.md"
+      ],
+      "related_prompts": [
+        "Prompt 6"
+      ],
+      "related_tests": [
+        "apk/api/test/approval_engine.test.ts"
+      ],
+      "known_risks": "Clock drift between devices resolved via server-issued nonces.",
+      "production_status": "TESTED_IN_CI"
+    },
+    {
+      "id": "FEAT-010",
+      "name": "Forensic Steganographic Document Watermarking",
+      "category": "Operations",
+      "description": "Yellow Micro-Dot matrix steganography encoding operator user_id, device_id, and print timestamp imperceptibly into PDF output.",
+      "current_status": "TESTED",
+      "owner": "Document & Print / Prompt 7",
+      "canonical_implementation": "apk/api/src/print/engine.ts",
+      "database_dependency": "printed_documents",
+      "api_dependency": "/api/v1/print/generate",
+      "android_dependency": "apk/core/SecurePrintHelper.kt",
+      "web_dependency": "apk/web/src/app/admin/documents/print/page.tsx",
+      "agent_dependency": "None",
+      "security_classification": "HIGH",
+      "project_applicability": "PLATFORM-WIDE",
+      "can_add": true,
+      "can_modify": true,
+      "can_remove": false,
+      "can_replace": false,
+      "dependencies": [
+        "FEAT-003"
+      ],
+      "dependents": [
+        "FEAT-011"
+      ],
+      "related_documents": [
+        "STFL_AIO_PHASE_6_PRINT_REPORT.md"
+      ],
+      "related_prompts": [
+        "Prompt 7"
+      ],
+      "related_tests": [
+        "apk/api/test/controlled_print.test.ts"
+      ],
+      "known_risks": "Requires high-resolution color laser printer for forensic physical dot recovery.",
+      "production_status": "TESTED_IN_CI"
+    },
+    {
+      "id": "FEAT-011",
+      "name": "Deterministic Document ID Generator",
+      "category": "Operations",
+      "description": "STFL-DOC-{YEAR}-{UNIT}-{SEQ} formatting with Luhn check-digit verification.",
+      "current_status": "TESTED",
+      "owner": "Document Control / Prompt 7",
+      "canonical_implementation": "apk/api/src/documents/engine.ts",
+      "database_dependency": "documents",
+      "api_dependency": "/api/v1/documents/issue",
+      "android_dependency": "apk/domain/DocumentModels.kt",
+      "web_dependency": "apk/web/src/app/admin/documents/page.tsx",
+      "agent_dependency": "Agents can draft doc IDs",
+      "security_classification": "MEDIUM",
+      "project_applicability": "PLATFORM-WIDE",
+      "can_add": true,
+      "can_modify": false,
+      "can_remove": false,
+      "can_replace": false,
+      "dependencies": [
+        "PostgreSQL Sequences"
+      ],
+      "dependents": [
+        "FEAT-012"
+      ],
+      "related_documents": [
+        "STFL_AIO_DOCUMENT_ID_MODEL.md"
+      ],
+      "related_prompts": [
+        "Prompt 7"
+      ],
+      "related_tests": [
+        "apk/api/test/document_engine.test.ts"
+      ],
+      "known_risks": "Year rollover sequences handled via PostgreSQL partitioned sequence tables.",
+      "production_status": "TESTED_IN_CI"
+    },
+    {
+      "id": "FEAT-012",
+      "name": "Public Document Verification Gateway",
+      "category": "Operations",
+      "description": "Public route /verify/:hash allows external verification of document validity without revealing private PII.",
+      "current_status": "TESTED",
+      "owner": "Web Team / Prompt 7",
+      "canonical_implementation": "apk/api/src/routes/verify.ts",
+      "database_dependency": "documents",
+      "api_dependency": "/api/v1/verify/:hash",
+      "android_dependency": "apk/ui/QrScannerView.kt",
+      "web_dependency": "apk/web/src/app/verify/page.tsx",
+      "agent_dependency": "None",
+      "security_classification": "PUBLIC",
+      "project_applicability": "PLATFORM-WIDE",
+      "can_add": true,
+      "can_modify": true,
+      "can_remove": false,
+      "can_replace": false,
+      "dependencies": [
+        "FEAT-011"
+      ],
+      "dependents": [
+        "Public Portal"
+      ],
+      "related_documents": [
+        "STFL_AIO_PHASE_5_DOCUMENT_REPORT.md"
+      ],
+      "related_prompts": [
+        "Prompt 7",
+        "Prompt 12"
+      ],
+      "related_tests": [
+        "apk/api/test/document_engine.test.ts"
+      ],
+      "known_risks": "DDoS protection enforced via Cloudflare rate limiting.",
+      "production_status": "TESTED_IN_CI"
+    },
+    {
+      "id": "FEAT-013",
+      "name": "Governed Multi-Channel Communications Gateway",
+      "category": "Operations",
+      "description": "Central dispatcher for SMS/WhatsApp/Email with anti-hallucination template approval and rate limiting.",
+      "current_status": "TESTED",
+      "owner": "Comms Team / Prompt 8",
+      "canonical_implementation": "apk/api/src/comms/gateway.ts",
+      "database_dependency": "comms_dispatch_logs, comms_templates",
+      "api_dependency": "/api/v1/comms/send",
+      "android_dependency": "apk/notifications/PushReceiver.kt",
+      "web_dependency": "apk/web/src/app/admin/comms/page.tsx",
+      "agent_dependency": "Agent comms tool boundary",
+      "security_classification": "HIGH",
+      "project_applicability": "PLATFORM-WIDE",
+      "can_add": true,
+      "can_modify": true,
+      "can_remove": false,
+      "can_replace": false,
+      "dependencies": [
+        "FEAT-003"
+      ],
+      "dependents": [
+        "FEAT-014"
+      ],
+      "related_documents": [
+        "STFL_AIO_PHASE_7_COMMS_REPORT.md"
+      ],
+      "related_prompts": [
+        "Prompt 8"
+      ],
+      "related_tests": [
+        "apk/api/test/comms_gateway.test.ts"
+      ],
+      "known_risks": "Carrier outages mitigated via multi-vendor automatic failover.",
+      "production_status": "TESTED_IN_CI"
+    },
+    {
+      "id": "FEAT-014",
+      "name": "Anti-Hallucination Template Approval Substrate",
+      "category": "Operations",
+      "description": "Outbound messaging template validation blocking free-form AI text from reaching external parties.",
+      "current_status": "TESTED",
+      "owner": "Comms Lead / Prompt 8",
+      "canonical_implementation": "apk/api/src/comms/gateway.ts",
+      "database_dependency": "comms_templates",
+      "api_dependency": "apk/api/src/routes/comms.ts",
+      "android_dependency": "None",
+      "web_dependency": "apk/web/src/app/admin/comms/templates/page.tsx",
+      "agent_dependency": "Template enforcement",
+      "security_classification": "HIGH",
+      "project_applicability": "PLATFORM-WIDE",
+      "can_add": true,
+      "can_modify": false,
+      "can_remove": false,
+      "can_replace": false,
+      "dependencies": [
+        "FEAT-013"
+      ],
+      "dependents": [
+        "FEAT-015"
+      ],
+      "related_documents": [
+        "STFL_AIO_PHASE_7_COMMS_REPORT.md"
+      ],
+      "related_prompts": [
+        "Prompt 8"
+      ],
+      "related_tests": [
+        "apk/api/test/comms_gateway.test.ts"
+      ],
+      "known_risks": "Template variables strictly typed using Zod regex patterns.",
+      "production_status": "TESTED_IN_CI"
+    },
+    {
+      "id": "FEAT-015",
+      "name": "Autonomous Agent Runtime & Constitutional Sandbox",
+      "category": "Autonomous AI",
+      "description": "Agent orchestration substrate enforcing strict Level 3 authority ceiling (Read/Draft/Analyze/Recommend only).",
+      "current_status": "TESTED",
+      "owner": "AI & Security / Prompt 9, 10, 11",
+      "canonical_implementation": "apk/api/src/agents/runtime.ts",
+      "database_dependency": "agents, agent_runs, agent_executions",
+      "api_dependency": "/api/v1/agents/*",
+      "android_dependency": "None",
+      "web_dependency": "apk/web/src/app/admin/agents/page.tsx",
+      "agent_dependency": "Self (Runtime Substrate)",
+      "security_classification": "CONSTITUTIONAL",
+      "project_applicability": "PLATFORM-WIDE",
+      "can_add": true,
+      "can_modify": false,
+      "can_remove": false,
+      "can_replace": false,
+      "dependencies": [
+        "FEAT-003",
+        "FEAT-005",
+        "FEAT-007"
+      ],
+      "dependents": [
+        "FEAT-016",
+        "FEAT-017"
+      ],
+      "related_documents": [
+        "STFL_AIO_AGENT_MODEL.md",
+        "STFL_AIO_PHASE_8_AGENT_REPORT.md"
+      ],
+      "related_prompts": [
+        "Prompt 9",
+        "Prompt 10",
+        "Prompt 11"
+      ],
+      "related_tests": [
+        "apk/api/test/agent_runtime.test.ts",
+        "apk/api/test/agent_red_team.test.ts"
+      ],
+      "known_risks": "Prompt injection blocked via tool parameter JSON schema validation.",
+      "production_status": "TESTED_IN_CI"
+    },
+    {
+      "id": "FEAT-016",
+      "name": "Agent Confidence Boundary Evaluator",
+      "category": "Autonomous AI",
+      "description": "Confidence score boundary gating rejecting recommendations below 0.98 for critical domains.",
+      "current_status": "TESTED",
+      "owner": "Security Team / Prompt 11",
+      "canonical_implementation": "apk/api/src/agents/runtime.ts",
+      "database_dependency": "agent_executions",
+      "api_dependency": "apk/api/src/routes/agents.ts",
+      "android_dependency": "None",
+      "web_dependency": "apk/web/src/app/admin/agents/[id]/page.tsx",
+      "agent_dependency": "Confidence gate",
+      "security_classification": "HIGH",
+      "project_applicability": "PLATFORM-WIDE",
+      "can_add": false,
+      "can_modify": false,
+      "can_remove": false,
+      "can_replace": false,
+      "dependencies": [
+        "FEAT-015"
+      ],
+      "dependents": [
+        "Human approval engine"
+      ],
+      "related_documents": [
+        "STFL_AIO_PHASE_9_RED_TEAM_REPORT.md"
+      ],
+      "related_prompts": [
+        "Prompt 11"
+      ],
+      "related_tests": [
+        "apk/api/test/agent_red_team.test.ts"
+      ],
+      "known_risks": "0.979999... float attacks rejected via explicit decimal comparison.",
+      "production_status": "TESTED_IN_CI"
+    },
+    {
+      "id": "FEAT-017",
+      "name": "Agent Emergency Kill Switch Substrate",
+      "category": "Autonomous AI",
+      "description": "Global and per-agent emergency kill switch instantaneously invalidating agent execution tokens.",
+      "current_status": "TESTED",
+      "owner": "CISO / Prompt 9, 11",
+      "canonical_implementation": "apk/api/src/agents/runtime.ts",
+      "database_dependency": "agents (is_active, is_quarantined)",
+      "api_dependency": "/api/v1/agents/:id/kill",
+      "android_dependency": "None",
+      "web_dependency": "apk/web/src/app/admin/agents/kill-switch/page.tsx",
+      "agent_dependency": "Kill switch listener",
+      "security_classification": "CONSTITUTIONAL",
+      "project_applicability": "PLATFORM-WIDE",
+      "can_add": false,
+      "can_modify": false,
+      "can_remove": false,
+      "can_replace": false,
+      "dependencies": [
+        "FEAT-015"
+      ],
+      "dependents": [
+        "All agent executions"
+      ],
+      "related_documents": [
+        "STFL_AIO_AGENT_MODEL.md"
+      ],
+      "related_prompts": [
+        "Prompt 9",
+        "Prompt 11"
+      ],
+      "related_tests": [
+        "apk/api/test/agent_red_team.test.ts"
+      ],
+      "known_risks": "Requires CISO Tier 1 hardware key to disengage quarantine.",
+      "production_status": "TESTED_IN_CI"
+    },
+    {
+      "id": "FEAT-018",
+      "name": "16 Core Management Consoles API",
+      "category": "Consoles",
+      "description": "Unified Hono routes powering the 16 core enterprise management backends.",
+      "current_status": "TESTED",
+      "owner": "API Team / Prompt 10",
+      "canonical_implementation": "apk/api/src/routes/consoles.ts",
+      "database_dependency": "All operational tables",
+      "api_dependency": "/api/v1/consoles/*",
+      "android_dependency": "None",
+      "web_dependency": "apk/web/src/app/admin/...",
+      "agent_dependency": "Agent tool targets",
+      "security_classification": "HIGH",
+      "project_applicability": "PLATFORM-WIDE",
+      "can_add": true,
+      "can_modify": true,
+      "can_remove": false,
+      "can_replace": false,
+      "dependencies": [
+        "FEAT-005",
+        "FEAT-006"
+      ],
+      "dependents": [
+        "FEAT-019",
+        "FEAT-020"
+      ],
+      "related_documents": [
+        "STFL_AIO_CONSOLE_SPECIFICATION.md",
+        "STFL_AIO_PHASE_10_CONSOLES_REPORT.md"
+      ],
+      "related_prompts": [
+        "Prompt 10",
+        "Prompt 12"
+      ],
+      "related_tests": [
+        "apk/api/test/governed_consoles.test.ts"
+      ],
+      "known_risks": "Console routes strictly enforce user class boundaries.",
+      "production_status": "TESTED_IN_CI"
+    },
+    {
+      "id": "FEAT-019",
+      "name": "Console 17: Compliance & Legal Console",
+      "category": "Consoles",
+      "description": "Specialized operational console for Legal Counsel and Compliance Officers managing statutory holds.",
+      "current_status": "PLANNED",
+      "owner": "Legal & Compliance / Prompt 12.5",
+      "canonical_implementation": "STFL_AIO_COMPLIANCE_CONSOLE_SPEC.md",
+      "database_dependency": "compliance_rules, legal_review_cases",
+      "api_dependency": "/api/v1/compliance/*",
+      "android_dependency": "None",
+      "web_dependency": "apk/web/src/app/admin/compliance/page.tsx",
+      "agent_dependency": "Compliance auditor agent",
+      "security_classification": "HIGH",
+      "project_applicability": "PLATFORM-WIDE",
+      "can_add": true,
+      "can_modify": true,
+      "can_remove": false,
+      "can_replace": false,
+      "dependencies": [
+        "FEAT-018",
+        "FEAT-030"
+      ],
+      "dependents": [
+        "FEAT-031"
+      ],
+      "related_documents": [
+        "STFL_AIO_COMPLIANCE_ARCHITECTURE.md"
+      ],
+      "related_prompts": [
+        "Prompt 12.5 (Sections 41–62)"
+      ],
+      "related_tests": [
+        "apk/api/test/governed_consoles.test.ts"
+      ],
+      "known_risks": "Hold releases require physical digital signature from verified counsel.",
+      "production_status": "SPECIFICATION_RATIFIED"
+    },
+    {
+      "id": "FEAT-020",
+      "name": "Console 18: Knowledge, Training & Service Console",
+      "category": "Consoles",
+      "description": "Operational console for Course authoring, SOP management, quiz administration, and moderation queues.",
+      "current_status": "PLANNED",
+      "owner": "Service Manager / Prompt 12.5",
+      "canonical_implementation": "STFL_AIO_CONSOLE_SPECIFICATION.md",
+      "database_dependency": "knowledge_items, training_courses, moderator_work_queue",
+      "api_dependency": "/api/v1/knowledge/*, /api/v1/moderation/*",
+      "android_dependency": "None",
+      "web_dependency": "apk/web/src/app/admin/knowledge/page.tsx",
+      "agent_dependency": "AI tutor agent",
+      "security_classification": "HIGH",
+      "project_applicability": "PLATFORM-WIDE",
+      "can_add": true,
+      "can_modify": true,
+      "can_remove": false,
+      "can_replace": false,
+      "dependencies": [
+        "FEAT-018",
+        "FEAT-024"
+      ],
+      "dependents": [
+        "FEAT-025",
+        "FEAT-033"
+      ],
+      "related_documents": [
+        "STFL_AIO_KNOWLEDGE_ARCHITECTURE.md"
+      ],
+      "related_prompts": [
+        "Prompt 12.5 (Sections 63–82)"
+      ],
+      "related_tests": [
+        "apk/api/test/governed_consoles.test.ts"
+      ],
+      "known_risks": "Relief moderators have full queue access but zero root administration.",
+      "production_status": "SPECIFICATION_RATIFIED"
+    },
+    {
+      "id": "FEAT-021",
+      "name": "Segment 01: User Learning Center",
+      "category": "Knowledge",
+      "description": "Public and field worker educational center with pictorial instructions, step-by-step videos, and audio narrations.",
+      "current_status": "PLANNED",
+      "owner": "Training Team / Prompt 12.5",
+      "canonical_implementation": "STFL_AIO_KNOWLEDGE_ARCHITECTURE.md",
+      "database_dependency": "training_courses, training_modules",
+      "api_dependency": "/api/v1/learning/courses",
+      "android_dependency": "apk/app/src/main/java/.../LearningCenterScreen.kt",
+      "web_dependency": "apk/web/src/app/learning/page.tsx",
+      "agent_dependency": "AI training assistant",
+      "security_classification": "PUBLIC",
+      "project_applicability": "PROJECT-CONFIGURABLE",
+      "can_add": true,
+      "can_modify": true,
+      "can_remove": false,
+      "can_replace": false,
+      "dependencies": [
+        "R2 Asset Storage"
+      ],
+      "dependents": [
+        "FEAT-032"
+      ],
+      "related_documents": [
+        "STFL_AIO_PICTORIAL_TRAINING_MODEL.md"
+      ],
+      "related_prompts": [
+        "Prompt 12.5 (Section 64)"
+      ],
+      "related_tests": [
+        "None (UI Spec)"
+      ],
+      "known_risks": "Large media files cached locally to support offline rural operation.",
+      "production_status": "SPECIFICATION_RATIFIED"
+    },
+    {
+      "id": "FEAT-022",
+      "name": "Segment 02: Service & Operations Center",
+      "category": "Knowledge",
+      "description": "Active SOP runbooks, checklists, SEV-1 to SEV-4 incident procedures, and AI-assisted troubleshooting.",
+      "current_status": "PLANNED",
+      "owner": "Operations / Prompt 12.5",
+      "canonical_implementation": "STFL_AIO_SERVICE_CENTER_MODEL.md",
+      "database_dependency": "service_sops, service_incidents",
+      "api_dependency": "/api/v1/service/*",
+      "android_dependency": "apk/app/src/main/java/.../SopRunbookView.kt",
+      "web_dependency": "apk/web/src/app/admin/service/page.tsx",
+      "agent_dependency": "Diagnostic troubleshooting agent",
+      "security_classification": "HIGH",
+      "project_applicability": "PLATFORM-WIDE",
+      "can_add": true,
+      "can_modify": true,
+      "can_remove": false,
+      "can_replace": false,
+      "dependencies": [
+        "FEAT-003",
+        "FEAT-020"
+      ],
+      "dependents": [
+        "FEAT-038"
+      ],
+      "related_documents": [
+        "STFL_AIO_SERVICE_CENTER_MODEL.md"
+      ],
+      "related_prompts": [
+        "Prompt 12.5 (Section 65)"
+      ],
+      "related_tests": [
+        "None"
+      ],
+      "known_risks": "AI troubleshooting assistant must cite ratified SOP version.",
+      "production_status": "SPECIFICATION_RATIFIED"
+    },
+    {
+      "id": "FEAT-023",
+      "name": "Segment 03: Administration & Governance Center",
+      "category": "Knowledge",
+      "description": "IAM manuals, cryptographic key rotation procedures, compliance guidelines, and audit manuals.",
+      "current_status": "PLANNED",
+      "owner": "Governance & Legal / Prompt 12.5",
+      "canonical_implementation": "STFL_AIO_KNOWLEDGE_ARCHITECTURE.md",
+      "database_dependency": "knowledge_items (category = 'SECURITY_IAM')",
+      "api_dependency": "/api/v1/governance/manuals",
+      "android_dependency": "None",
+      "web_dependency": "apk/web/src/app/admin/governance/docs/page.tsx",
+      "agent_dependency": "None",
+      "security_classification": "HIGH",
+      "project_applicability": "PLATFORM-WIDE",
+      "can_add": true,
+      "can_modify": true,
+      "can_remove": false,
+      "can_replace": false,
+      "dependencies": [
+        "FEAT-005"
+      ],
+      "dependents": [
+        "FEAT-030"
+      ],
+      "related_documents": [
+        "STFL_AIO_KNOWLEDGE_GOVERNANCE_MODEL.md"
+      ],
+      "related_prompts": [
+        "Prompt 12.5 (Section 66)"
+      ],
+      "related_tests": [
+        "None"
+      ],
+      "known_risks": "Unilateral modification blocked via dual-signature requirement.",
+      "production_status": "SPECIFICATION_RATIFIED"
+    },
+    {
+      "id": "FEAT-024",
+      "name": "Segment 04: Moderation & Relief Center",
+      "category": "Knowledge",
+      "description": "Administrative relief tier with MODERATOR_A and MODERATOR_B providing high-availability queue relief.",
+      "current_status": "PLANNED",
+      "owner": "Service Lead / Prompt 12.5",
+      "canonical_implementation": "STFL_AIO_MODERATOR_MODEL.md",
+      "database_dependency": "moderator_delegation_ledger",
+      "api_dependency": "/api/v1/moderation/delegations",
+      "android_dependency": "None",
+      "web_dependency": "apk/web/src/app/admin/moderation/page.tsx",
+      "agent_dependency": "None",
+      "security_classification": "CONSTITUTIONAL",
+      "project_applicability": "PLATFORM-WIDE",
+      "can_add": false,
+      "can_modify": false,
+      "can_remove": false,
+      "can_replace": false,
+      "dependencies": [
+        "FEAT-005"
+      ],
+      "dependents": [
+        "FEAT-025"
+      ],
+      "related_documents": [
+        "STFL_AIO_MODERATOR_MODEL.md"
+      ],
+      "related_prompts": [
+        "Prompt 12.5 (Sections 67, 68)"
+      ],
+      "related_tests": [
+        "None"
+      ],
+      "known_risks": "Zero self-approval invariant strictly enforced in code.",
+      "production_status": "SPECIFICATION_RATIFIED"
+    },
+    {
+      "id": "FEAT-025",
+      "name": "Controlled Moderator Work Queue",
+      "category": "Knowledge",
+      "description": "moderator_work_queue managing 9 item types (USER_HELP, ACCOUNT_SUPPORT, TRAINING_REVIEW, SOP_UPDATE, ESCALATION).",
+      "current_status": "PLANNED",
+      "owner": "Moderator Team / Prompt 12.5",
+      "canonical_implementation": "STFL_AIO_MODERATOR_MODEL.md",
+      "database_dependency": "moderator_work_queue",
+      "api_dependency": "/api/v1/moderation/queue",
+      "android_dependency": "None",
+      "web_dependency": "apk/web/src/app/admin/moderation/queue/page.tsx",
+      "agent_dependency": "None",
+      "security_classification": "MEDIUM",
+      "project_applicability": "PLATFORM-WIDE",
+      "can_add": true,
+      "can_modify": true,
+      "can_remove": false,
+      "can_replace": false,
+      "dependencies": [
+        "FEAT-024"
+      ],
+      "dependents": [
+        "Service Desk"
+      ],
+      "related_documents": [
+        "STFL_AIO_MODERATOR_MODEL.md"
+      ],
+      "related_prompts": [
+        "Prompt 12.5 (Section 77)"
+      ],
+      "related_tests": [
+        "None"
+      ],
+      "known_risks": "SLA countdown timers trigger automated escalation to Unit Heads.",
+      "production_status": "SPECIFICATION_RATIFIED"
+    },
+    {
+      "id": "FEAT-026",
+      "name": "Multi-Project Tenant Isolation Engine",
+      "category": "Multi-Project",
+      "description": "PostgreSQL Row-Level Security ensuring strict zero cross-project data leakage across sub-ledgers and documents.",
+      "current_status": "PLANNED",
+      "owner": "Platform Architect / Prompt 12.5",
+      "canonical_implementation": "STFL_AIO_PROJECT_ISOLATION_MODEL.md",
+      "database_dependency": "projects, project_memberships",
+      "api_dependency": "Hono X-Project-Context middleware",
+      "android_dependency": "apk/core/ProjectContextInterceptor.kt",
+      "web_dependency": "apk/web/src/app/p/[projectId]/...",
+      "agent_dependency": "Project agent scoping",
+      "security_classification": "CONSTITUTIONAL",
+      "project_applicability": "PLATFORM-WIDE",
+      "can_add": true,
+      "can_modify": false,
+      "can_remove": false,
+      "can_replace": false,
+      "dependencies": [
+        "PostgreSQL 16 RLS",
+        "FEAT-005"
+      ],
+      "dependents": [
+        "FEAT-027",
+        "FEAT-028",
+        "FEAT-029"
+      ],
+      "related_documents": [
+        "STFL_AIO_MULTI_PROJECT_ARCHITECTURE.md"
+      ],
+      "related_prompts": [
+        "Prompt 12.5 (Sections 1–40)"
+      ],
+      "related_tests": [
+        "None"
+      ],
+      "known_risks": "Cross-project transfers require explicit dual-leg intercompany clearing accounts.",
+      "production_status": "SPECIFICATION_RATIFIED"
+    },
+    {
+      "id": "FEAT-027",
+      "name": "Custom Domain & Subdomain Hostname Router",
+      "category": "Multi-Project",
+      "description": "Cloudflare Workers edge router resolving project domains (e.g. greendelta-agro.org) to internal project context.",
+      "current_status": "PLANNED",
+      "owner": "Edge Infrastructure / Prompt 12.5",
+      "canonical_implementation": "STFL_AIO_PROJECT_WEBSITE_MODEL.md",
+      "database_dependency": "project_domains",
+      "api_dependency": "/api/v1/projects/resolve-domain",
+      "android_dependency": "None",
+      "web_dependency": "apk/web/src/middleware.ts",
+      "agent_dependency": "None",
+      "security_classification": "MEDIUM",
+      "project_applicability": "PROJECT-CONFIGURABLE",
+      "can_add": true,
+      "can_modify": true,
+      "can_remove": false,
+      "can_replace": false,
+      "dependencies": [
+        "Cloudflare Workers"
+      ],
+      "dependents": [
+        "Project public websites"
+      ],
+      "related_documents": [
+        "STFL_AIO_PROJECT_WEBSITE_MODEL.md"
+      ],
+      "related_prompts": [
+        "Prompt 12.5 (Section 13)"
+      ],
+      "related_tests": [
+        "None"
+      ],
+      "known_risks": "SSL certificate generation automated via Cloudflare for SaaS.",
+      "production_status": "SPECIFICATION_RATIFIED"
+    },
+    {
+      "id": "FEAT-028",
+      "name": "Project Chart of Accounts & Sub-Ledger Engine",
+      "category": "Multi-Project",
+      "description": "Independent double-entry general sub-ledger per project enforcing strict NUMERIC(18, 2) financial precision.",
+      "current_status": "PLANNED",
+      "owner": "Finance Team / Prompt 12.5",
+      "canonical_implementation": "STFL_AIO_PROJECT_FINANCE_MODEL.md",
+      "database_dependency": "project_chart_of_accounts, project_ledger_entries",
+      "api_dependency": "/api/v1/projects/:id/finance/*",
+      "android_dependency": "apk/data/FinanceRepository.kt",
+      "web_dependency": "apk/web/src/app/p/[id]/finance/page.tsx",
+      "agent_dependency": "Finance drafting agent",
+      "security_classification": "CONSTITUTIONAL",
+      "project_applicability": "PROJECT-SHARED",
+      "can_add": true,
+      "can_modify": false,
+      "can_remove": false,
+      "can_replace": false,
+      "dependencies": [
+        "FEAT-007",
+        "FEAT-026"
+      ],
+      "dependents": [
+        "Project budgets & grants"
+      ],
+      "related_documents": [
+        "STFL_AIO_PROJECT_FINANCE_MODEL.md"
+      ],
+      "related_prompts": [
+        "Prompt 12.5 (Section 15)"
+      ],
+      "related_tests": [
+        "None"
+      ],
+      "known_risks": "Unbalanced transactions rejected via database constraint debit = credit.",
+      "production_status": "SPECIFICATION_RATIFIED"
+    },
+    {
+      "id": "FEAT-029",
+      "name": "Project Operational Lifecycle State Machine",
+      "category": "Multi-Project",
+      "description": "Formal state machine governing project progression (DRAFT ➔ PILOT ➔ ACTIVE ➔ SUNSETTING ➔ ARCHIVED).",
+      "current_status": "PLANNED",
+      "owner": "Platform Architect / Prompt 12.5",
+      "canonical_implementation": "STFL_AIO_PROJECT_LIFECYCLE.md",
+      "database_dependency": "projects (lifecycle_status)",
+      "api_dependency": "/api/v1/projects/:id/transition",
+      "android_dependency": "None",
+      "web_dependency": "apk/web/src/app/admin/projects/lifecycle/page.tsx",
+      "agent_dependency": "None",
+      "security_classification": "HIGH",
+      "project_applicability": "PLATFORM-WIDE",
+      "can_add": true,
+      "can_modify": false,
+      "can_remove": false,
+      "can_replace": false,
+      "dependencies": [
+        "FEAT-026"
+      ],
+      "dependents": [
+        "Project Archival"
+      ],
+      "related_documents": [
+        "STFL_AIO_PROJECT_LIFECYCLE.md"
+      ],
+      "related_prompts": [
+        "Prompt 12.5 (Section 22)"
+      ],
+      "related_tests": [
+        "None"
+      ],
+      "known_risks": "Archiving a project preserves all historical audit logs immutably.",
+      "production_status": "SPECIFICATION_RATIFIED"
+    },
+    {
+      "id": "FEAT-030",
+      "name": "Multi-Jurisdictional Statute Resolver",
+      "category": "Compliance",
+      "description": "Statute evaluation engine resolving applicable national, municipal, and sector laws across 21 domains.",
+      "current_status": "PLANNED",
+      "owner": "Legal Counsel / Prompt 12.5",
+      "canonical_implementation": "STFL_AIO_COMPLIANCE_ARCHITECTURE.md",
+      "database_dependency": "compliance_jurisdictions, compliance_rules",
+      "api_dependency": "/api/v1/compliance/resolve",
+      "android_dependency": "apk/core/ComplianceInterceptor.kt",
+      "web_dependency": "apk/web/src/app/admin/compliance/rules/page.tsx",
+      "agent_dependency": "Compliance verification agent",
+      "security_classification": "CONSTITUTIONAL",
+      "project_applicability": "PLATFORM-WIDE",
+      "can_add": true,
+      "can_modify": false,
+      "can_remove": false,
+      "can_replace": false,
+      "dependencies": [
+        "FEAT-005"
+      ],
+      "dependents": [
+        "FEAT-031"
+      ],
+      "related_documents": [
+        "STFL_AIO_REGULATORY_RULE_MODEL.md"
+      ],
+      "related_prompts": [
+        "Prompt 12.5 (Sections 41–62)"
+      ],
+      "related_tests": [
+        "None"
+      ],
+      "known_risks": "Time-travel audit evaluates rule version in effect at the exact time of transaction.",
+      "production_status": "SPECIFICATION_RATIFIED"
+    },
+    {
+      "id": "FEAT-031",
+      "name": "Automated Statutory Hold & Legal Review Engine",
+      "category": "Compliance",
+      "description": "Automatic transaction freeze engine triggered on statutory breaches (e.g. advance rent > 3 mo), creating legal review tickets.",
+      "current_status": "PLANNED",
+      "owner": "Legal Counsel / Prompt 12.5",
+      "canonical_implementation": "STFL_AIO_LEGAL_ESCALATION_MODEL.md",
+      "database_dependency": "legal_review_cases",
+      "api_dependency": "/api/v1/compliance/holds",
+      "android_dependency": "None",
+      "web_dependency": "apk/web/src/app/admin/compliance/holds/page.tsx",
+      "agent_dependency": "Agents blocked by statutory holds",
+      "security_classification": "CONSTITUTIONAL",
+      "project_applicability": "PLATFORM-WIDE",
+      "can_add": true,
+      "can_modify": false,
+      "can_remove": false,
+      "can_replace": false,
+      "dependencies": [
+        "FEAT-030"
+      ],
+      "dependents": [
+        "Execution Pipeline"
+      ],
+      "related_documents": [
+        "STFL_AIO_LEGAL_ESCALATION_MODEL.md"
+      ],
+      "related_prompts": [
+        "Prompt 12.5 (Section 45)"
+      ],
+      "related_tests": [
+        "None"
+      ],
+      "known_risks": "Holds can only be lifted by authorized human legal counsel signature.",
+      "production_status": "SPECIFICATION_RATIFIED"
+    },
+    {
+      "id": "FEAT-032",
+      "name": "Pictorial / Visual-First Training Engine",
+      "category": "Knowledge",
+      "description": "Visual instructional material engine supporting 11 media types (Images, Diagrams, Flowcharts, Animations, Videos, Simulations).",
+      "current_status": "PLANNED",
+      "owner": "Training Team / Prompt 12.5",
+      "canonical_implementation": "STFL_AIO_PICTORIAL_TRAINING_MODEL.md",
+      "database_dependency": "training_visual_assets",
+      "api_dependency": "/api/v1/knowledge/assets",
+      "android_dependency": "apk/app/src/main/java/.../PictorialCardView.kt",
+      "web_dependency": "apk/web/src/app/learning/visual/page.tsx",
+      "agent_dependency": "AI visual tutor",
+      "security_classification": "MEDIUM",
+      "project_applicability": "PLATFORM-WIDE",
+      "can_add": true,
+      "can_modify": true,
+      "can_remove": false,
+      "can_replace": false,
+      "dependencies": [
+        "R2 Asset Storage"
+      ],
+      "dependents": [
+        "FEAT-033",
+        "FEAT-036"
+      ],
+      "related_documents": [
+        "STFL_AIO_PICTORIAL_TRAINING_MODEL.md"
+      ],
+      "related_prompts": [
+        "Prompt 12.5 (Section 69)"
+      ],
+      "related_tests": [
+        "None"
+      ],
+      "known_risks": "All visual assets verified via SHA-256 hash before delivery.",
+      "production_status": "SPECIFICATION_RATIFIED"
+    },
+    {
+      "id": "FEAT-033",
+      "name": "Cryptographic Training Certification Authority",
+      "category": "Knowledge",
+      "description": "Issuance of STFL-CER-* digital certificates with ECDSA P-256 signatures, passing score evaluation, and expiry tracking.",
+      "current_status": "PLANNED",
+      "owner": "Training Authority / Prompt 12.5",
+      "canonical_implementation": "STFL_AIO_TRAINING_CERTIFICATION_MODEL.md",
+      "database_dependency": "training_user_certifications",
+      "api_dependency": "/api/v1/knowledge/certificates",
+      "android_dependency": "apk/app/src/main/java/.../MyCertificatesScreen.kt",
+      "web_dependency": "apk/web/src/app/learning/certificates/page.tsx",
+      "agent_dependency": "None",
+      "security_classification": "HIGH",
+      "project_applicability": "PLATFORM-WIDE",
+      "can_add": true,
+      "can_modify": false,
+      "can_remove": false,
+      "can_replace": false,
+      "dependencies": [
+        "FEAT-009",
+        "FEAT-032"
+      ],
+      "dependents": [
+        "FEAT-034"
+      ],
+      "related_documents": [
+        "STFL_AIO_TRAINING_CERTIFICATION_MODEL.md"
+      ],
+      "related_prompts": [
+        "Prompt 12.5 (Section 73)"
+      ],
+      "related_tests": [
+        "None"
+      ],
+      "known_risks": "Regulatory updates trigger mandatory refresher invalidation.",
+      "production_status": "SPECIFICATION_RATIFIED"
+    },
+    {
+      "id": "FEAT-034",
+      "name": "Training-Gated Authorization Check",
+      "category": "Knowledge",
+      "description": "13-D Contextual Authorization engine verifies active TRAINING_STATUS before allowing sensitive operations (microfinance.collect, lease_create).",
+      "current_status": "PLANNED",
+      "owner": "Security & Training / Prompt 12.5",
+      "canonical_implementation": "STFL_AIO_TRAINING_ARCHITECTURE.md",
+      "database_dependency": "action_training_prerequisites",
+      "api_dependency": "apk/api/src/middleware.ts",
+      "android_dependency": "apk/security/TrainingGateInterceptor.kt",
+      "web_dependency": "apk/web/src/app/admin/...",
+      "agent_dependency": "None",
+      "security_classification": "CONSTITUTIONAL",
+      "project_applicability": "PLATFORM-WIDE",
+      "can_add": true,
+      "can_modify": false,
+      "can_remove": false,
+      "can_replace": false,
+      "dependencies": [
+        "FEAT-005",
+        "FEAT-033"
+      ],
+      "dependents": [
+        "All high-risk APIs"
+      ],
+      "related_documents": [
+        "STFL_AIO_TRAINING_ARCHITECTURE.md"
+      ],
+      "related_prompts": [
+        "Prompt 12.5 (Section 73)"
+      ],
+      "related_tests": [
+        "None"
+      ],
+      "known_risks": "Uncertified users blocked with HTTP 403 and redirected to course module.",
+      "production_status": "SPECIFICATION_RATIFIED"
+    },
+    {
+      "id": "FEAT-035",
+      "name": "Mandatory Platform Compliance Training Non-Erasure",
+      "category": "Knowledge",
+      "description": "Enforces that independent projects inherit and cannot silently delete or waive mandatory compliance training.",
+      "current_status": "PLANNED",
+      "owner": "Governance / Prompt 12.5",
+      "canonical_implementation": "STFL_AIO_KNOWLEDGE_GOVERNANCE_MODEL.md",
+      "database_dependency": "knowledge_items (is_platform_mandatory = true)",
+      "api_dependency": "/api/v1/knowledge/courses",
+      "android_dependency": "None",
+      "web_dependency": "apk/web/src/app/admin/knowledge/governance/page.tsx",
+      "agent_dependency": "None",
+      "security_classification": "CONSTITUTIONAL",
+      "project_applicability": "PLATFORM-WIDE",
+      "can_add": false,
+      "can_modify": false,
+      "can_remove": false,
+      "can_replace": false,
+      "dependencies": [
+        "FEAT-020"
+      ],
+      "dependents": [
+        "Project catalogues"
+      ],
+      "related_documents": [
+        "STFL_AIO_TRAINING_ARCHITECTURE.md"
+      ],
+      "related_prompts": [
+        "Prompt 12.5 (Section 71)"
+      ],
+      "related_tests": [
+        "None"
+      ],
+      "known_risks": "Project-level deletion attempts abort with GOVERNANCE_VIOLATION_BLOCKED.",
+      "production_status": "SPECIFICATION_RATIFIED"
+    },
+    {
+      "id": "FEAT-036",
+      "name": "In-Workflow Contextual Walkthrough Guidance",
+      "category": "Knowledge",
+      "description": "'Step 3 of 7' contextual visual guidance panels embedded inside production operational forms.",
+      "current_status": "PLANNED",
+      "owner": "UX & Training / Prompt 12.5",
+      "canonical_implementation": "STFL_AIO_TRAINING_UX_MODEL.md",
+      "database_dependency": "None (Static/API Metadata)",
+      "api_dependency": "/api/v1/knowledge/walkthroughs",
+      "android_dependency": "apk/app/src/main/java/.../ContextualWalkthroughView.kt",
+      "web_dependency": "apk/web/src/components/WalkthroughDrawer.tsx",
+      "agent_dependency": "None",
+      "security_classification": "LOW",
+      "project_applicability": "PLATFORM-WIDE",
+      "can_add": true,
+      "can_modify": true,
+      "can_remove": false,
+      "can_replace": false,
+      "dependencies": [
+        "FEAT-032"
+      ],
+      "dependents": [
+        "FEAT-037"
+      ],
+      "related_documents": [
+        "STFL_AIO_TRAINING_UX_MODEL.md"
+      ],
+      "related_prompts": [
+        "Prompt 12.5 (Section 75)"
+      ],
+      "related_tests": [
+        "None"
+      ],
+      "known_risks": "Walkthroughs can be collapsed by experienced officers to avoid visual noise.",
+      "production_status": "SPECIFICATION_RATIFIED"
+    },
+    {
+      "id": "FEAT-037",
+      "name": "Dynamic Compliance Intercept in UI",
+      "category": "Knowledge",
+      "description": "Instant form field intercept converting walkthrough into a STOP / REVIEW REQUIRED barrier upon statutory threshold breach.",
+      "current_status": "PLANNED",
+      "owner": "Frontend & Legal / Prompt 12.5",
+      "canonical_implementation": "STFL_AIO_TRAINING_UX_MODEL.md",
+      "database_dependency": "compliance_rules",
+      "api_dependency": "Inline client validation + backend rejection",
+      "android_dependency": "apk/ui/ComplianceInterceptBanner.kt",
+      "web_dependency": "apk/web/src/components/ComplianceIntercept.tsx",
+      "agent_dependency": "None",
+      "security_classification": "HIGH",
+      "project_applicability": "PLATFORM-WIDE",
+      "can_add": true,
+      "can_modify": false,
+      "can_remove": false,
+      "can_replace": false,
+      "dependencies": [
+        "FEAT-030",
+        "FEAT-036"
+      ],
+      "dependents": [
+        "Form submission"
+      ],
+      "related_documents": [
+        "STFL_AIO_TRAINING_UX_MODEL.md"
+      ],
+      "related_prompts": [
+        "Prompt 12.5 (Section 75)"
+      ],
+      "related_tests": [
+        "None"
+      ],
+      "known_risks": "Client validation failure prevents submission; backend 13-D auth rejects any bypass.",
+      "production_status": "SPECIFICATION_RATIFIED"
+    },
+    {
+      "id": "FEAT-038",
+      "name": "AI-Assisted Troubleshooting with Provenance",
+      "category": "Knowledge",
+      "description": "Operational diagnostic assistant answering queries strictly from approved, versioned SOPs with mandatory citations.",
+      "current_status": "PLANNED",
+      "owner": "AI Team / Prompt 12.5",
+      "canonical_implementation": "STFL_AIO_SERVICE_CENTER_MODEL.md",
+      "database_dependency": "service_sops",
+      "api_dependency": "/api/v1/service/troubleshoot",
+      "android_dependency": "apk/app/src/main/java/.../AiTroubleshootAssistant.kt",
+      "web_dependency": "apk/web/src/components/AiTroubleshootDrawer.tsx",
+      "agent_dependency": "Diagnostic Agent",
+      "security_classification": "MEDIUM",
+      "project_applicability": "PLATFORM-WIDE",
+      "can_add": true,
+      "can_modify": true,
+      "can_remove": false,
+      "can_replace": false,
+      "dependencies": [
+        "FEAT-015",
+        "FEAT-022"
+      ],
+      "dependents": [
+        "Support Desk"
+      ],
+      "related_documents": [
+        "STFL_AIO_SERVICE_CENTER_MODEL.md"
+      ],
+      "related_prompts": [
+        "Prompt 12.5 (Section 76)"
+      ],
+      "related_tests": [
+        "None"
+      ],
+      "known_risks": "Uncertain queries trigger mandatory ESCALATE_SOURCE_REVIEW.",
+      "production_status": "SPECIFICATION_RATIFIED"
+    },
+    {
+      "id": "FEAT-039",
+      "name": "Cloudflare Workers Edge Gateway & KV Cache",
+      "category": "Infrastructure",
+      "description": "Edge network entrypoint with rate-limiting KV stores, DDoS scrubbing, TLS termination, and Hyperdrive connection pooling.",
+      "current_status": "PLANNED",
+      "owner": "DevOps / Prompt 12, 13",
+      "canonical_implementation": "apk/api/wrangler.toml",
+      "database_dependency": "Hyperdrive Pooler to PostgreSQL",
+      "api_dependency": "Edge entrypoint",
+      "android_dependency": "None",
+      "web_dependency": "apk/web/wrangler.toml",
+      "agent_dependency": "None",
+      "security_classification": "HIGH",
+      "project_applicability": "PLATFORM-WIDE",
+      "can_add": true,
+      "can_modify": true,
+      "can_remove": false,
+      "can_replace": false,
+      "dependencies": [
+        "Cloudflare Workers"
+      ],
+      "dependents": [
+        "Production Release Gate"
+      ],
+      "related_documents": [
+        "apk/api/wrangler.toml"
+      ],
+      "related_prompts": [
+        "Prompt 12",
+        "Prompt 13"
+      ],
+      "related_tests": [
+        "None"
+      ],
+      "known_risks": "Requires live Cloudflare deployment to verify production path.",
+      "production_status": "PENDING_RELEASE_GATE"
+    },
+    {
+      "id": "FEAT-040",
+      "name": "Interactive Demo Mock Environment",
+      "category": "Demo & Testing",
+      "description": "Synthetic tenant and user sandbox generator passing 15/15 Vitest tests for safe sandbox evaluation.",
+      "current_status": "TESTED",
+      "owner": "QA & Demo / Prompt 12",
+      "canonical_implementation": "apk/api/src/routes/demo.ts",
+      "database_dependency": "Temporary demo seeds",
+      "api_dependency": "/api/v1/demo/*",
+      "android_dependency": "apk/devmockserver/...",
+      "web_dependency": "apk/web/src/app/demo/page.tsx",
+      "agent_dependency": "Synthetic personas",
+      "security_classification": "DEMO_ISOLATED",
+      "project_applicability": "PLATFORM-WIDE",
+      "can_add": true,
+      "can_modify": true,
+      "can_remove": false,
+      "can_replace": false,
+      "dependencies": [
+        "FEAT-005"
+      ],
+      "dependents": [
+        "Sandbox onboarding"
+      ],
+      "related_documents": [
+        "STFL_AIO_DEMO_ENVIRONMENT.md",
+        "STFL_AIO_DEMO_SECURITY_BOUNDARY.md"
+      ],
+      "related_prompts": [
+        "Prompt 12"
+      ],
+      "related_tests": [
+        "apk/api/test/demo_environment.test.ts"
+      ],
+      "known_risks": "Demo routes strictly disabled in production builds via NODE_ENV=production check.",
+      "production_status": "TESTED_IN_CI"
+    }
+  ],
+  "creative_attribution": {
+    "en": "Made with love from Dhaka, Kuala Lumpur, Wyoming and Varizen Inc.",
+    "bn": "ঢাকা, কুয়ালালামপুর, ওয়াইওমিং এবং ভ্যারিজেন ইনকর্পোরেটেড থেকে ভালোবাসায় তৈরি",
+    "classification": "CREATIVE_ATTRIBUTION_NON_LEGAL"
+  }
+}

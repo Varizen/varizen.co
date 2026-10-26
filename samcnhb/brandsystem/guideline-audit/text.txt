@@ -1,0 +1,266 @@
+P1 [Normal] SAMC BRAND GUIDELINES
+P2 [Normal] Institutional Crest Edition · v2.1 · EN + বাংলা
+P3 [Normal] Built from the actual SAMC crest supplied by the institution
+P6 [Normal] 00 / IDENTITY
+P7 [Normal] The crest is the institution
+P8 [Normal] The supplied crest combines the institutional name, medical emblem, red/blue field, stars, ESTD: 2021 and SAMC ribbon into one formal identity.
+P12 [Normal] 01 / CREST ANATOMY
+P13 [Normal] Preserve the artwork
+P14 [Normal] The crest is a seal. Its individual elements may be explained, but they must not be rearranged, redrawn or independently stylized.
+P18 [Normal] 02 / LOGO USE
+P19 [Normal] Clear, formal and consistent
+P21 [List Bullet] Use the full-color crest on white or very light backgrounds whenever possible.
+P22 [List Bullet] Maintain clear space around the outermost visible point of the crest.
+P23 [List Bullet] Create separate approved print, digital, monochrome and reverse variants from the master asset.
+P24 [List Bullet] Establish minimum sizes by application: print, signage, website, app icon and embroidery.
+P25 [List Bullet] Never stretch, compress, rotate, shadow, bevel, outline or recolor the crest.
+P26 [List Bullet] Never place the full crest over a busy photograph where its lettering becomes unreadable.
+P27 [List Bullet] Do not use the crest as a repeating decorative pattern.
+P28 [Normal] 03 / COLOR
+P29 [Normal] Crest-derived institutional palette
+P30 [Normal] The crest is multicolor, but external brand applications should remain disciplined. One site or campaign should use one controlled working set.
+P34 [Normal] 04 / TYPOGRAPHY
+P35 [Normal] Academic authority + modern usability
+P36 [Normal] The crest already carries a traditional academic character. Supporting typography should therefore be clean and restrained.
+P40 [Normal] 05 / BILINGUAL
+P41 [Normal] English + বাংলা are equal states
+P42 [Normal] Every public-facing digital experience should be designed as two complete language states.
+P44 [List Bullet] Persistent EN / বাংলা switch.
+P45 [List Bullet] Every core English page has a corresponding Bangla page and vice versa.
+P46 [List Bullet] Recommended /en/... and /bn/... structure.
+P47 [List Bullet] Navigation, buttons, forms, validation, errors, confirmations and help are bilingual.
+P48 [List Bullet] Patient-facing information uses plain, natural Bangla.
+P49 [List Bullet] Accepted medical English may appear in parentheses when clinically useful.
+P50 [List Bullet] Bangla is LTR and receives independent responsive QA.
+P51 [List Bullet] Literal machine translation is not a final publishing standard.
+P52 [List Bullet] Missing critical translation is a release blocker.
+P54 [Normal] 06 / INSTITUTIONAL ARCHITECTURE
+P55 [Normal] One SAMC · two core divisions
+P56 [Normal] The visual identity should mirror the institution's operating model: medical care and medical professional education under one master SAMC identity.
+P60 [Normal] 07 / PHOTOGRAPHY
+P61 [Normal] HD imagery is a core brand asset
+P62 [Normal] The institution should look real, credible and human—not like a generic healthcare startup.
+P66 [Normal] 08 / 77 CREATIVE LIBRARY
+P67 [Normal] One master identity, 77 production surfaces
+P68 [Normal] Every creative type inherits the actual crest, institutional palette, bilingual standard and one-site/one-set discipline.
+P71 [Normal] 09 / DIGITAL
+P72 [Normal] Website behavior
+P73 [Normal] The website may be contemporary and spacious, but the actual SAMC crest remains the anchor.
+P76 [Normal] 10 / GOVERNANCE
+P77 [Normal] Protect the master identity
+P78 [Normal] A crest-led institution needs one authoritative source of truth.
+P81 [Normal] 11 / RELEASE CHECKLIST
+P82 [Normal] Nothing ships until it passes
+P84 [List Bullet] Correct approved SAMC crest used.
+P85 [List Bullet] Correct institutional/legal name used where required.
+P86 [List Bullet] No alteration of crest artwork.
+P87 [List Bullet] One controlled color set used outside the crest.
+P88 [List Bullet] English and Bangla content complete.
+P89 [List Bullet] Bangla rendering tested on target devices.
+P90 [List Bullet] HD photography approved, licensed and appropriately cropped.
+P91 [List Bullet] Patient privacy and dignity protected.
+P92 [List Bullet] Accessibility and contrast checked.
+P93 [List Bullet] Responsive EN/BN states tested.
+P94 [List Bullet] Source files and exports archived.
+P95 [List Bullet] Version and approval status recorded.
+P97 [Normal] APPENDIX
+P98 [Normal] Master asset library
+P99 [Normal] Recommended production structure for the final brand handoff.
+P102 [Normal] This document is a design and identity standard. It does not itself establish trademark ownership, legal registration, clinical policy or regulatory approval.
+
+TABLE 0
+R0: MASTER IDENTITY / The supplied SAMC crest—not a newly invented symbol—is the primary institutional identity reference.
+
+TABLE 1
+R0: Layer | Approved expression | Rule
+R1: Master identity | SAMC crest | Primary institutional mark.
+R2: Formal name | South Apollo Medical College & Hospital | Use approved legal wording when required.
+R3: Care division | SAMC / Medical Care Services | Descriptor, not a separate logo.
+R4: Education division | SAMC / Medical Professional Education | Descriptor, not a separate logo.
+R5: Research | SAMC / Research & Innovation | Descriptor, not a separate logo.
+
+TABLE 2
+R0: NAME CONTROL / The supplied crest reads “SOUTH APOLLO MEDICAL COLLEGE & HOSPITAL.” Some earlier concepts used a different name. Until the legal wording is formally confirmed, the supplied crest and SAMC short form should be treated as the visual reference.
+
+TABLE 3
+R0: Element | Role | Rule
+R1: Outer ring | Institutional name | Do not re-typeset.
+R2: Caduceus | Medical identity | Preserve as supplied.
+R3: Red field | Clinical/visual emphasis | Part of the crest.
+R4: Blue field | Institutional/academic emphasis | Part of the crest.
+R5: Cyan + yellow lines | Internal graphic motif | Do not extract casually.
+R6: Stars | Formal emblem | Do not move or duplicate.
+R7: ESTD: 2021 | Origin marker | Do not alter.
+R8: SAMC ribbon | Short name | Do not replace lettering.
+
+TABLE 4
+R0: MASTER ARTWORK / Use the approved master vector/raster file. Never rebuild the crest manually.
+
+TABLE 5
+R0: Role | HEX | Primary use
+R1: Institutional Blue | #0076D7 | Primary actions, links, headings, fields.
+R2: Deep Blue | #005AA8 | Formal text accents and strong surfaces.
+R3: Clinical Red | #F20D16 | Critical/urgent information and restrained accents.
+R4: Crest Cyan | #21B7EA | Secondary highlights.
+R5: Crest Yellow | #FFD21A | Small highlights only.
+R6: Black | #111111 | Formal text.
+R7: White | #FFFFFF | Primary negative space.
+R8: Soft Blue | #F2F8FD | Quiet panels and UI surfaces.
+
+TABLE 6
+R0: ONE-SITE RULE / Keep the crest itself intact. Outside the crest, do not scatter all crest colors throughout the interface. Select a controlled working set for the site/campaign and keep it consistent.
+
+TABLE 7
+R0: Context | English | Bangla | Rule
+R1: Primary web/UI | Aptos | Hind Siliguri | Main institutional system.
+R2: Formal print | Approved serif where needed | Approved Bengali serif where needed | Ceremonial exception only.
+R3: Clinical/data | Aptos | Hind Siliguri | Clarity first.
+
+TABLE 8
+R0: MAXIMUM TYPE RULE / For the main digital system, maximum two everyday type families: one English and one Bangla. Do not add fonts simply for decoration.
+
+TABLE 9
+R0: QA area | English | বাংলা
+R1: Navigation | No truncation | No clipping / overflow
+R2: Buttons | Correct width | Correct width
+R3: Headlines | Expected hierarchy | Expected hierarchy
+R4: Forms | Aligned labels | Aligned labels
+R5: Mobile | No overflow | No overflow
+R6: Accessibility | Contrast / focus | Contrast / rendering
+
+TABLE 10
+R0: Master | Division | Descriptor language
+R1: SAMC | Medical Care Services | Care · Safety · Service
+R2: SAMC | Medical Professional Education | Knowledge · Skills · Excellence
+R3: SAMC | Research & Innovation | Evidence · Discovery · Impact
+
+TABLE 11
+R0: ARCHITECTURE RULE / Do not create separate crests for divisions. Use one SAMC master identity plus a consistent descriptor system.
+
+TABLE 12
+R0: Context | Preferred | Avoid
+R1: Medical care | Consultation, nursing, diagnostics, procedures, patient journey | Artificial stock-photo clinical scenes
+R2: Education | Teaching rounds, simulation, labs, skills training | Generic classroom stock
+R3: Research | Laboratories, imaging, researchers, data, technology | Science-fiction imagery presented as reality
+R4: Community | Families, outreach, public health, local people | Exploitative poverty imagery
+R5: Campus | Architecture, learning spaces, gardens, wayfinding | Unverified renders shown as current reality
+
+TABLE 13
+R0: HD PLACEHOLDER STANDARD / Reserve large HD-photo areas on major pages and campaigns. Define crop ratio, focal point, caption and alt-text zones before final photography is inserted.
+
+TABLE 14
+R0: # | Creative type | Language
+R1: 01 | Master logo lockup | EN + BN
+R2: 02 | Horizontal logo lockup | EN + BN
+R3: 03 | Vertical / stacked lockup | EN + BN
+R4: 04 | Symbol / emblem mark | Language-neutral
+R5: 05 | Monochrome positive mark | Language-neutral
+R6: 06 | Monochrome reverse mark | Language-neutral
+R7: 07 | Minimum-size logo | Language-neutral
+R8: 08 | Clear-space diagram | Language-neutral
+R9: 09 | Incorrect-use sheet | Language-neutral
+R10: 10 | Co-brand / partner lockup | EN + BN
+R11: 11 | Division descriptor lockup | EN + BN
+R12: 12 | Department descriptor lockup | EN + BN
+R13: 13 | Campus / facility identifier | EN + BN
+R14: 14 | Bilingual master lockup | EN + BN
+R15: 15 | Bilingual nameplate | EN + BN
+R16: 16 | Favicon | Language-neutral
+R17: 17 | App icon | Language-neutral
+R18: 18 | Social avatar | Language-neutral
+R19: 19 | Email signature | EN + BN
+R20: 20 | Letterhead | EN + BN
+R21: 21 | Continuation sheet | EN + BN
+R22: 22 | Envelope | EN + BN
+R23: 23 | Business card | EN + BN
+R24: 24 | ID card | EN + BN
+R25: 25 | Appointment card | EN + BN
+R26: 26 | Prescription / clinical stationery | EN + BN
+R27: 27 | Laboratory report | EN + BN
+R28: 28 | Radiology report | EN + BN
+R29: 29 | Discharge summary | EN + BN
+R30: 30 | Medical certificate | EN + BN
+R31: 31 | Academic certificate | EN + BN
+R32: 32 | Transcript / marksheet | EN + BN
+R33: 33 | Admission letter | EN + BN
+R34: 34 | Student handbook | EN + BN
+R35: 35 | Faculty handbook | EN + BN
+R36: 36 | Research paper / journal template | EN + BN
+R37: 37 | Annual report | EN + BN
+R38: 38 | Quality / accreditation report | EN + BN
+R39: 39 | Hospital signage | EN + BN
+R40: 40 | Wayfinding arrows | EN + BN
+R41: 41 | Room / department plaques | EN + BN
+R42: 42 | Emergency signage | EN + BN
+R43: 43 | Accessibility signage | EN + BN
+R44: 44 | Parking / arrival signage | EN + BN
+R45: 45 | Visitor badge | EN + BN
+R46: 46 | Staff uniform / apparel | EN + BN
+R47: 47 | Medical coat embroidery | EN + BN
+R48: 48 | Student apparel | EN + BN
+R49: 49 | Vehicle livery | EN + BN
+R50: 50 | Ambulance identity | EN + BN
+R51: 51 | Outdoor banner | EN + BN
+R52: 52 | Indoor poster | EN + BN
+R53: 53 | Roll-up banner | EN + BN
+R54: 54 | Conference backdrop | EN + BN
+R55: 55 | Name badge / speaker badge | EN + BN
+R56: 56 | Presentation master | EN + BN
+R57: 57 | Infographic system | EN + BN
+R58: 58 | Data visualization system | EN + BN
+R59: 59 | Social media post | EN + BN
+R60: 60 | Social media story | EN + BN
+R61: 61 | Social media cover | EN + BN
+R62: 62 | Recruitment campaign | EN + BN
+R63: 63 | Admissions campaign | EN + BN
+R64: 64 | Community health campaign | EN + BN
+R65: 65 | Patient education sheet | EN + BN
+R66: 66 | Health awareness campaign | EN + BN
+R67: 67 | Research announcement | EN + BN
+R68: 68 | CME / CPD campaign | EN + BN
+R69: 69 | Event invitation | EN + BN
+R70: 70 | Event ticket / QR pass | EN + BN
+R71: 71 | Website design system | EN + BN
+R72: 72 | Digital portal / dashboard | EN + BN
+R73: 73 | Mobile UI system | EN + BN
+R74: 74 | Email newsletter | EN + BN
+R75: 75 | Digital advertising | EN + BN
+R76: 76 | Merchandise / premium collateral | EN + BN
+R77: 77 | Environmental / experiential brand | EN + BN
+
+TABLE 15
+R0: Component | Standard
+R1: Header | Crest + SAMC identity + EN / বাংলা.
+R2: Hero | Large HD photo or institutional visual; concise headline; one primary action.
+R3: Navigation | Simple, high contrast, bilingual.
+R4: Cards | Consistent spacing and one controlled palette.
+R5: Icons | Monochrome line icons, subordinate to identity.
+R6: Footer | Institutional identity, contact, legal and language utilities.
+R7: Mobile | Independent EN and BN responsive states.
+
+TABLE 16
+R0: Area | Owner | Control
+R1: Master crest | Institutional brand authority | Single approved master file.
+R2: Legal name | Institutional authority | Legal wording overrides design preference.
+R3: Color | Brand owner | Version-controlled values.
+R4: Bangla terminology | Content/language owner | Approved terminology list.
+R5: Clinical communication | Clinical + communications authority | Accuracy before aesthetics.
+R6: Academic communication | Academic + communications authority | Accuracy + consistency.
+R7: Digital UI | Digital/product owner | EN/BN parity + accessibility.
+R8: Photography | Communications + privacy owner | Rights, consent, dignity.
+
+TABLE 17
+R0: FINAL RULE / The crest is the identity. Color, typography, photography, UI, signage and campaigns exist to make that identity clearer, more credible and more useful.
+
+TABLE 18
+R0: Folder | Contents
+R1: 01_MASTER_CREST | Vector, PNG, monochrome, reverse and minimum-size masters.
+R2: 02_IDENTITY_RULES | Clear space, sizing and incorrect-use standards.
+R3: 03_COLOR | Digital and print color specifications.
+R4: 04_TYPE | English/Bangla fonts, hierarchy and licensing references.
+R5: 05_BILINGUAL | Approved EN/BN terminology and QA.
+R6: 06_PHOTOGRAPHY | HD library, rights, consent, crops and alt text.
+R7: 07_77_CREATIVE | Editable masters for all 77 creative types.
+R8: 08_DIGITAL | UI components, responsive states and accessibility.
+R9: 09_PRINT | Print-ready artwork and vendor specifications.
+R10: 10_ARCHIVE | Superseded versions and approvals.

@@ -1,0 +1,63 @@
+--- Page 1 ---
+University of Dhaka
+Third Professional M.B.B.S. Examination of November 2024 Held in December 2024
+College Name Reg. Session Roll Student Name Gender Year of ad. S. Type Result
+1 South Apollo Medical College 12138 2020-21 5506 ABDUR RAHMAN SEFAT Male 2021 Regular Passed
+2 South Apollo Medical College 12143 2020-21 5507 HOMAIRA ANJUM JARIN Female 2021 Regular Passed
+3 South Apollo Medical College 12121 2020-21 5508 KAMRUN NAHAR ATIA Female 2021 Regular Passed
+4 South Apollo Medical College 12139 2020-21 5509 MD. ABIR HOSSAIN Male 2021 Regular Referred(Micro)
+5 South Apollo Medical College 12133 2020-21 5510 MD. IMRAJUL ISLAM Male 2021 Regular Passed
+6 South Apollo Medical College 12156 2020-21 5511 AFSANA MIMI Female 2021 Regular Passed
+7 South Apollo Medical College 12134 2020-21 5512 PARTHA MANDAL Male 2021 Regular Passed
+8 South Apollo Medical College 12152 2020-21 5513 SRISTI SIKDER Female 2021 Regular Passed
+9 South Apollo Medical College 12157 2020-21 5514 CHANDAN MRIDHA Male 2021 Regular Referred(Micro)
+10 South Apollo Medical College 12117 2020-21 5515 MD. TORIKUL ISLAM SHEFAT Male 2021 Regular Passed
+11 South Apollo Medical College 12126 2020-21 5516 JARIN AKTER JUTHI Female 2021 Regular Passed
+12 South Apollo Medical College 12128 2020-21 5517 K.M SHAHARIEA SHUVO Male 2021 Regular Passed
+13 South Apollo Medical College 12161 2020-21 5518 ANJUM KHAN DISHA Female 2021 Regular Referred(Micro)
+14 South Apollo Medical College 12137 2020-21 5519 NASRIN KHANUM BELY Female 2021 Regular Referred(Micro)
+15 South Apollo Medical College 12123 2020-21 5520 TAHASINA ZANNAT Female 2021 Regular Passed
+16 South Apollo Medical College 12159 2020-21 5521 ZINIA ZAHID ZIM Female 2021 Regular Referred(Micro)
+17 South Apollo Medical College 12124 2020-21 5522 SADIA ISLAM Female 2021 Regular PassedHons: Patho
+18 South Apollo Medical College 12148 2020-21 5523 KANIS FATEMA Female 2021 Regular Passed
+19 South Apollo Medical College 12129 2020-21 5524 MOST. ISRAT JAHAN URMI Female 2021 Regular Passed
+20 South Apollo Medical College 12155 2020-21 5525 ISRAT JARIN MEEM Female 2021 Regular Passed
+
+--- Page 2 ---
+Third Professional M.B.B.S. Examination of November 2024 Held in December 2024
+College Name Reg. Session Roll Student Name Gender Year of ad. S. Type Result
+21 South Apollo Medical College 12127 2020-21 5526 NAYEEMA ISLAM Female 2021 Regular Passed
+22 South Apollo Medical College 12140 2020-21 5527 MUHSINA TASNIM Female 2021 Regular Passed
+23 South Apollo Medical College 12119 2020-21 5528 Abdullah Al Niaz Male 2021 Regular Passed
+24 South Apollo Medical College 12142 2020-21 5529 RAFIQUN NESA NOVA Female 2021 Regular Referred(Micro)
+25 South Apollo Medical College 12149 2020-21 5530 SADIA AFROSE Female 2021 Regular Referred(Micro)
+26 South Apollo Medical College 12136 2020-21 5531 TASMIN NUR JAROYA Female 2021 Regular Referred(Micro)
+27 South Apollo Medical College 12113 2020-21 5532 KHONDOKAR MARUF HOSSAIN Male 2021 Regular Passed
+28 South Apollo Medical College 12141 2020-21 5533 NABIN HASAN NILOY Male 2021 Regular Passed
+29 South Apollo Medical College 12158 2020-21 5534 SUMIYA BINTE HAFIZ Female 2021 Regular Passed
+30 South Apollo Medical College 12122 2020-21 5535 SINTHIA RAHMAN SAMIHA Female 2021 Regular Passed
+31 South Apollo Medical College 12132 2020-21 5536 SADIA ZAMAN Female 2021 Regular Referred(Pharma, Micro, Patho)
+32 South Apollo Medical College 12114 2020-21 5537 AMENA TUJ ALVI Female 2021 Regular Passed
+33 South Apollo Medical College 12145 2020-21 5538 TARANNUM MARIA RIDITA Female 2021 Regular Referred(Micro, Patho)
+34 South Apollo Medical College 12146 2020-21 5539 ISRAT JHAHAN MIM Female 2021 Regular Referred(Micro, Patho)
+35 South Apollo Medical College 12116 2020-21 5540 MD. FAHIM TALUKDER Male 2021 Regular Passed
+36 South Apollo Medical College 12115 2020-21 5541 NAFIATUR RAHMAN JAREEN Female 2021 Regular Passed
+37 South Apollo Medical College 12130 2020-21 5542 Mahfuz Hasan Male 2021 Regular Passed
+38 South Apollo Medical College 12150 2020-21 5543 SUSMITA GHOSH SETU Female 2021 Regular Passed
+39 South Apollo Medical College 12154 2020-21 5544 Raian Talukder Female 2021 Regular Passed
+40 South Apollo Medical College 12118 2020-21 5545 TANIA HAQUE KONA Female 2021 Regular Passed
+
+--- Page 3 ---
+Result Publish Date:
+Controller of Examinations
+University of Dhaka
+Third Professional M.B.B.S. Examination of November 2024 Held in December 2024
+College Name Reg. Session Roll Student Name Gender Year of ad. S. Type Result
+41 South Apollo Medical College 12131 2020-21 5546 SOUMIK KUMAR BARAI Male 2021 Regular Passed
+Hons: Pharma, Patho
+42 South Apollo Medical College 12135 2020-21 5547 Arup Roy Male 2021 Regular Referred(Micro, Patho)
+43 South Apollo Medical College 12160 2020-21 5548 CHANDRA CHAKRO VERTY Female 2021 Regular Passed
+44 South Apollo Medical College 12153 2020-21 5549 RIFAT JAHAN Female 2021 Regular Passed
+45 South Apollo Medical College 12147 2020-21 5550 SHANZIDA AFROJ SHIFA Female 2021 Regular Referred(Micro, Patho)
+46 South Apollo Medical College 12120 2020-21 5551 DEVALINA ROY CHOWDHURY Female 2021 Regular Passed
+47 South Apollo Medical College 12144 2020-21 5552 ANJILA AHSAN ARPITA Female 2021 Regular Referred(Pharma, Micro, Patho)

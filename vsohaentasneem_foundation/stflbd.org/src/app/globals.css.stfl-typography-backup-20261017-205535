@@ -1,0 +1,344 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@400;500;600;700&display=swap');
+@source "../";
+@source "../../components";
+
+/* Local Hind Siliguri Font-Face Declarations */
+@font-face {
+  font-family: 'Hind Siliguri';
+  src: url('/fonts/HindSiliguri-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Hind Siliguri';
+  src: url('/fonts/HindSiliguri-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Hind Siliguri';
+  src: url('/fonts/HindSiliguri-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Hind Siliguri';
+  src: url('/fonts/HindSiliguri-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme inline {
+  --font-sans: var(--font-hind-siliguri), 'Hind Siliguri', var(--font-noto-sans-bengali), 'Noto Sans Bengali', 'Baloo Da 2', var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-bn-header: var(--font-hind-siliguri), 'Hind Siliguri', 'SolaimanLipi', sans-serif;
+  --font-bn-body: var(--font-noto-sans-bengali), 'Noto Sans Bengali', 'Baloo Da 2', 'SolaimanLipi', sans-serif;
+  --font-bn-ui: var(--font-noto-sans-bengali), 'Baloo Da 2', 'Noto Sans Bengali', sans-serif;
+  --font-en-header: var(--font-inter), 'Inter', system-ui, -apple-system, sans-serif;
+  --font-en-body: var(--font-inter), 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', Consolas, Monaco, monospace;
+
+  --color-stfl-ink: #081F2D;
+  --color-stfl-navy: #0B2B43;
+  --color-stfl-snow: #FAFAF8;
+  --color-stfl-stone: #E7E7E2;
+  --color-stfl-accent: #FF6B35;
+  --color-stfl-gold: #C5A059;
+
+  /* STFL VI Bright-White / Neon Signal Tokens */
+  --stfl-vi-white: #FFFFFF;
+  --stfl-vi-bright: #F8FAFC;
+  --stfl-vi-neon: #00D4FF;
+  --stfl-vi-dark: #070D18;
+  --stfl-vi-surface: #0E1726;
+  --stfl-vi-card: #152238;
+  --stfl-vi-border: rgba(0, 212, 255, 0.22);
+  --stfl-vi-muted: #94A3B8;
+  --stfl-vi-accent: #0066FF;
+}
+
+@layer base {
+  *, ::before, ::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #FAFAF8;
+    color: #081F2D;
+    line-height: 1.6;
+  }
+
+  /* Form and control element typography and base styles - NO BROWSER RAW FALLBACK */
+  button, select, input, textarea {
+    font-family: inherit;
+    font-size: inherit;
+  }
+
+  button {
+    cursor: pointer;
+  }
+}
+
+/* Official STFL Typography Utility Classes */
+.stfl-bn-header {
+  font-family: var(--font-hind-siliguri), 'Hind Siliguri', 'SolaimanLipi', 'Noto Sans Bengali', sans-serif;
+  line-height: 1.6;
+}
+
+.stfl-bn-body {
+  font-family: var(--font-noto-sans-bengali), 'Baloo Da 2', 'Noto Sans Bengali', 'SolaimanLipi', sans-serif;
+  line-height: 1.75;
+}
+
+.stfl-en-header {
+  font-family: var(--font-inter), 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.3;
+}
+
+.stfl-en-body {
+  font-family: var(--font-inter), 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.5;
+}
+
+.stfl-card {
+  background-color: #ffffff;
+  border: 1px solid #E7E7E2;
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 3px 0 rgba(8, 31, 45, 0.05);
+}
+
+.stfl-select {
+  background-color: #ffffff;
+  border: 1px solid #E7E7E2;
+  border-radius: 0.5rem;
+  padding: 0.375rem 0.625rem;
+  font-size: 0.8125rem;
+  color: #081F2D;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.stfl-select:focus {
+  border-color: #FF6B35;
+  box-shadow: 0 0 0 1px #FF6B35;
+}
+
+.stfl-input {
+  background-color: #ffffff;
+  border: 1px solid #E7E7E2;
+  border-radius: 0.5rem;
+  padding: 0.375rem 0.625rem;
+  font-size: 0.8125rem;
+  color: #081F2D;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.stfl-input:focus {
+  border-color: #FF6B35;
+  box-shadow: 0 0 0 1px #FF6B35;
+}
+
+.stfl-btn-primary {
+  background-color: #FF6B35;
+  color: #ffffff;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  padding: 0.375rem 0.75rem;
+  font-size: 0.75rem;
+  transition: background-color 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+.stfl-btn-primary:hover {
+  background-color: #e55a27;
+}
+
+.stfl-btn-secondary {
+  background-color: #0B2B43;
+  color: #ffffff;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  padding: 0.375rem 0.75rem;
+  font-size: 0.75rem;
+  transition: background-color 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+.stfl-btn-secondary:hover {
+  background-color: #081F2D;
+}
+
+.stfl-btn-ghost {
+  background-color: transparent;
+  color: #081F2D;
+  border: 1px solid #E7E7E2;
+  border-radius: 0.5rem;
+  padding: 0.375rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+.stfl-btn-ghost:hover {
+  background-color: #FAFAF8;
+  border-color: #0B2B43;
+}
+
+/* STFL-TYPOGRAPHY-V2-START */
+
+/* BASE */
+html {
+  font-size: 16px;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-size: 1rem;
+  line-height: 1.62;
+}
+
+/* HEADINGS */
+h1 {
+  font-size: clamp(2.5rem, 4.2vw, 3.5rem);
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+}
+
+h2 {
+  font-size: clamp(2rem, 3.2vw, 2.75rem);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+}
+
+h3 {
+  font-size: clamp(1.45rem, 2.1vw, 1.85rem);
+  line-height: 1.2;
+}
+
+h4 {
+  font-size: clamp(1.2rem, 1.6vw, 1.45rem);
+  line-height: 1.3;
+}
+
+/* BODY */
+p {
+  font-size: 1rem;
+  line-height: 1.62;
+}
+
+/* LEAD / INTRO */
+main > section p:first-of-type,
+main > section > div:first-of-type p:first-of-type,
+main header p,
+[class*="hero"] p,
+[class*="lead"] {
+  font-size: clamp(1.05rem, 1.25vw, 1.2rem);
+  line-height: 1.58;
+}
+
+/* NAVIGATION */
+nav,
+header nav,
+nav a,
+header a {
+  font-size: 0.9375rem;
+}
+
+/* CARD TITLES */
+article h2,
+article h3,
+[class*="card"] h2,
+[class*="card"] h3,
+[class*="Card"] h2,
+[class*="Card"] h3,
+.stfl-card h2,
+.stfl-card h3,
+section .grid > div h2,
+section .grid > div h3 {
+  font-size: 1.25rem;
+  line-height: 1.35;
+}
+
+/* CARD BODY */
+article p,
+[class*="card"] p,
+[class*="Card"] p,
+.stfl-card p,
+section .grid > div p:not([class*="eyebrow"]):not([class*="kicker"]):not([class*="meta"]):not([class*="date"]) {
+  font-size: 0.95rem;
+  line-height: 1.58;
+}
+
+/* EYEBROWS / KICKERS */
+[class*="eyebrow"],
+[class*="Eyebrow"],
+[class*="kicker"],
+[class*="Kicker"] {
+  font-size: 0.75rem;
+  line-height: 1.35;
+  letter-spacing: 0.12em;
+}
+
+/* METADATA */
+article small,
+[class*="meta"],
+[class*="Meta"],
+[class*="date"],
+[class*="Date"] {
+  font-size: 0.8125rem;
+  line-height: 1.45;
+}
+
+/* BUTTONS */
+button,
+[role="button"],
+a[class*="button"],
+a[class*="Button"] {
+  font-size: 0.9375rem;
+  line-height: 1.25;
+}
+
+/* MOBILE RESPONSIVE TYPOGRAPHY */
+@media (max-width: 640px) {
+  h1 {
+    font-size: clamp(2.05rem, 10vw, 2.7rem);
+  }
+
+  h2 {
+    font-size: clamp(1.75rem, 8vw, 2.2rem);
+  }
+
+  h3 {
+    font-size: 1.35rem;
+  }
+
+  p {
+    line-height: 1.6;
+  }
+}
+
+/* STFL-TYPOGRAPHY-V2-END */
+

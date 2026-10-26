@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#ffffff">
+<meta name="description" content="ZMeet — Meet. Present. Decide. Done. AI organizes the meeting. You run the conversation.">
+<title>ZMeet — Meet. Present. Decide. Done.</title>
+<link rel="icon" href="/brand/varizen-symbol-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/brand/varizen-symbol-16.png" sizes="16x16" type="image/png">
+<link rel="apple-touch-icon" href="/brand/varizen-symbol-180.png">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<svg class="sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="i-video" viewBox="0 0 24 24"><rect x="2.5" y="6" width="12.5" height="12" rx="3"/><path d="M15 11l6.2-3.6v9.2L15 13z"/></symbol>
+  <symbol id="i-video-off" viewBox="0 0 24 24"><path d="M15 10.5V9a3 3 0 00-3-3H6a3 3 0 00-3 3v6a3 3 0 003 3h6a3 3 0 003-3v-1.5"/><path d="M15 11l6.2-3.6v9.2L15 13z"/><path d="M3 3l18 18"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol>
+  <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></symbol>
+  <symbol id="i-history" viewBox="0 0 24 24"><path d="M3.5 12a8.5 8.5 0 108.5-8.5A8.4 8.4 0 005.4 6.6"/><path d="M3.5 3.5v3.6h3.6"/><path d="M12 7.5V12l3 2"/></symbol>
+  <symbol id="i-rec" viewBox="0 0 24 24"><circle cx="12" cy="12" r="6"/></symbol>
+  <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3l1.9 4.9L19 10l-5.1 2.1L12 17l-1.9-4.9L5 10l5.1-2.1z"/><path d="M18.5 15.5l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8z"/></symbol>
+  <symbol id="i-notes" viewBox="0 0 24 24"><rect x="3.5" y="4" width="17" height="16" rx="3"/><path d="M8 9h8M8 13h8M8 17h4"/></symbol>
+  <symbol id="i-files" viewBox="0 0 24 24"><path d="M13 3H7a2.5 2.5 0 00-2.5 2.5v13A2.5 2.5 0 007 21h10a2.5 2.5 0 002.5-2.5V9.5z"/><path d="M13 3v6.5h6.5"/></symbol>
+  <symbol id="i-settings" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2"/><path d="M12 3.5v2M12 18.5v2M4.9 7.8l1.7 1M17.4 15.2l1.7 1M4.9 16.2l1.7-1M17.4 8.8l1.7-1"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.4"/><path d="M3 20c0-3.2 2.7-5.4 6-5.4s6 2.2 6 5.4"/><path d="M16 5.2a3.2 3.2 0 010 6.2M17.5 14.4c2.3.5 3.9 2.3 3.9 4.6"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M16.2 16.2L21 21"/></symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2.5"/><path d="M15 5.5A2.5 2.5 0 0012.5 3h-6A3.5 3.5 0 003 6.5v6A2.5 2.5 0 005.5 15"/></symbol>
+  <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 14a4 4 0 015.7 0l2.3-2.3a4 4 0 10-5.7-5.7L11 7.3"/><path d="M14 10a4 4 0 01-5.7 0L6 12.3a4 4 0 105.7 5.7l1.3-1.3"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect x="4.5" y="10" width="15" height="10.5" rx="3"/><path d="M8.2 10V7.6a3.8 3.8 0 017.6 0V10"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l7 2.5v6c0 4.4-2.9 7.7-7 9.5-4.1-1.8-7-5.1-7-9.5v-6z"/><path d="M9 12l2.2 2.2L15.4 10"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.5l10 6.5-10 6.5z"/></symbol>
+  <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h13M12.5 6l6 6-6 6"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 13l4.5 4.5L19 7"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 4l8.5 15H3.5z"/><path d="M12 10v4M12 16.6v.4"/></symbol>
+  <symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 7h16M9 7V4.8A1.8 1.8 0 0110.8 3h2.4A1.8 1.8 0 0115 4.8V7M6.5 7l.8 12.2A2 2 0 009.3 21h5.4a2 2 0 002-1.8L17.5 7"/></symbol>
+  <symbol id="i-mic" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11.5a6.5 6.5 0 0013 0M12 18v3"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5.5" width="18" height="13" rx="3"/><path d="M3.8 7.5L12 13l8.2-5.5"/></symbol>
+  <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 3L5 13.5h5.5L11 21l8-10.5h-5.5z"/></symbol>
+  <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="7" height="7" rx="2"/><rect x="13.5" y="3.5" width="7" height="7" rx="2"/><rect x="3.5" y="13.5" width="7" height="7" rx="2"/><rect x="13.5" y="13.5" width="7" height="7" rx="2"/></symbol>
+  <symbol id="i-broadcast" viewBox="0 0 24 24"><circle cx="12" cy="12" r="2.5"/><path d="M7.8 7.8a6 6 0 000 8.4M16.2 16.2a6 6 0 000-8.4M4.9 4.9a10 10 0 000 14.2M19.1 19.1a10 10 0 000-14.2"/></symbol>
+  <symbol id="i-storage" viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v6c0 1.7 3.6 3 8 3s8-1.3 8-3V6"/><path d="M4 12v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></symbol>
+  <symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="M9.5 6l6 6-6 6"/></symbol>
+  <symbol id="i-wand" viewBox="0 0 24 24"><path d="M4 20l9.5-9.5M13 5l.9 2.3L16 8.2l-2.1.9L13 11.4l-.9-2.3L10 8.2l2.1-.9z"/><path d="M18.5 12.5l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8z"/></symbol>
+</svg>
+
+<div class="app">
+
+  <!-- ======================= SIDEBAR ======================= -->
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-mark"><svg><use href="#i-video"/></svg></div>
+      <div class="brand-text">
+        <span class="brand-name">ZMeet</span>
+        <span class="brand-sub">Meet · Present · Decide</span>
+      </div>
+    </div>
+
+    <button class="btn-create" id="btnNewMeeting">
+      <svg><use href="#i-plus"/></svg><span>New Meeting</span>
+    </button>
+
+    <nav class="nav" id="primaryNav">
+      <button class="nav-item" data-view="live">
+        <svg><use href="#i-bolt"/></svg><span>Live now</span>
+        <b class="nav-count live" id="countLive" hidden>0</b>
+      </button>
+      <button class="nav-item active" data-view="upcoming">
+        <svg><use href="#i-calendar"/></svg><span>Upcoming</span>
+        <b class="nav-count" id="countUpcoming">0</b>
+      </button>
+      <button class="nav-item" data-view="all">
+        <svg><use href="#i-grid"/></svg><span>My Meetings</span>
+        <b class="nav-count" id="countAll">0</b>
+      </button>
+      <button class="nav-item" data-view="recordings">
+        <svg><use href="#i-rec"/></svg><span>Recordings</span>
+        <b class="nav-count" id="countRecordings">0</b>
+      </button>
+      <button class="nav-item" data-view="studio">
+        <svg><use href="#i-broadcast"/></svg><span>Live Studio</span>
+      </button>
+      <button class="nav-item" data-view="memory">
+        <svg><use href="#i-notes"/></svg><span>AI Notes</span>
+      </button>
+      <button class="nav-item" data-view="files">
+        <svg><use href="#i-files"/></svg><span>Shared Files</span>
+      </button>
+      <button class="nav-item" data-view="settings">
+        <svg><use href="#i-settings"/></svg><span>Settings</span>
+      </button>
+    </nav>
+
+    <div class="side-section">
+      <div class="side-head"><span>AI activity</span></div>
+      <button class="nav-item" data-view="activity">
+        <svg><use href="#i-spark"/></svg><span>Agent log</span>
+        <b class="nav-count" id="countActivity">0</b>
+      </button>
+    </div>
+
+    <div class="side-foot">
+      <button class="org-chip" id="btnOrg" title="Organizer identity">
+        <span class="org-avatar" id="orgAvatar">V</span>
+        <span class="org-meta">
+          <span class="org-name" id="orgName">Varizen Inc.</span>
+          <span class="org-plan" id="orgPlan">Business plan</span>
+        </span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- ======================= MAIN ======================= -->
+  <main class="main">
+    <header class="topbar">
+      <div>
+        <span class="topbar-title" id="viewTitle">Upcoming</span>
+        <span class="topbar-sub" id="viewSub"></span>
+      </div>
+      <div class="topbar-right">
+        <div class="search-field">
+          <svg><use href="#i-search"/></svg>
+          <input id="searchInput" type="text" placeholder="Search meetings, notes, decisions…" autocomplete="off">
+        </div>
+        <button class="icon-btn" id="btnAiOrganizer" title="Ask AI to organize a meeting">
+          <svg><use href="#i-wand"/></svg>
+        </button>
+        <button class="avatar-btn" id="btnAvatar" title="Host identity">TA</button>
+      </div>
+    </header>
+
+    <div class="stage-scroll" id="stage"></div>
+  </main>
+</div>
+
+<!-- ======================= NEW MEETING MODAL ======================= -->
+<div class="modal-overlay" id="newModal" hidden>
+  <div class="modal">
+    <div class="modal-head">
+      <h3 id="newModalTitle">New meeting</h3>
+      <button class="close-btn" id="btnCloseNew" aria-label="Close">&times;</button>
+    </div>
+    <div class="modal-body">
+      <div class="field">
+        <label for="newTitle">Title</label>
+        <input id="newTitle" type="text" placeholder="Project planning" autocomplete="off">
+      </div>
+
+      <div class="field">
+        <label>Meeting type</label>
+        <div class="type-grid" id="typeGrid"></div>
+        <div class="hint" id="typeHint">Advanced modes only appear when you need them.</div>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label for="newWhen">When</label>
+          <input id="newWhen" type="datetime-local">
+        </div>
+        <div class="field">
+          <label for="newDuration">Length</label>
+          <select id="newDuration">
+            <option value="15">15 minutes</option>
+            <option value="30" selected>30 minutes</option>
+            <option value="45">45 minutes</option>
+            <option value="60">60 minutes</option>
+            <option value="90">90 minutes</option>
+            <option value="120">2 hours</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="newInvitees">Invite (comma separated emails)</label>
+        <input id="newInvitees" type="text" placeholder="sarah@varizen.co, john@varizen.co" autocomplete="off">
+      </div>
+
+      <div class="field">
+        <label for="newAiMode">AI boundary</label>
+        <select id="newAiMode"></select>
+        <div class="hint" id="aiModeHint"></div>
+      </div>
+
+      <div>
+        <div class="toggle-row">
+          <div>
+            <div class="label">Waiting room</div>
+            <div class="desc">Guests wait until you admit them. Recommended for external guests.</div>
+          </div>
+          <button class="switch" id="tglWaiting" role="switch" aria-checked="false"><i></i></button>
+        </div>
+        <div class="toggle-row">
+          <div>
+            <div class="label">ZMeet Secure Session</div>
+            <div class="desc">Host-controlled admission and verified entry. Transport-encrypted — not end-to-end encrypted, and the UI says so.</div>
+          </div>
+          <button class="switch" id="tglSecure" role="switch" aria-checked="false"><i></i></button>
+        </div>
+        <div class="toggle-row">
+          <div>
+            <div class="label">Start right away</div>
+            <div class="desc">Open the room immediately instead of scheduling it.</div>
+          </div>
+          <button class="switch on" id="tglStartNow" role="switch" aria-checked="true"><i></i></button>
+        </div>
+      </div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn ghost sm" id="btnCancelNew">Cancel</button>
+      <span class="spacer"></span>
+      <button class="btn primary" id="btnCreateMeeting">
+        <svg><use href="#i-video"/></svg>Create meeting
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ======================= AI ORGANIZER MODAL ======================= -->
+<div class="modal-overlay" id="organizerModal" hidden>
+  <div class="modal wide">
+    <div class="modal-head">
+      <h3>AI meeting organizer</h3>
+      <span class="sub">Checks availability · prepares the room · drafts the invite</span>
+      <button class="close-btn" id="btnCloseOrganizer" aria-label="Close">&times;</button>
+    </div>
+    <div class="modal-body">
+      <div class="field">
+        <label for="organizerInput">What do you need?</label>
+        <textarea id="organizerInput" placeholder="Organize a meeting with Sarah and John about the SAMC project next week, 45 minutes."></textarea>
+        <div class="hint">
+          The agent proposes — it never books, sends or invites without your approval.
+        </div>
+      </div>
+      <div id="organizerResult"></div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn ghost sm" id="btnCancelOrganizer">Close</button>
+      <span class="spacer"></span>
+      <button class="btn primary" id="btnRunOrganizer">
+        <svg><use href="#i-wand"/></svg>Prepare draft
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ======================= SHARE MODAL ======================= -->
+<div class="modal-overlay" id="shareModal" hidden>
+  <div class="modal">
+    <div class="modal-head">
+      <h3>Invite people</h3>
+      <button class="close-btn" id="btnCloseShare" aria-label="Close">&times;</button>
+    </div>
+    <div class="modal-body">
+      <div class="field">
+        <label>Join link</label>
+        <div style="display:flex;gap:8px">
+          <input id="shareLink" type="text" readonly>
+          <button class="btn" id="btnCopyLink"><svg><use href="#i-copy"/></svg>Copy</button>
+        </div>
+        <div class="hint" id="shareHint"></div>
+      </div>
+      <div class="field">
+        <label>Organizer identity</label>
+        <div class="rows" style="box-shadow:none">
+          <div class="row">
+            <div class="row-icon violet"><svg><use href="#i-shield"/></svg></div>
+            <div class="row-body">
+              <div class="row-title" id="shareOrg">Varizen Inc.</div>
+              <div class="row-sub" id="shareHost">business@varizen.co</div>
+            </div>
+          </div>
+        </div>
+        <div class="hint">Guests see this before sending or accepting anything.</div>
+      </div>
+      <div id="shareExtra"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ======================= ROOM DETAIL DRAWER ======================= -->
+<div class="modal-overlay" id="detailModal" hidden>
+  <div class="modal wide">
+    <div class="modal-head">
+      <h3 id="detailTitle">Meeting</h3>
+      <span class="sub" id="detailSub"></span>
+      <button class="close-btn" id="btnCloseDetail" aria-label="Close">&times;</button>
+    </div>
+    <div class="modal-body" id="detailBody"></div>
+    <div class="modal-foot" id="detailFoot"></div>
+  </div>
+</div>
+
+<div class="toast-stack" id="toasts"></div>
+
+<script src="/app.js"></script>
+</body>
+</html>

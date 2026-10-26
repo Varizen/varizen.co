@@ -1,0 +1,147 @@
+/*
+ STFL BRAND TOKENS
+ SohaelTasneem Foundation
+*/
+
+:root {
+
+  --stfl-ink: #081F2D;
+  --stfl-deep-navy: #0B2B43;
+  --stfl-snow: #FAFAF8;
+  --stfl-stone: #E7E7E2;
+  --stfl-accent: #FF6B35;
+  --stfl-black: #000000;
+
+  --stfl-content-width: 1240px;
+
+  --stfl-space-1: 4px;
+  --stfl-space-2: 8px;
+  --stfl-space-3: 12px;
+  --stfl-space-4: 16px;
+  --stfl-space-5: 24px;
+  --stfl-space-6: 32px;
+  --stfl-space-7: 48px;
+  --stfl-space-8: 64px;
+  --stfl-space-9: 96px;
+  --stfl-space-10: 128px;
+
+  --stfl-radius-sm: 8px;
+  --stfl-radius-md: 12px;
+  --stfl-radius-lg: 20px;
+
+  --stfl-border: rgba(8, 31, 45, 0.14);
+
+  --stfl-shadow-soft:
+    0 1px 2px rgba(0, 0, 0, 0.04);
+
+  --stfl-transition:
+    180ms ease;
+
+  /* BILINGUAL TYPOGRAPHY TOKENS (BN / EN) */
+  --font-bn-header: 'Hind Siliguri', 'SolaimanLipi', 'Kalpurush', 'Noto Sans Bengali', sans-serif;
+  --font-bn-body: 'Baloo Da 2', 'Noto Sans Bengali', 'SolaimanLipi', 'Vrinda', sans-serif;
+  --font-en-header: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-en-body: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+
+  --bn-line-height-header: 1.6;
+  --bn-line-height-body: 1.75;
+  --en-line-height-header: 1.3;
+  --en-line-height-body: 1.5;
+}
+
+.stfl-bn-header {
+  font-family: var(--font-bn-header);
+  line-height: var(--bn-line-height-header);
+}
+
+.stfl-bn-body {
+  font-family: var(--font-bn-body);
+  line-height: var(--bn-line-height-body);
+}
+
+.stfl-en-header {
+  font-family: var(--font-en-header);
+  line-height: var(--en-line-height-header);
+}
+
+.stfl-en-body {
+  font-family: var(--font-en-body);
+  line-height: var(--en-line-height-body);
+}
+
+.stfl-mono {
+  font-family: var(--font-mono);
+}
+
+.stfl-brand-system {
+  width: min(
+    calc(100% - 48px),
+    var(--stfl-content-width)
+  );
+
+  margin-inline: auto;
+}
+
+.stfl-brand-section {
+  padding-block: clamp(
+    var(--stfl-space-9),
+    10vw,
+    var(--stfl-space-10)
+  );
+}
+
+.stfl-brand-logo-space {
+  padding: clamp(
+    var(--stfl-space-7),
+    8vw,
+    var(--stfl-space-10)
+  );
+}
+
+.stfl-brand-divider {
+  height: 1px;
+  background: var(--stfl-border);
+}
+
+.stfl-brand-muted {
+  color: color-mix(
+    in srgb,
+    var(--stfl-ink) 62%,
+    transparent
+  );
+}
+
+.stfl-brand-accent {
+  color: var(--stfl-accent);
+}
+
+@media (max-width: 700px) {
+
+  .stfl-brand-system {
+    width: min(
+      calc(100% - 40px),
+      var(--stfl-content-width)
+    );
+  }
+
+  .stfl-brand-section {
+    padding-block: 64px;
+  }
+
+  .stfl-brand-logo-space {
+    padding: 48px 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

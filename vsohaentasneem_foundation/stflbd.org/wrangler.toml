@@ -1,0 +1,35 @@
+# =============================================================================
+# STFL Foundation Website — Cloudflare Workers Deployment Configuration
+# Canonical Domain: https://stflbd.org
+# Target: Cloudflare Workers
+# Adapter: @opennextjs/cloudflare
+# =============================================================================
+
+name = "stfl-foundation-web"
+account_id = "ffdc985581a586cce38fc03d38bd1e61"
+main = ".open-next/worker.js"
+compatibility_date = "2025-09-27"
+compatibility_flags = ["nodejs_compat"]
+workers_dev = false
+
+assets = { directory = ".open-next/assets", binding = "ASSETS" }
+
+# Custom Domains (spec §4 I3 alternative): Cloudflare provisions the proxied DNS
+# record and certificate automatically, so no manual AAAA 100:: placeholder is needed.
+routes = [
+  { pattern = "stflbd.org", zone_name = "stflbd.org", custom_domain = true },
+  { pattern = "www.stflbd.org", zone_name = "stflbd.org", custom_domain = true }
+]
+
+[env.production]
+name = "stfl-foundation-web-production"
+main = ".open-next/worker.js"
+assets = { directory = ".open-next/assets", binding = "ASSETS" }
+routes = [
+  { pattern = "stflbd.org", zone_name = "stflbd.org", custom_domain = true },
+  { pattern = "www.stflbd.org", zone_name = "stflbd.org", custom_domain = true }
+]
+vars = { ENVIRONMENT = "production" }
+
+# Build command generates OpenNext bundle
+build = { command = "npx opennextjs-cloudflare build" }

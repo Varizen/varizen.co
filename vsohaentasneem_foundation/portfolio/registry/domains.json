@@ -1,0 +1,216 @@
+{
+  "schema": "stfl-portfolio-domains-v1",
+  "registry_version": "2026.10.18",
+  "last_updated": "2026-10-18T11:21:30.6399085+08:00",
+  "organization": "SohaelTasneem Foundation",
+  "invariants": {
+    "foundation_domain": "https://stflbd.org",
+    "app_domain": "https://stflbd.app",
+    "api_base": "https://stflbd.app/api/v1",
+    "changeable_by_portfolio_work": false
+  },
+  "dns_state": "NOT RECORDED for project domains. Production zones are Cloudflare-managed.",
+  "domain_count": 20,
+  "domains": [
+    {
+      "domain": "stflbd.org",
+      "role": "Foundation website + Enterprise Workspace",
+      "owner": "SohaelTasneem Foundation",
+      "worker": "stfl-foundation-web",
+      "cloudflare_zone": "stflbd.org",
+      "production": true,
+      "changeable": false,
+      "evidence": "stflbd.org/wrangler.toml"
+    },
+    {
+      "domain": "www.stflbd.org",
+      "role": "Alias / redirect",
+      "owner": "SohaelTasneem Foundation",
+      "worker": "stfl-foundation-web",
+      "cloudflare_zone": "stflbd.org",
+      "production": true,
+      "changeable": false,
+      "evidence": "stflbd.org/wrangler.toml"
+    },
+    {
+      "domain": "stflbd.app",
+      "role": "App landing + API + media",
+      "owner": "SohaelTasneem Foundation",
+      "worker": "stfl-web + stfl-api",
+      "cloudflare_zone": "stflbd.app",
+      "production": true,
+      "changeable": false,
+      "evidence": "main/web/wrangler.toml; main/api/wrangler.toml"
+    },
+    {
+      "domain": "www.stflbd.app",
+      "role": "Alias / redirect",
+      "owner": "SohaelTasneem Foundation",
+      "worker": "stfl-web + stfl-api",
+      "cloudflare_zone": "stflbd.app",
+      "production": true,
+      "changeable": false,
+      "evidence": "main/web/wrangler.toml; main/api/wrangler.toml"
+    },
+    {
+      "domain": "staging.stflbd.app",
+      "role": "Staging environment",
+      "owner": "SohaelTasneem Foundation",
+      "worker": "stfl-web-staging",
+      "cloudflare_zone": "stflbd.app",
+      "production": true,
+      "changeable": false,
+      "evidence": "main/web/wrangler.toml"
+    },
+    {
+      "domain": "grihostios.stflbd.app",
+      "role": "GrihostiOS product surface",
+      "owner": "SohaelTasneem Foundation",
+      "worker": null,
+      "cloudflare_zone": "stflbd.app",
+      "production": false,
+      "changeable": false,
+      "evidence": "STFL_PROJECT_REGISTRY.json"
+    },
+    {
+      "domain": "skillconnect.stflbd.app",
+      "role": "SkillConnect product surface",
+      "owner": "SohaelTasneem Foundation",
+      "worker": null,
+      "cloudflare_zone": "stflbd.app",
+      "production": false,
+      "changeable": false,
+      "evidence": "STFL_PROJECT_REGISTRY.json"
+    },
+    {
+      "domain": "aev.stflbd.app",
+      "role": "AEV Developments product surface",
+      "owner": "AEV Developments Ltd.",
+      "worker": null,
+      "cloudflare_zone": "stflbd.app",
+      "production": false,
+      "changeable": false,
+      "evidence": "STFL_PROJECT_REGISTRY.json"
+    },
+    {
+      "domain": "maxremit.stflbd.app",
+      "role": "MaxRemit product surface",
+      "owner": "SohaelTasneem Foundation",
+      "worker": null,
+      "cloudflare_zone": "stflbd.app",
+      "production": false,
+      "changeable": false,
+      "evidence": "STFL_PROJECT_REGISTRY.json"
+    },
+    {
+      "domain": "helpex.my",
+      "role": "Helpex",
+      "owner": "Helpex",
+      "worker": null,
+      "cloudflare_zone": null,
+      "production": false,
+      "changeable": false,
+      "evidence": "STFL_PROJECT_REGISTRY.json"
+    },
+    {
+      "domain": "proiozon.com",
+      "role": "Proiozon",
+      "owner": "Proiozon Bangladesh",
+      "worker": null,
+      "cloudflare_zone": null,
+      "production": false,
+      "changeable": false,
+      "evidence": "STFL_PROJECT_REGISTRY.json"
+    },
+    {
+      "domain": "perlu.my",
+      "role": "Perlu",
+      "owner": "Perlu",
+      "worker": null,
+      "cloudflare_zone": null,
+      "production": false,
+      "changeable": false,
+      "evidence": "STFL_PROJECT_REGISTRY.json"
+    },
+    {
+      "domain": "oiix.fun",
+      "role": "OIIX",
+      "owner": "SohaelTasneem Foundation",
+      "worker": null,
+      "cloudflare_zone": null,
+      "production": false,
+      "changeable": false,
+      "evidence": "STFL_PROJECT_REGISTRY.json"
+    },
+    {
+      "domain": "hashify.baby",
+      "role": "Hashify",
+      "owner": "UNVERIFIED",
+      "worker": null,
+      "cloudflare_zone": null,
+      "production": false,
+      "changeable": false,
+      "evidence": "STFL_PROJECT_REGISTRY.json"
+    },
+    {
+      "domain": "yourgiftcardsupply.com",
+      "role": "YourGiftCardSupply (archived)",
+      "owner": "Independent entity",
+      "worker": null,
+      "cloudflare_zone": null,
+      "production": false,
+      "changeable": false,
+      "evidence": "STFL_PROJECT_REGISTRY.json"
+    },
+    {
+      "domain": "hakimsarker.org",
+      "role": "HakimSarker archive",
+      "owner": "SohaelTasneem Foundation",
+      "worker": null,
+      "cloudflare_zone": null,
+      "production": false,
+      "changeable": false,
+      "evidence": "STFL_PROJECT_REGISTRY.json"
+    },
+    {
+      "domain": "qimai.codes",
+      "role": "QiM-AI 2.1",
+      "owner": "SohaelTasneem Foundation",
+      "worker": null,
+      "cloudflare_zone": null,
+      "production": false,
+      "changeable": false,
+      "evidence": "STFL_PROJECT_REGISTRY.json"
+    },
+    {
+      "domain": "sohaeltasneem.foundation",
+      "role": "Legacy — 301 to stflbd.org",
+      "owner": "SohaelTasneem Foundation",
+      "worker": null,
+      "cloudflare_zone": null,
+      "production": false,
+      "changeable": false,
+      "evidence": "STFL_DOMAIN_SEPARATION_ARCHITECTURE.md"
+    },
+    {
+      "domain": "stflbd.email",
+      "role": "Official email (not a website)",
+      "owner": "SohaelTasneem Foundation",
+      "worker": null,
+      "cloudflare_zone": null,
+      "production": false,
+      "changeable": false,
+      "evidence": "STFL_DOMAIN_SEPARATION_ARCHITECTURE.md"
+    },
+    {
+      "domain": "api.stflbd.app",
+      "role": "DOES NOT RESOLVE — stale reference only",
+      "owner": "—",
+      "worker": null,
+      "cloudflare_zone": null,
+      "production": false,
+      "changeable": false,
+      "evidence": "STFL_DOMAIN_SEPARATION_ARCHITECTURE.md F6"
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+/**
+ * STFL Design Tokens
+ * Official brand system values for the SohaelTasneem Foundation
+ */
+
+:root {
+  /* Colors - Primary */
+  --stfl-ink: #081F2D;
+  --stfl-navy: #0B2B43;
+  --stfl-deep-navy: #0B2B43;
+  --stfl-snow: #FAFAF8;
+  --stfl-stone: #E7E7E2;
+  --stfl-accent: #FF6B35;
+  --stfl-black: #000000;
+  
+  /* Colors - Semantic */
+  --stfl-text-primary: var(--stfl-ink);
+  --stfl-text-secondary: #64717d;
+  --stfl-text-muted: #8a959f;
+  --stfl-bg-primary: #ffffff;
+  --stfl-bg-secondary: var(--stfl-snow);
+  --stfl-border: #E7E7E2;
+  --stfl-border-soft: rgba(8, 31, 45, 0.14);
+  
+  /* Typography - Scale */
+  --stfl-text-xs: 0.75rem;      /* 12px */
+  --stfl-text-sm: 0.875rem;     /* 14px */
+  --stfl-text-base: 1rem;        /* 16px */
+  --stfl-text-lg: 1.125rem;      /* 18px */
+  --stfl-text-xl: 1.25rem;       /* 20px */
+  --stfl-text-2xl: 1.5rem;       /* 24px */
+  --stfl-text-3xl: 1.875rem;     /* 30px */
+  --stfl-text-4xl: 2.25rem;      /* 36px */
+  --stfl-text-5xl: 3rem;         /* 48px */
+  --stfl-text-6xl: 3.75rem;      /* 60px */
+  
+  /* Spacing */
+  --stfl-space-1: 0.25rem;   /* 4px */
+  --stfl-space-2: 0.5rem;    /* 8px */
+  --stfl-space-3: 0.75rem;   /* 12px */
+  --stfl-space-4: 1rem;      /* 16px */
+  --stfl-space-5: 1.5rem;    /* 24px */
+  --stfl-space-6: 2rem;      /* 32px */
+  --stfl-space-8: 3rem;      /* 48px */
+  --stfl-space-12: 4rem;     /* 64px */
+  --stfl-space-16: 6rem;     /* 96px */
+  --stfl-space-20: 8rem;     /* 128px */
+  
+  /* Radius */
+  --stfl-radius-sm: 0.5rem;   /* 8px */
+  --stfl-radius-md: 0.75rem;  /* 12px */
+  --stfl-radius-lg: 1rem;     /* 16px */
+  --stfl-radius-xl: 1.5rem;   /* 24px */
+  
+  /* Shadows */
+  --stfl-shadow-sm: 0 1px 2px 0 rgb(8 31 45 / 0.05);
+  --stfl-shadow: 0 4px 6px -1px rgb(8 31 45 / 0.08);
+  --stfl-shadow-lg: 0 10px 15px -3px rgb(8 31 45 / 0.1);
+  
+  /* Layout */
+  --stfl-max-width: 1200px;
+  --stfl-content-width: 1024px;
+  --stfl-narrow-width: 720px;
+}

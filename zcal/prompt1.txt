@@ -1,0 +1,780 @@
+Build **ZenCalendar**, an ultra-light, beautiful, universal AI calendar application and sandbox.
+
+### 1. Core concept
+
+ZenCalendar is **one intelligent calendar for every calendar account**.
+
+Connect:
+
+- Google Calendar
+- Microsoft Outlook / Microsoft 365 Calendar
+- Apple/iCloud Calendar
+- CalDAV
+- Exchange
+- Other supported calendar providers
+
+Present everything in one unified calendar while keeping the actual events and calendar data in their **native providers**.
+
+**Do not migrate or unnecessarily duplicate the user's calendar data.**
+
+ZenCalendar is an intelligent **calendar client + AI agent + scheduling sandbox**.
+
+---
+
+### 2. Basic calendar functionality
+
+Everything expected from a modern calendar must work:
+
+- View day
+- View week
+- View month
+- Agenda
+- Year overview
+- Create event
+- Edit event
+- Delete event
+- Move event
+- Recurring events
+- Attendees
+- Invitations
+- Accept / decline / tentative
+- Reminders
+- Time zones
+- Locations
+- Video meeting links
+- Attachments
+- Notes/descriptions
+- Calendar colors
+- Multiple calendars
+- Multiple accounts
+- Availability
+- Free/busy information
+- Event search
+
+The interface must remain extremely simple.
+
+---
+
+### 3. Unified calendar
+
+Example:
+
+**Tahseen**
+
+Google Calendar  
+Work Calendar  
+Personal Calendar  
+Microsoft 365  
+Varizen Calendar  
+iCloud
+
+ZenCalendar combines them into one intelligent timeline.
+
+But every event must retain:
+
+- Original provider
+- Original calendar
+- Original event ID
+- Organizer
+- Attendees
+- Time zone
+- Provider metadata
+- Native provider reference
+
+When an event is changed, ZenCalendar must update the **correct native calendar**.
+
+---
+
+### 4. AI does the calendar work
+
+The defining feature is that AI handles scheduling and calendar administration.
+
+The user can say:
+
+> "Find a free time with John next week."
+
+> "Move tomorrow's meeting to Friday."
+
+> "Schedule a one-hour meeting with the finance team."
+
+> "Find a two-hour block for me to work on the SAMC project."
+
+> "What's my day looking like?"
+
+> "Prepare my schedule for tomorrow."
+
+> "Find all meetings related to Varizen."
+
+> "Move anything non-essential out of my morning."
+
+AI should understand:
+
+- Natural language
+- Availability
+- Priorities
+- Time zones
+- Working hours
+- Meeting duration
+- Attendees
+- Conflicts
+- Travel buffers
+- Recurring commitments
+- User preferences
+
+---
+
+### 5. Calendar Agent Mode
+
+Create an optional **AI Calendar Agent**.
+
+Instead of manually managing events, the user can say:
+
+> **"Handle my calendar."**
+
+AI analyzes the calendar and presents:
+
+**Today**
+- 4 meetings
+- 1 conflict
+- 2 preparation tasks
+
+**Needs me**
+- Accept invitation from John
+- Choose time for project meeting
+
+**AI can handle**
+- Reschedule 3 meetings
+- Send 2 scheduling proposals
+- Add 30-minute preparation blocks
+
+**Conflicts**
+- Two meetings overlap at 3:00 PM
+
+The user can approve individual actions or approve a group.
+
+---
+
+### 6. Scheduling intelligence
+
+ZenCalendar should intelligently calculate suitable meeting times.
+
+Consider:
+
+- Existing events
+- Working hours
+- Holidays
+- Time zones
+- Attendee availability
+- Meeting duration
+- Preferred meeting windows
+- Focus time
+- Travel time
+- Existing commitments
+- User-defined priorities
+
+Example:
+
+> "Schedule a 45-minute meeting with Sarah and John next week."
+
+AI should return:
+
+**Best options**
+
+Tuesday 10:00–10:45  
+Wednesday 14:00–14:45  
+Thursday 11:30–12:15
+
+Then allow:
+
+**Schedule**
+
+with one tap.
+
+---
+
+### 7. Scheduling sandbox
+
+This is the key differentiator.
+
+Before making real calendar changes, AI works inside a **sandbox calendar environment**.
+
+Example:
+
+User says:
+
+> "Rearrange tomorrow so I have a 3-hour uninterrupted work block."
+
+ZenCalendar creates a **proposed schedule** without changing the real calendar.
+
+Display:
+
+### Proposed Schedule
+
+09:00 — Existing meeting  
+10:00 — Existing meeting  
+11:00 — Move internal meeting → 15:00  
+12:00 — Lunch  
+13:00 — Focus block  
+16:00 — Existing meeting
+
+Actions:
+
+**Apply changes**
+
+**Modify**
+
+**Discard**
+
+The real calendar remains untouched until the user approves.
+
+---
+
+### 8. Simulation mode
+
+Allow the user to ask:
+
+> "What if I add a 2-hour meeting tomorrow?"
+
+> "What if I move this meeting to Friday?"
+
+> "What would my week look like if I blocked every morning for deep work?"
+
+ZenCalendar should simulate the change in the sandbox and show the consequences.
+
+Nothing is written to the native calendar until approved.
+
+---
+
+### 9. AI action permissions
+
+Create a clear permission system:
+
+**Read**
+→ AI can inspect calendars.
+
+**Suggest**
+→ AI can propose changes.
+
+**Prepare**
+→ AI can create sandbox changes.
+
+**Act**
+→ AI can modify the real calendar.
+
+**Communicate**
+→ AI can send scheduling messages/invitations.
+
+Sensitive actions must require explicit permission unless the user has previously granted that authority.
+
+---
+
+### 10. Calendar sandbox architecture
+
+Treat the sandbox as an isolated execution environment.
+
+AI should never receive unrestricted access to the user's entire calendar infrastructure.
+
+Capabilities should be explicitly granted:
+
+```text
+Calendar Sandbox
+ ├── Read availability
+ ├── Read events
+ ├── Create proposal
+ ├── Modify event
+ ├── Cancel event
+ ├── Create invitation
+ ├── Send invitation
+ └── Send scheduling communication
+```
+
+Every capability must be permission-controlled.
+
+---
+
+### 11. Native data principle
+
+This is critical.
+
+**Calendar data stays where it originally belongs.**
+
+Google Calendar events remain in Google Calendar.
+
+Microsoft events remain in Microsoft 365.
+
+iCloud events remain in iCloud.
+
+CalDAV events remain on the CalDAV server.
+
+ZenCalendar should store only the minimum information necessary for:
+
+- Synchronization
+- Caching
+- Search
+- AI operation
+- Local performance
+- Sandbox proposals
+
+Do not create an unnecessary centralized calendar database.
+
+---
+
+### 12. Unified search
+
+Provide one universal search:
+
+**"Search calendar…"**
+
+Examples:
+
+> meetings with John
+
+> all Varizen meetings
+
+> events next month involving investors
+
+> meetings where I am the organizer
+
+> cancelled meetings
+
+> meetings longer than two hours
+
+> everything related to SAMC
+
+AI should understand natural language.
+
+---
+
+### 13. Meeting intelligence
+
+For every meeting, AI can optionally provide:
+
+**Meeting Brief**
+
+- Who is attending
+- Previous related meetings
+- Relevant email conversations
+- Previous decisions
+- Open tasks
+- Documents
+- Expected agenda
+
+After the meeting:
+
+**Meeting Follow-up**
+
+- Decisions
+- Tasks
+- Responsible people
+- Deadlines
+- Suggested follow-up email
+
+All cross-application access must be permission-controlled.
+
+---
+
+### 14. Email integration
+
+ZenCalendar should work naturally with **ZenBox**.
+
+Example:
+
+An email says:
+
+> "Can we meet Thursday afternoon?"
+
+ZenCalendar can identify the request and propose suitable times.
+
+The user can say:
+
+> "Handle it."
+
+AI checks availability, prepares a scheduling response and shows it before sending.
+
+Likewise, calendar invitations arriving through ZenBox should appear intelligently inside ZenCalendar.
+
+---
+
+### 15. AI Browser-style sandbox
+
+For scheduling websites or services that don't provide APIs, provide an optional browser sandbox.
+
+The AI can interact with external scheduling systems **inside an isolated browser environment**.
+
+The browser must not automatically gain unrestricted access to:
+
+- Local files
+- Passwords
+- Cookies
+- Personal browser sessions
+- Other applications
+
+Use explicit permissions and isolated sessions.
+
+---
+
+### 16. Multi-identity support
+
+A user may have:
+
+**Personal**
+
+**Business**
+
+**Varizen**
+
+**Other organizations**
+
+AI must know which identity/calendar it is acting on.
+
+Before creating or sending an invitation:
+
+**Calendar**
+`Varizen Business`
+
+**Organizer**
+`business@example.com`
+
+This must be obvious.
+
+---
+
+### 17. Time-zone intelligence
+
+Make time zones first-class.
+
+AI should understand:
+
+- Current location/time zone
+- Event time zone
+- Attendee time zones
+- DST
+- International travel
+- Remote meetings
+
+Example:
+
+> "Find a time that works for Kuala Lumpur, London and New York."
+
+ZenCalendar should calculate suitable overlapping windows automatically.
+
+Never silently change an event's intended time zone.
+
+---
+
+### 18. Travel-aware scheduling
+
+Optional intelligent travel buffers:
+
+Meeting:
+
+**14:00–15:00**
+
+Next meeting:
+
+**15:20**
+
+If the locations require travel, ZenCalendar should flag:
+
+> **Potential travel conflict**
+
+and propose alternatives.
+
+Travel estimates should never be fabricated.
+
+---
+
+### 19. Beautiful UI
+
+The interface must be:
+
+**Ultra-light + premium + calm + extremely fast.**
+
+Do NOT create a traditional overloaded calendar UI.
+
+Think:
+
+- Minimal
+- Spacious
+- Modern
+- Excellent typography
+- Smooth transitions
+- Keyboard friendly
+- Dark/light themes
+- Responsive
+- Very low visual noise
+
+Primary structure:
+
+**Left**
+- Today
+- Calendar
+- Agenda
+- Tasks
+- AI Planner
+- Sandbox
+- Accounts
+
+**Center**
+- Calendar/timeline
+
+**Right contextual panel**
+- AI summary
+- Attendees
+- Conflicts
+- Related emails
+- Tasks
+- Suggested actions
+
+The UI should dynamically expose information relevant to the selected event.
+
+---
+
+### 20. AI daily planner
+
+Every morning, AI can generate:
+
+## Today
+
+**09:00** Board meeting  
+**10:30** Focus block  
+**12:30** Lunch  
+**14:00** Client meeting  
+**16:00** Follow-up block
+
+Then:
+
+**AI suggestions**
+
+- Prepare for board meeting — 20 min
+- You have 45 minutes available before your next meeting
+- One meeting has no agenda
+- You have 3 unanswered scheduling requests
+
+The user can approve suggestions individually.
+
+---
+
+### 21. Focus-time intelligence
+
+AI can understand the user's need for uninterrupted work.
+
+Commands:
+
+> "Give me three hours of uninterrupted work this week."
+
+> "Protect my mornings."
+
+> "Don't schedule meetings after 6 PM."
+
+> "Keep Friday afternoon free."
+
+The system creates sandbox proposals and asks for approval before modifying real calendars.
+
+---
+
+### 22. Privacy
+
+Create a **Calendar Privacy Center**.
+
+Show:
+
+- Connected calendars
+- Permissions
+- AI access
+- Browser access
+- Cached data
+- Active sessions
+- Connected devices
+- Sandbox history
+- AI actions
+
+Users must be able to revoke access easily.
+
+---
+
+### 23. AI activity log
+
+Create:
+
+## AI Activity
+
+> Analyzed 7 calendars
+
+> Found 3 scheduling conflicts
+
+> Proposed moving Finance Meeting
+
+> Created sandbox schedule
+
+> Sent scheduling invitation
+
+> Updated Microsoft 365 event
+
+Every consequential action should be auditable.
+
+---
+
+### 24. Offline-first performance
+
+ZenCalendar must feel instant.
+
+Use:
+
+- Local encrypted cache
+- Incremental synchronization
+- Event virtualization
+- Lazy loading
+- Background sync
+- Efficient indexes
+- Provider-native IDs
+
+Never download entire calendars unnecessarily.
+
+---
+
+### 25. Provider abstraction
+
+Use a clean adapter architecture:
+
+```text
+CalendarProvider
+ ├── GoogleCalendar
+ ├── MicrosoftGraph
+ ├── AppleCalDAV
+ ├── Exchange
+ ├── GenericCalDAV
+ └── OtherProvider
+```
+
+Do not scatter provider-specific code throughout the application.
+
+---
+
+### 26. AI provider abstraction
+
+Do not lock ZenCalendar to one AI provider.
+
+```text
+AIProvider
+ ├── OpenAI
+ ├── Anthropic
+ ├── Gemini
+ ├── Local Model
+ └── Enterprise Model
+```
+
+Allow organizations to control which AI provider processes calendar data.
+
+---
+
+### 27. Security
+
+Implement:
+
+- OAuth 2.0
+- PKCE where applicable
+- Least-privilege scopes
+- Secure token storage
+- OS credential/keychain storage
+- Sandboxed AI execution
+- Sandboxed browser execution
+- CSP
+- XSS protection
+- CSRF protection
+- Secure session management
+- Action auditing
+- Permission controls
+
+Never store provider passwords in plaintext.
+
+---
+
+### 28. Commercial model
+
+Keep the core calendar experience free.
+
+The commercial value can come from:
+
+**Free**
+
+- Multiple calendar connections
+- Unified calendar
+- Basic AI assistance
+- Calendar sandbox
+- Limited AI actions
+
+**Pro**
+
+- Higher AI limits
+- Advanced scheduling
+- Meeting intelligence
+- Automated scheduling
+- Advanced sandbox workflows
+- Cross-calendar optimization
+- Priority AI processing
+
+**Business / Enterprise**
+
+- Team administration
+- Organization policies
+- Audit logs
+- Enterprise AI controls
+- SSO
+- Advanced permissions
+- Compliance controls
+- Private/local AI options
+- Dedicated infrastructure
+
+Do not monetize private calendar data.
+
+---
+
+### 29. Core UX principle
+
+The user should never feel like they are managing five different calendar systems.
+
+They should feel:
+
+> **"I have one intelligent calendar, and it handles the scheduling complexity for me."**
+
+The sandbox is the safety layer between:
+
+**AI intention → proposed change → user approval → real calendar**
+
+---
+
+### 30. Final acceptance criteria
+
+The finished ZenCalendar must:
+
+1. Connect multiple calendar providers.
+2. Display them as one unified calendar.
+3. Keep native calendar data in native providers.
+4. Synchronize changes correctly.
+5. Understand natural-language scheduling requests.
+6. Act as an AI calendar assistant.
+7. Provide a true scheduling sandbox.
+8. Simulate changes before applying them.
+9. Prevent unauthorized AI calendar actions.
+10. Support multi-calendar conflict resolution.
+11. Understand time zones.
+12. Support multiple identities.
+13. Integrate naturally with ZenBox.
+14. Provide optional browser-sandbox automation.
+15. Provide AI meeting intelligence.
+16. Provide daily planning.
+17. Provide focus-time optimization.
+18. Provide complete AI activity auditing.
+19. Remain extremely lightweight and fast.
+20. Be production-ready rather than a visual prototype.
+
+### Product positioning
+
+**ZenCalendar**
+
+> **All your calendars. One intelligent schedule.**
+
+And the core promise:
+
+> **Plan in the sandbox. Approve in one tap. Keep your real calendars under your control.**

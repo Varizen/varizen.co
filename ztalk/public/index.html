@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="ZTalk — Every Conversation. One Place. 14+ messengers, AI assistant, translation, secure by design.">
+<meta name="color-scheme" content="dark light">
+<title>ZTalk — Every Conversation. One Place.</title>
+<link rel="icon" href="/brand/varizen-symbol-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/brand/varizen-symbol-16.png" sizes="16x16" type="image/png">
+<link rel="apple-touch-icon" href="/brand/varizen-symbol-180.png">
+<link rel="stylesheet" href="/style.css?v=4">
+</head>
+<body>
+
+<div class="app" id="app">
+
+  <!-- ============================ SIDEBAR ============================ -->
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <div class="brand-mark">Z</div>
+      <div class="brand-text">
+        <div class="brand-name">ZTalk</div>
+        <div class="brand-sub">Every conversation</div>
+      </div>
+    </div>
+
+    <nav class="nav" id="nav">
+      <button class="nav-item active" data-filter="all">
+        <span class="ni-icon">◎</span><span class="ni-label">All Chats</span>
+        <span class="ni-count" id="count-all">0</span>
+      </button>
+      <button class="nav-item" data-filter="unread">
+        <span class="ni-icon">◔</span><span class="ni-label">Unread</span>
+        <span class="ni-count" id="count-unread">0</span>
+      </button>
+      <button class="nav-item" data-filter="needs-reply">
+        <span class="ni-icon">↩</span><span class="ni-label">Needs Reply</span>
+        <span class="ni-count" id="count-needs-reply">0</span>
+      </button>
+      <button class="nav-item" data-filter="important">
+        <span class="ni-icon">★</span><span class="ni-label">Important</span>
+        <span class="ni-count" id="count-important">0</span>
+      </button>
+      <button class="nav-item" data-filter="groups">
+        <span class="ni-icon">◫</span><span class="ni-label">Groups</span>
+        <span class="ni-count" id="count-groups">0</span>
+      </button>
+    </nav>
+
+    <div class="side-section">
+      <div class="side-head">
+        <span>Accounts</span>
+        <button class="icon-btn" id="btn-reset" title="Reset sandbox">⟲</button>
+      </div>
+      <div class="accounts" id="accounts"></div>
+    </div>
+
+    <div class="side-foot">
+      <div class="identity" id="identity"></div>
+      <div class="side-links">
+        <button class="link-btn" id="btn-digest">Daily digest</button>
+        <button class="link-btn" id="btn-activity">AI activity</button>
+        <button class="link-btn" id="btn-privacy">Privacy</button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ========================== CONVERSATION LIST ========================== -->
+  <section class="list-col" id="listCol">
+    <header class="list-head">
+      <div class="search-wrap">
+        <span class="search-icon">⌕</span>
+        <input id="search" type="search" placeholder="Search everything…" autocomplete="off" spellcheck="false">
+      </div>
+      <button class="icon-btn" id="btn-integrations" title="Integrations">⇄</button>
+    </header>
+    <div class="list-meta" id="listMeta"></div>
+    <div class="conv-list" id="convList" role="listbox" aria-label="Conversations"></div>
+  </section>
+
+  <!-- ============================= THREAD ============================== -->
+  <section class="thread-col" id="threadCol">
+    <header class="thread-head" id="threadHead">
+      <div class="empty-head">
+        <span class="muted">Select a conversation</span>
+      </div>
+    </header>
+
+    <div class="messages" id="messages">
+      <div class="placeholder" id="placeholder">
+        <div class="ph-mark">Z</div>
+        <h2>Every conversation. One place.</h2>
+        <p>Pick a chat to read, reply, translate, or ask the assistant.</p>
+      </div>
+    </div>
+
+    <footer class="composer" id="composer" hidden>
+      <div class="composer-tools">
+        <button class="chip-btn" id="btn-ai-summary">✦ Summarize</button>
+        <button class="chip-btn" id="btn-ai-replies">✦ Suggestions</button>
+        <button class="chip-btn" id="btn-ai-translate">⇄ Translate</button>
+        <span class="spacer"></span>
+        <button class="chip-btn" id="btn-important">★ Important</button>
+      </div>
+      <div class="composer-box">
+        <textarea id="compose" rows="1" placeholder="Write a message… (⌘/Ctrl + Enter to send)" spellcheck="true"></textarea>
+        <button class="send-btn" id="btn-send" title="Send">➤</button>
+      </div>
+      <div class="composer-hint" id="composerHint"></div>
+    </footer>
+  </section>
+
+  <!-- ============================ AI PANEL ============================= -->
+  <aside class="ai-col" id="aiCol">
+    <header class="ai-head">
+      <span class="ai-title">✦ Assistant</span>
+      <button class="icon-btn" id="btn-ai-close" title="Hide">×</button>
+    </header>
+    <div class="ai-body" id="aiBody">
+      <div class="ai-empty">
+        <p>Open a conversation and ask the assistant to summarize, draft, translate or detect commitments.</p>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ============================= MODAL ============================== -->
+  <div class="modal-backdrop" id="modalBackdrop" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <header class="modal-head">
+        <h3 id="modalTitle">Details</h3>
+        <button class="icon-btn" id="btn-modal-close">×</button>
+      </header>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <div class="toast-wrap" id="toasts"></div>
+</div>
+
+<script type="module" src="/app.js?v=4"></script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+{
+  "source": "K:\\samcnhb\\brandsystem\\SAMC_HD_Master_Assets_SOUTH_APOLLO_v2 (1)\\SAMC_Brand_Guidelines_v2_2_South_Apollo_HD.docx",
+  "bytes": 1912796,
+  "core_properties": {
+    "title": "",
+    "subject": "",
+    "author": "python-docx",
+    "last_modified_by": "",
+    "created": "2013-12-23 23:15:00+00:00",
+    "modified": "2013-12-23 23:15:00+00:00",
+    "revision": "1"
+  },
+  "paragraphs": 103,
+  "empty_paragraphs": 34,
+  "tables": 19,
+  "inline_shapes": 0,
+  "drawings": 0,
+  "sections": [
+    {
+      "section": 0,
+      "header": "",
+      "footer": "SAMC / BRAND GUIDELINES v2.1  ·  ",
+      "page_mm": [
+        215.9,
+        279.4
+      ],
+      "margins_mm": [
+        18.3,
+        18.3,
+        15.8,
+        15.8
+      ]
+    }
+  ],
+  "explicit_fonts": {},
+  "font_sizes_pt": {
+    "30.0": 1,
+    "12.0": 1,
+    "10.0": 9,
+    "8.5": 53,
+    "24.0": 13,
+    "10.5": 11,
+    "9.0": 1,
+    "8.0": 406
+  },
+  "font_colors": {
+    "101820": 14,
+    "475569": 1,
+    "64748B": 15,
+    "334155": 11,
+    "006FC9": 7,
+    "FFFFFF": 32,
+    "273444": 406,
+    "005AA8": 1
+  },
+  "external_links": [],
+  "media": [
+    {
+      "path": "word/media/image1.png",
+      "bytes": 1868549
+    }
+  ],
+  "embedded_objects": []
+}

@@ -1,0 +1,24 @@
+# Next.js
+/.next/
+/node_modules/
+/.pnp
+.pnp.js
+
+# Production
+/build
+/dist
+/.vercel
+
+# Misc
+.DS_Store
+*.pem
+*.log
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~

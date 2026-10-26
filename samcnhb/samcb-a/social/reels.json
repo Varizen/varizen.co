@@ -1,0 +1,16 @@
+{
+  "retrieved": "2026-10-24",
+  "source": "https://www.facebook.com/samcbsl/about",
+  "coverage": "Nine reel thumbnails publicly displayed on the profile; not the complete reel history. Displayed play counts are volatile. Captions and publication dates were unavailable without login.",
+  "reels": [
+    {"url": "https://www.facebook.com/reel/1412976099762859/", "displayed_plays": "6K"},
+    {"url": "https://www.facebook.com/reel/1117401292785334/", "displayed_plays": "3.1K"},
+    {"url": "https://www.facebook.com/reel/780047297481049/", "displayed_plays": "2.7K"},
+    {"url": "https://www.facebook.com/reel/424849849964592/", "displayed_plays": "574"},
+    {"url": "https://www.facebook.com/reel/709771687289822/", "displayed_plays": "2.9K"},
+    {"url": "https://www.facebook.com/reel/885320885907680/", "displayed_plays": "1.5K"},
+    {"url": "https://www.facebook.com/reel/1045954842995138/", "displayed_plays": "1.7K"},
+    {"url": "https://www.facebook.com/reel/502870858134543/", "displayed_plays": "2.5K"},
+    {"url": "https://www.facebook.com/reel/403540564237304/", "displayed_plays": "1K"}
+  ]
+}

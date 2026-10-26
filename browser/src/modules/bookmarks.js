@@ -19,10 +19,11 @@ function getStoreFile() {
 }
 
 const DEFAULT_BOOKMARKS = [
-  { id: 'bm_1', title: 'Varizen Inc.', url: 'https://varizen.co', bar: true, folder: 'Favorites', createdAt: new Date().toISOString() },
+  { id: 'bm_1', title: 'Varizen Trust', url: 'https://www.varizen.co', bar: true, folder: 'Favorites', createdAt: new Date().toISOString() },
   { id: 'bm_2', title: 'GitHub', url: 'https://github.com', bar: true, folder: 'Favorites', createdAt: new Date().toISOString() },
   { id: 'bm_3', title: 'DuckDuckGo', url: 'https://duckduckgo.com', bar: true, folder: 'Search', createdAt: new Date().toISOString() },
-  { id: 'bm_4', title: 'Hacker News', url: 'https://news.ycombinator.com', bar: false, folder: 'News', createdAt: new Date().toISOString() }
+  { id: 'bm_4', title: 'Hacker News', url: 'https://news.ycombinator.com', bar: true, folder: 'News', createdAt: new Date().toISOString() },
+  { id: 'bm_5', title: 'Ko-fi', url: 'https://ko-fi.com/varizen', bar: true, folder: 'Support', createdAt: new Date().toISOString() }
 ];
 
 function load() {

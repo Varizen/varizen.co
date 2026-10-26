@@ -1,4 +1,5 @@
-// ZenBox — Universal AI Email Client & Secure Session Engine for AiBrowser
+// ZMail — Universal AI Email Client & Secure Session Engine for AiBrowser
+// (was: ZenBox)
 // Single unified mailbox layer for every connected account (Gmail, Outlook, Yahoo, iCloud, IMAP)
 // Native provider data stays at origin; AI operates safely with clear boundaries;
 // End-to-end encrypted ZenBox Secure Sessions with dedicated crypto isolation.
@@ -66,8 +67,8 @@ function getAccounts() {
     },
     {
       id: 'acc_secure',
-      name: 'ZenBox Private Key Identity',
-      email: 'tahseen@zenbox.sec',
+      name: 'ZMail Private Key Identity',
+      email: 'tahseen@zmail.sec',
       provider: 'zenbox-secure',
       icon: 'Z',
       color: '#10B981',

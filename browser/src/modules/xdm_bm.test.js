@@ -16,7 +16,8 @@ bookmarks.init(testDir);
 test('bookmarks: default list and adding new bookmark', () => {
   const list = bookmarks.list();
   assert.ok(Array.isArray(list));
-  assert.ok(list.length >= 3);
+  assert.equal(list.length, 5);
+  assert.deepEqual(list.map((item) => item.title), ['Varizen Trust', 'GitHub', 'DuckDuckGo', 'Hacker News', 'Ko-fi']);
 
   const added = bookmarks.add({
     title: 'Custom Sovereign Hub',
@@ -31,6 +32,29 @@ test('bookmarks: default list and adding new bookmark', () => {
 
   const updatedList = bookmarks.list();
   assert.ok(updatedList.some((b) => b.id === added.id));
+});
+
+test('bookmarks: default list includes Hacker News and Ko-fi', () => {
+  const list = bookmarks.list();
+  const titles = list.map((item) => item.title);
+  assert.ok(titles.includes('Hacker News'), 'Hacker News must be in default bookmarks');
+  assert.ok(titles.includes('Ko-fi'), 'Ko-fi must be in default bookmarks');
+  const hn = list.find((item) => item.title === 'Hacker News');
+  assert.equal(hn.url, 'https://news.ycombinator.com');
+  const kofi = list.find((item) => item.title === 'Ko-fi');
+  assert.equal(kofi.url, 'https://ko-fi.com/varizen');
+});
+
+test('bookmarks: saved data is loaded without stripping defaults', () => {
+  const migrationDir = path.join(testDir, 'migration');
+  fs.mkdirSync(migrationDir, { recursive: true });
+  fs.writeFileSync(path.join(migrationDir, 'bookmarks.json'), JSON.stringify([
+    { id: 'legacy', title: 'Hacker News', url: 'https://news.ycombinator.com', bar: true },
+    { id: 'keep', title: 'GitHub', url: 'https://github.com', bar: true }
+  ]));
+  bookmarks.init(migrationDir);
+  assert.deepEqual(bookmarks.list().map((item) => item.title), ['Hacker News', 'GitHub']);
+  bookmarks.init(testDir);
 });
 
 test('bookmarks: toggle bar and remove bookmark', () => {

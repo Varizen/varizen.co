@@ -1,0 +1,10 @@
+{
+  "appId": "com.stfl.hawlat",
+  "appName": "HAWLAT",
+  "webDir": "out",
+  "server": { "androidScheme": "https", "cleartext": false },
+  "ios": { "contentInset": "always" },
+  "plugins": {
+    "SplashScreen": { "backgroundColor": "#0B2B43", "launchShowDuration": 800, "showSpinner": false }
+  }
+}

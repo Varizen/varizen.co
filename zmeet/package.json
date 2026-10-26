@@ -1,0 +1,27 @@
+{
+  "name": "zmeet",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "ZMeet — Meet. Present. Decide. Done. Ultra-light AI meeting and live-session platform.",
+  "main": "server/index.js",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node server/index.js",
+    "test": "node --test tests/*.test.js",
+    "check": "node --check server/index.js"
+  },
+  "keywords": [
+    "meeting",
+    "webrtc",
+    "ai",
+    "webinar",
+    "live-production",
+    "sandbox"
+  ],
+  "dependencies": {},
+  "devDependencies": {}
+}

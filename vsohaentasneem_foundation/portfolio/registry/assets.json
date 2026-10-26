@@ -1,0 +1,12 @@
+{
+  "schema": "stfl-portfolio-assets-manifest-v1",
+  "registry_version": "2026.10.18",
+  "last_updated": "2026-10-18T11:24:43.7581386+08:00",
+  "note": "The authoritative asset registry lives in the Brand Center. This file is a manifest pointer, not a duplicate.",
+  "canonical_registry": "brandcenter/registry/assets.json",
+  "human_readable": "portfolio/BRAND_REGISTRY.md",
+  "asset_count": 50,
+  "hash_algorithm": "SHA-256",
+  "all_hashes_verified": true,
+  "production_assets_moved": 0
+}

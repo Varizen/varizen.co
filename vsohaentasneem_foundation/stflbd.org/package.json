@@ -1,0 +1,42 @@
+{
+  "name": "stfl-web",
+  "version": "1.0.0",
+  "description": "STFL Official Website",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "npm run verify && next build",
+    "build:worker": "npx opennextjs-cloudflare build",
+    "start": "next start",
+    "lint": "eslint src",
+    "type-check": "tsc --noEmit",
+    "verify": "npm run verify:icons && npm run verify:domains",
+    "verify:domains": "node ../scripts/verify-domain-separation.mjs",
+    "verify:icons": "node scripts/verify-icon-policy.mjs",
+    "lint:docs": "node scripts/validate-docs.mjs"
+  },
+  "dependencies": {
+    "@fontsource/mukta": "^5.3.0",
+    "iconoir-react": "^7.12.1",
+    "next": "^15.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "tailwindcss": "^4.3.3"
+  },
+  "devDependencies": {
+    "@opennextjs/cloudflare": "^1.20.12",
+    "@tailwindcss/postcss": "^4.3.3",
+    "@types/node": "^20.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "autoprefixer": "^10.6.1",
+    "eslint": "^9.39.5",
+    "postcss": "^8.5.29",
+    "typescript": "^5.0.0",
+    "typescript-eslint": "^8.71.2"
+  },
+  "overrides": {
+    "postcss": "$postcss",
+    "glob": "^10.5.0"
+  }
+}

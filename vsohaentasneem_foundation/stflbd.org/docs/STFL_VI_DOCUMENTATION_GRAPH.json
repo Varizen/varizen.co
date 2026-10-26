@@ -1,0 +1,5068 @@
+{
+  "nodes": [
+    {
+      "id": "DOC-GEN-001",
+      "label": "STFL API — deployment",
+      "domain": "UNCATEGORIZED",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "apk/api/docs/API_DEPLOYMENT.md"
+    },
+    {
+      "id": "DOC-GEN-002",
+      "label": "package-lock.json",
+      "domain": "UNCATEGORIZED",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "apk/api/package-lock.json"
+    },
+    {
+      "id": "DOC-GEN-003",
+      "label": "package.json",
+      "domain": "UNCATEGORIZED",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "apk/api/package.json"
+    },
+    {
+      "id": "DOC-GEN-004",
+      "label": "tsconfig.json",
+      "domain": "UNCATEGORIZED",
+      "status": "REFERENCE",
+      "canonical": false,
+      "path": "apk/api/tsconfig.json"
+    },
+    {
+      "id": "DOC-BRD-005",
+      "label": "OFL.txt",
+      "domain": "BRAND",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "apk/assets/branding/fonts/OFL.txt"
+    },
+    {
+      "id": "DOC-GEN-006",
+      "label": "hind_siliguri_ofl.txt",
+      "domain": "UNCATEGORIZED",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "apk/core/src/main/res/raw/hind_siliguri_ofl.txt"
+    },
+    {
+      "id": "DOC-GEN-007",
+      "label": "inter_ofl.txt",
+      "domain": "UNCATEGORIZED",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "apk/core/src/main/res/raw/inter_ofl.txt"
+    },
+    {
+      "id": "DOC-GEN-008",
+      "label": "1.json",
+      "domain": "UNCATEGORIZED",
+      "status": "REFERENCE",
+      "canonical": false,
+      "path": "apk/database/schemas/foundation.sohaeltasneem.database.StflDatabase/1.json"
+    },
+    {
+      "id": "DOC-GEN-009",
+      "label": "STFL Public API — Contract v1",
+      "domain": "UNCATEGORIZED",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "apk/docs/api-contract.md"
+    },
+    {
+      "id": "DOC-GEN-010",
+      "label": "STFL — API Contract (v1)",
+      "domain": "UNCATEGORIZED",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "apk/docs/API.md"
+    },
+    {
+      "id": "DOC-ARC-011",
+      "label": "STFL Android — Architecture",
+      "domain": "ARCHITECTURE",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "apk/docs/ARCHITECTURE.md"
+    },
+    {
+      "id": "DOC-BRD-012",
+      "label": "Brand Assets",
+      "domain": "BRAND",
+      "status": "AUTHORITATIVE",
+      "canonical": false,
+      "path": "apk/docs/brand/assets/README.md"
+    },
+    {
+      "id": "DOC-BRD-013",
+      "label": "The Logo-Formation Problem",
+      "domain": "BRAND",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "apk/docs/brand/logo-formation.md"
+    },
+    {
+      "id": "DOC-BRD-014",
+      "label": "Prompts",
+      "domain": "BRAND",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "apk/docs/brand/prompts.md"
+    },
+    {
+      "id": "DOC-BRD-015",
+      "label": "STFL Brand Film — Production Pack",
+      "domain": "BRAND",
+      "status": "AUTHORITATIVE",
+      "canonical": false,
+      "path": "apk/docs/brand/README.md"
+    },
+    {
+      "id": "DOC-BRD-016",
+      "label": "Shot List — 10.0 seconds",
+      "domain": "BRAND",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "apk/docs/brand/shot-list.md"
+    },
+    {
+      "id": "DOC-GEN-017",
+      "label": "STFL — Database Schema",
+      "domain": "UNCATEGORIZED",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "apk/docs/DATABASE.md"
+    },
+    {
+      "id": "DOC-GEN-018",
+      "label": "STFL — Design System",
+      "domain": "UNCATEGORIZED",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "apk/docs/DESIGN.md"
+    },
+    {
+      "id": "DOC-GEN-019",
+      "label": "STFL Mock Server — `:devmockserver`",
+      "domain": "UNCATEGORIZED",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "apk/docs/mock-server.md"
+    },
+    {
+      "id": "DOC-GEN-020",
+      "label": "STFL — Google Play Store Listing Pack",
+      "domain": "UNCATEGORIZED",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "apk/docs/PLAY_STORE_LISTING.md"
+    },
+    {
+      "id": "DOC-PROP-021",
+      "label": "STFL Android — Release Procedure",
+      "domain": "PROPERTY",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "apk/docs/RELEASE.md"
+    },
+    {
+      "id": "DOC-SEC-022",
+      "label": "STFL — Security & Privacy Architecture",
+      "domain": "SECURITY",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "apk/docs/SECURITY.md"
+    },
+    {
+      "id": "DOC-GEN-023",
+      "label": "STFL ANDROID — STAGE REPORT (GATES 1–8)",
+      "domain": "UNCATEGORIZED",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "apk/docs/STAGE_REPORT.md"
+    },
+    {
+      "id": "DOC-GEN-024",
+      "label": "STFL Android — Engineering Status",
+      "domain": "UNCATEGORIZED",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "apk/ENGINEERING_STATUS.md"
+    },
+    {
+      "id": "DOC-GEN-025",
+      "label": "STFL Gift Shop — Send Love to Dhaka",
+      "domain": "UNCATEGORIZED",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "apk/eshop/gift-shop.html"
+    },
+    {
+      "id": "DOC-BRD-026",
+      "label": "STFL — Impact Shop Showcase",
+      "domain": "BRAND",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "apk/eshop/stfl-impact-shop-showcase-v2-brand.html"
+    },
+    {
+      "id": "DOC-GEN-027",
+      "label": "STFL Android — Design Preview",
+      "domain": "UNCATEGORIZED",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "apk/preview/index.html"
+    },
+    {
+      "id": "DOC-AGT-028",
+      "label": "AGENTS.md",
+      "domain": "INTELLIGENCE",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "apk/preview/web/AGENTS.md"
+    },
+    {
+      "id": "DOC-GEN-029",
+      "label": "package-lock.json",
+      "domain": "UNCATEGORIZED",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "apk/preview/web/package-lock.json"
+    },
+    {
+      "id": "DOC-GEN-030",
+      "label": "package.json",
+      "domain": "UNCATEGORIZED",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "apk/preview/web/package.json"
+    },
+    {
+      "id": "DOC-GEN-031",
+      "label": "robots.txt",
+      "domain": "UNCATEGORIZED",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "apk/preview/web/public/robots.txt"
+    },
+    {
+      "id": "DOC-GEN-032",
+      "label": "or",
+      "domain": "UNCATEGORIZED",
+      "status": "AUTHORITATIVE",
+      "canonical": false,
+      "path": "apk/preview/web/README.md"
+    },
+    {
+      "id": "DOC-GEN-033",
+      "label": "tsconfig.json",
+      "domain": "UNCATEGORIZED",
+      "status": "REFERENCE",
+      "canonical": false,
+      "path": "apk/preview/web/tsconfig.json"
+    },
+    {
+      "id": "DOC-PROP-034",
+      "label": "STFL AIO — Android APK Distribution & Release Hub",
+      "domain": "PROPERTY",
+      "status": "AUTHORITATIVE",
+      "canonical": false,
+      "path": "apk/README.md"
+    },
+    {
+      "id": "DOC-GEN-035",
+      "label": ".prettierrc.json",
+      "domain": "UNCATEGORIZED",
+      "status": "REFERENCE",
+      "canonical": false,
+      "path": "files/web/aakutu-board/.prettierrc.json"
+    },
+    {
+      "id": "DOC-GEN-036",
+      "label": "Aakutu Board",
+      "domain": "UNCATEGORIZED",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "files/web/aakutu-board/app/index.html"
+    },
+    {
+      "id": "DOC-GEN-037",
+      "label": "README.txt",
+      "domain": "UNCATEGORIZED",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "files/web/aakutu-board/assets/fonts/README.txt"
+    },
+    {
+      "id": "DOC-GEN-038",
+      "label": "Android production build",
+      "domain": "UNCATEGORIZED",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "files/web/aakutu-board/build-scripts/build-android.md"
+    },
+    {
+      "id": "DOC-GEN-039",
+      "label": "Code coverage report for core/src/dictionary/dictionary.ts",
+      "domain": "UNCATEGORIZED",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "files/web/aakutu-board/coverage/core/src/dictionary/dictionary.ts.html"
+    },
+    {
+      "id": "DOC-GEN-040",
+      "label": "Code coverage report for core/src/dictionary",
+      "domain": "UNCATEGORIZED",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "files/web/aakutu-board/coverage/core/src/dictionary/index.html"
+    },
+    {
+      "id": "DOC-GEN-041",
+      "label": "Code coverage report for core/src/dictionary/index.ts",
+      "domain": "UNCATEGORIZED",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "files/web/aakutu-board/coverage/core/src/dictionary/index.ts.html"
+    },
+    {
+      "id": "DOC-GEN-042",
+      "label": "Code coverage report for core/src/dictionary/seed.ts",
+      "domain": "UNCATEGORIZED",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "files/web/aakutu-board/coverage/core/src/dictionary/seed.ts.html"
+    },
+    {
+      "id": "DOC-GEN-043",
+      "label": "Code coverage report for core/src/dictionary/types.ts",
+      "domain": "UNCATEGORIZED",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "files/web/aakutu-board/coverage/core/src/dictionary/types.ts.html"
+    },
+    {
+      "id": "DOC-GEN-044",
+      "label": "Code coverage report for core/src/language",
+      "domain": "UNCATEGORIZED",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "files/web/aakutu-board/coverage/core/src/language/index.html"
+    },
+    {
+      "id": "DOC-GEN-045",
+      "label": "Code coverage report for core/src/language/index.ts",
+      "domain": "UNCATEGORIZED",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "files/web/aakutu-board/coverage/core/src/language/index.ts.html"
+    },
+    {
+      "id": "DOC-GEN-046",
+      "label": "Code coverage report for core/src/language/register.ts",
+      "domain": "UNCATEGORIZED",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "files/web/aakutu-board/coverage/core/src/language/register.ts.html"
+    },
+    {
+      "id": "DOC-GEN-047",
+      "label": "Code coverage report for core/src/language/suggester.ts",
+      "domain": "UNCATEGORIZED",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "files/web/aakutu-board/coverage/core/src/language/suggester.ts.html"
+    },
+    {
+      "id": "DOC-GEN-048",
+      "label": "Code coverage report for core/src/phonetic/converter.ts",
+      "domain": "UNCATEGORIZED",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "files/web/aakutu-board/coverage/core/src/phonetic/converter.ts.html"
+    },
+    {
+      "id": "DOC-GEN-049",
+      "label": "Code coverage report for core/src/phonetic",
+      "domain": "UNCATEGORIZED",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "files/web/aakutu-board/coverage/core/src/phonetic/index.html"
+    },
+    {
+      "id": "DOC-GEN-050",
+      "label": "Code coverage report for core/src/phonetic/index.ts",
+      "domain": "UNCATEGORIZED",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "files/web/aakutu-board/coverage/core/src/phonetic/index.ts.html"
+    },
+    {
+      "id": "DOC-GEN-051",
+      "label": "Code coverage report for core/src/phonetic/rules.ts",
+      "domain": "UNCATEGORIZED",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "files/web/aakutu-board/coverage/core/src/phonetic/rules.ts.html"
+    },
+    {
+      "id": "DOC-GEN-052",
+      "label": "Code coverage report for core/src/phonetic/tokenizer.ts",
+      "domain": "UNCATEGORIZED",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "files/web/aakutu-board/coverage/core/src/phonetic/tokenizer.ts.html"
+    },
+    {
+      "id": "DOC-GEN-053",
+      "label": "coverage-final.json",
+      "domain": "UNCATEGORIZED",
+      "status": "REFERENCE",
+      "canonical": false,
+      "path": "files/web/aakutu-board/coverage/coverage-final.json"
+    },
+    {
+      "id": "DOC-GEN-054",
+      "label": "Code coverage report for All files",
+      "domain": "UNCATEGORIZED",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "files/web/aakutu-board/coverage/index.html"
+    },
+    {
+      "id": "DOC-GEN-055",
+      "label": "Code coverage report for shared/src/constants.ts",
+      "domain": "UNCATEGORIZED",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "files/web/aakutu-board/coverage/shared/src/constants.ts.html"
+    },
+    {
+      "id": "DOC-GEN-056",
+      "label": "Code coverage report for shared/src",
+      "domain": "UNCATEGORIZED",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "files/web/aakutu-board/coverage/shared/src/index.html"
+    },
+    {
+      "id": "DOC-GEN-057",
+      "label": "Code coverage report for shared/src/index.ts",
+      "domain": "UNCATEGORIZED",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "files/web/aakutu-board/coverage/shared/src/index.ts.html"
+    },
+    {
+      "id": "DOC-GEN-058",
+      "label": "Code coverage report for shared/src/plans.ts",
+      "domain": "UNCATEGORIZED",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "files/web/aakutu-board/coverage/shared/src/plans.ts.html"
+    },
+    {
+      "id": "DOC-GEN-059",
+      "label": "Code coverage report for shared/src/types.ts",
+      "domain": "UNCATEGORIZED",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "files/web/aakutu-board/coverage/shared/src/types.ts.html"
+    },
+    {
+      "id": "DOC-GEN-060",
+      "label": "Code coverage report for shared/src/utils.ts",
+      "domain": "UNCATEGORIZED",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "files/web/aakutu-board/coverage/shared/src/utils.ts.html"
+    },
+    {
+      "id": "DOC-GEN-061",
+      "label": "AAKU2 BOARD — Development & Fallback Event Log Tracker",
+      "domain": "UNCATEGORIZED",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "files/web/aakutu-board/DEVELOPMENT_EVENT_LOG.md"
+    },
+    {
+      "id": "DOC-GEN-062",
+      "label": "AAKU2 BOARD — Production Audit",
+      "domain": "UNCATEGORIZED",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "files/web/aakutu-board/docs/AAKU2-AUDIT.md"
+    },
+    {
+      "id": "DOC-GEN-063",
+      "label": "Bengali fonts",
+      "domain": "UNCATEGORIZED",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "files/web/aakutu-board/docs/FONTS.md"
+    },
+    {
+      "id": "DOC-GEN-064",
+      "label": "package-lock.json",
+      "domain": "UNCATEGORIZED",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "files/web/aakutu-board/package-lock.json"
+    },
+    {
+      "id": "DOC-GEN-065",
+      "label": "package.json",
+      "domain": "UNCATEGORIZED",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "files/web/aakutu-board/package.json"
+    },
+    {
+      "id": "DOC-GEN-066",
+      "label": "Aakutu Board Android IME",
+      "domain": "UNCATEGORIZED",
+      "status": "AUTHORITATIVE",
+      "canonical": false,
+      "path": "files/web/aakutu-board/packages/android/native/README.md"
+    },
+    {
+      "id": "DOC-GEN-067",
+      "label": "package.json",
+      "domain": "UNCATEGORIZED",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "files/web/aakutu-board/packages/android/package.json"
+    },
+    {
+      "id": "DOC-GEN-068",
+      "label": "tsconfig.json",
+      "domain": "UNCATEGORIZED",
+      "status": "REFERENCE",
+      "canonical": false,
+      "path": "files/web/aakutu-board/packages/android/tsconfig.json"
+    },
+    {
+      "id": "DOC-GEN-069",
+      "label": "package.json",
+      "domain": "UNCATEGORIZED",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "files/web/aakutu-board/packages/backend/package.json"
+    },
+    {
+      "id": "DOC-GEN-070",
+      "label": "tsconfig.json",
+      "domain": "UNCATEGORIZED",
+      "status": "REFERENCE",
+      "canonical": false,
+      "path": "files/web/aakutu-board/packages/backend/tsconfig.json"
+    },
+    {
+      "id": "DOC-GEN-071",
+      "label": "package.json",
+      "domain": "UNCATEGORIZED",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "files/web/aakutu-board/packages/core/package.json"
+    },
+    {
+      "id": "DOC-GEN-072",
+      "label": "tsconfig.json",
+      "domain": "UNCATEGORIZED",
+      "status": "REFERENCE",
+      "canonical": false,
+      "path": "files/web/aakutu-board/packages/core/tsconfig.json"
+    },
+    {
+      "id": "DOC-GEN-073",
+      "label": "package.json",
+      "domain": "UNCATEGORIZED",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "files/web/aakutu-board/packages/desktop/package.json"
+    },
+    {
+      "id": "DOC-GEN-074",
+      "label": "Aakutu Board",
+      "domain": "UNCATEGORIZED",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "files/web/aakutu-board/packages/desktop/renderer/index.html"
+    },
+    {
+      "id": "DOC-GEN-075",
+      "label": "tsconfig.json",
+      "domain": "UNCATEGORIZED",
+      "status": "REFERENCE",
+      "canonical": false,
+      "path": "files/web/aakutu-board/packages/desktop/tsconfig.json"
+    },
+    {
+      "id": "DOC-GEN-076",
+      "label": "package.json",
+      "domain": "UNCATEGORIZED",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "files/web/aakutu-board/packages/ime/package.json"
+    },
+    {
+      "id": "DOC-GEN-077",
+      "label": "tsconfig.json",
+      "domain": "UNCATEGORIZED",
+      "status": "REFERENCE",
+      "canonical": false,
+      "path": "files/web/aakutu-board/packages/ime/tsconfig.json"
+    },
+    {
+      "id": "DOC-GEN-078",
+      "label": "package.json",
+      "domain": "UNCATEGORIZED",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "files/web/aakutu-board/packages/shared/package.json"
+    },
+    {
+      "id": "DOC-GEN-079",
+      "label": "tsconfig.json",
+      "domain": "UNCATEGORIZED",
+      "status": "REFERENCE",
+      "canonical": false,
+      "path": "files/web/aakutu-board/packages/shared/tsconfig.json"
+    },
+    {
+      "id": "DOC-GEN-080",
+      "label": "Aakutu Board — আকু-টু বোর্ড",
+      "domain": "UNCATEGORIZED",
+      "status": "AUTHORITATIVE",
+      "canonical": false,
+      "path": "files/web/aakutu-board/README.md"
+    },
+    {
+      "id": "DOC-GEN-081",
+      "label": "builder-debug.yml",
+      "domain": "UNCATEGORIZED",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "files/web/aakutu-board/release/builder-debug.yml"
+    },
+    {
+      "id": "DOC-GEN-082",
+      "label": "LICENSE.electron.txt",
+      "domain": "UNCATEGORIZED",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "files/web/aakutu-board/release/win-unpacked/LICENSE.electron.txt"
+    },
+    {
+      "id": "DOC-GEN-083",
+      "label": "Creative Commons, Attribution 3.0 Unported (CC BY 3.0)",
+      "domain": "UNCATEGORIZED",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "files/web/aakutu-board/release/win-unpacked/LICENSES.chromium.html"
+    },
+    {
+      "id": "DOC-GEN-084",
+      "label": "vk_swiftshader_icd.json",
+      "domain": "UNCATEGORIZED",
+      "status": "REFERENCE",
+      "canonical": false,
+      "path": "files/web/aakutu-board/release/win-unpacked/vk_swiftshader_icd.json"
+    },
+    {
+      "id": "DOC-GEN-085",
+      "label": "tsconfig.json",
+      "domain": "UNCATEGORIZED",
+      "status": "REFERENCE",
+      "canonical": false,
+      "path": "files/web/aakutu-board/tsconfig.json"
+    },
+    {
+      "id": "DOC-GEN-086",
+      "label": "STFL API — deployment",
+      "domain": "UNCATEGORIZED",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "main/api/docs/API_DEPLOYMENT.md"
+    },
+    {
+      "id": "DOC-GEN-087",
+      "label": "package-lock.json",
+      "domain": "UNCATEGORIZED",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "main/api/package-lock.json"
+    },
+    {
+      "id": "DOC-GEN-088",
+      "label": "package.json",
+      "domain": "UNCATEGORIZED",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "main/api/package.json"
+    },
+    {
+      "id": "DOC-GEN-089",
+      "label": "tsconfig.json",
+      "domain": "UNCATEGORIZED",
+      "status": "REFERENCE",
+      "canonical": false,
+      "path": "main/api/tsconfig.json"
+    },
+    {
+      "id": "DOC-BRD-090",
+      "label": "OFL.txt",
+      "domain": "BRAND",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "main/assets/branding/fonts/OFL.txt"
+    },
+    {
+      "id": "DOC-GEN-091",
+      "label": "hind_siliguri_ofl.txt",
+      "domain": "UNCATEGORIZED",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "main/core/src/main/res/raw/hind_siliguri_ofl.txt"
+    },
+    {
+      "id": "DOC-GEN-092",
+      "label": "inter_ofl.txt",
+      "domain": "UNCATEGORIZED",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "main/core/src/main/res/raw/inter_ofl.txt"
+    },
+    {
+      "id": "DOC-GEN-093",
+      "label": "1.json",
+      "domain": "UNCATEGORIZED",
+      "status": "REFERENCE",
+      "canonical": false,
+      "path": "main/database/schemas/foundation.sohaeltasneem.database.StflDatabase/1.json"
+    },
+    {
+      "id": "DOC-GEN-094",
+      "label": "STFL Public API — Contract v1",
+      "domain": "UNCATEGORIZED",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "main/docs/api-contract.md"
+    },
+    {
+      "id": "DOC-GEN-095",
+      "label": "STFL — API Contract (v1)",
+      "domain": "UNCATEGORIZED",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "main/docs/API.md"
+    },
+    {
+      "id": "DOC-ARC-096",
+      "label": "STFL Android — Architecture",
+      "domain": "ARCHITECTURE",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "main/docs/ARCHITECTURE.md"
+    },
+    {
+      "id": "DOC-BRD-097",
+      "label": "Brand Assets",
+      "domain": "BRAND",
+      "status": "AUTHORITATIVE",
+      "canonical": false,
+      "path": "main/docs/brand/assets/README.md"
+    },
+    {
+      "id": "DOC-BRD-098",
+      "label": "The Logo-Formation Problem",
+      "domain": "BRAND",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "main/docs/brand/logo-formation.md"
+    },
+    {
+      "id": "DOC-BRD-099",
+      "label": "Prompts",
+      "domain": "BRAND",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "main/docs/brand/prompts.md"
+    },
+    {
+      "id": "DOC-BRD-100",
+      "label": "STFL Brand Film — Production Pack",
+      "domain": "BRAND",
+      "status": "AUTHORITATIVE",
+      "canonical": false,
+      "path": "main/docs/brand/README.md"
+    },
+    {
+      "id": "DOC-BRD-101",
+      "label": "Shot List — 10.0 seconds",
+      "domain": "BRAND",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "main/docs/brand/shot-list.md"
+    },
+    {
+      "id": "DOC-GEN-102",
+      "label": "STFL — Database Schema",
+      "domain": "UNCATEGORIZED",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "main/docs/DATABASE.md"
+    },
+    {
+      "id": "DOC-GEN-103",
+      "label": "STFL — Design System",
+      "domain": "UNCATEGORIZED",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "main/docs/DESIGN.md"
+    },
+    {
+      "id": "DOC-GEN-104",
+      "label": "STFL Mock Server — `:devmockserver`",
+      "domain": "UNCATEGORIZED",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "main/docs/mock-server.md"
+    },
+    {
+      "id": "DOC-GEN-105",
+      "label": "STFL — Google Play Store Listing Pack",
+      "domain": "UNCATEGORIZED",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "main/docs/PLAY_STORE_LISTING.md"
+    },
+    {
+      "id": "DOC-PROP-106",
+      "label": "STFL Android — Release Procedure",
+      "domain": "PROPERTY",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "main/docs/RELEASE.md"
+    },
+    {
+      "id": "DOC-SEC-107",
+      "label": "STFL — Security & Privacy Architecture",
+      "domain": "SECURITY",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "main/docs/SECURITY.md"
+    },
+    {
+      "id": "DOC-GEN-108",
+      "label": "STFL ANDROID — STAGE REPORT (GATES 1–8)",
+      "domain": "UNCATEGORIZED",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "main/docs/STAGE_REPORT.md"
+    },
+    {
+      "id": "DOC-GEN-109",
+      "label": "STFL Android — Engineering Status",
+      "domain": "UNCATEGORIZED",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "main/ENGINEERING_STATUS.md"
+    },
+    {
+      "id": "DOC-GEN-110",
+      "label": "STFL Gift Shop — Send Love to Dhaka",
+      "domain": "UNCATEGORIZED",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "main/eshop/gift-shop.html"
+    },
+    {
+      "id": "DOC-BRD-111",
+      "label": "STFL — Impact Shop Showcase",
+      "domain": "BRAND",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "main/eshop/stfl-impact-shop-showcase-v2-brand.html"
+    },
+    {
+      "id": "DOC-GEN-112",
+      "label": "STFL Android — Design Preview",
+      "domain": "UNCATEGORIZED",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "main/preview/index.html"
+    },
+    {
+      "id": "DOC-AGT-113",
+      "label": "AGENTS.md",
+      "domain": "INTELLIGENCE",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "main/preview/web/AGENTS.md"
+    },
+    {
+      "id": "DOC-GEN-114",
+      "label": "package-lock.json",
+      "domain": "UNCATEGORIZED",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "main/preview/web/package-lock.json"
+    },
+    {
+      "id": "DOC-GEN-115",
+      "label": "package.json",
+      "domain": "UNCATEGORIZED",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "main/preview/web/package.json"
+    },
+    {
+      "id": "DOC-GEN-116",
+      "label": "robots.txt",
+      "domain": "UNCATEGORIZED",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "main/preview/web/public/robots.txt"
+    },
+    {
+      "id": "DOC-GEN-117",
+      "label": "or",
+      "domain": "UNCATEGORIZED",
+      "status": "AUTHORITATIVE",
+      "canonical": false,
+      "path": "main/preview/web/README.md"
+    },
+    {
+      "id": "DOC-GEN-118",
+      "label": "tsconfig.json",
+      "domain": "UNCATEGORIZED",
+      "status": "REFERENCE",
+      "canonical": false,
+      "path": "main/preview/web/tsconfig.json"
+    },
+    {
+      "id": "DOC-GEN-119",
+      "label": "STFL Android Application",
+      "domain": "UNCATEGORIZED",
+      "status": "AUTHORITATIVE",
+      "canonical": false,
+      "path": "main/README.md"
+    },
+    {
+      "id": "DOC-GEN-120",
+      "label": ".eslintrc.json",
+      "domain": "UNCATEGORIZED",
+      "status": "REFERENCE",
+      "canonical": false,
+      "path": "main/web/.eslintrc.json"
+    },
+    {
+      "id": "DOC-ARC-121",
+      "label": "STFL Ecosystem Architecture & Multi-Venture Foundation Model",
+      "domain": "ARCHITECTURE",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "main/web/docs/STFL_ECOSYSTEM_ARCHITECTURE.md"
+    },
+    {
+      "id": "DOC-GEN-122",
+      "label": "STFL_ECOSYSTEM_ASSET_REGISTER.json",
+      "domain": "UNCATEGORIZED",
+      "status": "REFERENCE",
+      "canonical": false,
+      "path": "main/web/docs/STFL_ECOSYSTEM_ASSET_REGISTER.json"
+    },
+    {
+      "id": "DOC-BRD-123",
+      "label": "STFL Ecosystem Brand Governance & Visual Systems",
+      "domain": "BRAND",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "main/web/docs/STFL_ECOSYSTEM_BRAND_GOVERNANCE.md"
+    },
+    {
+      "id": "DOC-ARC-124",
+      "label": "STFL Ecosystem Architecture & Build Report",
+      "domain": "ARCHITECTURE",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "main/web/docs/STFL_ECOSYSTEM_BUILD_REPORT.md"
+    },
+    {
+      "id": "DOC-GEN-125",
+      "label": "STFL Ecosystem Content Truth & Bilingual Governance Model",
+      "domain": "UNCATEGORIZED",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "main/web/docs/STFL_ECOSYSTEM_CONTENT_MODEL.md"
+    },
+    {
+      "id": "DOC-NAV-126",
+      "label": "STFL Ecosystem Route Map & URL Topology",
+      "domain": "NAVIGATION",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "main/web/docs/STFL_ECOSYSTEM_ROUTE_MAP.md"
+    },
+    {
+      "id": "DOC-DOC-127",
+      "label": "STFL Project Publication & Verification Policy",
+      "domain": "DOCUMENTS",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "main/web/docs/STFL_PROJECT_PUBLICATION_POLICY.md"
+    },
+    {
+      "id": "DOC-PRJ-128",
+      "label": "STFL_PROJECT_REGISTRY.json",
+      "domain": "PROJECTS",
+      "status": "REFERENCE",
+      "canonical": false,
+      "path": "main/web/docs/STFL_PROJECT_REGISTRY.json"
+    },
+    {
+      "id": "DOC-PRJ-129",
+      "label": "STFL Project Relationship & Ownership Governance Model",
+      "domain": "PROJECTS",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "main/web/docs/STFL_PROJECT_RELATIONSHIP_MODEL.md"
+    },
+    {
+      "id": "DOC-ARC-130",
+      "label": "STFL Project-Site Architecture & Multi-Tenant Experience Specification",
+      "domain": "ARCHITECTURE",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "main/web/docs/STFL_PROJECT_SITE_ARCHITECTURE.md"
+    },
+    {
+      "id": "DOC-BRD-131",
+      "label": "STFL VI BRAND GUIDELINES",
+      "domain": "BRAND",
+      "status": "CANONICAL",
+      "canonical": true,
+      "path": "main/web/docs/STFL_VI_BRAND_GUIDELINES.md"
+    },
+    {
+      "id": "DOC-ARC-132",
+      "label": "STFL VI Master Migration Changelog",
+      "domain": "ARCHITECTURE",
+      "status": "CANONICAL",
+      "canonical": true,
+      "path": "main/web/docs/STFL_VI_CHANGELOG.md"
+    },
+    {
+      "id": "DOC-GEN-133",
+      "label": "STFL VI DESIGN SYSTEM AUDIT & INVENTORY",
+      "domain": "UNCATEGORIZED",
+      "status": "CANONICAL",
+      "canonical": true,
+      "path": "main/web/docs/STFL_VI_DESIGN_SYSTEM_AUDIT.md"
+    },
+    {
+      "id": "DOC-GEN-134",
+      "label": "STFL VI Go-Live Readiness Report",
+      "domain": "UNCATEGORIZED",
+      "status": "CANONICAL",
+      "canonical": true,
+      "path": "main/web/docs/STFL_VI_GO_LIVE_READINESS.md"
+    },
+    {
+      "id": "DOC-MIG-135",
+      "label": "STFL VI MIGRATION BASELINE",
+      "domain": "MIGRATION",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "main/web/docs/STFL_VI_MIGRATION_BASELINE.md"
+    },
+    {
+      "id": "DOC-GEN-136",
+      "label": "STFL VI OPEN-SOURCE TECHNOLOGY RESEARCH & PULL STRATEGY",
+      "domain": "UNCATEGORIZED",
+      "status": "CANONICAL",
+      "canonical": true,
+      "path": "main/web/docs/STFL_VI_OPEN_SOURCE_RESEARCH.md"
+    },
+    {
+      "id": "DOC-RDM-137",
+      "label": "STFL VI PLATFORM STRATEGIC ROADMAP",
+      "domain": "ROADMAP",
+      "status": "CANONICAL",
+      "canonical": true,
+      "path": "main/web/docs/STFL_VI_ROADMAP.md"
+    },
+    {
+      "id": "DOC-SEC-138",
+      "label": "STFL VI PLATFORM SECURITY AUDIT & THREAT MODEL",
+      "domain": "SECURITY",
+      "status": "CANONICAL",
+      "canonical": true,
+      "path": "main/web/docs/STFL_VI_SECURITY_AUDIT.md"
+    },
+    {
+      "id": "DOC-BRD-139",
+      "label": "STFL VI TYPOGRAPHY SYSTEM SPECIFICATION",
+      "domain": "BRAND",
+      "status": "CANONICAL",
+      "canonical": true,
+      "path": "main/web/docs/STFL_VI_TYPOGRAPHY_SYSTEM.md"
+    },
+    {
+      "id": "DOC-ARC-140",
+      "label": "STFL Web Architecture Specification",
+      "domain": "ARCHITECTURE",
+      "status": "CANONICAL",
+      "canonical": true,
+      "path": "main/web/docs/STFL_WEB_ARCHITECTURE.md"
+    },
+    {
+      "id": "DOC-GEN-141",
+      "label": "STFL Web Bilingual Governance & Localization Protocol",
+      "domain": "UNCATEGORIZED",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "main/web/docs/STFL_WEB_BILINGUAL_GOVERNANCE.md"
+    },
+    {
+      "id": "DOC-AGT-142",
+      "label": "STFL Web Compliance Engine & Legal Intelligence UX",
+      "domain": "INTELLIGENCE",
+      "status": "CANONICAL",
+      "canonical": true,
+      "path": "main/web/docs/STFL_WEB_COMPLIANCE_UX.md"
+    },
+    {
+      "id": "DOC-ARC-143",
+      "label": "STFL Web Component & Primitive Architecture Map",
+      "domain": "ARCHITECTURE",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "main/web/docs/STFL_WEB_COMPONENT_MAP.md"
+    },
+    {
+      "id": "DOC-GEN-144",
+      "label": "STFL Web Design System Specification",
+      "domain": "UNCATEGORIZED",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "main/web/docs/STFL_WEB_DESIGN_SYSTEM.md"
+    },
+    {
+      "id": "DOC-PROP-145",
+      "label": "STFL Web GrihostiOS Property & Agriculture Operating Model",
+      "domain": "PROPERTY",
+      "status": "CANONICAL",
+      "canonical": true,
+      "path": "main/web/docs/STFL_WEB_GRIHOSTIOS_MODEL.md"
+    },
+    {
+      "id": "DOC-KNW-146",
+      "label": "STFL Web Knowledge, Training & Moderation Architecture",
+      "domain": "KNOWLEDGE",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "main/web/docs/STFL_WEB_KNOWLEDGE_UX.md"
+    },
+    {
+      "id": "DOC-ARC-147",
+      "label": "STFL Web Project-Centric Architecture & Multi-Tenant Model",
+      "domain": "ARCHITECTURE",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "main/web/docs/STFL_WEB_PROJECT_MODEL.md"
+    },
+    {
+      "id": "DOC-PROP-148",
+      "label": "STFL Web Quality Assurance & Release Verification Report",
+      "domain": "PROPERTY",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "main/web/docs/STFL_WEB_QA_REPORT.md"
+    },
+    {
+      "id": "DOC-NAV-149",
+      "label": "STFL Web Route Inventory & Navigation Matrix",
+      "domain": "NAVIGATION",
+      "status": "CANONICAL",
+      "canonical": true,
+      "path": "main/web/docs/STFL_WEB_ROUTES.md"
+    },
+    {
+      "id": "DOC-SEC-150",
+      "label": "STFL Web Security & Authorization Architecture Model",
+      "domain": "SECURITY",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "main/web/docs/STFL_WEB_SECURITY_MODEL.md"
+    },
+    {
+      "id": "DOC-GEN-151",
+      "label": "STFL Web Search Engine Optimization (SEO) & Metadata Model",
+      "domain": "UNCATEGORIZED",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "main/web/docs/STFL_WEB_SEO_MODEL.md"
+    },
+    {
+      "id": "DOC-BRD-152",
+      "label": "STFL — MANDATORY ICON RULE FOR ALL DEVELOPERS AND AGENTS",
+      "domain": "BRAND",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "main/web/ICON_RULE_FOR_ALL_AGENTS.md"
+    },
+    {
+      "id": "DOC-GEN-153",
+      "label": "package-lock.json",
+      "domain": "UNCATEGORIZED",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "main/web/package-lock.json"
+    },
+    {
+      "id": "DOC-GEN-154",
+      "label": "package.json",
+      "domain": "UNCATEGORIZED",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "main/web/package.json"
+    },
+    {
+      "id": "DOC-GEN-155",
+      "label": "OFL.txt",
+      "domain": "UNCATEGORIZED",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "main/web/public/fonts/OFL.txt"
+    },
+    {
+      "id": "DOC-BRD-156",
+      "label": "Brand Assets",
+      "domain": "BRAND",
+      "status": "AUTHORITATIVE",
+      "canonical": false,
+      "path": "main/web/public/README.md"
+    },
+    {
+      "id": "DOC-RDM-157",
+      "label": "STFL VI — Platform Roadmap | SohaelTasneem Foundation",
+      "domain": "ROADMAP",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "main/web/public/roadmap.html"
+    },
+    {
+      "id": "DOC-GEN-158",
+      "label": "robots.txt",
+      "domain": "UNCATEGORIZED",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "main/web/public/robots.txt"
+    },
+    {
+      "id": "DOC-BRD-159",
+      "label": "STFL /brand — Implementation Brief",
+      "domain": "BRAND",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "main/web/STFL_BRAND_IMPLEMENTATION.md"
+    },
+    {
+      "id": "DOC-BRD-160",
+      "label": "STFL Brand System",
+      "domain": "BRAND",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "main/web/STFL_BRAND_SYSTEM.md"
+    },
+    {
+      "id": "DOC-BRD-161",
+      "label": "STFL ICONOGRAPHY POLICY",
+      "domain": "BRAND",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "main/web/STFL_ICONOGRAPHY_POLICY.md"
+    },
+    {
+      "id": "DOC-GEN-162",
+      "label": "tsconfig.json",
+      "domain": "UNCATEGORIZED",
+      "status": "REFERENCE",
+      "canonical": false,
+      "path": "main/web/tsconfig.json"
+    },
+    {
+      "id": "DOC-GEN-163",
+      "label": "vercel.json",
+      "domain": "UNCATEGORIZED",
+      "status": "REFERENCE",
+      "canonical": false,
+      "path": "main/web/vercel.json"
+    },
+    {
+      "id": "DOC-IAM-164",
+      "label": "STFL AIO — Autonomous Agent Authorization & Sandbox Specification",
+      "domain": "IDENTITY",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "md-s/STFL_AGENT_AUTHORIZATION_MODEL.md"
+    },
+    {
+      "id": "DOC-AGT-165",
+      "label": "STFL AIO — Autonomous Agent Orchestration Specification",
+      "domain": "INTELLIGENCE",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "md-s/STFL_AIO_AGENT_MODEL.md"
+    },
+    {
+      "id": "DOC-ARC-166",
+      "label": "STFL AIO — Autonomous Enterprise Architecture Specification",
+      "domain": "ARCHITECTURE",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "md-s/STFL_AIO_ARCHITECTURE.md"
+    },
+    {
+      "id": "DOC-GEN-167",
+      "label": "STFL AIO — Explicit Archive Candidates & Historical Inventory",
+      "domain": "UNCATEGORIZED",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "md-s/STFL_AIO_ARCHIVE_CANDIDATES.md"
+    },
+    {
+      "id": "DOC-MIG-168",
+      "label": "STFL AIO — Baseline Architecture & Inventory Report",
+      "domain": "MIGRATION",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "md-s/STFL_AIO_BASELINE.md"
+    },
+    {
+      "id": "DOC-BRD-169",
+      "label": "STFL AIO — Bilingual & Typography Governance Specification",
+      "domain": "BRAND",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "md-s/STFL_AIO_BILINGUAL_AND_TYPOGRAPHY_GOVERNANCE.md"
+    },
+    {
+      "id": "DOC-AGT-170",
+      "label": "STFL AIO — Specialized AI Compliance Agents & Authority Bounds",
+      "domain": "INTELLIGENCE",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "md-s/STFL_AIO_COMPLIANCE_AGENT_MODEL.md"
+    },
+    {
+      "id": "DOC-AGT-171",
+      "label": "STFL AIO — Compliance, Regulatory & Legal Intelligence Layer Architecture",
+      "domain": "INTELLIGENCE",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "md-s/STFL_AIO_COMPLIANCE_ARCHITECTURE.md"
+    },
+    {
+      "id": "DOC-CMP-172",
+      "label": "STFL AIO — Compliance & Regulatory Management Console Specification",
+      "domain": "COMPLIANCE",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "md-s/STFL_AIO_COMPLIANCE_CONSOLE_SPEC.md"
+    },
+    {
+      "id": "DOC-CMP-173",
+      "label": "STFL AIO — Compliance Source Provenance & Legal Advice Boundary",
+      "domain": "COMPLIANCE",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "md-s/STFL_AIO_COMPLIANCE_SOURCE_PROVENANCE.md"
+    },
+    {
+      "id": "DOC-ARC-174",
+      "label": "STFL AIO — Phase 0D Architecture Consistency Gate Report",
+      "domain": "ARCHITECTURE",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "md-s/STFL_AIO_CONSISTENCY_GATE.md"
+    },
+    {
+      "id": "DOC-GEN-175",
+      "label": "STFL AIO — Enterprise Console Directory & Console 18 Specification",
+      "domain": "UNCATEGORIZED",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "md-s/STFL_AIO_CONSOLE_SPECIFICATION.md"
+    },
+    {
+      "id": "DOC-ARC-176",
+      "label": "STFL AIO — ARCHITECTURE CONSTITUTION",
+      "domain": "ARCHITECTURE",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "md-s/STFL_AIO_CONSTITUTION.md"
+    },
+    {
+      "id": "DOC-GEN-177",
+      "label": "STFL AIO — Live Demo Data Model Specification",
+      "domain": "UNCATEGORIZED",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "md-s/STFL_AIO_DEMO_DATA_MODEL.md"
+    },
+    {
+      "id": "DOC-GEN-178",
+      "label": "STFL AIO — Live Demonstration & Preview Environment Specification",
+      "domain": "UNCATEGORIZED",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "md-s/STFL_AIO_DEMO_ENVIRONMENT.md"
+    },
+    {
+      "id": "DOC-SEC-179",
+      "label": "STFL AIO — Demo Environment Security Boundary & Isolation Specification",
+      "domain": "SECURITY",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "md-s/STFL_AIO_DEMO_SECURITY_BOUNDARY.md"
+    },
+    {
+      "id": "DOC-GEN-180",
+      "label": "STFL AIO — Live Demo Environment User Guide",
+      "domain": "UNCATEGORIZED",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "md-s/STFL_AIO_DEMO_USER_GUIDE.md"
+    },
+    {
+      "id": "DOC-DOC-181",
+      "label": "STFL AIO — Demo Environment Verification & Audit Report",
+      "domain": "DOCUMENTS",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "md-s/STFL_AIO_DEMO_VERIFICATION_REPORT.md"
+    },
+    {
+      "id": "DOC-GEN-182",
+      "label": "STFL AIO — Development Dependency Graph & Change Governance",
+      "domain": "UNCATEGORIZED",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "md-s/STFL_AIO_DEVELOPMENT_DEPENDENCY_GRAPH.md"
+    },
+    {
+      "id": "DOC-GEN-183",
+      "label": "STFL AIO — Development Feature Control Map & Component Governance",
+      "domain": "UNCATEGORIZED",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "md-s/STFL_AIO_DEVELOPMENT_FEATURE_CONTROL_MAP.md"
+    },
+    {
+      "id": "DOC-DOC-184",
+      "label": "STFL AIO — Digital Document Identity & Verification Specification",
+      "domain": "DOCUMENTS",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "md-s/STFL_AIO_DOCUMENT_ID_MODEL.md"
+    },
+    {
+      "id": "DOC-ARC-185",
+      "label": "STFL AIO — Master 12-Stage Implementation & Red-Team Pipeline",
+      "domain": "ARCHITECTURE",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "md-s/STFL_AIO_EXECUTION_PIPELINE.md"
+    },
+    {
+      "id": "DOC-KNW-186",
+      "label": "STFL AIO — Knowledge, Training, Service & Moderation Ecosystem Architecture",
+      "domain": "KNOWLEDGE",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "md-s/STFL_AIO_KNOWLEDGE_ARCHITECTURE.md"
+    },
+    {
+      "id": "DOC-KNW-187",
+      "label": "STFL AIO — Knowledge Governance & Immutability Model",
+      "domain": "KNOWLEDGE",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "md-s/STFL_AIO_KNOWLEDGE_GOVERNANCE_MODEL.md"
+    },
+    {
+      "id": "DOC-CMP-188",
+      "label": "STFL AIO — Labour & Employment Regulatory Compliance Model",
+      "domain": "COMPLIANCE",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "md-s/STFL_AIO_LABOUR_COMPLIANCE_MODEL.md"
+    },
+    {
+      "id": "DOC-CMP-189",
+      "label": "STFL AIO — Legal Escalation, Alerts & Case Management Engine",
+      "domain": "COMPLIANCE",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "md-s/STFL_AIO_LEGAL_ESCALATION_MODEL.md"
+    },
+    {
+      "id": "DOC-ARC-190",
+      "label": "STFL AIO — Master Architecture Consolidation & Repository Generation Report",
+      "domain": "ARCHITECTURE",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "md-s/STFL_AIO_MASTER_GENERATION_REPORT.md"
+    },
+    {
+      "id": "DOC-GEN-191",
+      "label": "STFL AIO — Database Migration & Schema Evolution Plan",
+      "domain": "UNCATEGORIZED",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "md-s/STFL_AIO_MIGRATION_PLAN.md"
+    },
+    {
+      "id": "DOC-GEN-192",
+      "label": "STFL AIO — Moderation & Administrative Relief Model (Segment 04)",
+      "domain": "UNCATEGORIZED",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "md-s/STFL_AIO_MODERATOR_MODEL.md"
+    },
+    {
+      "id": "DOC-PRJ-193",
+      "label": "STFL AIO — Multi-Project API Interface Specification",
+      "domain": "PROJECTS",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "md-s/STFL_AIO_MULTI_PROJECT_API_SPEC.md"
+    },
+    {
+      "id": "DOC-ARC-194",
+      "label": "STFL AIO — Multi-Project & Multi-Tenant Ecosystem Architecture",
+      "domain": "ARCHITECTURE",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "md-s/STFL_AIO_MULTI_PROJECT_ARCHITECTURE.md"
+    },
+    {
+      "id": "DOC-GEN-195",
+      "label": "STFL AIO — PHASE 10: 16 GOVERNED MANAGEMENT CONSOLES RATIFICATION REPORT",
+      "domain": "UNCATEGORIZED",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "md-s/STFL_AIO_PHASE_10_CONSOLES_REPORT.md"
+    },
+    {
+      "id": "DOC-ARC-196",
+      "label": "STFL AIO — Phase 12.5 Multi-Project Architecture & Governance Report",
+      "domain": "ARCHITECTURE",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "md-s/STFL_AIO_PHASE_12_5_MULTI_PROJECT_ARCHITECTURE_REPORT.md"
+    },
+    {
+      "id": "DOC-GEN-197",
+      "label": "STFL AIO — PHASE 1 IMPLEMENTATION REPORT",
+      "domain": "UNCATEGORIZED",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "md-s/STFL_AIO_PHASE_1_IMPLEMENTATION_REPORT.md"
+    },
+    {
+      "id": "DOC-SEC-198",
+      "label": "STFL AIO — PHASE 1 RED-TEAM VULNERABILITY & THREAT ASSESSMENT REPORT",
+      "domain": "SECURITY",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "md-s/STFL_AIO_PHASE_1_RED_TEAM_REPORT.md"
+    },
+    {
+      "id": "DOC-GEN-199",
+      "label": "STFL AIO — PHASE 2 DATABASE MIGRATION & DESTRUCTIVE STRESS GATE REPORT",
+      "domain": "UNCATEGORIZED",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "md-s/STFL_AIO_PHASE_2_DATABASE_REPORT.md"
+    },
+    {
+      "id": "DOC-IAM-200",
+      "label": "STFL AIO — PHASE 3 CONTEXTUAL AUTHORIZATION ENGINE REPORT",
+      "domain": "IDENTITY",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "md-s/STFL_AIO_PHASE_3_AUTHORIZATION_REPORT.md"
+    },
+    {
+      "id": "DOC-GEN-201",
+      "label": "STFL AIO — Phase 4: Policy-Driven Approval Engine & Anti-Collusion Ratification Report",
+      "domain": "UNCATEGORIZED",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "md-s/STFL_AIO_PHASE_4_APPROVAL_REPORT.md"
+    },
+    {
+      "id": "DOC-DOC-202",
+      "label": "STFL AIO — Phase 5: Digital Document Engine & Public Verification Report",
+      "domain": "DOCUMENTS",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "md-s/STFL_AIO_PHASE_5_DOCUMENT_REPORT.md"
+    },
+    {
+      "id": "DOC-DOC-203",
+      "label": "STFL AIO — Phase 6: Controlled Print & Forensic Export Report",
+      "domain": "DOCUMENTS",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "md-s/STFL_AIO_PHASE_6_PRINT_REPORT.md"
+    },
+    {
+      "id": "DOC-GEN-204",
+      "label": "STFL AIO — PHASE 7: GOVERNED COMMUNICATIONS GATEWAY RATIFICATION REPORT",
+      "domain": "UNCATEGORIZED",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "md-s/STFL_AIO_PHASE_7_COMMS_REPORT.md"
+    },
+    {
+      "id": "DOC-AGT-205",
+      "label": "STFL AIO — PHASE 8: AUTONOMOUS DEPARTMENTAL AGENT RUNTIME RATIFICATION REPORT",
+      "domain": "INTELLIGENCE",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "md-s/STFL_AIO_PHASE_8_AGENT_REPORT.md"
+    },
+    {
+      "id": "DOC-SEC-206",
+      "label": "STFL AIO — PHASE 9: AGENT SECURITY RED-TEAM ATTACK REPORT",
+      "domain": "SECURITY",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "md-s/STFL_AIO_PHASE_9_RED_TEAM_REPORT.md"
+    },
+    {
+      "id": "DOC-KNW-207",
+      "label": "STFL AIO — Graphical & Pictorial Training Engine Specification",
+      "domain": "KNOWLEDGE",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "md-s/STFL_AIO_PICTORIAL_TRAINING_MODEL.md"
+    },
+    {
+      "id": "DOC-AGT-208",
+      "label": "STFL AIO — Project Agent Architecture & Autonomous Sandbox Model",
+      "domain": "INTELLIGENCE",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "md-s/STFL_AIO_PROJECT_AGENT_MODEL.md"
+    },
+    {
+      "id": "DOC-IAM-209",
+      "label": "STFL AIO — 13-Dimensional Contextual Authorization Engine Specification",
+      "domain": "IDENTITY",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "md-s/STFL_AIO_PROJECT_AUTHORIZATION_MODEL.md"
+    },
+    {
+      "id": "DOC-PRJ-210",
+      "label": "STFL AIO — Project Creation Factory Specification",
+      "domain": "PROJECTS",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "md-s/STFL_AIO_PROJECT_FACTORY_SPECIFICATION.md"
+    },
+    {
+      "id": "DOC-FIN-211",
+      "label": "STFL AIO — Project Finance & Consolidation Model Specification",
+      "domain": "FINANCE",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "md-s/STFL_AIO_PROJECT_FINANCE_MODEL.md"
+    },
+    {
+      "id": "DOC-PRJ-212",
+      "label": "STFL AIO — Project Identity, Membership & External Stakeholder Model",
+      "domain": "PROJECTS",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "md-s/STFL_AIO_PROJECT_IDENTITY_AND_MEMBERSHIP.md"
+    },
+    {
+      "id": "DOC-SEC-213",
+      "label": "STFL AIO — Project Isolation, Multi-Tenant Security & Scope Architecture",
+      "domain": "SECURITY",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "md-s/STFL_AIO_PROJECT_ISOLATION_MODEL.md"
+    },
+    {
+      "id": "DOC-PRJ-214",
+      "label": "STFL AIO — Project Operational Lifecycle & Archival Model",
+      "domain": "PROJECTS",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "md-s/STFL_AIO_PROJECT_LIFECYCLE.md"
+    },
+    {
+      "id": "DOC-PRJ-215",
+      "label": "STFL AIO — First-Class Project Entity Model",
+      "domain": "PROJECTS",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "md-s/STFL_AIO_PROJECT_MODEL.md"
+    },
+    {
+      "id": "DOC-PRJ-216",
+      "label": "STFL AIO — Project Archetype & Template System Specification",
+      "domain": "PROJECTS",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "md-s/STFL_AIO_PROJECT_TEMPLATE_MODEL.md"
+    },
+    {
+      "id": "DOC-BRD-217",
+      "label": "STFL AIO — Project Website, Branding & Portal Model Specification",
+      "domain": "BRAND",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "md-s/STFL_AIO_PROJECT_WEBSITE_MODEL.md"
+    },
+    {
+      "id": "DOC-PRJ-218",
+      "label": "STFL AIO — Project Workflow & Custom Business Logic Engine",
+      "domain": "PROJECTS",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "md-s/STFL_AIO_PROJECT_WORKFLOW_MODEL.md"
+    },
+    {
+      "id": "DOC-PROP-219",
+      "label": "STFL AIO — Property, Land & Waqf Regulatory Compliance Model",
+      "domain": "PROPERTY",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "md-s/STFL_AIO_PROPERTY_COMPLIANCE_MODEL.md"
+    },
+    {
+      "id": "DOC-GEN-220",
+      "label": "STFL AIO — Regulatory Change Ingestion & Governance Model",
+      "domain": "UNCATEGORIZED",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "md-s/STFL_AIO_REGULATORY_CHANGE_MODEL.md"
+    },
+    {
+      "id": "DOC-CMP-221",
+      "label": "STFL AIO — Compliance Rule Registry, Jurisdictions & Versioning Model",
+      "domain": "COMPLIANCE",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "md-s/STFL_AIO_REGULATORY_RULE_MODEL.md"
+    },
+    {
+      "id": "DOC-GEN-222",
+      "label": "STFL AIO — Repository Archaeology, Size Analysis & Architectural Audit",
+      "domain": "UNCATEGORIZED",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "md-s/STFL_AIO_REPOSITORY_AUDIT.md"
+    },
+    {
+      "id": "DOC-GEN-223",
+      "label": "STFL AIO — Repository Sanitization & Safe Consolidation Plan",
+      "domain": "UNCATEGORIZED",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "md-s/STFL_AIO_SANITIZATION_PLAN.md"
+    },
+    {
+      "id": "DOC-SEC-224",
+      "label": "STFL AIO — Security & Governance Model Specification",
+      "domain": "SECURITY",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "md-s/STFL_AIO_SECURITY_MODEL.md"
+    },
+    {
+      "id": "DOC-GEN-225",
+      "label": "STFL AIO — Service & Operations Center Model (Segment 02)",
+      "domain": "UNCATEGORIZED",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "md-s/STFL_AIO_SERVICE_CENTER_MODEL.md"
+    },
+    {
+      "id": "DOC-DOC-226",
+      "label": "STFL AIO — Verification & Quality Assurance Test Plan",
+      "domain": "DOCUMENTS",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "md-s/STFL_AIO_TEST_PLAN.md"
+    },
+    {
+      "id": "DOC-IAM-227",
+      "label": "STFL AIO — Role-Aware Training, Certification & Authorization Prerequisite Model",
+      "domain": "IDENTITY",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "md-s/STFL_AIO_TRAINING_ARCHITECTURE.md"
+    },
+    {
+      "id": "DOC-IAM-228",
+      "label": "STFL AIO — Training Certification & Authorization Gating Model",
+      "domain": "IDENTITY",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "md-s/STFL_AIO_TRAINING_CERTIFICATION_MODEL.md"
+    },
+    {
+      "id": "DOC-KNW-229",
+      "label": "STFL AIO — Live Contextual Training & User Experience Model",
+      "domain": "KNOWLEDGE",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "md-s/STFL_AIO_TRAINING_UX_MODEL.md"
+    },
+    {
+      "id": "DOC-GEN-230",
+      "label": "STFL AIO — User Class, Workspace & Experience Segment Matrix",
+      "domain": "UNCATEGORIZED",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "md-s/STFL_AIO_USER_CLASS_WORKSPACE_MATRIX.md"
+    },
+    {
+      "id": "DOC-GEN-231",
+      "label": "STFL AIO — Canonical API Contract Specification",
+      "domain": "UNCATEGORIZED",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "md-s/STFL_API_CONTRACT.md"
+    },
+    {
+      "id": "DOC-GEN-232",
+      "label": "STFL AIO — Policy-Driven Approval Engine Specification",
+      "domain": "UNCATEGORIZED",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "md-s/STFL_APPROVAL_ENGINE.md"
+    },
+    {
+      "id": "DOC-GEN-233",
+      "label": "STFL AIO — 10-Dimensional Institutional Audit Model",
+      "domain": "UNCATEGORIZED",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "md-s/STFL_AUDIT_MODEL.md"
+    },
+    {
+      "id": "DOC-IAM-234",
+      "label": "STFL AIO — Contextual Authorization Engine Specification",
+      "domain": "IDENTITY",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "md-s/STFL_AUTHORIZATION_MODEL.md"
+    },
+    {
+      "id": "DOC-IAM-235",
+      "label": "STFL AIO — Master Database Migration Plan (Parties, IAM & Core Schemas)",
+      "domain": "IDENTITY",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "md-s/STFL_DATABASE_MIGRATION_PLAN.md"
+    },
+    {
+      "id": "DOC-IAM-236",
+      "label": "STFL AIO — Identity, Access & User Class Architecture (IAM)",
+      "domain": "IDENTITY",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "md-s/STFL_IAM_ARCHITECTURE.md"
+    },
+    {
+      "id": "DOC-ARC-237",
+      "label": "STFL AIO — Unified Management Backends Architecture",
+      "domain": "ARCHITECTURE",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "md-s/STFL_MANAGEMENT_BACKENDS.md"
+    },
+    {
+      "id": "DOC-IAM-238",
+      "label": "STFL AIO — Party & Relationship Identity Specification",
+      "domain": "IDENTITY",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "md-s/STFL_PARTY_RELATIONSHIP_MODEL.md"
+    },
+    {
+      "id": "DOC-GEN-239",
+      "label": "STFL AIO — Enterprise Relationship Type Catalogue",
+      "domain": "UNCATEGORIZED",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "md-s/STFL_RELATIONSHIP_CATALOG.md"
+    },
+    {
+      "id": "DOC-GEN-240",
+      "label": "STFL AIO — First-Class Scope Model Specification",
+      "domain": "UNCATEGORIZED",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "md-s/STFL_SCOPE_MODEL.md"
+    },
+    {
+      "id": "DOC-GEN-241",
+      "label": "STFL AIO — User Class Access & Responsibility Matrix",
+      "domain": "UNCATEGORIZED",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "md-s/STFL_USER_CLASS_MATRIX.md"
+    },
+    {
+      "id": "DOC-AGT-242",
+      "label": "STFL AIO — Autonomous AI Agent Constitution & Authority Ceiling Model",
+      "domain": "INTELLIGENCE",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "STFL_AIO_AGENT_MODEL.md"
+    },
+    {
+      "id": "DOC-PROP-243",
+      "label": "STFL AIO — Android Client Release Audit & Verification Report",
+      "domain": "PROPERTY",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "STFL_AIO_ANDROID_RELEASE_REPORT.md"
+    },
+    {
+      "id": "DOC-DOC-244",
+      "label": "STFL AIO — Fastify Backend API Verification Report",
+      "domain": "DOCUMENTS",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "STFL_AIO_API_REPORT.md"
+    },
+    {
+      "id": "DOC-GEN-245",
+      "label": "STFL AIO — Multi-Tier Approval Engine & Anti-Collusion Matrix",
+      "domain": "UNCATEGORIZED",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "STFL_AIO_APPROVAL_ENGINE.md"
+    },
+    {
+      "id": "DOC-ARC-246",
+      "label": "STFL AIO — Unified Autonomous Enterprise Architecture Specification",
+      "domain": "ARCHITECTURE",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "STFL_AIO_ARCHITECTURE.md"
+    },
+    {
+      "id": "DOC-GEN-247",
+      "label": "STFL AIO — Repository Archive Candidates Register",
+      "domain": "UNCATEGORIZED",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "STFL_AIO_ARCHIVE_CANDIDATES.md"
+    },
+    {
+      "id": "DOC-IAM-248",
+      "label": "STFL AIO — Contextual Attribute-Based Authorization (ABAC) Model",
+      "domain": "IDENTITY",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "STFL_AIO_AUTHORIZATION_MODEL.md"
+    },
+    {
+      "id": "DOC-GEN-249",
+      "label": "STFL AIO — Multi-Channel Communications Gateway Model",
+      "domain": "UNCATEGORIZED",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "STFL_AIO_COMMUNICATION_MODEL.md"
+    },
+    {
+      "id": "DOC-AGT-250",
+      "label": "STFL AIO — Statutory Compliance & Legal Intelligence Architecture",
+      "domain": "INTELLIGENCE",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "STFL_AIO_COMPLIANCE_ARCHITECTURE.md"
+    },
+    {
+      "id": "DOC-GEN-251",
+      "label": "STFL AIO — PostgreSQL Authoritative Database & Migration Report",
+      "domain": "UNCATEGORIZED",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "STFL_AIO_DATABASE_REPORT.md"
+    },
+    {
+      "id": "DOC-GEN-252",
+      "label": "STFL_AIO_DEPENDENCY_INDEX.json",
+      "domain": "UNCATEGORIZED",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "STFL_AIO_DEPENDENCY_INDEX.json"
+    },
+    {
+      "id": "DOC-GEN-253",
+      "label": "STFL AIO — Production Edge & Cloudflare Deployment Report",
+      "domain": "UNCATEGORIZED",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "STFL_AIO_DEPLOYMENT_REPORT.md"
+    },
+    {
+      "id": "DOC-SEC-254",
+      "label": "STFL AIO — Mobile Device Lifecycle & Enclave Binding Model",
+      "domain": "SECURITY",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "STFL_AIO_DEVICE_SECURITY_MODEL.md"
+    },
+    {
+      "id": "DOC-DOC-255",
+      "label": "STFL AIO — Governed Digital Document Engine & Cryptographic Verification",
+      "domain": "DOCUMENTS",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "STFL_AIO_DOCUMENT_MODEL.md"
+    },
+    {
+      "id": "DOC-GEN-256",
+      "label": "STFL_AIO_FEATURE_INDEX.json",
+      "domain": "UNCATEGORIZED",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "STFL_AIO_FEATURE_INDEX.json"
+    },
+    {
+      "id": "DOC-GEN-257",
+      "label": "STFL_AIO_FILE_INDEX.json",
+      "domain": "UNCATEGORIZED",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "STFL_AIO_FILE_INDEX.json"
+    },
+    {
+      "id": "DOC-FIN-258",
+      "label": "STFL AIO — Two-Tier Financial Ledger & Mathematical Precision Model",
+      "domain": "FINANCE",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "STFL_AIO_FINANCE_MODEL.md"
+    },
+    {
+      "id": "DOC-IAM-259",
+      "label": "STFL AIO — Centralized Identity, IAM & User Class Architecture",
+      "domain": "IDENTITY",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "STFL_AIO_IAM_ARCHITECTURE.md"
+    },
+    {
+      "id": "DOC-KNW-260",
+      "label": "STFL AIO — Institutional Knowledge & Experience Segments Architecture",
+      "domain": "KNOWLEDGE",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "STFL_AIO_KNOWLEDGE_ARCHITECTURE.md"
+    },
+    {
+      "id": "DOC-ARC-261",
+      "label": "STFL AIO — Master Control & Living System Register",
+      "domain": "ARCHITECTURE",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "STFL_AIO_MASTER_CONTROL.html"
+    },
+    {
+      "id": "DOC-ARC-262",
+      "label": "STFL AIO — Master Implementation, Architecture & Generation Report",
+      "domain": "ARCHITECTURE",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "STFL_AIO_MASTER_GENERATION_REPORT.md"
+    },
+    {
+      "id": "DOC-NAV-263",
+      "label": "STFL AIO — Unified Navigation Model & Route Topology",
+      "domain": "NAVIGATION",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "STFL_AIO_NAVIGATION_MODEL.md"
+    },
+    {
+      "id": "DOC-IAM-264",
+      "label": "STFL AIO — Universal Party & Contextual Relationship Model",
+      "domain": "IDENTITY",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "STFL_AIO_PARTY_RELATIONSHIP_MODEL.md"
+    },
+    {
+      "id": "DOC-DOC-265",
+      "label": "STFL AIO — Controlled Printing & Watermark Governance Architecture",
+      "domain": "DOCUMENTS",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "STFL_AIO_PRINT_MODEL.md"
+    },
+    {
+      "id": "DOC-ARC-266",
+      "label": "STFL AIO — Project-Centric UX Architecture & Mental Model",
+      "domain": "ARCHITECTURE",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "STFL_AIO_PROJECT_CENTRIC_UX_ARCHITECTURE.md"
+    },
+    {
+      "id": "DOC-PRJ-267",
+      "label": "STFL AIO — Multi-Project & Multi-Tenant Ecosystem Model",
+      "domain": "PROJECTS",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "STFL_AIO_PROJECT_MODEL.md"
+    },
+    {
+      "id": "DOC-PRJ-268",
+      "label": "STFL AIO — Universal Project Workspace Specification",
+      "domain": "PROJECTS",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "STFL_AIO_PROJECT_WORKSPACE_SPEC.md"
+    },
+    {
+      "id": "DOC-PROP-269",
+      "label": "STFL AIO — Property Rental, Waqf Lease & Tenancy Architecture",
+      "domain": "PROPERTY",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "STFL_AIO_PROPERTY_MODEL.md"
+    },
+    {
+      "id": "DOC-GEN-270",
+      "label": "STFL AIO — Repository Archaeological Audit & Consolidation Report",
+      "domain": "UNCATEGORIZED",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "STFL_AIO_REPOSITORY_AUDIT.md"
+    },
+    {
+      "id": "DOC-GEN-271",
+      "label": "STFL AIO — Role Experience Matrix & User Class Projections",
+      "domain": "UNCATEGORIZED",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "STFL_AIO_ROLE_EXPERIENCE_MATRIX.md"
+    },
+    {
+      "id": "DOC-GEN-272",
+      "label": "STFL AIO — Three-Pass Repository Sanitization Plan",
+      "domain": "UNCATEGORIZED",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "STFL_AIO_SANITIZATION_PLAN.md"
+    },
+    {
+      "id": "DOC-SEC-273",
+      "label": "STFL AIO — Enterprise Security & Hardware Attestation Model",
+      "domain": "SECURITY",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "STFL_AIO_SECURITY_MODEL.md"
+    },
+    {
+      "id": "DOC-ARC-274",
+      "label": "STFL AIO — Comprehensive Master Test Suite Audit Report",
+      "domain": "ARCHITECTURE",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "STFL_AIO_TEST_REPORT.md"
+    },
+    {
+      "id": "DOC-KNW-275",
+      "label": "STFL AIO — Training Lifecycle & Verified Certification Architecture",
+      "domain": "KNOWLEDGE",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "STFL_AIO_TRAINING_ARCHITECTURE.md"
+    },
+    {
+      "id": "DOC-PROP-276",
+      "label": "STFL AIO — UX Current State Archaeological Discovery & Audit",
+      "domain": "PROPERTY",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "STFL_AIO_UX_CURRENT_STATE.md"
+    },
+    {
+      "id": "DOC-GEN-277",
+      "label": "STFL AIO — Workspace UX & Console Projection Constitution",
+      "domain": "UNCATEGORIZED",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "STFL_AIO_UX_MODEL.md"
+    },
+    {
+      "id": "DOC-DOC-278",
+      "label": "STFL AIO — Public Website & Console Route Verification Matrix",
+      "domain": "DOCUMENTS",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "STFL_AIO_WEB_ROUTE_MATRIX.md"
+    },
+    {
+      "id": "DOC-GEN-279",
+      "label": "STFL_ECOSYSTEM_ASSET_REGISTER.json",
+      "domain": "UNCATEGORIZED",
+      "status": "REFERENCE",
+      "canonical": false,
+      "path": "STFL_ECOSYSTEM_ASSET_REGISTER.json"
+    },
+    {
+      "id": "DOC-ARC-280",
+      "label": "STFL Ecosystem Architecture & Build Report",
+      "domain": "ARCHITECTURE",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "STFL_ECOSYSTEM_BUILD_REPORT.md"
+    },
+    {
+      "id": "DOC-PRJ-281",
+      "label": "STFL_PROJECT_REGISTRY.json",
+      "domain": "PROJECTS",
+      "status": "REFERENCE",
+      "canonical": false,
+      "path": "STFL_PROJECT_REGISTRY.json"
+    },
+    {
+      "id": "DOC-BRD-282",
+      "label": "STFL VI BRAND GUIDELINES",
+      "domain": "BRAND",
+      "status": "CANONICAL",
+      "canonical": true,
+      "path": "STFL_VI_BRAND_GUIDELINES.md"
+    },
+    {
+      "id": "DOC-ARC-283",
+      "label": "STFL VI Master Migration Changelog",
+      "domain": "ARCHITECTURE",
+      "status": "CANONICAL",
+      "canonical": true,
+      "path": "STFL_VI_CHANGELOG.md"
+    },
+    {
+      "id": "DOC-GEN-284",
+      "label": "STFL VI DESIGN SYSTEM AUDIT & INVENTORY",
+      "domain": "UNCATEGORIZED",
+      "status": "CANONICAL",
+      "canonical": true,
+      "path": "STFL_VI_DESIGN_SYSTEM_AUDIT.md"
+    },
+    {
+      "id": "DOC-GEN-285",
+      "label": "STFL VI Go-Live Readiness Report",
+      "domain": "UNCATEGORIZED",
+      "status": "CANONICAL",
+      "canonical": true,
+      "path": "STFL_VI_GO_LIVE_READINESS.md"
+    },
+    {
+      "id": "DOC-MIG-286",
+      "label": "STFL VI MIGRATION BASELINE",
+      "domain": "MIGRATION",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "STFL_VI_MIGRATION_BASELINE.md"
+    },
+    {
+      "id": "DOC-GEN-287",
+      "label": "STFL VI OPEN-SOURCE TECHNOLOGY RESEARCH & PULL STRATEGY",
+      "domain": "UNCATEGORIZED",
+      "status": "CANONICAL",
+      "canonical": true,
+      "path": "STFL_VI_OPEN_SOURCE_RESEARCH.md"
+    },
+    {
+      "id": "DOC-RDM-288",
+      "label": "STFL VI PLATFORM STRATEGIC ROADMAP",
+      "domain": "ROADMAP",
+      "status": "CANONICAL",
+      "canonical": true,
+      "path": "STFL_VI_ROADMAP.md"
+    },
+    {
+      "id": "DOC-SEC-289",
+      "label": "STFL VI PLATFORM SECURITY AUDIT & THREAT MODEL",
+      "domain": "SECURITY",
+      "status": "CANONICAL",
+      "canonical": true,
+      "path": "STFL_VI_SECURITY_AUDIT.md"
+    },
+    {
+      "id": "DOC-BRD-290",
+      "label": "STFL VI TYPOGRAPHY SYSTEM SPECIFICATION",
+      "domain": "BRAND",
+      "status": "CANONICAL",
+      "canonical": true,
+      "path": "STFL_VI_TYPOGRAPHY_SYSTEM.md"
+    },
+    {
+      "id": "DOC-ARC-291",
+      "label": "STFL Web Architecture Specification",
+      "domain": "ARCHITECTURE",
+      "status": "CANONICAL",
+      "canonical": true,
+      "path": "STFL_WEB_ARCHITECTURE.md"
+    },
+    {
+      "id": "DOC-GEN-292",
+      "label": "STFL Web Bilingual Governance & Localization Protocol",
+      "domain": "UNCATEGORIZED",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "STFL_WEB_BILINGUAL_GOVERNANCE.md"
+    },
+    {
+      "id": "DOC-AGT-293",
+      "label": "STFL Web Compliance Engine & Legal Intelligence UX",
+      "domain": "INTELLIGENCE",
+      "status": "CANONICAL",
+      "canonical": true,
+      "path": "STFL_WEB_COMPLIANCE_UX.md"
+    },
+    {
+      "id": "DOC-ARC-294",
+      "label": "STFL Web Component & Primitive Architecture Map",
+      "domain": "ARCHITECTURE",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "STFL_WEB_COMPONENT_MAP.md"
+    },
+    {
+      "id": "DOC-GEN-295",
+      "label": "STFL Web Design System Specification",
+      "domain": "UNCATEGORIZED",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "STFL_WEB_DESIGN_SYSTEM.md"
+    },
+    {
+      "id": "DOC-PROP-296",
+      "label": "STFL Web GrihostiOS Property & Agriculture Operating Model",
+      "domain": "PROPERTY",
+      "status": "CANONICAL",
+      "canonical": true,
+      "path": "STFL_WEB_GRIHOSTIOS_MODEL.md"
+    },
+    {
+      "id": "DOC-KNW-297",
+      "label": "STFL Web Knowledge, Training & Moderation Architecture",
+      "domain": "KNOWLEDGE",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "STFL_WEB_KNOWLEDGE_UX.md"
+    },
+    {
+      "id": "DOC-ARC-298",
+      "label": "STFL Web Project-Centric Architecture & Multi-Tenant Model",
+      "domain": "ARCHITECTURE",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "STFL_WEB_PROJECT_MODEL.md"
+    },
+    {
+      "id": "DOC-PROP-299",
+      "label": "STFL Web Quality Assurance & Release Verification Report",
+      "domain": "PROPERTY",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "STFL_WEB_QA_REPORT.md"
+    },
+    {
+      "id": "DOC-NAV-300",
+      "label": "STFL Web Route Inventory & Navigation Matrix",
+      "domain": "NAVIGATION",
+      "status": "CANONICAL",
+      "canonical": true,
+      "path": "STFL_WEB_ROUTES.md"
+    },
+    {
+      "id": "DOC-SEC-301",
+      "label": "STFL Web Security & Authorization Architecture Model",
+      "domain": "SECURITY",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "STFL_WEB_SECURITY_MODEL.md"
+    },
+    {
+      "id": "DOC-GEN-302",
+      "label": "STFL Web Search Engine Optimization (SEO) & Metadata Model",
+      "domain": "UNCATEGORIZED",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "STFL_WEB_SEO_MODEL.md"
+    },
+    {
+      "id": "DOC-GEN-303",
+      "label": ".eslintrc.json",
+      "domain": "UNCATEGORIZED",
+      "status": "REFERENCE",
+      "canonical": false,
+      "path": "web/.eslintrc.json"
+    },
+    {
+      "id": "DOC-BRD-304",
+      "label": "STFL — MANDATORY ICON RULE FOR ALL DEVELOPERS AND AGENTS",
+      "domain": "BRAND",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "web/ICON_RULE_FOR_ALL_AGENTS.md"
+    },
+    {
+      "id": "DOC-GEN-305",
+      "label": "package-lock.json",
+      "domain": "UNCATEGORIZED",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "web/package-lock.json"
+    },
+    {
+      "id": "DOC-GEN-306",
+      "label": "package.json",
+      "domain": "UNCATEGORIZED",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "web/package.json"
+    },
+    {
+      "id": "DOC-BRD-307",
+      "label": "Brand Assets",
+      "domain": "BRAND",
+      "status": "AUTHORITATIVE",
+      "canonical": false,
+      "path": "web/public/README.md"
+    },
+    {
+      "id": "DOC-BRD-308",
+      "label": "STFL /brand — Implementation Brief",
+      "domain": "BRAND",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "web/STFL_BRAND_IMPLEMENTATION.md"
+    },
+    {
+      "id": "DOC-BRD-309",
+      "label": "STFL Brand System",
+      "domain": "BRAND",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "web/STFL_BRAND_SYSTEM.md"
+    },
+    {
+      "id": "DOC-BRD-310",
+      "label": "STFL ICONOGRAPHY POLICY",
+      "domain": "BRAND",
+      "status": "SUPPORTING",
+      "canonical": false,
+      "path": "web/STFL_ICONOGRAPHY_POLICY.md"
+    },
+    {
+      "id": "DOC-GEN-311",
+      "label": "tsconfig.json",
+      "domain": "UNCATEGORIZED",
+      "status": "REFERENCE",
+      "canonical": false,
+      "path": "web/tsconfig.json"
+    },
+    {
+      "id": "DOC-GEN-312",
+      "label": "vercel.json",
+      "domain": "UNCATEGORIZED",
+      "status": "REFERENCE",
+      "canonical": false,
+      "path": "web/vercel.json"
+    },
+    {
+      "id": "DOC-BRD-313",
+      "label": "STFL Brand Guide Publication — Delivery Summary",
+      "domain": "BRAND",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "_old/BRAND_GUIDE_DELIVERY.md"
+    },
+    {
+      "id": "DOC-GEN-314",
+      "label": "Sohael Tasneem Foundation Ltd. — STFL",
+      "domain": "UNCATEGORIZED",
+      "status": "HISTORICAL",
+      "canonical": false,
+      "path": "_old/index.html"
+    }
+  ],
+  "edges": [
+    {
+      "source": "DOC-GEN-009",
+      "target": "assetlinks.json",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-011",
+      "target": "assetlinks.json",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-011",
+      "target": "RELEASE.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-BRD-013",
+      "target": "prompts.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-BRD-014",
+      "target": "logo-formation.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-BRD-015",
+      "target": "logo-formation.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-BRD-015",
+      "target": "prompts.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-BRD-015",
+      "target": "shot-list.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-019",
+      "target": "api-contract.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-020",
+      "target": "RELEASE.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-SEC-022",
+      "target": "DATABASE.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-SEC-022",
+      "target": "assetlinks.json",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-SEC-022",
+      "target": "PLAY_STORE.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-SEC-022",
+      "target": "google-services.json",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-SEC-022",
+      "target": "package-lock.json",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-023",
+      "target": "api-contract.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-024",
+      "target": "STAGE_REPORT.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-024",
+      "target": "PROJECT_STATUS.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-024",
+      "target": "FINAL_REPORT.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-024",
+      "target": "RELEASE.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-039",
+      "target": "index.html",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-040",
+      "target": "ts.html",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-041",
+      "target": "index.html",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-042",
+      "target": "index.html",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-043",
+      "target": "index.html",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-044",
+      "target": "ts.html",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-045",
+      "target": "index.html",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-046",
+      "target": "index.html",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-047",
+      "target": "index.html",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-048",
+      "target": "index.html",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-049",
+      "target": "ts.html",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-050",
+      "target": "index.html",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-051",
+      "target": "index.html",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-052",
+      "target": "index.html",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-055",
+      "target": "index.html",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-056",
+      "target": "ts.html",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-057",
+      "target": "index.html",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-058",
+      "target": "index.html",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-059",
+      "target": "index.html",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-060",
+      "target": "index.html",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-061",
+      "target": "package.json",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-061",
+      "target": "package-lock.json",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-061",
+      "target": "README.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-061",
+      "target": "tsconfig.json",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-062",
+      "target": "index.html",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-062",
+      "target": "package.json",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-062",
+      "target": "build-android.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-062",
+      "target": "README.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-062",
+      "target": "FONTS.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-062",
+      "target": "phonetic_rules.json",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-065",
+      "target": "README.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-067",
+      "target": "tsconfig.json",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-069",
+      "target": "tsconfig.json",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-071",
+      "target": "tsconfig.json",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-073",
+      "target": "tsconfig.json",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-076",
+      "target": "tsconfig.json",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-078",
+      "target": "tsconfig.json",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-080",
+      "target": "FONTS.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-081",
+      "target": "package.json",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-081",
+      "target": "README.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-081",
+      "target": "yarn-metadata.json",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-081",
+      "target": "package-lock.json",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-083",
+      "target": "fft.html",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-083",
+      "target": "index.html",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-083",
+      "target": "DeveloperPolicy.html",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-083",
+      "target": "copyright.html",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-083",
+      "target": "distribution.html",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-083",
+      "target": "support-library.html",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-083",
+      "target": "guidelinesfor3rdparties.html",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-083",
+      "target": "README.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-083",
+      "target": "terms_of_use.html",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-083",
+      "target": "msg00758.html",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-083",
+      "target": "spanish_hyphen.html",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-083",
+      "target": "gpl.html",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-083",
+      "target": "license.html",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-083",
+      "target": "sdk.html",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-083",
+      "target": "hash.html",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-083",
+      "target": "ftpk.html",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-083",
+      "target": "lite.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-083",
+      "target": "LICENSE.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-083",
+      "target": "FAQ.html",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-083",
+      "target": "sqrt.html",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-083",
+      "target": "usb-ids.html",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-094",
+      "target": "assetlinks.json",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-096",
+      "target": "assetlinks.json",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-096",
+      "target": "RELEASE.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-BRD-098",
+      "target": "prompts.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-BRD-099",
+      "target": "logo-formation.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-BRD-100",
+      "target": "logo-formation.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-BRD-100",
+      "target": "prompts.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-BRD-100",
+      "target": "shot-list.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-104",
+      "target": "api-contract.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-105",
+      "target": "RELEASE.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-SEC-107",
+      "target": "DATABASE.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-SEC-107",
+      "target": "assetlinks.json",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-SEC-107",
+      "target": "PLAY_STORE.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-SEC-107",
+      "target": "google-services.json",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-SEC-107",
+      "target": "package-lock.json",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-108",
+      "target": "api-contract.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-109",
+      "target": "STAGE_REPORT.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-109",
+      "target": "PROJECT_STATUS.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-109",
+      "target": "FINAL_REPORT.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-109",
+      "target": "RELEASE.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-119",
+      "target": "FINAL_REPORT.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-119",
+      "target": "mock-server.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-119",
+      "target": "api-contract.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-119",
+      "target": "google-services.json",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-119",
+      "target": "ENGINEERING_STATUS.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-121",
+      "target": "STFL_PROJECT_REGISTRY.json",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-122",
+      "target": "asset-register-v1.json",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-BRD-123",
+      "target": "STFL_ECOSYSTEM_ASSET_REGISTER.json",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-124",
+      "target": "STFL_PROJECT_REGISTRY.json",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-124",
+      "target": "STFL_ECOSYSTEM_ASSET_REGISTER.json",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-124",
+      "target": "STFL_ECOSYSTEM_ARCHITECTURE.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-124",
+      "target": "STFL_PROJECT_RELATIONSHIP_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-124",
+      "target": "STFL_PROJECT_SITE_ARCHITECTURE.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-124",
+      "target": "STFL_ECOSYSTEM_CONTENT_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-124",
+      "target": "STFL_ECOSYSTEM_BRAND_GOVERNANCE.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-124",
+      "target": "STFL_PROJECT_PUBLICATION_POLICY.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-124",
+      "target": "STFL_ECOSYSTEM_ROUTE_MAP.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-DOC-127",
+      "target": "STFL_ECOSYSTEM_ASSET_REGISTER.json",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-PRJ-128",
+      "target": "project-registry-v1.json",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-PRJ-128",
+      "target": "STFL_WEB_GRIHOSTIOS_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-PRJ-128",
+      "target": "STFL_AIO_PROPERTY_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-PRJ-128",
+      "target": "STFL_AIO_MULTI_PROJECT_ARCHITECTURE.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-PRJ-128",
+      "target": "skillconnect_spec.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-PRJ-128",
+      "target": "STFL_AIO_PROJECT_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-PRJ-128",
+      "target": "STFL_AIO_PARTY_RELATIONSHIP_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-PRJ-128",
+      "target": "STFL_AIO_FINANCE_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-PRJ-128",
+      "target": "STFL_AIO_MULTI_PROJECT_API_SPEC.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-PRJ-128",
+      "target": "3.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-PRJ-128",
+      "target": "proiyojon_catalog.json",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-PRJ-128",
+      "target": "malaysia_locked_scan_live.json",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-PRJ-128",
+      "target": "package.json",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-PRJ-128",
+      "target": "STFL_AIO_COMMUNICATION_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-PRJ-128",
+      "target": "STFL_AIO_DEPENDENCY_INDEX.json",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-PRJ-128",
+      "target": "HAKIMSARKER_DIGITAL_LEGACY_SPEC.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-PRJ-128",
+      "target": "QIMAI_PLATFORM_SPEC.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-PRJ-128",
+      "target": "BRAND_PROFILE.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-132",
+      "target": "roadmap.html",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-132",
+      "target": "STFL_VI_MIGRATION_BASELINE.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-132",
+      "target": "STFL_VI_SECURITY_AUDIT.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-132",
+      "target": "STFL_VI_DESIGN_SYSTEM_AUDIT.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-132",
+      "target": "STFL_VI_TYPOGRAPHY_SYSTEM.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-132",
+      "target": "STFL_VI_BRAND_GUIDELINES.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-132",
+      "target": "STFL_VI_OPEN_SOURCE_RESEARCH.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-132",
+      "target": "STFL_VI_ROADMAP.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-132",
+      "target": "STFL_WEB_ROUTES.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-132",
+      "target": "STFL_WEB_GRIHOSTIOS_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-132",
+      "target": "STFL_WEB_COMPLIANCE_UX.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-132",
+      "target": "STFL_WEB_ARCHITECTURE.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-134",
+      "target": "roadmap.html",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-134",
+      "target": "STFL_VI_OPEN_SOURCE_RESEARCH.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-MIG-135",
+      "target": "roadmap.html",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-RDM-137",
+      "target": "roadmap.html",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-RDM-137",
+      "target": "STFL_PROJECT_REGISTRY.json",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-BRD-152",
+      "target": "STFL_ICONOGRAPHY_POLICY.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-BRD-161",
+      "target": "package.json",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-167",
+      "target": "STFL_AIO_MASTER_CONTROL.html",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-167",
+      "target": "STFL_AIO_PHASE_1_IMPLEMENTATION_REPORT.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-167",
+      "target": "STFL_AIO_PHASE_1_RED_TEAM_REPORT.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-167",
+      "target": "STFL_AIO_PHASE_2_DATABASE_REPORT.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-167",
+      "target": "STFL_AIO_PHASE_3_AUTHORIZATION_REPORT.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-167",
+      "target": "STFL_AIO_PHASE_4_APPROVAL_REPORT.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-167",
+      "target": "STFL_AIO_PHASE_5_DOCUMENT_REPORT.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-167",
+      "target": "STFL_AIO_PHASE_6_PRINT_REPORT.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-167",
+      "target": "STFL_AIO_PHASE_7_COMMS_REPORT.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-167",
+      "target": "STFL_AIO_PHASE_8_AGENT_REPORT.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-167",
+      "target": "STFL_AIO_PHASE_9_RED_TEAM_REPORT.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-167",
+      "target": "STFL_AIO_PHASE_10_CONSOLES_REPORT.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-167",
+      "target": "STFL_AIO_CONSOLE_SPECIFICATION.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-167",
+      "target": "STFL_AIO_PHASE_12_5_MULTI_PROJECT_ARCHITECTURE_REPORT.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-167",
+      "target": "STFL_AIO_DEMO_ENVIRONMENT.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-167",
+      "target": "STFL_AIO_DEMO_DATA_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-167",
+      "target": "STFL_AIO_DEMO_SECURITY_BOUNDARY.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-167",
+      "target": "STFL_AIO_DEMO_USER_GUIDE.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-167",
+      "target": "STFL_AIO_DEMO_VERIFICATION_REPORT.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-167",
+      "target": "STFL_AIO_BASELINE.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-167",
+      "target": "STFL_AIO_CONSISTENCY_GATE.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-167",
+      "target": "STFL_AIO_CONSTITUTION.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-167",
+      "target": "STFL_AIO_FEATURE_INDEX.json",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-167",
+      "target": "STFL_AIO_FILE_INDEX.json",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-167",
+      "target": "STFL_AIO_DEPENDENCY_INDEX.json",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-MIG-168",
+      "target": "DATABASE.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-BRD-169",
+      "target": "STFL_AIO_MASTER_CONTROL.html",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-AGT-170",
+      "target": "STFL_AIO_AGENT_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-AGT-170",
+      "target": "STFL_AGENT_AUTHORIZATION_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-AGT-171",
+      "target": "STFL_AIO_CONSTITUTION.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-AGT-171",
+      "target": "STFL_AIO_MULTI_PROJECT_ARCHITECTURE.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-AGT-171",
+      "target": "STFL_AIO_REGULATORY_RULE_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-AGT-171",
+      "target": "STFL_AIO_LEGAL_ESCALATION_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-AGT-171",
+      "target": "STFL_AIO_LABOUR_COMPLIANCE_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-AGT-171",
+      "target": "STFL_AIO_PROPERTY_COMPLIANCE_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-AGT-171",
+      "target": "STFL_AIO_COMPLIANCE_AGENT_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-AGT-171",
+      "target": "STFL_AIO_REGULATORY_CHANGE_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-AGT-171",
+      "target": "STFL_AIO_COMPLIANCE_SOURCE_PROVENANCE.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-AGT-171",
+      "target": "STFL_AIO_COMPLIANCE_CONSOLE_SPEC.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-CMP-172",
+      "target": "STFL_USER_CLASS_MATRIX.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-CMP-172",
+      "target": "STFL_MANAGEMENT_BACKENDS.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-CMP-173",
+      "target": "STFL_AUDIT_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-CMP-173",
+      "target": "STFL_AIO_CONSTITUTION.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-174",
+      "target": "STFL_PARTY_RELATIONSHIP_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-174",
+      "target": "STFL_DATABASE_MIGRATION_PLAN.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-174",
+      "target": "STFL_IAM_ARCHITECTURE.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-174",
+      "target": "STFL_USER_CLASS_MATRIX.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-174",
+      "target": "STFL_MANAGEMENT_BACKENDS.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-174",
+      "target": "STFL_AUTHORIZATION_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-174",
+      "target": "STFL_SCOPE_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-174",
+      "target": "STFL_APPROVAL_ENGINE.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-174",
+      "target": "STFL_SECURITY_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-177",
+      "target": "STFL_USER_CLASS_MATRIX.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-182",
+      "target": "STFL_AIO_CONSTITUTION.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-183",
+      "target": "STFL_AIO_CONSTITUTION.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-185",
+      "target": "STFL_AIO_CONSTITUTION.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-KNW-186",
+      "target": "STFL_AIO_CONSTITUTION.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-KNW-186",
+      "target": "STFL_AIO_MULTI_PROJECT_ARCHITECTURE.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-CMP-188",
+      "target": "STFL_AIO_COMPLIANCE_ARCHITECTURE.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-CMP-189",
+      "target": "STFL_APPROVAL_ENGINE.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-CMP-189",
+      "target": "STFL_AIO_CONSTITUTION.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-190",
+      "target": "STFL_AIO_MASTER_CONTROL.html",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-190",
+      "target": "STFL_AIO_FEATURE_INDEX.json",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-190",
+      "target": "STFL_AIO_FILE_INDEX.json",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-190",
+      "target": "STFL_AIO_DEPENDENCY_INDEX.json",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-190",
+      "target": "STFL_AIO_BILINGUAL_AND_TYPOGRAPHY_GOVERNANCE.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-190",
+      "target": "STFL_AIO_REPOSITORY_AUDIT.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-190",
+      "target": "STFL_AIO_SANITIZATION_PLAN.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-190",
+      "target": "STFL_AIO_ARCHIVE_CANDIDATES.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-190",
+      "target": "_REPORT.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-190",
+      "target": "STFL_AIO_BASELINE.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-190",
+      "target": "STFL_AIO_CONSISTENCY_GATE.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-190",
+      "target": "STFL_AIO_CONSTITUTION.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-PRJ-193",
+      "target": "STFL_API_CONTRACT.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-PRJ-193",
+      "target": "STFL_AIO_PROJECT_FACTORY_SPECIFICATION.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-194",
+      "target": "STFL_AIO_CONSTITUTION.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-194",
+      "target": "STFL_AIO_COMPLIANCE_ARCHITECTURE.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-194",
+      "target": "STFL_AIO_KNOWLEDGE_ARCHITECTURE.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-194",
+      "target": "STFL_AIO_TRAINING_ARCHITECTURE.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-194",
+      "target": "STFL_AIO_SERVICE_CENTER_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-194",
+      "target": "STFL_AIO_MODERATOR_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-194",
+      "target": "STFL_AIO_TRAINING_CERTIFICATION_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-194",
+      "target": "STFL_AIO_KNOWLEDGE_GOVERNANCE_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-194",
+      "target": "STFL_AIO_PICTORIAL_TRAINING_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-194",
+      "target": "STFL_AIO_TRAINING_UX_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-195",
+      "target": "STFL_AIO_CONSTITUTION.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-195",
+      "target": "STFL_MANAGEMENT_BACKENDS.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-195",
+      "target": "STFL_USER_CLASS_MATRIX.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-195",
+      "target": "STFL_AIO_EXECUTION_PIPELINE.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-196",
+      "target": "STFL_AIO_MULTI_PROJECT_ARCHITECTURE.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-196",
+      "target": "STFL_AIO_PROJECT_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-196",
+      "target": "STFL_AIO_PROJECT_IDENTITY_AND_MEMBERSHIP.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-196",
+      "target": "STFL_AIO_PROJECT_AUTHORIZATION_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-196",
+      "target": "STFL_AIO_PROJECT_FINANCE_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-196",
+      "target": "STFL_AIO_PROJECT_WEBSITE_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-196",
+      "target": "STFL_AIO_PROJECT_WORKFLOW_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-196",
+      "target": "STFL_AIO_PROJECT_AGENT_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-196",
+      "target": "STFL_AIO_PROJECT_ISOLATION_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-196",
+      "target": "STFL_AIO_PROJECT_LIFECYCLE.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-196",
+      "target": "STFL_AIO_PROJECT_TEMPLATE_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-196",
+      "target": "STFL_AIO_DEVELOPMENT_FEATURE_CONTROL_MAP.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-196",
+      "target": "STFL_AIO_DEVELOPMENT_DEPENDENCY_GRAPH.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-196",
+      "target": "STFL_AIO_PROJECT_FACTORY_SPECIFICATION.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-196",
+      "target": "STFL_AIO_MULTI_PROJECT_API_SPEC.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-196",
+      "target": "STFL_AIO_COMPLIANCE_ARCHITECTURE.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-196",
+      "target": "STFL_AIO_REGULATORY_RULE_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-196",
+      "target": "STFL_AIO_LEGAL_ESCALATION_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-196",
+      "target": "STFL_AIO_LABOUR_COMPLIANCE_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-196",
+      "target": "STFL_AIO_PROPERTY_COMPLIANCE_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-196",
+      "target": "STFL_AIO_COMPLIANCE_AGENT_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-196",
+      "target": "STFL_AIO_REGULATORY_CHANGE_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-196",
+      "target": "STFL_AIO_COMPLIANCE_SOURCE_PROVENANCE.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-196",
+      "target": "STFL_AIO_COMPLIANCE_CONSOLE_SPEC.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-197",
+      "target": "STFL_AIO_CONSTITUTION.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-197",
+      "target": "STFL_AIO_EXECUTION_PIPELINE.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-197",
+      "target": "STFL_AIO_SECURITY_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-197",
+      "target": "STFL_API_CONTRACT.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-SEC-198",
+      "target": "STFL_AIO_CONSTITUTION.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-SEC-198",
+      "target": "STFL_AIO_EXECUTION_PIPELINE.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-SEC-198",
+      "target": "STFL_AIO_PHASE_1_IMPLEMENTATION_REPORT.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-199",
+      "target": "STFL_AIO_CONSTITUTION.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-199",
+      "target": "STFL_AIO_EXECUTION_PIPELINE.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-IAM-200",
+      "target": "STFL_AUTHORIZATION_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-IAM-200",
+      "target": "STFL_USER_CLASS_MATRIX.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-IAM-200",
+      "target": "STFL_SCOPE_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-204",
+      "target": "STFL_AIO_SECURITY_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-204",
+      "target": "STFL_API_CONTRACT.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-204",
+      "target": "STFL_AIO_EXECUTION_PIPELINE.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-AGT-205",
+      "target": "STFL_AIO_CONSTITUTION.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-AGT-205",
+      "target": "STFL_AGENT_AUTHORIZATION_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-AGT-205",
+      "target": "STFL_AIO_AGENT_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-AGT-205",
+      "target": "STFL_AIO_EXECUTION_PIPELINE.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-SEC-206",
+      "target": "STFL_AIO_CONSTITUTION.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-SEC-206",
+      "target": "STFL_AGENT_AUTHORIZATION_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-SEC-206",
+      "target": "STFL_AIO_EXECUTION_PIPELINE.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-KNW-207",
+      "target": "STFL_AIO_TRAINING_ARCHITECTURE.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-AGT-208",
+      "target": "STFL_AIO_AGENT_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-AGT-208",
+      "target": "STFL_AGENT_AUTHORIZATION_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-IAM-209",
+      "target": "STFL_AUTHORIZATION_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-PRJ-210",
+      "target": "STFL_AIO_PROJECT_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-PRJ-210",
+      "target": "STFL_AIO_PROJECT_TEMPLATE_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-PRJ-210",
+      "target": "project-manifest.json",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-FIN-211",
+      "target": "STFL_AIO_CONSTITUTION.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-PRJ-212",
+      "target": "STFL_PARTY_RELATIONSHIP_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-PRJ-212",
+      "target": "STFL_IAM_ARCHITECTURE.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-SEC-213",
+      "target": "STFL_AIO_SECURITY_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-SEC-213",
+      "target": "STFL_SCOPE_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-PRJ-214",
+      "target": "STFL_AIO_CONSTITUTION.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-PRJ-214",
+      "target": "STFL_APPROVAL_ENGINE.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-PRJ-216",
+      "target": "STFL_AIO_CONSTITUTION.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-BRD-217",
+      "target": "STFL_AIO_BASELINE.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-PRJ-218",
+      "target": "STFL_APPROVAL_ENGINE.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-PRJ-218",
+      "target": "STFL_AIO_CONSTITUTION.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-PROP-219",
+      "target": "STFL_AIO_COMPLIANCE_ARCHITECTURE.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-220",
+      "target": "STFL_AIO_COMPLIANCE_ARCHITECTURE.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-220",
+      "target": "STFL_AIO_DEVELOPMENT_DEPENDENCY_GRAPH.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-CMP-221",
+      "target": "STFL_AIO_COMPLIANCE_ARCHITECTURE.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-222",
+      "target": "STFL_AIO_MASTER_CONTROL.html",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-222",
+      "target": "_REPORT.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-222",
+      "target": "STFL_AIO_CONSTITUTION.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-222",
+      "target": "package.json",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-223",
+      "target": "STFL_AIO_DEPENDENCY_INDEX.json",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-223",
+      "target": "STFL_AIO_MASTER_CONTROL.html",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-223",
+      "target": "STFL_AIO_FILE_INDEX.json",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-223",
+      "target": "STFL_AIO_CONSTITUTION.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-223",
+      "target": "_REPORT.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-223",
+      "target": "STFL_AIO_BASELINE.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-223",
+      "target": "STFL_AIO_CONSISTENCY_GATE.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-223",
+      "target": "STFL_AIO_FEATURE_INDEX.json",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-223",
+      "target": "package.json",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-IAM-227",
+      "target": "STFL_AIO_KNOWLEDGE_ARCHITECTURE.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-IAM-227",
+      "target": "STFL_AUTHORIZATION_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-IAM-228",
+      "target": "c.json",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-IAM-235",
+      "target": "DATABASE.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-252",
+      "target": "STFL_AIO_MODERATOR_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-252",
+      "target": "STFL_AIO_PROJECT_FINANCE_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-252",
+      "target": "STFL_AIO_AGENT_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-252",
+      "target": "STFL_AIO_CONSTITUTION.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-252",
+      "target": "STFL_AIO_PROJECT_LIFECYCLE.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-252",
+      "target": "STFL_AIO_PROJECT_WEBSITE_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-252",
+      "target": "STFL_AIO_COMPLIANCE_ARCHITECTURE.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-252",
+      "target": "STFL_AIO_KNOWLEDGE_ARCHITECTURE.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-256",
+      "target": "STFL_AIO_SECURITY_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-256",
+      "target": "STFL_AIO_PHASE_1_IMPLEMENTATION_REPORT.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-256",
+      "target": "STFL_AUDIT_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-256",
+      "target": "STFL_AIO_PHASE_2_DATABASE_REPORT.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-256",
+      "target": "STFL_AIO_CONSTITUTION.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-256",
+      "target": "STFL_AUTHORIZATION_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-256",
+      "target": "STFL_AIO_PHASE_3_AUTHORIZATION_REPORT.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-256",
+      "target": "STFL_AIO_USER_CLASS_WORKSPACE_MATRIX.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-256",
+      "target": "STFL_APPROVAL_ENGINE.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-256",
+      "target": "STFL_AIO_PHASE_4_APPROVAL_REPORT.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-256",
+      "target": "STFL_AIO_PHASE_6_PRINT_REPORT.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-256",
+      "target": "STFL_AIO_DOCUMENT_ID_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-256",
+      "target": "STFL_AIO_PHASE_5_DOCUMENT_REPORT.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-256",
+      "target": "STFL_AIO_PHASE_7_COMMS_REPORT.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-256",
+      "target": "STFL_AIO_AGENT_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-256",
+      "target": "STFL_AIO_PHASE_8_AGENT_REPORT.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-256",
+      "target": "STFL_AIO_PHASE_9_RED_TEAM_REPORT.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-256",
+      "target": "STFL_AIO_CONSOLE_SPECIFICATION.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-256",
+      "target": "STFL_AIO_PHASE_10_CONSOLES_REPORT.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-256",
+      "target": "STFL_AIO_COMPLIANCE_CONSOLE_SPEC.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-256",
+      "target": "STFL_AIO_COMPLIANCE_ARCHITECTURE.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-256",
+      "target": "STFL_AIO_KNOWLEDGE_ARCHITECTURE.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-256",
+      "target": "STFL_AIO_PICTORIAL_TRAINING_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-256",
+      "target": "STFL_AIO_SERVICE_CENTER_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-256",
+      "target": "STFL_AIO_KNOWLEDGE_GOVERNANCE_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-256",
+      "target": "STFL_AIO_MODERATOR_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-256",
+      "target": "STFL_AIO_PROJECT_ISOLATION_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-256",
+      "target": "STFL_AIO_MULTI_PROJECT_ARCHITECTURE.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-256",
+      "target": "STFL_AIO_PROJECT_WEBSITE_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-256",
+      "target": "STFL_AIO_PROJECT_FINANCE_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-256",
+      "target": "STFL_AIO_PROJECT_LIFECYCLE.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-256",
+      "target": "STFL_AIO_REGULATORY_RULE_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-256",
+      "target": "STFL_AIO_LEGAL_ESCALATION_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-256",
+      "target": "STFL_AIO_TRAINING_CERTIFICATION_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-256",
+      "target": "STFL_AIO_TRAINING_ARCHITECTURE.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-256",
+      "target": "STFL_AIO_TRAINING_UX_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-256",
+      "target": "STFL_AIO_DEMO_ENVIRONMENT.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-256",
+      "target": "STFL_AIO_DEMO_SECURITY_BOUNDARY.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-257",
+      "target": "STFL_AIO_MASTER_CONTROL.html",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-257",
+      "target": "STFL_AIO_CONSTITUTION.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-257",
+      "target": "STFL_AIO_BILINGUAL_AND_TYPOGRAPHY_GOVERNANCE.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-257",
+      "target": "STFL_AIO_ARCHITECTURE.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-257",
+      "target": "STFL_AIO_SECURITY_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-257",
+      "target": "STFL_AIO_MULTI_PROJECT_ARCHITECTURE.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-257",
+      "target": "STFL_AIO_COMPLIANCE_ARCHITECTURE.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-257",
+      "target": "STFL_AIO_KNOWLEDGE_ARCHITECTURE.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-257",
+      "target": "STFL_AIO_CONSOLE_SPECIFICATION.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-257",
+      "target": "STFL_AIO_USER_CLASS_WORKSPACE_MATRIX.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-257",
+      "target": "STFL_AIO_PHASE_1_IMPLEMENTATION_REPORT.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-257",
+      "target": "STFL_AIO_PHASE_1_RED_TEAM_REPORT.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-257",
+      "target": "STFL_AIO_PHASE_2_DATABASE_REPORT.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-257",
+      "target": "STFL_AIO_PHASE_3_AUTHORIZATION_REPORT.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-257",
+      "target": "STFL_AIO_PHASE_4_APPROVAL_REPORT.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-257",
+      "target": "STFL_AIO_PHASE_5_DOCUMENT_REPORT.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-257",
+      "target": "STFL_AIO_PHASE_6_PRINT_REPORT.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-257",
+      "target": "STFL_AIO_PHASE_7_COMMS_REPORT.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-257",
+      "target": "STFL_AIO_PHASE_8_AGENT_REPORT.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-257",
+      "target": "STFL_AIO_PHASE_9_RED_TEAM_REPORT.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-257",
+      "target": "STFL_AIO_PHASE_10_CONSOLES_REPORT.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-257",
+      "target": "STFL_AIO_PHASE_12_5_MULTI_PROJECT_ARCHITECTURE_REPORT.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-257",
+      "target": "STFL_USER_CLASS_MATRIX.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-257",
+      "target": "STFL_MANAGEMENT_BACKENDS.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-257",
+      "target": "STFL_AGENT_AUTHORIZATION_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-257",
+      "target": "STFL_AIO_AGENT_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-261",
+      "target": "pre.json",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-261",
+      "target": "STFL_AIO_USER_CLASS_WORKSPACE_MATRIX.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-261",
+      "target": "STFL_AIO_COMPLIANCE_CONSOLE_SPEC.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-261",
+      "target": "STFL_AIO_CONSOLE_SPECIFICATION.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-261",
+      "target": "STFL_AIO_KNOWLEDGE_ARCHITECTURE.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-261",
+      "target": "STFL_AIO_PICTORIAL_TRAINING_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-261",
+      "target": "STFL_AIO_SERVICE_CENTER_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-261",
+      "target": "STFL_AIO_MODERATOR_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-261",
+      "target": "STFL_AIO_PROJECT_ISOLATION_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-261",
+      "target": "STFL_AIO_MULTI_PROJECT_ARCHITECTURE.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-261",
+      "target": "STFL_AIO_PROJECT_WEBSITE_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-261",
+      "target": "STFL_AIO_PROJECT_FINANCE_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-261",
+      "target": "STFL_AIO_PROJECT_LIFECYCLE.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-261",
+      "target": "STFL_AIO_COMPLIANCE_ARCHITECTURE.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-261",
+      "target": "STFL_AIO_REGULATORY_RULE_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-261",
+      "target": "STFL_AIO_LEGAL_ESCALATION_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-261",
+      "target": "STFL_AIO_TRAINING_CERTIFICATION_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-261",
+      "target": "STFL_AIO_TRAINING_ARCHITECTURE.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-261",
+      "target": "STFL_AIO_KNOWLEDGE_GOVERNANCE_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-261",
+      "target": "STFL_AIO_TRAINING_UX_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-261",
+      "target": "STFL_AIO_DEMO_ENVIRONMENT.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-261",
+      "target": "STFL_USER_CLASS_MATRIX.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-261",
+      "target": "STFL_AGENT_AUTHORIZATION_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-261",
+      "target": "STFL_AIO_AGENT_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-261",
+      "target": "STFL_AIO_PROJECT_AGENT_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-261",
+      "target": "STFL_MANAGEMENT_BACKENDS.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-261",
+      "target": "STFL_MIGRATION_PLAN.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-261",
+      "target": "STFL_DATABASE_MIGRATION_PLAN.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-261",
+      "target": "STFL_AIO_PHASE_1_IMPLEMENTATION_REPORT.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-261",
+      "target": "STFL_AIO_PHASE_1_RED_TEAM_REPORT.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-261",
+      "target": "STFL_AIO_PHASE_2_DATABASE_REPORT.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-261",
+      "target": "STFL_AIO_PHASE_3_AUTHORIZATION_REPORT.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-261",
+      "target": "STFL_AIO_PHASE_4_APPROVAL_REPORT.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-261",
+      "target": "STFL_AIO_PHASE_5_DOCUMENT_REPORT.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-261",
+      "target": "STFL_AIO_PHASE_6_PRINT_REPORT.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-261",
+      "target": "STFL_AIO_PHASE_7_COMMS_REPORT.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-261",
+      "target": "STFL_AIO_PHASE_8_AGENT_REPORT.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-261",
+      "target": "STFL_AIO_PHASE_9_RED_TEAM_REPORT.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-261",
+      "target": "STFL_AIO_PHASE_10_CONSOLES_REPORT.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-261",
+      "target": "STFL_AIO_PHASE_12_5_MULTI_PROJECT_ARCHITECTURE_REPORT.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-261",
+      "target": "STFL_AIO_CONSTITUTION.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-261",
+      "target": "STFL_AIO_ARCHITECTURE.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-261",
+      "target": "STFL_AIO_SECURITY_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-261",
+      "target": "STFL_PARTY_RELATIONSHIP_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-261",
+      "target": "STFL_IAM_ARCHITECTURE.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-261",
+      "target": "STFL_AIO_PROJECT_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-261",
+      "target": "STFL_RELATIONSHIP_CATALOG.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-261",
+      "target": "STFL_SCOPE_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-261",
+      "target": "STFL_AUTHORIZATION_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-261",
+      "target": "STFL_APPROVAL_ENGINE.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-261",
+      "target": "STFL_AIO_EXECUTION_PIPELINE.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-261",
+      "target": "STFL_AUDIT_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-261",
+      "target": "stfl_aio_master_control.json",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-262",
+      "target": "STFL_AIO_MASTER_CONTROL.html",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-270",
+      "target": "index.html",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-272",
+      "target": "STFL_AIO_MASTER_CONTROL.html",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-279",
+      "target": "asset-register-v1.json",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-280",
+      "target": "STFL_PROJECT_REGISTRY.json",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-280",
+      "target": "STFL_ECOSYSTEM_ASSET_REGISTER.json",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-280",
+      "target": "STFL_ECOSYSTEM_ARCHITECTURE.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-280",
+      "target": "STFL_PROJECT_RELATIONSHIP_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-280",
+      "target": "STFL_PROJECT_SITE_ARCHITECTURE.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-280",
+      "target": "STFL_ECOSYSTEM_CONTENT_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-280",
+      "target": "STFL_ECOSYSTEM_BRAND_GOVERNANCE.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-280",
+      "target": "STFL_PROJECT_PUBLICATION_POLICY.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-280",
+      "target": "STFL_ECOSYSTEM_ROUTE_MAP.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-PRJ-281",
+      "target": "project-registry-v1.json",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-PRJ-281",
+      "target": "STFL_WEB_GRIHOSTIOS_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-PRJ-281",
+      "target": "STFL_AIO_PROPERTY_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-PRJ-281",
+      "target": "STFL_AIO_MULTI_PROJECT_ARCHITECTURE.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-PRJ-281",
+      "target": "skillconnect_spec.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-PRJ-281",
+      "target": "STFL_AIO_PROJECT_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-PRJ-281",
+      "target": "STFL_AIO_PARTY_RELATIONSHIP_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-PRJ-281",
+      "target": "STFL_AIO_FINANCE_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-PRJ-281",
+      "target": "STFL_AIO_MULTI_PROJECT_API_SPEC.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-PRJ-281",
+      "target": "3.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-PRJ-281",
+      "target": "proiyojon_catalog.json",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-PRJ-281",
+      "target": "malaysia_locked_scan_live.json",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-PRJ-281",
+      "target": "package.json",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-PRJ-281",
+      "target": "STFL_AIO_COMMUNICATION_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-PRJ-281",
+      "target": "STFL_AIO_DEPENDENCY_INDEX.json",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-PRJ-281",
+      "target": "HAKIMSARKER_DIGITAL_LEGACY_SPEC.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-PRJ-281",
+      "target": "QIMAI_PLATFORM_SPEC.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-PRJ-281",
+      "target": "BRAND_PROFILE.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-283",
+      "target": "roadmap.html",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-283",
+      "target": "STFL_VI_MIGRATION_BASELINE.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-283",
+      "target": "STFL_VI_SECURITY_AUDIT.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-283",
+      "target": "STFL_VI_DESIGN_SYSTEM_AUDIT.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-283",
+      "target": "STFL_VI_TYPOGRAPHY_SYSTEM.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-283",
+      "target": "STFL_VI_BRAND_GUIDELINES.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-283",
+      "target": "STFL_VI_OPEN_SOURCE_RESEARCH.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-283",
+      "target": "STFL_VI_ROADMAP.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-283",
+      "target": "STFL_WEB_ROUTES.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-283",
+      "target": "STFL_WEB_GRIHOSTIOS_MODEL.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-283",
+      "target": "STFL_WEB_COMPLIANCE_UX.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-ARC-283",
+      "target": "STFL_WEB_ARCHITECTURE.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-285",
+      "target": "roadmap.html",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-GEN-285",
+      "target": "STFL_VI_OPEN_SOURCE_RESEARCH.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-MIG-286",
+      "target": "roadmap.html",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-RDM-288",
+      "target": "roadmap.html",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-RDM-288",
+      "target": "STFL_PROJECT_REGISTRY.json",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-BRD-304",
+      "target": "STFL_ICONOGRAPHY_POLICY.md",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-BRD-310",
+      "target": "package.json",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-BRD-313",
+      "target": "package.json",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-BRD-313",
+      "target": "tsconfig.json",
+      "relation": "references"
+    },
+    {
+      "source": "DOC-BRD-313",
+      "target": "vercel.json",
+      "relation": "references"
+    }
+  ]
+}

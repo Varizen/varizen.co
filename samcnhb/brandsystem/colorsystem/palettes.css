@@ -1,0 +1,14 @@
+/* Source: supplied SAMC Triple-Panel Brand System Showcase.png; values manually transcribed.
+   These are proposal tokens, not measured/approved print or logo color specifications. */
+:root{
+ --neutral-charcoal:#1A1A1A;--neutral-slate:#475569;--neutral-gray:#94A3B8;--neutral-light-gray:#E5E7EB;--neutral-white:#FFFFFF;
+ --blue-primary:#0B6FA4;--blue-light:#E6F2FF;--blue-accent:#00B4DB;--blue-deep:#005A8C;--blue-logo-red:#E21E2B;--blue-warm-orange:#F59E0B;--blue-surface:#F8FAFC;
+ --green-primary:#16A34A;--green-light:#DCFCE7;--green-teal:#0EA5A4;--green-lime:#84CC16;--green-warm-yellow:#FBBF24;--green-coral:#FB923C;--green-charcoal:#1F2937;--green-surface:#F9FAFB;
+ --purple-primary:#7C3AED;--purple-light:#F3E8FF;--purple-indigo:#6366F1;--purple-pink:#EC4899;--purple-warm-orange:#F97316;--purple-teal:#14B8A6;--purple-charcoal:#0F172A;--purple-surface:#FAFAFF;
+ /* Accessible action darks preserve the spirit of the reference without using light colors as small text. */
+ --blue-action:#0B6FA4;--green-action:#0E7736;--purple-action:#7C3AED;
+}
+[data-palette=blue]{--primary:var(--blue-deep);--accent:var(--blue-action);--ink:var(--neutral-charcoal);--muted:var(--neutral-slate);--line:var(--neutral-light-gray);--paper:var(--neutral-white);--note:var(--blue-light);--surface:var(--blue-surface);--on-primary:#fff}
+[data-palette=green]{--primary:var(--green-action);--accent:var(--green-action);--ink:var(--green-charcoal);--muted:var(--neutral-slate);--line:var(--neutral-light-gray);--paper:var(--neutral-white);--note:var(--green-light);--surface:var(--green-surface);--on-primary:#fff}
+[data-palette=purple]{--primary:var(--purple-primary);--accent:var(--purple-primary);--ink:var(--purple-charcoal);--muted:var(--neutral-slate);--line:var(--neutral-light-gray);--paper:var(--neutral-white);--note:var(--purple-light);--surface:var(--purple-surface);--on-primary:#fff}
+.palette-strip{display:flex;height:36px;overflow:hidden;border-radius:5px}.palette-strip>span{flex:1}

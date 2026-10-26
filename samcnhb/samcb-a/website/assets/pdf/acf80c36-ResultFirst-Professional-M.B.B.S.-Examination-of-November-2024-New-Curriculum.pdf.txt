@@ -1,0 +1,42 @@
+--- Page 1 ---
+University of Dhaka
+First Professional M.B.B.S. Examination of November 2024 (New Curriculum) Held in December 2024
+College Name Reg. Session Roll Student Name Gender Year of ad. S. Type Result
+1 South Apollo Medical College 7529 2022-23 5448 ANAMARZIA JUTHI Female 2023 Regular Passed
+2 South Apollo Medical College 7535 2022-23 5449 MST. TAHRIMA JANNAT NAZIA Female 2023 Regular Passed
+3 South Apollo Medical College 7532 2022-23 5450 ABDUL HADI Male 2023 Regular Passed
+4 South Apollo Medical College 7556 2022-23 5451 UMME JOHORA MOU Female 2023 Regular Referred(Ana, Physio)
+5 South Apollo Medical College 7550 2022-23 5452 ASBIE KABIR Female 2023 Regular Passed
+6 South Apollo Medical College 7559 2022-23 5453 TULY MONDAL Female 2023 Regular Passed
+7 South Apollo Medical College 7531 2022-23 5454 SRABONY SIKDER Female 2023 Regular Passed
+8 South Apollo Medical College 7528 2022-23 5455 SANJIDA AKTER SUME Female 2023 Regular Passed
+9 South Apollo Medical College 7537 2022-23 5456 ANNA SNIGDHA ABADI Female 2023 Regular Passed
+10 South Apollo Medical College 7557 2022-23 5457 SURIYA ISLAM ANEY Female 2023 Regular Passed
+11 South Apollo Medical College 10134 2021-22 5458 SUMAIYA HASAN Female 2022 Irregular Referred(Ana, Bio)
+12 South Apollo Medical College 7553 2022-23 5459 FATIMA RAHMAN RIMI Female 2023 Regular Passed
+13 South Apollo Medical College 7555 2022-23 5460 MD. MAHIN KHAN Male 2023 Regular Referred(Ana)
+14 South Apollo Medical College 7539 2022-23 5461 ABU HOJIFA Male 2023 Regular Passed
+15 South Apollo Medical College 7544 2022-23 5462 SHAHARIAR SAJID Male 2023 Regular Passed
+16 South Apollo Medical College 7552 2022-23 5463 ZABIN SUMAIYA Female 2023 Regular Referred(Ana)
+17 South Apollo Medical College 7538 2022-23 5464 NUSRAT JAHAN ORTHI Female 2023 Regular Passed
+18 South Apollo Medical College 7551 2022-23 5465 M M NASHIDUR RAHMAN NABIL Male 2023 Regular Passed
+19 South Apollo Medical College 7540 2022-23 5466 MD. MAHFUZUR RAHMAN RIFAT Male 2023 Regular Passed
+20 South Apollo Medical College 7530 2022-23 5467 ABU YOUSUF MOHAMMED SAYEM Male 2023 Regular Passed
+
+--- Page 2 ---
+Result Publish Date: 23-03-2025
+Controller of Examinations
+University of Dhaka
+First Professional M.B.B.S. Examination of November 2024 (New Curriculum) Held in December 2024
+College Name Reg. Session Roll Student Name Gender Year of ad. S. Type Result
+21 South Apollo Medical College 7549 2022-23 5468 MD. FARDIN NADIM Male 2023 Regular Passed
+22 South Apollo Medical College 10127 2021-22 5469 MD. TOWSIF AMIN SHIHAB Male 2022 Regular Referred(Bio)
+23 South Apollo Medical College 7546 2022-23 5470 SAFAYETH KHAN LODI Male 2023 Regular Referred(Ana, Physio)
+24 South Apollo Medical College 7547 2022-23 5471 ARPITA GHOSH Female 2023 Regular Referred(Physio)
+25 South Apollo Medical College 7536 2022-23 5472 SAWDA SUBAH Female 2023 Regular Passed
+26 South Apollo Medical College 7534 2022-23 5473 ISRAT JAHAN SARA Female 2023 Regular Passed
+27 South Apollo Medical College 7541 2022-23 5474 SADIA KARIM RUPA Female 2023 Regular Passed
+28 South Apollo Medical College 7548 2022-23 5475 MOST. AFIA HUMAYRA Female 2023 Regular Passed
+29 South Apollo Medical College 7533 2022-23 5476 IFTEAR KHAN Male 2023 Regular Passed
+30 South Apollo Medical College 10108 2021-22 5477 ROWNAK JAHAN Female 2022 Irregular Passed
+31 South Apollo Medical College 10130 2021-22 5478 SYEADA RAHMAN Female 2022 Irregular Passed

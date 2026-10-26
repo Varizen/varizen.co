@@ -1,0 +1,391 @@
+{
+  "schema": "stfl-production-dependency-map-v1",
+  "generated_at": "2026-10-18T11:14:59.4836666+08:00",
+  "principle": "COPY -> REGISTER -> VERIFY -> RELINK -> VERIFY -> THEN MOVE. No production path is moved by this operation.",
+  "deployables": [
+    {
+      "id": "DEP-ORG",
+      "folder": "stflbd.org",
+      "worker": "stfl-foundation-web",
+      "config": "stflbd.org/wrangler.toml",
+      "routes": [
+        "stflbd.org",
+        "www.stflbd.org"
+      ],
+      "domain": "https://stflbd.org",
+      "build": "npm run build (verify + next build) then npx opennextjs-cloudflare build",
+      "deploy": "wrangler deploy",
+      "status": "PRODUCTION — DO NOT MOVE",
+      "external_path_dependencies": [
+        {
+          "reference": "node ../scripts/verify-domain-separation.mjs",
+          "file": "stflbd.org/package.json",
+          "kind": "relative-path",
+          "breaks_if_moved": true,
+          "note": "Resolves to <root>/scripts/verify-domain-separation.mjs. Moving stflbd.org one level deeper would break this."
+        }
+      ]
+    },
+    {
+      "id": "DEP-APP",
+      "folder": "main/web",
+      "worker": "stfl-web",
+      "config": "main/web/wrangler.toml",
+      "routes": [
+        "stflbd.app/*",
+        "www.stflbd.app/*",
+        "staging.stflbd.app/*"
+      ],
+      "domain": "https://stflbd.app",
+      "build": "npm run build (verify + next build) then npx opennextjs-cloudflare build",
+      "deploy": "wrangler deploy",
+      "status": "PRODUCTION — DO NOT MOVE",
+      "external_path_dependencies": [
+        {
+          "reference": "node ../../scripts/verify-domain-separation.mjs",
+          "file": "main/web/package.json",
+          "kind": "relative-path",
+          "breaks_if_moved": true,
+          "note": "Resolves to <root>/scripts/verify-domain-separation.mjs. Moving main/ one level deeper would break this."
+        }
+      ]
+    },
+    {
+      "id": "DEP-API",
+      "folder": "main/api",
+      "worker": "stfl-api",
+      "config": "main/api/wrangler.toml",
+      "routes": [
+        "stflbd.app/api/*",
+        "www.stflbd.app/api/*",
+        "staging.stflbd.app/api/*"
+      ],
+      "domain": "https://stflbd.app/api/v1",
+      "build": "wrangler deploy --dry-run --outdir dist",
+      "deploy": "wrangler deploy",
+      "status": "PRODUCTION — DO NOT MOVE",
+      "external_path_dependencies": []
+    },
+    {
+      "id": "DEP-ANDROID",
+      "folder": "main",
+      "worker": null,
+      "config": "main/settings.gradle.kts",
+      "routes": [],
+      "domain": "foundation.sohaeltasneem.app",
+      "build": "./gradlew.bat :app:assembleDebug / bundleRelease",
+      "deploy": "Play Store (manual)",
+      "status": "PRODUCTION — DO NOT MOVE",
+      "external_path_dependencies": []
+    }
+  ],
+  "non_deployable": [
+    {
+      "folder": "web",
+      "classification": "LEGACY_MIRROR",
+      "deployable": false,
+      "evidence": "web/package.json predeploy script exits 1 with 'LEGACY MIRROR — DO NOT DEPLOY'; web/wrangler.toml.disabled",
+      "action": "leave in place; register as legacy"
+    },
+    {
+      "folder": "apk",
+      "classification": "LEGACY_MIRROR",
+      "deployable": false,
+      "evidence": "Duplicate of main/ at commit 0b2469d; no remote configured",
+      "action": "leave in place; register as legacy"
+    },
+    {
+      "folder": "files/web/aakutu-board",
+      "classification": "UNRELATED_PROJECT",
+      "deployable": false,
+      "evidence": "Independent git repo, own package.json, unrelated to STFL production",
+      "action": "leave in place; register as external project"
+    },
+    {
+      "folder": "main/preview/web",
+      "classification": "NESTED_REPO_IGNORED",
+      "deployable": false,
+      "evidence": "main/.gitignore excludes /preview/web/",
+      "action": "leave in place"
+    },
+    {
+      "folder": "_old",
+      "classification": "ARCHIVE",
+      "deployable": false,
+      "evidence": "zips, old logo, drone video",
+      "action": "leave in place; register as archive"
+    },
+    {
+      "folder": "md-s",
+      "classification": "DOCUMENTATION",
+      "deployable": false,
+      "evidence": "78 markdown specs, no build reference",
+      "action": "leave in place; index in portfolio"
+    },
+    {
+      "folder": "official_doc",
+      "classification": "GOVERNANCE_TEMPLATES",
+      "deployable": false,
+      "evidence": "acceptance letters, notices, templates (images)",
+      "action": "copy to brandcenter/templates; keep original"
+    }
+  ],
+  "asset_references": [
+    {
+      "asset": "stfl-mark-dark.png",
+      "production_path": "stflbd.org/public/stfl-mark-dark.png",
+      "referenced_by": [
+        "stflbd.org/src/app/initiatives/grihostios/page.tsx:677"
+      ],
+      "production_dependent": true,
+      "action": "COPY to brandcenter; DO NOT MOVE"
+    },
+    {
+      "asset": "stfl-mark-white.png",
+      "production_path": "stflbd.org/public/stfl-mark-white.png",
+      "referenced_by": [
+        "stflbd.org/src/app/login/page.tsx:34",
+        "stflbd.org/src/app/signup/page.tsx:35",
+        "main/web/src/app/AppLandingPage.tsx:48",
+        "main/web/src/app/AppLandingPage.tsx:808",
+        "main/web/src/app/download/page.tsx:24"
+      ],
+      "production_dependent": true,
+      "action": "COPY to brandcenter; DO NOT MOVE"
+    },
+    {
+      "asset": "stfl-mark-transparent.png",
+      "production_path": "stflbd.org/public/stfl-mark-transparent.png",
+      "referenced_by": [
+        "stflbd.org/src/app/admin/layout.tsx:203",
+        "stflbd.org/src/app/brand/page.tsx:213",
+        "stflbd.org/src/app/brand/page.tsx:287",
+        "stflbd.org/src/app/brand/page.tsx:737",
+        "stflbd.org/src/app/brandcenter/page.tsx:124"
+      ],
+      "production_dependent": true,
+      "action": "COPY to brandcenter; DO NOT MOVE"
+    },
+    {
+      "asset": "stfl-logo-transparent.png",
+      "production_path": "stflbd.org/public/stfl-logo-transparent.png",
+      "referenced_by": [
+        "stflbd.org/src/app/brand/page.tsx:48",
+        "stflbd.org/src/app/brand/page.tsx:183",
+        "stflbd.org/src/app/brandcenter/page.tsx:132"
+      ],
+      "production_dependent": true,
+      "action": "COPY to brandcenter; DO NOT MOVE"
+    },
+    {
+      "asset": "stfl-original-logo.png",
+      "production_path": "stflbd.org/public/stfl-original-logo.png",
+      "referenced_by": [
+        "stflbd.org/src/app/brandcenter/page.tsx:140",
+        "main/docs/PLAY_STORE_LISTING.md:96"
+      ],
+      "production_dependent": true,
+      "action": "COPY to brandcenter; DO NOT MOVE"
+    },
+    {
+      "asset": "stfl-wordmark-cream.png",
+      "production_path": "stflbd.org/public/stfl-wordmark-cream.png",
+      "referenced_by": [
+        "stflbd.org/src/app/brandcenter/page.tsx:148"
+      ],
+      "production_dependent": true,
+      "action": "COPY to brandcenter; DO NOT MOVE"
+    },
+    {
+      "asset": "stfl-wordmark-transparent.png",
+      "production_path": "stflbd.org/public/stfl-wordmark-transparent.png",
+      "referenced_by": [
+        "stflbd.org/src/app/brand/page.tsx:225",
+        "stflbd.org/src/app/brandcenter/page.tsx:166"
+      ],
+      "production_dependent": true,
+      "action": "COPY to brandcenter; DO NOT MOVE"
+    },
+    {
+      "asset": "stfl-wordmark-white.png",
+      "production_path": "stflbd.org/public/stfl-wordmark-white.png",
+      "referenced_by": [
+        "stflbd.org/src/app/brand/page.tsx:195",
+        "stflbd.org/src/app/brandcenter/page.tsx:157"
+      ],
+      "production_dependent": true,
+      "action": "COPY to brandcenter; DO NOT MOVE"
+    },
+    {
+      "asset": "dot-matrix-hero.png",
+      "production_path": "stflbd.org/public/media/dot-matrix-hero.png",
+      "referenced_by": [
+        "stflbd.org/src/app/page.tsx:59"
+      ],
+      "production_dependent": true,
+      "action": "COPY to brandcenter; DO NOT MOVE"
+    },
+    {
+      "asset": "grihostios-logo.svg",
+      "production_path": "stflbd.org/public/media/grihostios-logo.svg",
+      "referenced_by": [
+        "stflbd.org/src/app/page.tsx:526",
+        "stflbd.org/src/app/brandcenter/page.tsx:178",
+        "stflbd.org/src/app/initiatives/grihostios/page.tsx:60",
+        "stflbd.org/src/lib/initiativesRegistry.ts:165",
+        "main/web/src/lib/initiativesRegistry.ts:165"
+      ],
+      "production_dependent": true,
+      "action": "COPY to brandcenter; DO NOT MOVE"
+    },
+    {
+      "asset": "skillconnect-logo.svg",
+      "production_path": "stflbd.org/public/media/skillconnect-logo.svg",
+      "referenced_by": [
+        "stflbd.org/src/app/page.tsx:537",
+        "stflbd.org/src/app/brandcenter/page.tsx:187",
+        "stflbd.org/src/lib/initiativesRegistry.ts:312",
+        "main/web/src/lib/initiativesRegistry.ts:312"
+      ],
+      "production_dependent": true,
+      "action": "COPY to brandcenter; DO NOT MOVE"
+    },
+    {
+      "asset": "aev-logo.svg",
+      "production_path": "stflbd.org/public/media/aev-logo.svg",
+      "referenced_by": [
+        "stflbd.org/src/app/brandcenter/page.tsx:196",
+        "stflbd.org/src/lib/initiativesRegistry.ts:443"
+      ],
+      "production_dependent": true,
+      "action": "COPY to brandcenter; DO NOT MOVE"
+    },
+    {
+      "asset": "maxremit-logo.svg",
+      "production_path": "stflbd.org/public/media/maxremit-logo.svg",
+      "referenced_by": [
+        "stflbd.org/src/app/page.tsx:559",
+        "stflbd.org/src/app/brandcenter/page.tsx:205",
+        "stflbd.org/src/lib/initiativesRegistry.ts:559"
+      ],
+      "production_dependent": true,
+      "action": "COPY to brandcenter; DO NOT MOVE"
+    },
+    {
+      "asset": "helpex-logo.svg",
+      "production_path": "stflbd.org/public/media/helpex-logo.svg",
+      "referenced_by": [
+        "stflbd.org/src/app/brandcenter/page.tsx:214",
+        "stflbd.org/src/lib/initiativesRegistry.ts:675"
+      ],
+      "production_dependent": true,
+      "action": "COPY to brandcenter; DO NOT MOVE"
+    },
+    {
+      "asset": "perlu-logo.svg",
+      "production_path": "stflbd.org/public/media/perlu-logo.svg",
+      "referenced_by": [
+        "stflbd.org/src/app/brandcenter/page.tsx:232",
+        "stflbd.org/src/lib/initiativesRegistry.ts:917"
+      ],
+      "production_dependent": true,
+      "action": "COPY to brandcenter; DO NOT MOVE"
+    },
+    {
+      "asset": "oiix-logo.svg",
+      "production_path": "stflbd.org/public/media/oiix-logo.svg",
+      "referenced_by": [
+        "stflbd.org/src/app/brandcenter/page.tsx:241",
+        "stflbd.org/src/lib/initiativesRegistry.ts:1036"
+      ],
+      "production_dependent": true,
+      "action": "COPY to brandcenter; DO NOT MOVE"
+    },
+    {
+      "asset": "proiozon-logo.png",
+      "production_path": "stflbd.org/public/media/proiozon-logo.png",
+      "referenced_by": [
+        "stflbd.org/src/app/page.tsx:548",
+        "stflbd.org/src/app/brandcenter/page.tsx:223",
+        "stflbd.org/src/lib/initiativesRegistry.ts:790"
+      ],
+      "production_dependent": true,
+      "action": "COPY to brandcenter; DO NOT MOVE"
+    },
+    {
+      "asset": "qimai-logo.svg / qimai-symbol.svg",
+      "production_path": "stflbd.org/public/media/",
+      "referenced_by": [
+        "stflbd.org/src/app/initiatives/qimai/page.tsx:143"
+      ],
+      "production_dependent": true,
+      "action": "COPY to brandcenter; DO NOT MOVE"
+    },
+    {
+      "asset": "hakimsarker-*.svg",
+      "production_path": "stflbd.org/public/media/",
+      "referenced_by": [
+        "stflbd.org/src/app/initiatives/hakimsarker/page.tsx:240",
+        "stflbd.org/src/app/initiatives/hakimsarker/page.tsx:373"
+      ],
+      "production_dependent": true,
+      "action": "COPY to brandcenter; DO NOT MOVE"
+    },
+    {
+      "asset": "logo_stfl_full.png",
+      "production_path": "main/core/src/main/res/drawable-nodpi/logo_stfl_full.png",
+      "referenced_by": [
+        "main/core/src/main/kotlin/foundation/sohaeltasneem/core/ui/brand/StflLogo.kt:55",
+        "main/core/src/main/kotlin/foundation/sohaeltasneem/core/ui/brand/StflLogo.kt:62"
+      ],
+      "production_dependent": true,
+      "action": "COPY to brandcenter; DO NOT MOVE (Android resource)"
+    },
+    {
+      "asset": "HindSiliguri-*.ttf",
+      "production_path": "stflbd.org/public/fonts/, main/web/public/fonts/, main/core/src/main/res/font/, main/assets/branding/fonts/",
+      "referenced_by": [
+        "layout.tsx font loading",
+        "Android res/font"
+      ],
+      "production_dependent": true,
+      "action": "COPY to brandcenter; DO NOT MOVE"
+    },
+    {
+      "asset": "favicon.ico",
+      "production_path": "stflbd.org/src/app/favicon.ico, main/web/src/app/favicon.ico",
+      "referenced_by": [
+        "Next.js App Router convention"
+      ],
+      "production_dependent": true,
+      "action": "COPY to brandcenter/identity/favicon; DO NOT MOVE"
+    }
+  ],
+  "invariants": {
+    "domains_unchanged": [
+      "https://stflbd.org",
+      "https://stflbd.app",
+      "https://stflbd.app/api/v1"
+    ],
+    "android_unchanged": [
+      "FOUNDATION_URL=https://stflbd.org",
+      "APP_URL=https://stflbd.app",
+      "API_BASE_URL=https://stflbd.app/api/v1",
+      "applicationId=foundation.sohaeltasneem.app"
+    ],
+    "cloudflare_unchanged": [
+      "Worker names",
+      "Routes",
+      "CONFIG_KV id a2f247fbc4914040adc3c78befb6bb7a",
+      "R2 bucket stfl-media",
+      "Hyperdrive binding HYPERDRIVE"
+    ],
+    "secrets_unchanged": [
+      "main/keystore.properties",
+      "apk/keystore.properties",
+      "main/local.properties",
+      "main/api/.dev.vars",
+      "*.env.production"
+    ]
+  }
+}

@@ -1,0 +1,909 @@
+================================================================================
+MASTER BUILD / AUDIT PROMPT — ADDENDUM V5.1
+BANGLADESH PRIVATE MEDICAL COLLEGE + TEACHING HOSPITAL
+================================================================================
+
+VERSION:        5.1 (addendum to V5.0)
+DATE CONTEXT:   24 OCTOBER 2026
+STATUS:         MANDATORY SUPPLEMENT — read with V5.0, not instead of it
+SCOPE:          Adds structural sections, Bangladesh legal regimes, method
+                requirements and deliverables that V5.0 does not cover.
+
+HOW TO USE THIS ADDENDUM
+------------------------
+1. V5.0 remains the base specification. Nothing in V5.0 is withdrawn.
+2. Every requirement in this addendum is ADDITIVE and MANDATORY unless marked
+   [CONDITIONAL] — conditional items apply only when the stated trigger exists.
+3. Where this addendum and V5.0 conflict, this addendum prevails for the specific
+   point, and the conflict must be recorded in the Correction Register.
+4. New deliverables continue the V5.0 numbering (39 onward).
+5. New sign-off questions are added to the V5.0 FINAL SIGN-OFF TEST.
+6. All new content carries the V5.0 evidence labels. No new label is introduced.
+
+EVIDENCE LABELS (unchanged from V5.0, restated for clarity)
+-----------------------------------------------------------
+[LAW]               Operative primary legal instrument.
+[OFFICIAL]          Official government/regulator publication.
+[VERIFY]            Primary source not retrievable or not independently confirmed.
+[PRACTICE]          Bangladeshi operating practice requiring validation.
+[BENCHMARK]         International good practice / accreditation benchmark.
+[MODEL ASSUMPTION]  Financial, staffing, capacity or planning assumption.
+[MODEL CALCULATION] Arithmetic derived from stated assumptions.
+
+New content in this addendum is predominantly [PRACTICE], [BENCHMARK] and
+[MODEL ASSUMPTION]. Do not upgrade any of it to [LAW] without a primary
+instrument. In particular, the legal regimes listed in Section B are identified
+as APPLICABLE REGIMES TO VERIFY — their existence is not in doubt, but their
+specific application to a private medical college hospital must be confirmed
+against the operative text before any compliance claim is made.
+
+
+================================================================================
+SECTION A — STRUCTURAL ADDITIONS (TIER 1)
+================================================================================
+
+These ten items change the shape of the document. Each must appear as a named
+section in the master, not as a passing reference.
+
+--------------------------------------------------------------------------------
+A1. INSTITUTIONAL STARTING-POSITION DECLARATION  [MANDATORY]
+--------------------------------------------------------------------------------
+V5.0 assumes a greenfield institution. Most real promoters are not greenfield.
+
+REQUIREMENT
+The master must open with a mandatory declaration of starting position, and the
+entire model must state which pathway applies. The four recognised positions are:
+
+  POSITION 1 — GREENFIELD
+    No hospital, no college, land only or land not yet acquired.
+    Full Phase -2 to Phase 3 pathway applies.
+
+  POSITION 2 — HOSPITAL-ONLY (OPERATING)
+    A licensed, operating hospital with no medical college.
+    The statutory hospital-operating precondition may already be running or
+    satisfied. The model must state the accumulated operating period, bed
+    strength and occupancy evidence, and whether it satisfies the operative
+    precondition [VERIFY against the exact section].
+
+  POSITION 3 — COLLEGE-WITHOUT-OWN-HOSPITAL
+    An existing college using a third-party or government hospital.
+    The model must address: bed-strength adequacy, teaching-space rights,
+    access agreements, patient-consent and supervision arrangements, and the
+    risk that the arrangement is not recognised for approval or accreditation.
+
+  POSITION 4 — EXISTING COLLEGE SEEKING UPGRADE
+    Seat expansion, new programmes, dental unit, nursing institute, or
+    postgraduate addition. The model must address: proportional increase in
+    land, floor space, beds and infrastructure required when seats or beds
+    increase [VERIFY the operative proportionality rule], and grandfathering
+    or transitional provisions.
+
+REQUIRED OUTPUT
+A one-page "Starting Position Statement" in the master and in the Board paper,
+naming the position, the evidence relied on, and the pathway selected.
+
+WHY
+Applying the greenfield pathway to an operating hospital produces a wrong
+timeline and a wrong financial model. Applying the hospital-only pathway to a
+college without its own hospital produces a compliance failure.
+
+--------------------------------------------------------------------------------
+A2. FACULTY SUPPLY AND SOURCING STRATEGY  [MANDATORY]
+--------------------------------------------------------------------------------
+The model requires a large clinical faculty establishment. Bangladesh does not
+have surplus supply. V5.0 sets the ratio but never confronts the constraint.
+
+REQUIREMENT
+A dedicated section covering:
+
+  (a) Establishment demand
+      Department-by-department sanctioned posts at the modelled seat count,
+      split basic science / clinical, and split full-time / permitted part-time.
+
+  (b) Supply reality
+      An honest statement that the required full-time clinical faculty is
+      unlikely to be available in the open market at prevailing public-sector
+      pay, and that most private colleges operate on borrowed or visiting
+      faculty — which is precisely what the part-time ceiling restricts.
+
+  (c) Sourcing routes, each with its own permission and evidence requirements:
+      1. Open-market recruitment of experienced consultants.
+      2. Government deputation / lien / no-objection route — state that this
+         requires the releasing authority's permission and record the evidence
+         required [VERIFY current rules].
+      3. Returning Bangladeshi physicians and diaspora recruitment.
+      4. Own pipeline: residents and registrars developed into faculty over
+         time, with the years-to-competence assumption stated.
+      5. Academic partnership or shared-appointment arrangements with a public
+         college or university [VERIFY permissibility].
+      6. Part-time and visiting appointments strictly within the statutory
+         ceiling.
+
+  (d) Consequence of shortfall
+      An explicit, pre-agreed rule for what happens if the establishment cannot
+      be filled: reduce sanctioned seats, delay intake, defer the programme, or
+      seek a time-bound remediation plan. The rule must name who decides and
+      what the regulator is told.
+
+  (e) Faculty retention
+      Pay positioning, protected teaching time, research support, clinical
+      facility access, and career progression — with the retention risk stated.
+
+REQUIRED OUTPUT
+A Faculty Supply Plan with a year-by-year fill trajectory, not a single
+end-state number.
+
+WHY
+A model that specifies a ratio it cannot staff is not implementable. The
+shortfall rule is the single most useful control in this section, because it
+converts an aspiration into a decision.
+
+--------------------------------------------------------------------------------
+A3. FEE REGULATION AS A STRUCTURAL CONSTRAINT  [MANDATORY]
+--------------------------------------------------------------------------------
+V5.0 treats the government fee instrument as an input source. It is a ceiling.
+
+REQUIREMENT
+State plainly, in the financial section and in the Board paper:
+
+  (a) Admission and tuition fees for private medical and dental colleges are
+      fixed by government instrument (MEFWD Medical Education-1: 649 is the
+      identified instrument; verify the operative version and table) [VERIFY
+      exact current table].
+
+  (b) College revenue is therefore a REGULATED number, not a management
+      variable. The institution cannot price its way out of a cost problem.
+
+  (c) Consequence: the financial viability of the project rests predominantly
+      on hospital operations, not on college tuition. The hospital is the
+      commercial engine; the college is a regulated-margin academic obligation.
+
+  (d) Any financial model that assumes fee growth above the gazetted schedule
+      is invalid and must be rejected at the arithmetic gate.
+
+  (e) Ancillary charges, hostel, food and other permitted services must be
+      modelled only where legally permitted, and separately.
+
+REQUIRED OUTPUT
+A short "Fee Constraint Statement" in the financial section, and a matching
+paragraph in the Board paper's financial envelope.
+
+WHY
+This single fact reorders the project's risk profile. A Board that believes it
+can raise fees to cover a shortfall will approve a project it should decline.
+
+--------------------------------------------------------------------------------
+A4. PRE-COLLEGE CASH VALLEY — NAMED AND SIZED  [MANDATORY]
+--------------------------------------------------------------------------------
+The statutory pathway requires the hospital to operate for a defined period at
+a defined occupancy before the college may apply. That period generates cost
+with no college revenue.
+
+REQUIREMENT
+The financial model must isolate and report, as a named output:
+
+  "PHASE -1 CUMULATIVE CASH REQUIREMENT (NO COLLEGE REVENUE)"
+
+covering:
+  - hospital operating cost during the qualifying period;
+  - occupancy ramp assumptions and the month occupancy is expected to cross
+    the required threshold;
+  - capital servicing during the period;
+  - working capital consumed;
+  - cumulative cash peak (the deepest point);
+  - month the peak occurs;
+  - committed funding available at that month;
+  - headroom, expressed in months of operating cost.
+
+The Board paper must show the peak figure and the headroom in one line.
+
+WHY
+This is the point at which projects fail. It is also the number a lender or
+investor will ask for first. V5.0 requires hospital-first sequencing but never
+requires the cash valley to be quantified.
+
+--------------------------------------------------------------------------------
+A5. MINIMUM VIABLE CONFIGURATION  [MANDATORY]
+--------------------------------------------------------------------------------
+V5.0 models 100 seats / 500 beds. The statutory floor is lower. A promoter may
+only be able to fund the floor.
+
+REQUIREMENT
+Model TWO configurations side by side:
+
+  CONFIGURATION A — STATUTORY MINIMUM
+    Minimum permitted seats, minimum permitted land, minimum permitted floor
+    space, minimum permitted bed strength and occupancy, minimum staffing to
+    satisfy the ratio and the part-time ceiling [VERIFY each minimum against
+    the operative instrument].
+
+  CONFIGURATION B — TARGET STATE
+    The 100-seat / 500-bed model already specified in V5.0.
+
+For each configuration report: land, core capex, opex, staffing headcount,
+revenue at base/downside/severe, break-even, and the pre-college cash valley.
+
+Report the DELTA between A and B explicitly.
+
+REQUIRED OUTPUT
+A two-column comparison table in the financial section and in the Board paper.
+
+WHY
+A document that only describes an unaffordable target state is unusable by the
+majority of its intended readers. The delta also shows the Board what each
+increment of scale actually costs.
+
+--------------------------------------------------------------------------------
+A6. FAILURE AND EXIT SCENARIOS  [MANDATORY]
+--------------------------------------------------------------------------------
+The model describes only success. A Board paper that cannot describe failure is
+not a Board paper.
+
+REQUIREMENT
+A dedicated section covering at least these six scenarios, each with trigger,
+consequence, decision rights, and protective actions:
+
+  1. INITIAL POLICY APPROVAL REFUSED
+     Grounds, appeal or re-application route, sunk-cost position, land
+     disposition, staff liabilities.
+
+  2. ACADEMIC APPROVAL REFUSED OR DELAYED
+     Effect on hospital-only operation, funding covenants, staff retention.
+
+  3. ACCREDITATION FAILED OR CERTIFICATE SUSPENDED
+     Effect on student recruitment, foreign-student channel, marketing claims,
+     remediation plan, appeal route.
+
+  4. PROMOTER INSOLVENCY OR FUNDING WITHDRAWAL MID-CONSTRUCTION
+     Asset protection, secured-creditor position, completion options,
+     regulatory notification duty.
+
+  5. HOSPITAL UNABLE TO REACH REQUIRED OCCUPANCY
+     Consequence for college eligibility, options (service-line change,
+     partnership, deferral), and the decision deadline.
+
+  6. ADVERSE REGULATOR ACTION
+     Licence suspension, admission freeze, seat reduction, penalty. Immediate
+     obligations, patient-transfer duty, student-protection duty, public
+     communication.
+
+ADDITIONALLY, for every scenario state:
+  - obligations to students already admitted (teaching continuity, fee refund,
+    transfer assistance, examination access);
+  - obligations to staff (notice, gratuity, provident fund, certificate release);
+  - obligations to patients (continuity of care, record transfer);
+  - who decides, and whether the decision is Board-reserved.
+
+WHY
+Student-protection obligations in particular are legally and reputationally
+binding and are almost always omitted from promoter-side models.
+
+--------------------------------------------------------------------------------
+A7. AFFILIATION STRATEGY  [MANDATORY]
+--------------------------------------------------------------------------------
+V5.0 treats "affiliating public university" as a given. It is a strategic choice
+with multi-decade consequences.
+
+REQUIREMENT
+A section covering:
+
+  (a) Candidate universities and their current capacity to affiliate new
+      private colleges [VERIFY current position with each university].
+
+  (b) Selection criteria: syllabus version and currency, examination calendar
+      and result timelines, inspection intensity and frequency, fee structure,
+      geographic proximity, willingness to affiliate, and reputation with
+      regulators and employers.
+
+  (c) Negotiation and agreement: what the affiliation instrument must contain
+      (curriculum version, examination responsibilities, inspection rights,
+      Governing Body representation, dispute resolution, termination).
+
+  (d) Operational consequences: examination scheduling dependency, result
+      delay risk, syllabus change risk, and the cost of switching.
+
+  (e) Contingency: what happens if the chosen university declines, withdraws,
+      or changes its syllabus mid-cohort.
+
+WHY
+Examination timing and result publication are controlled by the university, not
+the college. A college that cannot predict its own result dates cannot plan
+internship intake, graduation, or BMDC registration.
+
+--------------------------------------------------------------------------------
+A8. FOREIGN STUDENTS  [CONDITIONAL — applies if foreign admission is intended]
+--------------------------------------------------------------------------------
+Absent from V5.0 entirely. For many private colleges this is the difference
+between viability and closure.
+
+REQUIREMENT
+A section covering:
+
+  (a) Legal basis and permitted proportion of foreign students relative to
+      sanctioned seats [VERIFY the operative proportionality rule].
+
+  (b) Admission channel: separate merit/eligibility process, document
+      equivalence, and the MEFWD certificate-verification desk process.
+
+  (c) Fee treatment: whether foreign-student fees are separately regulated or
+      institutionally set [VERIFY].
+
+  (d) Regulatory reporting: student lists to DGME, registration with BMDC,
+      visa and stay compliance, and the consequences of over-admission.
+
+  (e) Academic support: language of instruction, Bangla-language clinical
+      exposure, bridging support, and examination-language rules.
+
+  (f) Reputational and diplomatic risk: home-country recognition of the
+      Bangladeshi degree, embassy engagement, and complaint handling across
+      jurisdictions.
+
+  (g) Revenue modelling: separate line, separate collection risk, separate
+      refund policy.
+
+WHY
+Foreign-student revenue is often the margin that makes a private college work,
+and foreign-student failure is the fastest route to a diplomatic incident and a
+recruitment collapse.
+
+--------------------------------------------------------------------------------
+A9. REGULATOR ENGAGEMENT AND INSPECTION READINESS  [MANDATORY]
+--------------------------------------------------------------------------------
+V5.0 lists the Inspection Committee's composition but never says what it
+examines or how to prepare.
+
+REQUIREMENT
+A section covering:
+
+  (a) Pre-application engagement sequence with DGME: what to submit, in what
+      order, what informal clarification is appropriate, and what must never be
+      represented before approval.
+
+  (b) Inspection readiness pack — what the committee will actually look for:
+      - land title and mutation documents, unencumbered and undivided;
+      - approved building plans and occupancy certification;
+      - floor-space measurement evidence, academic and hospital separately;
+      - bed strength, occupancy records and case-mix evidence;
+      - department-wise faculty presence, credentials and registration;
+      - laboratory, library, skill-lab and lecture-space demonstration;
+      - hospital services in operation, not merely constructed;
+      - free-bed designation and utilisation evidence;
+      - reserved-fund bank evidence;
+      - field-site agreements (health complex and community clinic);
+      - student records, admission compliance and fee compliance.
+
+  (c) Physical demonstration requirements: what must be functioning on the day,
+      not merely present.
+
+  (d) Common failure points observed in practice [PRACTICE]: faculty shown on
+      paper but absent; hospital built but not operating; floor space counted
+      across rented or shared areas; occupancy asserted without records;
+      free beds designated but not actually free.
+
+  (e) Post-inspection obligations: responding to findings, corrective action
+      evidence, and the re-inspection route.
+
+WHY
+The gap between "we have the building" and "we pass inspection" is where most
+applications fail. Naming the failure points in advance is the cheapest
+mitigation available.
+
+--------------------------------------------------------------------------------
+A10. DELIVERABLE PRODUCTION PLAN  [MANDATORY]
+--------------------------------------------------------------------------------
+V5.0 lists 38 deliverables with no owner, order, acceptance criteria or minimum
+viable subset. This is the same defect previously identified in the master's
+own implementation section.
+
+REQUIREMENT
+For every deliverable, specify:
+  - owner (named role, not a department);
+  - author and reviewer;
+  - prerequisite deliverables;
+  - acceptance criteria (what "done" means, testably);
+  - target date relative to a phase gate;
+  - approval authority.
+
+AND define three mandatory subsets:
+
+  SUBSET 1 — BEFORE FIRST BOARD MEETING (minimum 5)
+    Governance Constitution; Reserved Matters Schedule; Delegation of Authority;
+    Regulatory Register; Conflict-of-Interest Register.
+
+  SUBSET 2 — BEFORE HOSPITAL OPENING (minimum 20)
+    All of Subset 1 plus: licensing tracker; clinical governance pack; nursing
+    credentialing pack; patient rights and SLA pack; free-bed control pack;
+    revenue-integrity pack; procurement segregation matrix; HR credentialing
+    plan; digital/HIS architecture; data-governance pack; cybersecurity
+    baseline; BCP/DR and incident command; enterprise risk register; Board
+    dashboard; CAPEX/OPEX assumptions register; funding stack and liquidity
+    model.
+
+  SUBSET 3 — BEFORE ACCREDITATION APPLICATION (all 38 plus this addendum's
+    additions)
+    Complete set, with the accreditation evidence matrix fully populated.
+
+WHY
+Thirty-eight unowned documents is a wish list. Five owned documents with
+acceptance criteria is a plan.
+
+--------------------------------------------------------------------------------
+A11. BOARD EFFECTIVENESS  [MANDATORY]
+--------------------------------------------------------------------------------
+V5.0 specifies Board control instruments but not Board quality.
+
+REQUIREMENT
+A section covering:
+  - Board skills matrix and the gaps it reveals;
+  - independent / non-executive members and their proportion;
+  - tenure limits and rotation;
+  - annual Board self-evaluation, with method and reporting;
+  - Audit & Risk Committee composition, independence and rotation;
+  - director induction and continuing education;
+  - declaration and management of interests, annually and event-based;
+  - meeting effectiveness: agenda discipline, paper deadlines, minutes quality,
+    action tracking;
+  - succession and emergency leadership provisions (already required by V5.0 —
+    here specify the trigger and the interim authority).
+
+WHY
+Every control in the document depends on a Board capable of exercising it. A
+weak Board makes the Reserved Matters Schedule decorative.
+
+--------------------------------------------------------------------------------
+A12. DOCUMENT CHANGE CONTROL  [MANDATORY]
+--------------------------------------------------------------------------------
+REQUIREMENT
+  - named owner of the master document and of each deliverable;
+  - version numbering and change-log discipline;
+  - review cycle (at least annual, and on any material regulatory change);
+  - approval authority for amendments (Board-reserved for constitutional
+    sections);
+  - the procedure by which a newly gazetted instrument is absorbed mid-project,
+    including impact assessment, re-approval and communication;
+  - archival of superseded versions with retrieval dates;
+  - a rule that no superseded version may be circulated as current.
+
+WHY
+A 4,000-line document with no change control becomes unreliable within one
+regulatory cycle. Bangladesh's medical-education rules are actively moving —
+three draft rule versions are already listed on the ministry index.
+
+
+================================================================================
+SECTION B — BANGLADESH LEGAL REGIMES TO ADD
+================================================================================
+
+These regimes are real and current. Their existence is not in doubt; their
+specific application to a private medical college hospital must be confirmed
+against the operative text before any compliance claim is made. Treat each as
+[VERIFY] until confirmed, and design the institution to comply regardless.
+
+For each regime the master must state: applicability trigger, the obligation,
+the responsible owner, the evidence retained, and the inspection authority.
+
+--------------------------------------------------------------------------------
+B1. SAFE BLOOD TRANSFUSION ACT, 2002
+--------------------------------------------------------------------------------
+TRIGGER: any blood bank or transfusion service.
+REQUIRE: licensing basis, donor selection and screening, cold chain, storage,
+cross-match, traceability, transfusion-reaction reporting, haemovigilance,
+discard control, and the responsible transfusion officer.
+NOTE: listed on the MEFWD law index; confirm the operative text and current
+licensing authority.
+
+--------------------------------------------------------------------------------
+B2. BREAST-MILK SUBSTITUTES (REGULATION OF MARKETING) ORDINANCE, 1984
+    AND THE 1993 RULES
+--------------------------------------------------------------------------------
+TRIGGER: any maternity, obstetric or neonatal service; any paediatric teaching.
+REQUIRE: prohibition on promotion of breast-milk substitutes within the
+institution; no free samples, no branded materials, no company representatives
+in clinical areas; staff training; Baby-Friendly-aligned practice; complaint
+route; audit.
+NOTE: this is a marketing-prohibition regime with real enforcement history.
+It applies to a teaching hospital with an obstetrics department and to the
+college's community-medicine field activities.
+
+--------------------------------------------------------------------------------
+B3. RIGHTS AND PROTECTION OF PERSONS WITH DISABILITIES ACT, 2013
+--------------------------------------------------------------------------------
+TRIGGER: all institutions.
+REQUIRE: physical accessibility of college and hospital (entrances, ramps,
+lifts, toilets, signage, seating, parking); accessible information; admission
+and employment non-discrimination; reasonable accommodation; complaint route.
+NOTE: accessibility is also an accreditation and patient-experience issue, so
+the requirement is doubly grounded.
+
+--------------------------------------------------------------------------------
+B4. SEXUAL HARASSMENT — 2009 HIGH COURT GUIDELINES (BLAST v BANGLADESH)
+--------------------------------------------------------------------------------
+TRIGGER: every workplace and every educational institution.
+REQUIRE: a constituted complaints committee with the prescribed composition
+(including an external member); a written procedure; confidentiality;
+protection against retaliation; annual reporting; awareness training for staff
+and students.
+NOTE: this is a judicial mandate, not an optional policy. It is frequently
+absent in private institutions and is a live enforcement risk.
+
+--------------------------------------------------------------------------------
+B5. RAGGING PROHIBITION
+--------------------------------------------------------------------------------
+TRIGGER: every educational institution with students.
+REQUIRE: a written anti-ragging policy; a reporting route that does not depend
+on the accused's department; a disciplinary procedure; a police-reporting
+protocol for serious cases; orientation for new students; monitoring of
+hostels and clinical placements.
+NOTE: V5.0 requires an anti-ragging committee. This addendum requires the
+protocol behind it, including the external-reporting route.
+
+--------------------------------------------------------------------------------
+B6. DEATH CERTIFICATION, MEDICO-LEGAL AUTOPSY AND ORGAN DONATION
+--------------------------------------------------------------------------------
+TRIGGER: any hospital with a mortuary; any hospital receiving medico-legal
+cases.
+REQUIRE: death certification procedure and authorised certifiers; medico-legal
+case identification and police interface; autopsy referral; mortuary register
+and chain of custody; body release procedure; dignity standards; organ and
+tissue donation framework under the applicable 1999 law [VERIFY operative
+text]; staff training; family communication.
+NOTE: V5.0 mentions the mortuary once, in a support-services list. The
+medico-legal interface is a significant source of institutional risk.
+
+--------------------------------------------------------------------------------
+B7. SMOKING AND TOBACCO CONTROL ACT, 2005
+--------------------------------------------------------------------------------
+TRIGGER: all public places, including hospitals and educational institutions.
+REQUIRE: designated no-smoking status across the campus; signage; enforcement;
+staff and visitor communication; cessation support signposting.
+
+--------------------------------------------------------------------------------
+B8. MEDICAL DEVICE REGULATION (DGDA)
+--------------------------------------------------------------------------------
+TRIGGER: any institution importing, storing or using medical devices.
+REQUIRE: import and registration compliance; approved-device list; calibration
+and maintenance records; adverse-event and malfunction reporting; recall
+handling; traceability for implants; disposal of expired devices.
+NOTE: implant traceability is also a clinical-governance and patient-safety
+requirement, so the control serves two purposes.
+
+--------------------------------------------------------------------------------
+B9. ADDITIONAL REGIMES TO VERIFY AND ADDRESS IF APPLICABLE
+--------------------------------------------------------------------------------
+  - Mental Health Act, 2018 — involuntary admission, consent, restraint,
+    rights of persons with mental illness [VERIFY applicability to any
+    psychiatry inpatient service].
+  - Organ Transplant Act, 1999 — living and deceased donation, authorisation,
+    committee requirements.
+  - Domestic Violence (Prevention and Protection) Act, 2010 — screening and
+    referral duty for a hospital receiving such cases.
+  - Prevention of Oppression against Women and Children Act, 2000 — forensic
+    examination, evidence preservation, reporting duty.
+  - Labour Act, 2006 and rules — working hours, leave, maternity benefit,
+    provident fund, gratuity, occupational safety, and the special provisions
+    for shops and establishments.
+  - Bangladesh Labour Rules — registers, service rules, welfare provisions.
+  - Income Tax Act and VAT regime — withholding, VAT on services, exemption
+    treatment for educational and medical services [VERIFY current treatment].
+  - Bangladesh Accreditation Board — ISO 15189 laboratory accreditation
+    [BENCHMARK unless voluntarily adopted].
+  - Fire Prevention and Extinguishment Act and rules — NOC, drills, equipment,
+    evacuation.
+  - Bangladesh Environment Conservation Act, 1995 and Medical Waste Management
+    Rules, 2008 — clearance, segregation, treatment, disposal, records.
+  - Nuclear Safety and Radiation Control Act, 1993 — licensing, radiation
+    safety officer, dosimetry, shielding.
+  - Drugs Act, 1940 and Drugs Rules, 1945 — pharmacy licensing, narcotics,
+    record-keeping.
+  - Medical Practice and Private Clinics and Laboratories (Regulation)
+    Ordinance, 1982 — hospital and clinic licensing basis [VERIFY current
+    operative status and any successor instrument].
+
+
+================================================================================
+SECTION C — METHOD ADDITIONS (TIER 3)
+================================================================================
+
+--------------------------------------------------------------------------------
+C1. JUST-CULTURE AND INCIDENT TAXONOMY  [MANDATORY]
+--------------------------------------------------------------------------------
+V5.0 requires incident reporting. It does not define what must be reported.
+
+REQUIRE:
+  - a severity scale (near miss / no harm / minor / moderate / major / sentinel);
+  - a defined sentinel-event list for a teaching hospital;
+  - reporting thresholds and timeframes by severity;
+  - the no-blame boundary: what is treated as system failure, what is treated as
+    reckless or intentional conduct, and who decides;
+  - duty of candour: what is disclosed to the patient or family, by whom, when,
+    and how it is recorded;
+  - the review body for each severity level;
+  - the escalation route to the Board and the notification duty to a regulator
+    where applicable;
+  - protection for reporters;
+  - the learning loop: how a finding changes a protocol, a roster or a resource.
+
+WHY
+Without a taxonomy, "incident reporting" produces either nothing or noise, and
+the institution cannot demonstrate a safety culture to an accreditation surveyor.
+
+--------------------------------------------------------------------------------
+C2. BANGLA LANGUAGE STANDARD  [MANDATORY]
+--------------------------------------------------------------------------------
+REQUIRE: a stated standard that all patient-facing material is available in
+Bangla — consent forms, discharge instructions, medication directions, signage,
+wayfinding, price information, complaint routes, visiting rules, and patient
+rights. English may be provided additionally. Clinical documentation may follow
+the institution's record standard, but patient communication must be in a
+language the patient understands, with interpreter support where the patient's
+first language is neither Bangla nor English.
+
+WHY
+This is a patient-rights requirement, a consent-validity issue, and a
+patient-experience metric. It is also routinely omitted.
+
+--------------------------------------------------------------------------------
+C3. CONSENT AND CAPACITY — OPERATING RULES  [MANDATORY]
+--------------------------------------------------------------------------------
+Bangladesh has no comprehensive capacity statute. The institution therefore
+needs an operating rule, not a legal citation.
+
+REQUIRE, with a written procedure for each:
+  - adults with capacity;
+  - minors, and the age at which consent transfers, with the accompanying
+    assent requirement;
+  - patients lacking capacity: who may consent, in what order of priority, and
+    how the decision is recorded;
+  - emergency treatment without consent, and its limits;
+  - unconscious patients and unidentified patients;
+  - medico-legal cases and the police interface;
+  - refusal of treatment, including refusal by a patient with capacity whose
+    decision the clinician considers unwise;
+  - consent for student involvement in care, and the patient's right to decline
+    without any effect on their treatment;
+  - consent for photography, recording and teaching material;
+  - consent for research, separately from consent for treatment;
+  - documentation standard and retention.
+
+WHY
+Student involvement in care is the consent issue most specific to a teaching
+hospital, and the one most often left undocumented.
+
+--------------------------------------------------------------------------------
+C4. STUDENT MENTAL HEALTH AND SUICIDE-PREVENTION PROTOCOL  [MANDATORY]
+--------------------------------------------------------------------------------
+REQUIRE:
+  - a named responsible officer for student wellbeing;
+  - confidential access to counselling, with a stated response time;
+  - a risk-assessment and escalation procedure for a student in crisis;
+  - a hostel and residential monitoring arrangement;
+  - a protocol for a student death or serious self-harm event, covering family
+    notification, peer support, academic continuity and record handling;
+  - anti-stigma training for faculty and class teachers;
+  - a clear boundary between academic mentoring and clinical mental-health care,
+    with referral routes;
+  - confidentiality rules and their limits.
+
+WHY
+This is a documented and recurring problem in Bangladeshi medical colleges.
+Counselling is mentioned in V5.0; a protocol is not.
+
+--------------------------------------------------------------------------------
+C5. PATIENT AND FAMILY COMMUNICATION STANDARDS  [MANDATORY]
+--------------------------------------------------------------------------------
+REQUIRE, beyond the SLA list in V5.0:
+  - who delivers bad news, and the minimum standard for doing so;
+  - structured family briefing for ICU and critical care, with frequency;
+  - how a change in condition is communicated and recorded;
+  - how a complaint is explained back to the complainant;
+  - how a billing dispute is explained, by whom, and in what language;
+  - how a death is communicated, and the immediate practical support offered;
+  - interpreter availability and response time;
+  - the rule that no patient learns of a serious finding from a bill or a
+    corridor conversation.
+
+--------------------------------------------------------------------------------
+C6. SUPPLY-CHAIN AND ESSENTIAL-MEDICINE CONTINUITY  [MANDATORY]
+--------------------------------------------------------------------------------
+REQUIRE:
+  - a defined essential-medicines and consumables list;
+  - minimum stock levels and reorder points for each;
+  - approved alternative suppliers for each critical item;
+  - a stock-out escalation procedure with clinical notification;
+  - oxygen supply resilience: primary, backup, and the duration of each;
+  - blood-supply contingency;
+  - a substitution protocol that requires clinical approval;
+  - a rule that a stock-out is reported as an incident, not absorbed silently.
+
+WHY
+Oxygen and essential-medicine failure is the most common cause of avoidable
+death in a hospital emergency, and the least discussed in governance documents.
+
+
+================================================================================
+SECTION D — ONE CHANGE TO V5.0
+================================================================================
+
+D1. BOARD PAPER LENGTH — SET A HARD TARGET
+--------------------------------------------------------------------------------
+V5.0 says the Board paper should be "approximately 15–25 pages". The delivered
+Board paper was 39 lines — roughly 1% of the master.
+
+REQUIREMENT
+  - Hard target: 12–18 pages.
+  - Readable in 40 minutes by a director who has not read the master.
+  - Must contain, at minimum: purpose; the decisions sought with the exact
+    resolution wording; the five authorities; the three lines; reserved matters
+    summary; delegation summary; executive structure; regulatory gates;
+    financial envelope including land; the corrected three-scenario revenue
+    model with the arithmetic shown; the pre-college cash valley; the funding
+    gates; the hospital-first sequence; the 20 dashboard indicators; the top
+    ten risks; the failure scenarios in summary; and the sign-off test.
+  - Must reference the master for detail rather than duplicate appendices.
+  - Must be accompanied by a one-page decision sheet that a director can sign.
+
+WHY
+A Board paper too short to carry the decisions fails as surely as one too long
+to be read. The 39-line version could not support a capital decision.
+
+
+================================================================================
+SECTION E — ADDITIONAL MANDATORY DELIVERABLES (39 ONWARD)
+================================================================================
+
+39.  Starting Position Statement (A1)
+40.  Faculty Supply and Sourcing Plan, with year-by-year fill trajectory (A2)
+41.  Fee Constraint Statement (A3)
+42.  Pre-College Cash Valley Model (A4)
+43.  Minimum Viable Configuration comparison (A5)
+44.  Failure and Exit Scenario Pack, including student-protection obligations (A6)
+45.  Affiliation Strategy and Agreement Requirements (A7)
+46.  Foreign Student Operating Pack [CONDITIONAL] (A8)
+47.  Regulator Engagement and Inspection Readiness Pack (A9)
+48.  Deliverable Production Plan with owners, acceptance criteria and three
+     mandatory subsets (A10)
+49.  Board Effectiveness Framework (A11)
+50.  Document Change Control Procedure (A12)
+51.  Bangladesh Legal Regime Compliance Matrix (Section B, all regimes)
+52.  Incident Taxonomy and Just-Culture Policy (C1)
+53.  Bangla Language and Communication Standard (C2)
+54.  Consent and Capacity Operating Procedure (C3)
+55.  Student Mental Health and Suicide-Prevention Protocol (C4)
+56.  Patient and Family Communication Standards (C5)
+57.  Essential-Medicine and Supply-Continuity Plan (C6)
+58.  Board Decision Sheet — one page, signable (D1)
+
+
+================================================================================
+SECTION F — ADDITIONS TO THE FINAL SIGN-OFF TEST
+================================================================================
+
+Add these questions to the V5.0 sign-off test. Each must be answerable YES.
+
+  1. Is the institutional starting position declared, and does the pathway match
+     it?
+  2. Is there a faculty supply plan with a year-by-year fill trajectory, and a
+     pre-agreed rule for what happens if the establishment cannot be filled?
+  3. Is the fee regulation constraint stated, and does the financial model
+     refrain from assuming fee growth above the gazetted schedule?
+  4. Is the pre-college cash valley quantified, with the peak month and the
+     funding headroom stated?
+  5. Are both the statutory-minimum and target-state configurations modelled,
+     with the delta shown?
+  6. Are failure and exit scenarios documented, including obligations to
+     students already admitted?
+  7. Is the affiliation choice justified, and are its operational dependencies
+     stated?
+  8. If foreign students are intended, is the separate channel, fee treatment
+     and reporting duty documented?
+  9. Is there an inspection readiness pack naming what the committee examines
+     and the common failure points?
+ 10. Does every deliverable have an owner, acceptance criteria and a phase
+     deadline, and are the three mandatory subsets defined?
+ 11. Is Board effectiveness addressed, not merely Board structure?
+ 12. Is there document change control, including absorption of a newly gazetted
+     instrument?
+ 13. Is every regime in Section B addressed with trigger, obligation, owner and
+     evidence?
+ 14. Is there an incident taxonomy with a defined no-blame boundary and a duty
+     of candour?
+ 15. Is patient-facing material available in Bangla as a stated standard?
+ 16. Is there a written consent and capacity procedure, including student
+     involvement in care?
+ 17. Is there a student mental-health and suicide-prevention protocol?
+ 18. Is there a supply-continuity plan covering oxygen and essential medicines,
+     with stock-out escalation?
+ 19. Is the Board paper within the 12–18 page target and accompanied by a
+     signable decision sheet?
+
+
+================================================================================
+SECTION G — INTEGRATION MAP
+================================================================================
+
+Where each addition belongs in the master:
+
+  FRONT MATTER
+    A1 Starting Position Statement
+    A12 Document Change Control (summary; full procedure as deliverable 50)
+
+  PART A — REGULATORY MAP
+    Section B legal regimes (as a new subsection)
+    A9 Regulator engagement and inspection readiness
+
+  PART B — ESTABLISHMENT PATHWAY
+    A1 pathway variants
+    A7 Affiliation strategy
+    A9 Inspection readiness
+
+  PART C/D — ORGANIZATION AND ROLES
+    A11 Board effectiveness
+    A2 Faculty supply (role implications)
+
+  PART E — VISITOR / PATIENT EXPERIENCE
+    C2 Bangla standard
+    C3 Consent and capacity
+    C5 Communication standards
+
+  PART F — EMPLOYEE / FACULTY / STUDENT
+    A2 Faculty supply and sourcing
+    C4 Student mental health
+    B4 Sexual harassment
+    B5 Ragging
+
+  PART G — BENCHMARKING
+    No change.
+
+  PART H — GAP ANALYSIS / ROADMAP
+    A6 Failure and exit scenarios
+    A10 Deliverable production plan
+
+  FINANCIAL SECTION
+    A3 Fee constraint
+    A4 Pre-college cash valley
+    A5 Minimum viable configuration
+    A8 Foreign-student revenue [CONDITIONAL]
+
+  CLINICAL GOVERNANCE
+    C1 Incident taxonomy
+    C6 Supply continuity
+    B1 Blood transfusion
+    B6 Mortuary and medico-legal
+    B8 Medical devices
+
+  IMPLEMENTATION
+    A10 three mandatory subsets
+    A9 inspection gates
+
+  BOARD PAPER
+    D1 length and content
+    A1, A3, A4, A5, A6 summaries
+    Section F sign-off questions
+
+
+================================================================================
+SECTION H — WHAT THIS ADDENDUM DOES NOT CHANGE
+================================================================================
+
+Explicitly retained from V5.0 without modification:
+
+  - the evidence taxonomy and the prohibition on fabricated sources;
+  - the arithmetic-propagation rule;
+  - the twelve quality gates;
+  - the five-level maturity model (and the prohibition on "9.9/10");
+  - the anti-sprawl committee tests;
+  - the five protected authorities and three lines of assurance;
+  - the Reserved Matters and Delegation of Authority requirements;
+  - the hospital-first sequencing requirement;
+  - the corrected three-scenario revenue arithmetic;
+  - the land-as-separate-capital-line rule;
+  - the college-revenue cohort-basis rule;
+  - the instruction to do a full end-to-end consistency pass rather than patch
+    the last identified error.
+
+These are the parts that made the previous version work. Do not weaken them.
+
+
+================================================================================
+END OF ADDENDUM V5.1
+================================================================================

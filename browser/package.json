@@ -23,6 +23,11 @@
     "productName": "AiBrowser",
     "files": ["src/**/*", "!src/**/*.test.js"],
     "extraResources": [],
-    "win": { "target": ["nsis", "portable"] }
+    "directories": { "buildResources": "build" },
+    "win": {
+      "target": ["nsis", "portable"],
+      "icon": "build/icon.ico"
+    },
+    "nsis": { "installerIcon": "build/icon.ico", "uninstallerIcon": "build/icon.ico" }
   }
 }

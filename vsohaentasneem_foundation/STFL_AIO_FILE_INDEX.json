@@ -1,0 +1,402 @@
+{
+  "system": "STFL Autonomous Enterprise Platform (STFL AIO)",
+  "index_type": "REPOSITORY_FILE_INVENTORY",
+  "document_id": "STFL-JSON-2026-FILE-IDX-V1",
+  "master_version": "1.0.0",
+  "generated_at": "2026-10-15T14:15:30+08:00",
+  "attribution": "Made with love from Dhaka, Kuala Lumpur, Wyoming and Varizen Inc.",
+  "production_verification_status": "PENDING (Prompt 13 Gate Closed)",
+  "summary": {
+    "total_root_specifications": 72,
+    "total_active_source_files": 508,
+    "total_archive_candidates": 24,
+    "total_redundant_directories": 3
+  },
+  "file_inventory": [
+    {
+      "path": "STFL_AIO_MASTER_CONTROL.html",
+      "category": "MASTER_CONTROL_BOOK",
+      "status": "ACTIVE_CANONICAL",
+      "owner_module": "Platform Architecture",
+      "size_bytes": 95000,
+      "purpose": "Living master control book and human/machine single source of truth.",
+      "risk": "CRITICAL_MAINTAIN",
+      "target_action": "KEEP_ACTIVE"
+    },
+    {
+      "path": "validate_json.js",
+      "category": "VALIDATION_SCRIPT",
+      "status": "ACTIVE_CANONICAL",
+      "owner_module": "Quality Assurance",
+      "size_bytes": 11500,
+      "purpose": "Authoritative Master Control Validator script verifying 84 system invariants.",
+      "risk": "CRITICAL_MAINTAIN",
+      "target_action": "KEEP_ACTIVE"
+    },
+    {
+      "path": "STFL_AIO_CONSTITUTION.md",
+      "category": "CONSTITUTIONAL_SPEC",
+      "status": "ACTIVE_CANONICAL",
+      "owner_module": "Board of Trustees",
+      "size_bytes": 4588,
+      "purpose": "Supreme legal and architectural charter; foundation veto authority.",
+      "risk": "CONSTITUTIONAL_IMMUTABLE",
+      "target_action": "KEEP_ACTIVE"
+    },
+    {
+      "path": "STFL_AIO_BILINGUAL_AND_TYPOGRAPHY_GOVERNANCE.md",
+      "category": "CONSTITUTIONAL_BRAND_SPEC",
+      "status": "ACTIVE_CANONICAL",
+      "owner_module": "Brand & Engineering Governance",
+      "size_bytes": 8500,
+      "purpose": "Constitutional BN/EN bilingual and typography governance specification.",
+      "risk": "CRITICAL_MAINTAIN",
+      "target_action": "KEEP_ACTIVE"
+    },
+    {
+      "path": "STFL_AIO_ARCHITECTURE.md",
+      "category": "ARCHITECTURE_BLUEPRINT",
+      "status": "ACTIVE_CANONICAL",
+      "owner_module": "Platform Architecture",
+      "size_bytes": 11005,
+      "purpose": "High-level enterprise architecture blueprint across all tiers.",
+      "risk": "HIGH_MAINTAIN",
+      "target_action": "KEEP_ACTIVE"
+    },
+    {
+      "path": "STFL_AIO_SECURITY_MODEL.md",
+      "category": "SECURITY_SPECIFICATION",
+      "status": "ACTIVE_CANONICAL",
+      "owner_module": "CISO / Security Command",
+      "size_bytes": 10777,
+      "purpose": "Cryptographic trust, hardware attestation, and key vault specifications.",
+      "risk": "HIGH_MAINTAIN",
+      "target_action": "KEEP_ACTIVE"
+    },
+    {
+      "path": "STFL_AIO_MULTI_PROJECT_ARCHITECTURE.md",
+      "category": "MULTI_PROJECT_SPEC",
+      "status": "ACTIVE_CANONICAL",
+      "owner_module": "Multi-Tenant Platform",
+      "size_bytes": 17921,
+      "purpose": "Federated multi-project architecture with compliance and knowledge substrates.",
+      "risk": "HIGH_MAINTAIN",
+      "target_action": "KEEP_ACTIVE"
+    },
+    {
+      "path": "STFL_AIO_COMPLIANCE_ARCHITECTURE.md",
+      "category": "COMPLIANCE_SPEC",
+      "status": "ACTIVE_CANONICAL",
+      "owner_module": "Legal Counsel",
+      "size_bytes": 10793,
+      "purpose": "Statutory resolver, regulatory rules, and legal hold engine.",
+      "risk": "HIGH_MAINTAIN",
+      "target_action": "KEEP_ACTIVE"
+    },
+    {
+      "path": "STFL_AIO_KNOWLEDGE_ARCHITECTURE.md",
+      "category": "KNOWLEDGE_SPEC",
+      "status": "ACTIVE_CANONICAL",
+      "owner_module": "Service & Training",
+      "size_bytes": 9543,
+      "purpose": "Four Experience Segments, pedagogical hierarchy, and governance.",
+      "risk": "HIGH_MAINTAIN",
+      "target_action": "KEEP_ACTIVE"
+    },
+    {
+      "path": "STFL_AIO_CONSOLE_SPECIFICATION.md",
+      "category": "CONSOLE_SPEC",
+      "status": "ACTIVE_CANONICAL",
+      "owner_module": "UI / Operations",
+      "size_bytes": 10847,
+      "purpose": "Directory of 18 management consoles and Console 18 specification.",
+      "risk": "HIGH_MAINTAIN",
+      "target_action": "KEEP_ACTIVE"
+    },
+    {
+      "path": "STFL_AIO_USER_CLASS_WORKSPACE_MATRIX.md",
+      "category": "IAM_SPEC",
+      "status": "ACTIVE_CANONICAL",
+      "owner_module": "IAM Lead",
+      "size_bytes": 10156,
+      "purpose": "Complete matrix of classes 00-12, relief roles A/B, and workspaces.",
+      "risk": "HIGH_MAINTAIN",
+      "target_action": "KEEP_ACTIVE"
+    },
+    {
+      "path": "STFL_AIO_PHASE_1_IMPLEMENTATION_REPORT.md",
+      "category": "PHASE_REPORT",
+      "status": "SUPERSEDED_ARCHIVE_CANDIDATE",
+      "owner_module": "Historical Milestone",
+      "size_bytes": 23815,
+      "purpose": "Prompt 1 device security implementation report.",
+      "risk": "LOW_SAFE_TO_ARCHIVE",
+      "target_action": "MOVE_TO_ARCHIVE"
+    },
+    {
+      "path": "STFL_AIO_PHASE_1_RED_TEAM_REPORT.md",
+      "category": "PHASE_REPORT",
+      "status": "SUPERSEDED_ARCHIVE_CANDIDATE",
+      "owner_module": "Historical Milestone",
+      "size_bytes": 17258,
+      "purpose": "Prompt 2 device security penetration testing report.",
+      "risk": "LOW_SAFE_TO_ARCHIVE",
+      "target_action": "MOVE_TO_ARCHIVE"
+    },
+    {
+      "path": "STFL_AIO_PHASE_2_DATABASE_REPORT.md",
+      "category": "PHASE_REPORT",
+      "status": "SUPERSEDED_ARCHIVE_CANDIDATE",
+      "owner_module": "Historical Milestone",
+      "size_bytes": 9730,
+      "purpose": "Prompt 3 & 4 database migration report.",
+      "risk": "LOW_SAFE_TO_ARCHIVE",
+      "target_action": "MOVE_TO_ARCHIVE"
+    },
+    {
+      "path": "STFL_AIO_PHASE_3_AUTHORIZATION_REPORT.md",
+      "category": "PHASE_REPORT",
+      "status": "SUPERSEDED_ARCHIVE_CANDIDATE",
+      "owner_module": "Historical Milestone",
+      "size_bytes": 8904,
+      "purpose": "Prompt 5 authorization engine report.",
+      "risk": "LOW_SAFE_TO_ARCHIVE",
+      "target_action": "MOVE_TO_ARCHIVE"
+    },
+    {
+      "path": "STFL_AIO_PHASE_4_APPROVAL_REPORT.md",
+      "category": "PHASE_REPORT",
+      "status": "SUPERSEDED_ARCHIVE_CANDIDATE",
+      "owner_module": "Historical Milestone",
+      "size_bytes": 8159,
+      "purpose": "Prompt 6 approval engine report.",
+      "risk": "LOW_SAFE_TO_ARCHIVE",
+      "target_action": "MOVE_TO_ARCHIVE"
+    },
+    {
+      "path": "STFL_AIO_PHASE_5_DOCUMENT_REPORT.md",
+      "category": "PHASE_REPORT",
+      "status": "SUPERSEDED_ARCHIVE_CANDIDATE",
+      "owner_module": "Historical Milestone",
+      "size_bytes": 9726,
+      "purpose": "Prompt 7 document issuance engine report.",
+      "risk": "LOW_SAFE_TO_ARCHIVE",
+      "target_action": "MOVE_TO_ARCHIVE"
+    },
+    {
+      "path": "STFL_AIO_PHASE_6_PRINT_REPORT.md",
+      "category": "PHASE_REPORT",
+      "status": "SUPERSEDED_ARCHIVE_CANDIDATE",
+      "owner_module": "Historical Milestone",
+      "size_bytes": 8940,
+      "purpose": "Prompt 7 print forensics report.",
+      "risk": "LOW_SAFE_TO_ARCHIVE",
+      "target_action": "MOVE_TO_ARCHIVE"
+    },
+    {
+      "path": "STFL_AIO_PHASE_7_COMMS_REPORT.md",
+      "category": "PHASE_REPORT",
+      "status": "SUPERSEDED_ARCHIVE_CANDIDATE",
+      "owner_module": "Historical Milestone",
+      "size_bytes": 12777,
+      "purpose": "Prompt 8 comms gateway report.",
+      "risk": "LOW_SAFE_TO_ARCHIVE",
+      "target_action": "MOVE_TO_ARCHIVE"
+    },
+    {
+      "path": "STFL_AIO_PHASE_8_AGENT_REPORT.md",
+      "category": "PHASE_REPORT",
+      "status": "SUPERSEDED_ARCHIVE_CANDIDATE",
+      "owner_module": "Historical Milestone",
+      "size_bytes": 17190,
+      "purpose": "Prompt 9 agent substrate report.",
+      "risk": "LOW_SAFE_TO_ARCHIVE",
+      "target_action": "MOVE_TO_ARCHIVE"
+    },
+    {
+      "path": "STFL_AIO_PHASE_9_RED_TEAM_REPORT.md",
+      "category": "PHASE_REPORT",
+      "status": "SUPERSEDED_ARCHIVE_CANDIDATE",
+      "owner_module": "Historical Milestone",
+      "size_bytes": 12583,
+      "purpose": "Prompt 11 agent red team report.",
+      "risk": "LOW_SAFE_TO_ARCHIVE",
+      "target_action": "MOVE_TO_ARCHIVE"
+    },
+    {
+      "path": "STFL_AIO_PHASE_10_CONSOLES_REPORT.md",
+      "category": "PHASE_REPORT",
+      "status": "SUPERSEDED_ARCHIVE_CANDIDATE",
+      "owner_module": "Historical Milestone",
+      "size_bytes": 16842,
+      "purpose": "Prompt 10 management consoles report.",
+      "risk": "LOW_SAFE_TO_ARCHIVE",
+      "target_action": "MOVE_TO_ARCHIVE"
+    },
+    {
+      "path": "STFL_AIO_PHASE_12_5_MULTI_PROJECT_ARCHITECTURE_REPORT.md",
+      "category": "PHASE_REPORT",
+      "status": "SUPERSEDED_ARCHIVE_CANDIDATE",
+      "owner_module": "Historical Milestone",
+      "size_bytes": 18341,
+      "purpose": "Prompt 12.5 multi-project architecture report.",
+      "risk": "LOW_SAFE_TO_ARCHIVE",
+      "target_action": "MOVE_TO_ARCHIVE"
+    },
+    {
+      "path": "STFL_USER_CLASS_MATRIX.md",
+      "category": "SUPERSEDED_SPEC",
+      "status": "SUPERSEDED_ARCHIVE_CANDIDATE",
+      "owner_module": "IAM",
+      "size_bytes": 6454,
+      "purpose": "Original 16-console user class matrix; superseded by STFL_AIO_USER_CLASS_WORKSPACE_MATRIX.md.",
+      "risk": "LOW_SAFE_TO_ARCHIVE",
+      "target_action": "MOVE_TO_ARCHIVE"
+    },
+    {
+      "path": "STFL_MANAGEMENT_BACKENDS.md",
+      "category": "SUPERSEDED_SPEC",
+      "status": "SUPERSEDED_ARCHIVE_CANDIDATE",
+      "owner_module": "Operations",
+      "size_bytes": 8780,
+      "purpose": "Preliminary console notes; superseded by STFL_AIO_CONSOLE_SPECIFICATION.md.",
+      "risk": "LOW_SAFE_TO_ARCHIVE",
+      "target_action": "MOVE_TO_ARCHIVE"
+    },
+    {
+      "path": "STFL_AGENT_AUTHORIZATION_MODEL.md",
+      "category": "SUPERSEDED_SPEC",
+      "status": "SUPERSEDED_ARCHIVE_CANDIDATE",
+      "owner_module": "Autonomous AI",
+      "size_bytes": 5102,
+      "purpose": "Early agent auth sketch; superseded by STFL_AIO_AGENT_MODEL.md.",
+      "risk": "LOW_SAFE_TO_ARCHIVE",
+      "target_action": "MOVE_TO_ARCHIVE"
+    },
+    {
+      "path": "STFL_AGENT_AUTHORIZATION_MODEL.zip",
+      "category": "LEGACY_ZIP_ARCHIVE",
+      "status": "REDUNDANT_REMOVAL_CANDIDATE",
+      "owner_module": "Workspace Root",
+      "size_bytes": 151079,
+      "purpose": "Zip backup of early agent markdown file.",
+      "risk": "LOW_SAFE_TO_RELOCATE",
+      "target_action": "MOVE_TO_EXTERNAL_STORAGE"
+    },
+    {
+      "path": "stfl.zip",
+      "category": "LEGACY_ZIP_ARCHIVE",
+      "status": "REDUNDANT_REMOVAL_CANDIDATE",
+      "owner_module": "Workspace Root",
+      "size_bytes": 1686048160,
+      "purpose": "1.6 GB monolithic repository snapshot from earlier development stage.",
+      "risk": "LOW_SAFE_TO_RELOCATE",
+      "target_action": "MOVE_TO_EXTERNAL_STORAGE"
+    },
+    {
+      "path": "apk/preview/web",
+      "category": "DUPLICATE_WEB_APP",
+      "status": "DUPLICATE_ARCHIVE_CANDIDATE",
+      "owner_module": "Android Preview Submodule",
+      "size_bytes": 490000000,
+      "purpose": "Early duplicate Next.js app with independent node_modules; superseded by apk/web.",
+      "risk": "MEDIUM_CONFIRM_BEFORE_MOVE",
+      "target_action": "ARCHIVE_OR_REMOVE_NODE_MODULES"
+    },
+    {
+      "path": "files/web/aakutu-board",
+      "category": "PACKAGED_BUILD_ARTIFACTS",
+      "status": "BUILD_ARTIFACT_RELOCATE",
+      "owner_module": "Electron Release",
+      "size_bytes": 838000000,
+      "purpose": "Unpacked and installer executables (.exe, .dll, .pak) for Aakutu Board desktop app.",
+      "risk": "LOW_SAFE_TO_RELOCATE",
+      "target_action": "MOVE_TO_RELEASE_STORAGE"
+    },
+    {
+      "path": "weworkhow",
+      "category": "EMPTY_DIRECTORY",
+      "status": "ORPHANED_DIRECTORY",
+      "owner_module": "Workspace Root",
+      "size_bytes": 0,
+      "purpose": "Empty placeholder folder.",
+      "risk": "ZERO_SAFE_TO_REMOVE",
+      "target_action": "CLEANUP_EMPTY_DIR"
+    },
+    {
+      "path": "apk/api/migrations/0001_init.sql",
+      "category": "DATABASE_MIGRATION",
+      "status": "ACTIVE_PRODUCTION",
+      "owner_module": "Database Engine",
+      "size_bytes": 14426,
+      "purpose": "Initial STFL schema with baseline operational tables.",
+      "risk": "CONSTITUTIONAL_DO_NOT_MODIFY",
+      "target_action": "KEEP_ACTIVE"
+    },
+    {
+      "path": "apk/api/migrations/0002_aio_parties_iam.sql",
+      "category": "DATABASE_MIGRATION",
+      "status": "ACTIVE_PRODUCTION",
+      "owner_module": "Database Engine",
+      "size_bytes": 23443,
+      "purpose": "Parties, IAM, Devices, 10-D Audit, and approval triggers.",
+      "risk": "CONSTITUTIONAL_DO_NOT_MODIFY",
+      "target_action": "KEEP_ACTIVE"
+    },
+    {
+      "path": "apk/api/src/authorization/engine.ts",
+      "category": "BACKEND_SOURCE",
+      "status": "ACTIVE_PRODUCTION",
+      "owner_module": "Authorization Engine",
+      "size_bytes": 9500,
+      "purpose": "13-dimensional contextual policy evaluator.",
+      "risk": "CRITICAL_CORE_ENGINE",
+      "target_action": "KEEP_ACTIVE"
+    },
+    {
+      "path": "apk/api/src/approval/engine.ts",
+      "category": "BACKEND_SOURCE",
+      "status": "ACTIVE_PRODUCTION",
+      "owner_module": "Approval Engine",
+      "size_bytes": 8200,
+      "purpose": "Dual-custody, anti-collusion, and counter-signature logic.",
+      "risk": "CRITICAL_CORE_ENGINE",
+      "target_action": "KEEP_ACTIVE"
+    },
+    {
+      "path": "apk/api/src/agents/runtime.ts",
+      "category": "BACKEND_SOURCE",
+      "status": "ACTIVE_PRODUCTION",
+      "owner_module": "Agent Runtime",
+      "size_bytes": 10500,
+      "purpose": "Level 3 authority ceiling sandbox and kill switch manager.",
+      "risk": "CRITICAL_CORE_ENGINE",
+      "target_action": "KEEP_ACTIVE"
+    },
+    {
+      "path": "apk/web/src/app/admin/page.tsx",
+      "category": "WEB_FRONTEND_SOURCE",
+      "status": "ACTIVE_PRODUCTION",
+      "owner_module": "Next.js 15 Web",
+      "size_bytes": 6212,
+      "purpose": "Governed enterprise management consoles landing cockpit.",
+      "risk": "HIGH_UI_CORE",
+      "target_action": "KEEP_ACTIVE"
+    },
+    {
+      "path": "apk/security/src/main/java/org/stfl/security/DeviceIdentityProvider.kt",
+      "category": "ANDROID_SOURCE",
+      "status": "ACTIVE_PRODUCTION",
+      "owner_module": "Android KeyStore Module",
+      "size_bytes": 7800,
+      "purpose": "Hardware-backed EC key generation and biometric binding.",
+      "risk": "CRITICAL_CORE_ENGINE",
+      "target_action": "KEEP_ACTIVE"
+    }
+  ],
+  "creative_attribution": {
+    "en": "Made with love from Dhaka, Kuala Lumpur, Wyoming and Varizen Inc.",
+    "bn": "ঢাকা, কুয়ালালামপুর, ওয়াইওমিং এবং ভ্যারিজেন ইনকর্পোরেটেড থেকে ভালোবাসায় তৈরি",
+    "classification": "CREATIVE_ATTRIBUTION_NON_LEGAL"
+  }
+}

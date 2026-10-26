@@ -55,6 +55,10 @@ contextBridge.exposeInMainWorld('eye', {
   },
   downloads: { control: (id, a) => ipcRenderer.invoke('downloads:control', id, a), onUpdate: on('downloads:update') },
   panelWidth: (w) => ipcRenderer.invoke('panel:width', w),
+  services: {
+    list: () => ipcRenderer.invoke('services:list'),
+    open: (id) => ipcRenderer.invoke('services:open', id)
+  },
   shield: { onBlocked: on('shield:blocked') },
   bookmarks: {
     list: () => ipcRenderer.invoke('bookmarks:list'),

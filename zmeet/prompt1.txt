@@ -1,0 +1,1127 @@
+Build **ZenMeet**, an ultra-light, premium AI meeting and live-session platform inspired by the best parts of Zoom, Google Meet, Microsoft Teams, and StreamYard — but substantially simpler.
+
+The core idea:
+
+> **Create a meeting, invite people, and let AI handle everything else.**
+
+ZenMeet should support ordinary private meetings, business meetings, webinars, interviews, presentations, livestream-style sessions, and collaborative rooms.
+
+---
+
+## 1. Core concept
+
+ZenMeet is a **universal AI-powered meeting room and live-session sandbox**.
+
+Users can:
+
+- Create a meeting
+- Invite participants
+- Join instantly
+- Share camera
+- Share microphone
+- Share screen
+- Share files
+- Present slides
+- Chat
+- Record
+- Transcribe
+- Generate notes
+- Stream publicly
+- Host webinars
+- Manage speakers
+- Manage audience members
+
+But the interface must remain **extremely simple**.
+
+No unnecessary enterprise complexity.
+
+---
+
+## 2. Meeting types
+
+When creating a session, allow:
+
+### Private Meeting
+Small group video/audio meeting.
+
+### Business Meeting
+Structured meeting with agenda, notes, actions and follow-up.
+
+### Interview
+Host + guest format with recording and AI interview assistance.
+
+### Webinar
+Host + speakers + audience.
+
+### Live Show
+StreamYard-style scene-based live production.
+
+### Presentation
+Speaker-focused presentation with slides and screen sharing.
+
+### Workshop
+Interactive meeting with collaborative tools.
+
+### AI Session
+AI participates as an assistant, moderator, note-taker or facilitator.
+
+The user should be able to start with a simple:
+
+**New Meeting**
+
+and choose advanced modes only when needed.
+
+---
+
+# 3. One-click meeting creation
+
+User clicks:
+
+**Create Meeting**
+
+ZenMeet should immediately create a room.
+
+Example:
+
+`zenmeet.com/r/abc123`
+
+Then provide:
+
+**Join**
+
+**Invite**
+
+**Copy link**
+
+**Schedule**
+
+No complicated configuration required.
+
+---
+
+# 4. AI Meeting Organizer
+
+The defining feature is the AI meeting agent.
+
+The user can say:
+
+> "Organize a meeting with Sarah and John about the SAMC project."
+
+AI should:
+
+1. Check calendar availability.
+2. Find suitable times.
+3. Create the calendar event.
+4. Prepare the meeting room.
+5. Generate an agenda.
+6. Draft invitations.
+7. Send invitations after approval.
+8. Prepare relevant documents.
+9. Create the meeting automatically.
+
+Integrate directly with **ZenCalendar**.
+
+---
+
+# 5. Meeting sandbox
+
+Every meeting should have an isolated **Meeting Sandbox**.
+
+The sandbox controls:
+
+- Participants
+- Microphones
+- Cameras
+- Screens
+- Files
+- Chat
+- AI
+- Recording
+- Transcription
+- Presentations
+- Streaming
+- Moderator permissions
+
+The AI should never automatically gain unrestricted access to the host's computer.
+
+---
+
+# 6. AI permissions
+
+Use a clear permission model.
+
+### Observe
+
+AI can listen to the meeting and understand context.
+
+### Assist
+
+AI can summarize, answer questions and identify tasks.
+
+### Act
+
+AI can perform meeting actions.
+
+### Control
+
+AI can manage participants and meeting settings.
+
+### Broadcast
+
+AI can operate live-production functions.
+
+Every sensitive capability should be explicitly permission-controlled.
+
+---
+
+# 7. AI meeting assistant
+
+During the meeting, AI can:
+
+- Take notes
+- Transcribe
+- Summarize
+- Identify decisions
+- Identify action items
+- Identify deadlines
+- Identify speakers
+- Answer questions
+- Search previous meeting information
+- Find relevant documents
+- Create tasks
+- Create calendar events
+- Draft follow-up emails
+- Prepare meeting minutes
+
+Example:
+
+> **AI detected**
+
+**Decision:** Launch scheduled for November 15.
+
+**Action:** John → prepare deployment checklist.
+
+**Action:** Sarah → send revised budget.
+
+The host can approve these actions.
+
+---
+
+# 8. AI meeting commands
+
+Allow natural-language commands such as:
+
+> "Summarize everything we've decided so far."
+
+> "What are the unresolved issues?"
+
+> "Create an action item for John."
+
+> "Show the document we're discussing."
+
+> "Give me the last five minutes."
+
+> "Draft a follow-up email."
+
+> "What did Sarah say about the budget?"
+
+> "Find the previous meeting about this project."
+
+The AI should understand the current meeting context.
+
+---
+
+# 9. Meeting preparation
+
+Before the meeting, AI prepares:
+
+## Meeting Brief
+
+**Purpose**
+
+SAMC project planning
+
+**Participants**
+
+5 people
+
+**Agenda**
+
+1. Project status
+2. Budget
+3. Timeline
+4. Responsibilities
+
+**Relevant previous discussions**
+
+3
+
+**Relevant documents**
+
+4
+
+**Outstanding actions**
+
+6
+
+The host can edit the brief before the meeting.
+
+---
+
+# 10. Smart meeting room
+
+The meeting interface should be visually excellent but extremely lightweight.
+
+Primary controls:
+
+**Mute**
+
+**Camera**
+
+**Share**
+
+**Chat**
+
+**Participants**
+
+**AI**
+
+**Record**
+
+**Leave**
+
+Everything else should live under a secondary menu.
+
+---
+
+# 11. Speaker-focused interface
+
+Automatically adapt the meeting layout.
+
+Modes:
+
+### Gallery
+
+Everyone visible.
+
+### Speaker
+
+Active speaker emphasized.
+
+### Presentation
+
+Speaker + presentation.
+
+### Interview
+
+Host + guest.
+
+### Webinar
+
+Speakers prominent, audience minimized.
+
+### AI
+
+Meeting content + AI panel.
+
+The layout should automatically adapt based on the meeting type.
+
+---
+
+# 12. StreamYard-style production mode
+
+Create an optional **Live Studio**.
+
+Allow the host to build scenes such as:
+
+### Scene 1
+Host
+
+### Scene 2
+Host + Guest
+
+### Scene 3
+Guest + Slides
+
+### Scene 4
+Screen + Speaker
+
+### Scene 5
+Video + Lower Third
+
+### Scene 6
+Full Presentation
+
+The host can switch scenes during a live session.
+
+---
+
+# 13. Live production
+
+Support:
+
+- Lower thirds
+- Speaker names
+- Logos
+- Backgrounds
+- Slides
+- Screen sharing
+- Video clips
+- Images
+- Multiple layouts
+- Custom overlays
+- Scene switching
+- Waiting room
+- Countdown
+- Audience comments
+
+Keep the UI simple enough for a non-technical host.
+
+---
+
+# 14. Multi-platform streaming
+
+Where supported, allow streaming to platforms such as:
+
+- YouTube
+- Facebook
+- LinkedIn
+- Custom RTMP destinations
+- Other compatible streaming services
+
+Use official APIs or standards where available.
+
+Never store third-party platform credentials insecurely.
+
+---
+
+# 15. Webinar mode
+
+Webinar mode should support:
+
+- Host
+- Co-host
+- Speakers
+- Audience
+- Q&A
+- Polls
+- Reactions
+- Moderation
+- Raised hands
+- Speaker requests
+- Private audience controls
+
+Audience members should not automatically receive microphone/camera access.
+
+---
+
+# 16. Participant permissions
+
+Each participant can have permissions such as:
+
+**Audience**
+
+**Participant**
+
+**Speaker**
+
+**Co-host**
+
+**Moderator**
+
+**Host**
+
+Permissions should be dynamically changeable.
+
+The host should be able to:
+
+- Mute participant
+- Remove participant
+- Promote participant
+- Demote participant
+- Disable camera
+- Disable screen sharing
+- Restrict chat
+- Allow speaking
+- Move participant to waiting room
+
+---
+
+# 17. Waiting room
+
+Optional waiting room.
+
+Host sees:
+
+> **3 people waiting**
+
+Then:
+
+**Admit**
+
+**Reject**
+
+**Message**
+
+The waiting room must be isolated from the actual meeting.
+
+---
+
+# 18. Secure meeting mode
+
+Create:
+
+## ZenMeet Secure Session
+
+For confidential meetings.
+
+Provide:
+
+- Strong transport encryption
+- Optional end-to-end encrypted meeting mode where technically supported
+- Participant verification
+- Session authentication
+- Waiting room
+- Host-controlled admission
+- Recording restrictions
+- Screenshot/recording warnings where technically feasible
+- Secure file exchange
+- Session expiration
+- Device/session management
+
+Do not make false claims about end-to-end encryption.
+
+If a feature prevents server-side recording/transcription, clearly explain that limitation.
+
+---
+
+# 19. AI privacy boundary
+
+Normal meeting:
+
+AI can operate according to user permissions.
+
+Secure meeting:
+
+AI access must be explicitly authorized.
+
+The user must be able to choose:
+
+**AI OFF**
+
+**AI ASSISTANT**
+
+**AI NOTE-TAKER**
+
+**AI FULL ACCESS**
+
+Never silently send confidential meeting content to an external AI provider.
+
+---
+
+# 20. Recording
+
+Recording should be extremely simple.
+
+Click:
+
+**Record**
+
+Show a clear indicator to everyone.
+
+Recording options:
+
+- Video
+- Audio
+- Presentation
+- Screen
+- Separate speaker tracks where supported
+- Transcript
+
+Recordings should be stored according to the organizer's selected storage policy.
+
+---
+
+# 21. Native storage principle
+
+Do not force all meeting data into ZenMeet storage.
+
+Allow integrations with:
+
+- User's cloud storage
+- Organization storage
+- Native provider storage
+- Local storage
+- Object storage
+- S3-compatible storage
+
+The user should control where recordings and files live.
+
+ZenMeet should maintain only the metadata necessary to operate the service.
+
+---
+
+# 22. Recording intelligence
+
+After the meeting:
+
+## AI Meeting Report
+
+**Summary**
+
+Short executive summary.
+
+**Decisions**
+
+List of decisions.
+
+**Action items**
+
+| Person | Task | Deadline |
+|---|---|---|
+
+**Open questions**
+
+Unresolved issues.
+
+**Important moments**
+
+Clickable timestamps.
+
+**Transcript**
+
+Searchable transcript.
+
+**Follow-up**
+
+Draft email ready to send.
+
+---
+
+# 23. Searchable meeting memory
+
+Users should be able to search their permitted meeting history.
+
+Example:
+
+> "When did we decide to launch?"
+
+> "Find the meeting where John discussed the budget."
+
+> "Show every meeting related to Varizen Cloud."
+
+> "What did we decide about the Malaysia office?"
+
+AI should return relevant meetings and timestamps.
+
+Access must respect the user's permissions.
+
+---
+
+# 24. AI-generated meeting minutes
+
+At the end of a meeting:
+
+> **Meeting finished.**
+
+AI automatically prepares:
+
+**Minutes**
+
+**Decisions**
+
+**Tasks**
+
+**Owners**
+
+**Deadlines**
+
+**Follow-ups**
+
+The host can:
+
+**Approve**
+
+**Edit**
+
+**Discard**
+
+Then optionally:
+
+**Send to participants**
+
+---
+
+# 25. ZenBox integration
+
+ZenMeet should integrate deeply with **ZenBox**.
+
+Email can become meetings.
+
+Example:
+
+Email:
+
+> "Can we discuss this tomorrow?"
+
+AI:
+
+> **Suggested meeting**
+
+Tomorrow  
+14:00–14:30
+
+**Create ZenMeet**
+
+Similarly, after a meeting:
+
+> **Follow-up email ready**
+
+The user can send it through ZenBox.
+
+---
+
+# 26. ZenCalendar integration
+
+ZenMeet should integrate directly with **ZenCalendar**.
+
+Creating a meeting automatically creates the corresponding calendar event.
+
+Changing the meeting time updates the calendar.
+
+Cancelling the meeting updates the calendar.
+
+AI scheduling should use ZenCalendar availability.
+
+---
+
+# 27. File and presentation sandbox
+
+During a meeting, users can bring files into a controlled meeting workspace.
+
+Support:
+
+- PDF
+- PowerPoint
+- Images
+- Documents
+- Videos
+- Spreadsheets
+
+Files should be permission-controlled.
+
+The host can decide:
+
+**View only**
+
+**Download allowed**
+
+**Collaborate**
+
+**AI access allowed**
+
+---
+
+# 28. Screen sharing sandbox
+
+Screen sharing must be explicit.
+
+The application should never silently capture the user's screen.
+
+Provide:
+
+- Entire screen
+- Window
+- Browser tab
+- Application
+
+Where platform APIs permit.
+
+Clearly indicate when sharing is active.
+
+---
+
+# 29. Collaborative whiteboard
+
+Optional lightweight whiteboard:
+
+- Pen
+- Shapes
+- Text
+- Sticky notes
+- Images
+- Arrows
+- Basic diagrams
+
+AI can understand the whiteboard where permission is granted.
+
+Example:
+
+> "Turn this whiteboard into an action plan."
+
+---
+
+# 30. Polls and decisions
+
+Allow:
+
+**Create Poll**
+
+**Vote**
+
+**Close Poll**
+
+AI can summarize results.
+
+Example:
+
+> **Decision:** 8/10 participants selected Option B.
+
+The result can become a meeting decision automatically after host approval.
+
+---
+
+# 31. Meeting automation
+
+Allow AI to automatically prepare recurring meetings.
+
+Example:
+
+> "Every Monday, prepare the weekly operations meeting."
+
+ZenMeet + ZenCalendar can:
+
+- Create recurring meeting
+- Prepare agenda
+- Review previous minutes
+- Identify outstanding tasks
+- Prepare relevant documents
+- Generate briefing
+- Start the meeting
+- Record if authorized
+- Produce minutes
+- Prepare follow-up
+
+---
+
+# 32. Identity and organization
+
+Support:
+
+- Personal identity
+- Business identity
+- Organization
+- Team
+- Department
+- Multiple hosts
+
+Before sending invitations, make the organizer identity obvious.
+
+Example:
+
+**Organizer**
+
+`Varizen Inc.`
+
+**Host**
+
+`business@example.com`
+
+---
+
+# 33. Guest experience
+
+Guests should have the easiest possible experience.
+
+Ideally:
+
+**Click link → enter name → join**
+
+No account should be required unless the host's security policy requires authentication.
+
+Guests should never be forced through unnecessary registration.
+
+---
+
+# 34. Performance
+
+The meeting engine must prioritize:
+
+- Low latency
+- Stable audio
+- Stable video
+- Adaptive bitrate
+- Network recovery
+- Efficient bandwidth usage
+- Fast room entry
+- Hardware acceleration where available
+
+Use appropriate real-time technologies such as WebRTC and scalable media infrastructure.
+
+Do not unnecessarily route all media through a heavyweight centralized pipeline.
+
+---
+
+# 35. Architecture
+
+Use modular components:
+
+```text id="d3phq9"
+ZenMeet
+│
+├── Meeting Client
+│
+├── Room Service
+│
+├── WebRTC / Media Layer
+│
+├── Signaling
+│
+├── SFU / Media Infrastructure
+│
+├── AI Meeting Agent
+│
+├── Recording Service
+│
+├── Transcript Service
+│
+├── Live Production Engine
+│
+├── Scheduling Integration
+│
+├── Storage Adapter
+│
+└── Identity / Permissions
+```
+
+Use an SFU architecture for scalable multi-party meetings.
+
+Keep media, signaling, AI, recording and storage logically separated.
+
+---
+
+# 36. AI provider abstraction
+
+Do not lock ZenMeet to one AI vendor.
+
+```text id="2lymcd"
+AIProvider
+ ├── OpenAI
+ ├── Anthropic
+ ├── Gemini
+ ├── Local Model
+ └── Enterprise Model
+```
+
+Organizations should be able to choose their AI provider.
+
+---
+
+# 37. Security
+
+Implement:
+
+- OAuth
+- PKCE
+- Secure authentication
+- Short-lived meeting tokens
+- Role-based permissions
+- Participant authentication
+- Secure signaling
+- Encrypted transport
+- Secure recording access
+- Signed access URLs
+- Sandboxed file processing
+- CSP
+- XSS protection
+- CSRF protection
+- Rate limiting
+- Abuse prevention
+- Audit logging
+
+Never expose internal meeting credentials.
+
+---
+
+# 38. AI activity log
+
+Create:
+
+## AI Activity
+
+> Generated meeting agenda
+
+> Checked attendee availability
+
+> Created meeting sandbox
+
+> Prepared presentation
+
+> Summarized discussion
+
+> Created 4 action items
+
+> Drafted follow-up email
+
+> Updated calendar
+
+Every consequential AI action should be inspectable.
+
+---
+
+# 39. Commercial model
+
+Keep basic meetings accessible.
+
+### Free
+
+- Basic meetings
+- Small participant limit
+- Basic AI assistance
+- Limited recording
+- Limited transcription
+- Basic meeting rooms
+
+### Pro
+
+- Larger meetings
+- Longer recording
+- Advanced AI
+- Meeting intelligence
+- Live production
+- Streaming
+- Custom branding
+- Advanced scheduling
+
+### Business
+
+- Team administration
+- Organization controls
+- Advanced permissions
+- Shared meeting spaces
+- Audit logs
+- SSO
+- Compliance controls
+- Organization storage
+- Advanced AI policies
+
+### Enterprise
+
+- Dedicated infrastructure
+- Private AI
+- Custom retention policies
+- Advanced security
+- Enterprise identity
+- Compliance tooling
+- Custom integrations
+
+Do not monetize meeting content or personal data.
+
+---
+
+# 40. UI philosophy
+
+ZenMeet must NOT look like a complicated Teams clone.
+
+It should feel:
+
+**Instant.**
+
+**Clean.**
+
+**Premium.**
+
+**Human.**
+
+The primary meeting controls should fit naturally into one compact control bar.
+
+Advanced functionality should appear contextually.
+
+The user should never need to understand the underlying WebRTC/SFU/AI architecture.
+
+---
+
+# 41. Core experience
+
+The entire product should revolve around this flow:
+
+```text
+IDEA
+  ↓
+AI ORGANIZES
+  ↓
+SANDBOX PREPARES
+  ↓
+USER APPROVES
+  ↓
+MEETING STARTS
+  ↓
+AI ASSISTS
+  ↓
+MEETING ENDS
+  ↓
+AI SUMMARIZES
+  ↓
+TASKS + CALENDAR + EMAIL
+```
+
+---
+
+# 42. Final acceptance criteria
+
+The finished ZenMeet must:
+
+1. Create instant video/audio meetings.
+2. Support scheduled meetings.
+3. Support private meetings and webinars.
+4. Support StreamYard-style live production.
+5. Support screen sharing.
+6. Support presentation sharing.
+7. Support participant roles.
+8. Support waiting rooms.
+9. Support recording.
+10. Support transcription.
+11. Provide AI meeting assistance.
+12. Provide AI meeting preparation.
+13. Generate meeting minutes.
+14. Extract decisions and action items.
+15. Integrate with ZenCalendar.
+16. Integrate with ZenBox.
+17. Provide a genuine meeting sandbox.
+18. Provide secure-session capabilities.
+19. Keep files and recordings under user/organization control.
+20. Provide permission-controlled AI access.
+21. Provide searchable meeting intelligence.
+22. Support multi-platform streaming where APIs permit.
+23. Remain extremely lightweight and responsive.
+24. Scale from one-to-one calls to large events.
+25. Be production-ready, not a visual prototype.
+
+---
+
+# Product positioning
+
+## ZenMeet
+
+**Meet. Present. Decide. Done.**
+
+Secondary promise:
+
+> **AI organizes the meeting. You run the conversation.**
+
+And the ecosystem becomes:
+
+**ZenBox**
+→ communication
+
+**ZenCalendar**
+→ scheduling
+
+**ZenMeet**
+→ meeting
+
+Together:
+
+> **Email → Schedule → Meet → Decide → Follow up**
+
+All connected, while keeping the user's underlying data and accounts under their control.

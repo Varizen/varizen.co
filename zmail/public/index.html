@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#ffffff">
+  <title>ZMail — Unified Inbox</title>
+  <link rel="icon" href="/brand/varizen-symbol-32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="/brand/varizen-symbol-16.png" sizes="16x16" type="image/png">
+  <link rel="apple-touch-icon" href="/brand/varizen-symbol-180.png">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="/vendor/fa/css/all.min.css">
+</head>
+<body>
+  <div class="app">
+
+    <!-- ============ SIDEBAR ============ -->
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark"><i class="fa-solid fa-layer-group"></i></div>
+        <span class="brand-name">Unified Inbox</span>
+      </div>
+
+      <nav class="nav" id="navList">
+        <button class="nav-item active" data-view="inbox">
+          <i class="fa-solid fa-inbox"></i>
+          <span>All Inboxes</span>
+          <b class="nav-count" id="countInbox">0</b>
+        </button>
+        <button class="nav-item" data-view="important">
+          <i class="fa-solid fa-circle-exclamation"></i>
+          <span>Important</span>
+          <b class="nav-count" id="countImportant">0</b>
+        </button>
+        <button class="nav-item" data-view="ai">
+          <i class="fa-solid fa-wand-magic-sparkles"></i>
+          <span>AI Actions</span>
+          <b class="nav-count" id="countAI">0</b>
+        </button>
+        <button class="nav-item" data-view="drafts">
+          <i class="fa-regular fa-file-lines"></i>
+          <span>Drafts</span>
+          <b class="nav-count" id="countDrafts">0</b>
+        </button>
+        <button class="nav-item" data-view="sent">
+          <i class="fa-regular fa-paper-plane"></i>
+          <span>Sent</span>
+        </button>
+        <button class="nav-item" data-view="secure">
+          <i class="fa-solid fa-lock"></i>
+          <span>Secure Sessions</span>
+          <b class="nav-count" id="countSecure">0</b>
+        </button>
+      </nav>
+
+      <div class="accounts">
+        <div class="accounts-title">Accounts</div>
+        <div id="accountList"></div>
+        <button class="account-add" id="btnConnectAccount">
+          <i class="fa-solid fa-plus"></i> Add account
+        </button>
+      </div>
+    </aside>
+
+    <!-- ============ LIST COLUMN ============ -->
+    <section class="list-col">
+      <div class="list-top">
+        <div class="search">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input id="searchInput" type="text" placeholder="Search all emails..." autocomplete="off">
+        </div>
+        <button class="icon-btn" id="btnRefresh" title="Refresh">
+          <i class="fa-solid fa-rotate"></i>
+        </button>
+        <button class="icon-btn" id="btnAgentMode" title="AI Agent Mode">
+          <i class="fa-solid fa-wand-magic-sparkles"></i>
+        </button>
+      </div>
+
+      <div class="tabs" id="tabs">
+        <button class="tab active" data-tab="all">All</button>
+        <button class="tab" data-tab="focused">Focused</button>
+        <button class="tab" data-tab="unread">Unread</button>
+        <button class="tab" data-tab="mentions">Mentions</button>
+      </div>
+
+      <div class="list" id="emailList"></div>
+    </section>
+
+    <!-- ============ READER ============ -->
+    <main class="reader" id="reader"></main>
+  </div>
+
+  <!-- ============ MOBILE NAV ============ -->
+  <button class="mobile-compose" id="btnComposeMobile">
+    <i class="fa-solid fa-pen"></i> Compose
+  </button>
+
+  <nav class="mobile-nav">
+    <button class="mobile-nav-item active" data-mobile="inbox">
+      <i class="fa-solid fa-inbox"></i><span>Inbox</span>
+    </button>
+    <button class="mobile-nav-item" data-mobile="search">
+      <i class="fa-solid fa-magnifying-glass"></i><span>Search</span>
+    </button>
+    <button class="mobile-nav-item" data-mobile="secure">
+      <i class="fa-solid fa-lock"></i><span>Secure</span>
+    </button>
+    <button class="mobile-nav-item" data-mobile="settings">
+      <i class="fa-solid fa-gear"></i><span>Settings</span>
+    </button>
+  </nav>
+
+  <!-- ============ COMPOSE MODAL ============ -->
+  <div class="modal-overlay" id="composeModal" hidden>
+    <div class="modal">
+      <div class="modal-head">
+        <h3><i class="fa-solid fa-pen"></i> New Message</h3>
+        <button class="close-btn" id="btnCloseCompose">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="field">
+          <label>From</label>
+          <select id="composeAccount"></select>
+        </div>
+        <div class="field">
+          <label>To</label>
+          <input id="composeTo" type="text" placeholder="recipient@example.com">
+        </div>
+        <div class="field">
+          <label>Subject</label>
+          <input id="composeSubject" type="text" placeholder="Subject">
+        </div>
+
+        <div class="copilot">
+          <span class="copilot-label"><i class="fa-solid fa-wand-magic-sparkles"></i> AI Copilot</span>
+          <button type="button" class="chip-btn" data-tone="concise">Concise</button>
+          <button type="button" class="chip-btn" data-tone="formal">Formal</button>
+          <button type="button" class="chip-btn" data-tone="friendly">Friendly</button>
+        </div>
+
+        <div class="field">
+          <label>Message</label>
+          <textarea id="composeBody" placeholder="Write your email..."></textarea>
+        </div>
+
+        <label class="secure-toggle" for="composeSecure">
+          <input type="checkbox" id="composeSecure">
+          <div>
+            <strong><i class="fa-solid fa-lock"></i> Send as ZMail Secure Session</strong>
+            <span>End-to-end encrypted with ECDH P-256 and AES-256-GCM.</span>
+          </div>
+        </label>
+      </div>
+      <div class="modal-foot">
+        <button class="btn-ghost" id="btnCancelCompose">Cancel</button>
+        <button class="btn-primary" id="btnSendEmail"><i class="fa-regular fa-paper-plane"></i> Send</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ AI AGENT MODE MODAL ============ -->
+  <div class="modal-overlay" id="agentModal" hidden>
+    <div class="modal modal-wide">
+      <div class="modal-head">
+        <h3><i class="fa-solid fa-wand-magic-sparkles"></i> AI Agent Mode</h3>
+        <button class="close-btn" id="btnCloseAgent">&times;</button>
+      </div>
+      <div class="modal-body" id="agentBody"></div>
+      <div class="modal-foot">
+        <button class="btn-ghost" id="btnCloseAgentFoot">Close</button>
+        <button class="btn-primary" id="btnRunAgent">
+          <i class="fa-solid fa-check-double"></i> Approve &amp; Execute
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ SECURE SESSION MODAL ============ -->
+  <div class="modal-overlay" id="secureModal" hidden>
+    <div class="modal">
+      <div class="modal-head">
+        <h3><i class="fa-solid fa-shield-halved"></i> ZMail Secure Session</h3>
+        <button class="close-btn" id="btnCloseSecure">&times;</button>
+      </div>
+      <div class="modal-body" id="secureBody"></div>
+    </div>
+  </div>
+
+  <!-- ============ CONNECT ACCOUNT MODAL ============ -->
+  <div class="modal-overlay" id="connectModal" hidden>
+    <div class="modal">
+      <div class="modal-head">
+        <h3><i class="fa-solid fa-link"></i> Connect Mailbox</h3>
+        <button class="close-btn" id="btnCloseConnect">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="field">
+          <label>Provider</label>
+          <select id="connProvider">
+            <option value="gmail">Google Workspace / Gmail</option>
+            <option value="outlook">Microsoft 365 / Outlook</option>
+            <option value="yahoo">Yahoo Mail</option>
+            <option value="icloud">Apple iCloud Mail</option>
+            <option value="imap">Standard IMAP / SMTP</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Label</label>
+          <input id="connName" type="text" placeholder="e.g. Finance Mailbox">
+        </div>
+        <div class="field">
+          <label>Email address</label>
+          <input id="connEmail" type="email" placeholder="user@company.com">
+        </div>
+        <div class="field">
+          <label>Password / App token</label>
+          <input id="connPass" type="password" placeholder="••••••••••••">
+        </div>
+      </div>
+      <div class="modal-foot">
+        <button class="btn-ghost" id="btnCancelConnect">Cancel</button>
+        <button class="btn-primary" id="btnSaveConnect">Connect</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

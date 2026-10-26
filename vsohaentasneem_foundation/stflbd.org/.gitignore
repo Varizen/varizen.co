@@ -1,0 +1,45 @@
+# Next.js build output
+/.next/
+/.open-next/
+/out/
+/node_modules/
+/.pnp
+.pnp.js
+
+# Production builds
+/build
+/dist
+/.vercel
+/.wrangler/
+
+# Environment & Secrets (NEVER COMMIT)
+.env
+.env*.local
+.env.development
+.env.test
+.env.staging
+.env.production
+.dev.vars
+.dev.vars.*
+*.keystore
+*.jks
+*.p12
+*.pem
+*.key
+*.cert
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+
+# Misc & OS
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+tsconfig.tsbuildinfo

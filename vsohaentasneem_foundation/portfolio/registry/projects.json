@@ -1,0 +1,390 @@
+{
+  "schema": "stfl-portfolio-projects-v1",
+  "registry_version": "2026.10.18",
+  "last_updated": "2026-10-18T11:21:00.9428865+08:00",
+  "organization": {
+    "canonical_name": "SohaelTasneem Foundation",
+    "abbreviation": "STFL",
+    "canonical_domain": "stflbd.org",
+    "jurisdiction": "Bangladesh"
+  },
+  "source_of_truth": "STFL_PROJECT_REGISTRY.json (registry_version 2026.10.16), reconciled 2026-10-18",
+  "excluded_entities": [
+    {
+      "entity_name": "Varizen Inc.",
+      "exclusion_rule": "STRICT_SEPARATION",
+      "rationale": "Separate commercial and technology entity. Excluded from the STFL Initiatives & Ventures public build. Never presented as an STFL venture or subsidiary."
+    }
+  ],
+  "lifecycle_states": [
+    "ACTIVE",
+    "PLANNED",
+    "IN_DEVELOPMENT",
+    "PILOT",
+    "PAUSED",
+    "HISTORICAL",
+    "RETIRED",
+    "ARCHIVED",
+    "UNKNOWN"
+  ],
+  "projects": [
+    {
+      "project_id": "STFL-PRJ-2026-0001",
+      "project_slug": "grihostios",
+      "project_name": "GrihostiOS",
+      "display_name": "GrihostiOS — Property, Lease & Rural Economy OS",
+      "category": "PROPERTY_AND_RURAL_ECONOMY",
+      "type": "PLATFORM",
+      "status": "PILOT",
+      "production_status": "ACTIVE_PILOT",
+      "ownership": "STFL_CONTROLLED",
+      "relationship_to_stfl": "STFL_CONTROLLED_PROJECT",
+      "domain": "grihostios.stflbd.app",
+      "canonical_path": "/initiatives/grihostios",
+      "brand_status": "NATIVE_VERIFIED",
+      "public_visibility": "PUBLICATION_APPROVED",
+      "ecosystem_position": "PRIMARY_ANCHOR",
+      "source_confidence": "AUTHORITATIVE_IMPLEMENTED",
+      "last_verified": "2026-10-16",
+      "implementation_paths": [
+        "main/api/src/grihosti/engine.ts",
+        "main/api/migrations/0003_grihostios.sql",
+        "stflbd.org/src/app/initiatives/grihostios/page.tsx",
+        "stflbd.org/src/app/admin/property/page.tsx"
+      ],
+      "canonical_documents": [
+        "STFL_WEB_GRIHOSTIOS_MODEL.md",
+        "STFL_AIO_PROPERTY_MODEL.md"
+      ],
+      "workspace": "projects/grihostios/",
+      "description": "Comprehensive operating system for real estate, leases, agricultural land, crop-share seasons (Barga/Adhi), and governed digital agreements."
+    },
+    {
+      "project_id": "STFL-PRJ-2026-0002",
+      "project_slug": "skillconnect",
+      "project_name": "SkillConnect",
+      "display_name": "SkillConnect — Workforce & Opportunity Platform",
+      "category": "OPPORTUNITY_AND_WORKFORCE",
+      "type": "INITIATIVE",
+      "status": "ACTIVE_DEVELOPMENT",
+      "production_status": "ACTIVE_DEVELOPMENT",
+      "ownership": "STFL_CONTROLLED",
+      "relationship_to_stfl": "STFL_INITIATIVE",
+      "domain": "skillconnect.stflbd.app",
+      "canonical_path": "/initiatives/skillconnect",
+      "brand_status": "NATIVE_VERIFIED",
+      "public_visibility": "PUBLICATION_APPROVED",
+      "ecosystem_position": "KEY_INITIATIVE",
+      "source_confidence": "HIGH_VERIFIED",
+      "last_verified": "2026-10-16",
+      "implementation_paths": [
+        "stflbd.org/src/app/initiatives/skillconnect/page.tsx",
+        "stflbd.org/src/lib/initiativesRegistry.ts"
+      ],
+      "canonical_documents": [
+        "STFL_AIO_MULTI_PROJECT_ARCHITECTURE.md"
+      ],
+      "workspace": "projects/skillconnect/",
+      "description": "Decentralized workforce registration, credential management, ethical recruitment matching, and migration guidance for skilled and semi-skilled workers."
+    },
+    {
+      "project_id": "STFL-PRJ-2026-0003",
+      "project_slug": "aev-developments",
+      "project_name": "AEV Developments",
+      "display_name": "AEV Developments — Real Estate & Social Infrastructure",
+      "category": "PROPERTY_AND_RURAL_ECONOMY",
+      "type": "VENTURE",
+      "status": "ACTIVE_DEVELOPMENT",
+      "production_status": "ACTIVE_DEVELOPMENT",
+      "ownership": "STFL_PARTNERSHIP",
+      "relationship_to_stfl": "STFL_PORTFOLIO_PROJECT",
+      "domain": "aev.stflbd.app",
+      "canonical_path": "/initiatives/aev-developments",
+      "brand_status": "NATIVE_VERIFIED",
+      "public_visibility": "PUBLICATION_APPROVED",
+      "ecosystem_position": "INFRASTRUCTURE_PARTNER",
+      "source_confidence": "HIGH_VERIFIED",
+      "last_verified": "2026-10-16",
+      "implementation_paths": [
+        "stflbd.org/src/app/initiatives/aev-developments/page.tsx"
+      ],
+      "canonical_documents": [
+        "STFL_AIO_PROJECT_MODEL.md",
+        "STFL_AIO_PARTY_RELATIONSHIP_MODEL.md"
+      ],
+      "workspace": "projects/aev-developments/",
+      "description": "Sustainable physical development, resilient community facilities, rural health centers, and low-cost ecological housing."
+    },
+    {
+      "project_id": "STFL-PRJ-2026-0004",
+      "project_slug": "maxremit",
+      "project_name": "MaxRemit",
+      "display_name": "MaxRemit — Remittance & Cross-Border Opportunity",
+      "category": "FINANCE_AND_ACCESS",
+      "type": "PLATFORM",
+      "status": "PROTOTYPE",
+      "production_status": "PRE_REGULATORY_PILOT",
+      "ownership": "STFL_SUPPORTED",
+      "relationship_to_stfl": "STFL_SUPPORTED_PROJECT",
+      "domain": "maxremit.stflbd.app",
+      "canonical_path": "/initiatives/maxremit",
+      "brand_status": "NATIVE_VERIFIED",
+      "public_visibility": "PUBLICATION_APPROVED",
+      "ecosystem_position": "FINANCIAL_INCLUSION",
+      "source_confidence": "HIGH_VERIFIED",
+      "last_verified": "2026-10-16",
+      "implementation_paths": [
+        "stflbd.org/src/app/initiatives/maxremit/page.tsx"
+      ],
+      "canonical_documents": [
+        "STFL_AIO_FINANCE_MODEL.md",
+        "STFL_AIO_MULTI_PROJECT_API_SPEC.md"
+      ],
+      "workspace": "projects/maxremit/",
+      "description": "Digital remittance access, diaspora support rails, and transparent cross-border financial empowerment for migrant worker families."
+    },
+    {
+      "project_id": "STFL-PRJ-2026-0005",
+      "project_slug": "helpex",
+      "project_name": "Helpex",
+      "display_name": "Helpex — Collateral Finance & Asset Security",
+      "category": "FINANCE_AND_ACCESS",
+      "type": "VENTURE",
+      "status": "CONCEPT",
+      "production_status": "REGULATED_SANDBOX_CONCEPT",
+      "ownership": "STFL_PARTNERSHIP",
+      "relationship_to_stfl": "STFL_PORTFOLIO_PROJECT",
+      "domain": "helpex.my",
+      "canonical_path": "/initiatives/helpex",
+      "brand_status": "NATIVE_VERIFIED",
+      "public_visibility": "PUBLICATION_APPROVED",
+      "ecosystem_position": "FINANCIAL_INCLUSION",
+      "source_confidence": "HIGH_VERIFIED",
+      "last_verified": "2026-10-16",
+      "implementation_paths": [
+        "stflbd.org/src/app/initiatives/helpex/page.tsx"
+      ],
+      "canonical_documents": [
+        "STFL_AIO_FINANCE_MODEL.md",
+        "STFL_AIO_PROJECT_MODEL.md"
+      ],
+      "workspace": "projects/helpex/",
+      "description": "Ethical collateral evaluation, transparent asset custody, and asset-backed micro-liquidity framework for small businesses and artisans."
+    },
+    {
+      "project_id": "STFL-PRJ-2026-0006",
+      "project_slug": "proiozon",
+      "project_name": "Proiozon",
+      "display_name": "Proiozon — Bangladesh Digital Marketplace",
+      "category": "DIGITAL_AND_MARKETPLACE",
+      "type": "DIGITAL_PLATFORM",
+      "status": "ACTIVE_DEVELOPMENT",
+      "production_status": "ACTIVE_DEVELOPMENT",
+      "ownership": "STFL_CONTROLLED",
+      "relationship_to_stfl": "STFL_PORTFOLIO_PROJECT",
+      "domain": "proiozon.com",
+      "canonical_path": "/initiatives/proiozon",
+      "brand_status": "NATIVE_VERIFIED",
+      "public_visibility": "PUBLICATION_APPROVED",
+      "ecosystem_position": "COMMERCE_BACKBONE",
+      "source_confidence": "AUTHORITATIVE_IMPLEMENTED",
+      "last_verified": "2026-10-16",
+      "implementation_paths": [
+        "stflbd.org/src/app/initiatives/proiozon/page.tsx"
+      ],
+      "canonical_documents": [
+        "STFL_AIO_PROJECT_MODEL.md"
+      ],
+      "workspace": "projects/proiozon/",
+      "description": "Bangla-first hyperlocal digital commerce, empowering local artisans, women entrepreneurs, and trusted consumer goods across Bangladesh."
+    },
+    {
+      "project_id": "STFL-PRJ-2026-0007",
+      "project_slug": "perlu",
+      "project_name": "Perlu",
+      "display_name": "Perlu — Malaysia Vernacular Marketplace",
+      "category": "DIGITAL_AND_MARKETPLACE",
+      "type": "DIGITAL_PLATFORM",
+      "status": "ACTIVE_DEVELOPMENT",
+      "production_status": "ACTIVE_DEVELOPMENT",
+      "ownership": "STFL_PARTNERSHIP",
+      "relationship_to_stfl": "STFL_PORTFOLIO_PROJECT",
+      "domain": "perlu.my",
+      "canonical_path": "/initiatives/perlu",
+      "brand_status": "NATIVE_VERIFIED",
+      "public_visibility": "PUBLICATION_APPROVED",
+      "ecosystem_position": "REGIONAL_COMMERCE",
+      "source_confidence": "HIGH_VERIFIED",
+      "last_verified": "2026-10-16",
+      "implementation_paths": [
+        "stflbd.org/src/app/initiatives/perlu/page.tsx"
+      ],
+      "canonical_documents": [
+        "STFL_AIO_PROJECT_MODEL.md"
+      ],
+      "workspace": "projects/perlu/",
+      "description": "Community marketplace in Malaysia featuring verified electronics trade-in, circular economy lifecycle, and migrant household supplies."
+    },
+    {
+      "project_id": "STFL-PRJ-2026-0008",
+      "project_slug": "oiix",
+      "project_name": "OIIX",
+      "display_name": "OIIX — Social & Video Connection",
+      "category": "COMMUNITY_AND_CULTURE",
+      "type": "PUBLIC_INTEREST_PLATFORM",
+      "status": "PROTOTYPE",
+      "production_status": "PROTOTYPE",
+      "ownership": "STFL_SUPPORTED",
+      "relationship_to_stfl": "STFL_SUPPORTED_PROJECT",
+      "domain": "oiix.fun",
+      "canonical_path": "/initiatives/oiix",
+      "brand_status": "NATIVE_VERIFIED",
+      "public_visibility": "PUBLICATION_APPROVED",
+      "ecosystem_position": "COMMUNITY_ENGAGEMENT",
+      "source_confidence": "HIGH_VERIFIED",
+      "last_verified": "2026-10-16",
+      "implementation_paths": [
+        "stflbd.org/src/app/initiatives/oiix/page.tsx"
+      ],
+      "canonical_documents": [
+        "STFL_AIO_COMMUNICATION_MODEL.md"
+      ],
+      "workspace": "projects/oiix/",
+      "description": "Next-generation video interaction, youth creative storytelling, and community WebRTC communications designed for regional connectivity."
+    },
+    {
+      "project_id": "STFL-PRJ-2026-0009",
+      "project_slug": "hashify",
+      "project_name": "Hashify / Hashify.baby",
+      "display_name": "Hashify — Cryptographic Attestation Research",
+      "category": "EXPERIMENTAL_AND_EMERGING",
+      "type": "RESEARCH_PROJECT",
+      "status": "CONCEPT",
+      "production_status": "CONCEPT",
+      "ownership": "UNVERIFIED",
+      "relationship_to_stfl": "UNVERIFIED",
+      "domain": "hashify.baby",
+      "canonical_path": "/internal/registry/hashify",
+      "brand_status": "CONCEPT_ONLY",
+      "public_visibility": "INTERNAL_ONLY",
+      "ecosystem_position": "RESEARCH_LAB",
+      "source_confidence": "CONCEPTUAL",
+      "last_verified": "2026-10-16",
+      "implementation_paths": [],
+      "canonical_documents": [
+        "STFL_AIO_DEPENDENCY_INDEX.json"
+      ],
+      "workspace": "projects/hashify/",
+      "description": "Experimental micro-timestamping and digital credential integrity research."
+    },
+    {
+      "project_id": "STFL-PRJ-2026-0010",
+      "project_slug": "yourgiftcardsupply",
+      "project_name": "YourGiftCardSupply",
+      "display_name": "YourGiftCardSupply",
+      "category": "EXPERIMENTAL_AND_EMERGING",
+      "type": "VENTURE",
+      "status": "ARCHIVED",
+      "production_status": "ARCHIVED",
+      "ownership": "INDEPENDENT_ENTITY",
+      "relationship_to_stfl": "EXTERNAL_REFERENCE",
+      "domain": "yourgiftcardsupply.com",
+      "canonical_path": "/internal/registry/yourgiftcardsupply",
+      "brand_status": "LEGACY",
+      "public_visibility": "INTERNAL_ONLY",
+      "ecosystem_position": "HISTORICAL_ARCHIVE",
+      "source_confidence": "HISTORICAL_RECORD",
+      "last_verified": "2026-10-16",
+      "implementation_paths": [],
+      "canonical_documents": [
+        "historical archive"
+      ],
+      "workspace": "projects/yourgiftcardsupply/",
+      "description": "Historical digital gift card inventory experiment."
+    },
+    {
+      "project_id": "STFL-PRJ-2026-0011",
+      "project_slug": "cikgu-fatimah",
+      "project_name": "Cikgu Fatimah's Cloud Kitchen",
+      "display_name": "Cikgu Fatimah's Cloud Kitchen",
+      "category": "COMMUNITY_AND_CULTURE",
+      "type": "SOCIAL_ENTERPRISE",
+      "status": "CONCEPT",
+      "production_status": "EXPLORATORY",
+      "ownership": "UNVERIFIED",
+      "relationship_to_stfl": "UNVERIFIED",
+      "domain": null,
+      "canonical_path": "/internal/registry/cikgu-fatimah",
+      "brand_status": "CONCEPT_ONLY",
+      "public_visibility": "INTERNAL_ONLY",
+      "ecosystem_position": "INCUBATION",
+      "source_confidence": "EXPLORATORY",
+      "last_verified": "2026-10-16",
+      "implementation_paths": [],
+      "canonical_documents": [
+        "community notes"
+      ],
+      "workspace": "projects/cikgu-fatimah/",
+      "description": "Community food entrepreneurship and cloud kitchen micro-franchise model."
+    },
+    {
+      "project_id": "STFL-PRJ-2026-0012",
+      "project_slug": "hakimsarker",
+      "project_name": "Professor Dr. Abdul Hakim Sarker",
+      "display_name": "Professor Dr. Abdul Hakim Sarker — Academic Legacy & Knowledge Archive",
+      "category": "COMMUNITY_AND_CULTURE",
+      "type": "PUBLIC_INTEREST_PLATFORM",
+      "status": "LIVE",
+      "production_status": "ACTIVE_ARCHIVE",
+      "ownership": "STFL_SUPPORTED",
+      "relationship_to_stfl": "STFL_SUPPORTED_PROJECT",
+      "domain": "hakimsarker.org",
+      "canonical_path": "/initiatives/hakimsarker",
+      "brand_status": "NATIVE_VERIFIED",
+      "public_visibility": "PUBLICATION_APPROVED",
+      "ecosystem_position": "KEY_INITIATIVE",
+      "source_confidence": "NOT RECORDED",
+      "last_verified": "NOT RECORDED",
+      "implementation_paths": [
+        "stflbd.org/src/app/initiatives/hakimsarker/page.tsx",
+        "stflbd.org/public/media/hakimsarker-logo.svg",
+        "stflbd.org/public/media/hakimsarker-symbol.svg",
+        "stflbd.org/public/media/hakimsarker-portrait.svg"
+      ],
+      "canonical_documents": [
+        "HAKIMSARKER_DIGITAL_LEGACY_SPEC.md (referenced, not present in this repository)"
+      ],
+      "workspace": "projects/hakimsarker/",
+      "description": "Preserving the academic scholarship, criminology research, victimology education, and social welfare legacy of Professor Dr. Abdul Hakim Sarker (1947-2025)."
+    },
+    {
+      "project_id": "STFL-PRJ-2026-0013",
+      "project_slug": "qimai",
+      "project_name": "QiM-AI 2.1",
+      "display_name": "QiM-AI 2.1 — AI, Knowledge & Research Intelligence Platform",
+      "category": "DIGITAL_AND_MARKETPLACE",
+      "type": "PLATFORM",
+      "status": "ACTIVE_DEVELOPMENT",
+      "production_status": "DEVELOPMENT_AND_DEMO",
+      "ownership": "STFL_PORTFOLIO",
+      "relationship_to_stfl": "STFL_PORTFOLIO_PROJECT",
+      "domain": "qimai.codes",
+      "canonical_path": "/initiatives/qimai",
+      "brand_status": "NATIVE_VERIFIED",
+      "public_visibility": "PUBLICATION_APPROVED",
+      "ecosystem_position": "ECOSYSTEM_PLATFORM",
+      "source_confidence": "NOT RECORDED",
+      "last_verified": "NOT RECORDED",
+      "implementation_paths": [
+        "stflbd.org/src/app/initiatives/qimai/page.tsx",
+        "stflbd.org/public/media/qimai-logo.svg",
+        "stflbd.org/public/media/qimai-symbol.svg"
+      ],
+      "canonical_documents": [
+        "QIMAI_PLATFORM_SPEC.md (referenced, not present in this repository)"
+      ],
+      "workspace": "projects/qimai/",
+      "description": "Enterprise RAG knowledge intelligence engine, AI Tutor, and citation intelligence workspace. Knowledge In. Context Understood. Intelligence Out."
+    }
+  ]
+}

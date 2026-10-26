@@ -10,7 +10,6 @@ import {
   Eye,
   Shield,
   Cpu,
-  X,
   Lock,
   Sparkles,
   ArrowLeft,
@@ -18,7 +17,17 @@ import {
   RotateCcw,
   Star,
   Send,
+  Mail,
+  Calendar,
+  Video,
+  Wallet,
+  User,
+  ArrowDown,
+  ArrowUp,
+  Activity,
 } from "lucide-react";
+import { UserProfileData } from "@/lib/aibrowser-profile";
+import { AiBrowserProfileModal } from "./aibrowser-profile-modal";
 
 interface AiBrowserModalProps {
   isOpen: boolean;
@@ -34,16 +43,28 @@ export function AiBrowserModal({ isOpen, onClose }: AiBrowserModalProps) {
   const [activeTab, setActiveTab] = useState<"simulator" | "download">("simulator");
   const [copiedCmd, setCopiedCmd] = useState<string | null>(null);
 
-  useEffect(() => {
-    if (!isOpen) return;
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose();
-    };
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [isOpen, onClose]);
+  // Active placeholder drawer / modal overlay state
+  const [activePlaceholder, setActivePlaceholder] = useState<
+    "email" | "calendar" | "meetings" | "zlet" | null
+  >(null);
+  const [profileModalOpen, setProfileModalOpen] = useState(false);
 
-  // Simulator state
+  // Profile management state (Zero-Knowledge, 0-byte server custody)
+  const [profile, setProfile] = useState<UserProfileData | null>(() => {
+    if (typeof window === "undefined") return null;
+    try {
+      const stored = localStorage.getItem("vz_aibrowser_profile");
+      return stored ? (JSON.parse(stored) as UserProfileData) : null;
+    } catch {
+      return null;
+    }
+  });
+
+  // Real-time simulated virtual network speed meter
+  const [dlSpeed, setDlSpeed] = useState<string>("42.8");
+  const [ulSpeed, setUlSpeed] = useState<string>("18.4");
+
+  // Simulator navigation & history state
   const [urlInput, setUrlInput] = useState("https://www.varizen.co");
   const [currentUrl, setCurrentUrl] = useState("https://www.varizen.co");
   const [history, setHistory] = useState<string[]>(["https://www.varizen.co"]);
@@ -62,9 +83,36 @@ export function AiBrowserModal({ isOpen, onClose }: AiBrowserModalProps) {
   const [chatLog, setChatLog] = useState<Array<{ sender: "user" | "eye"; text: string }>>([
     {
       sender: "eye",
-      text: "Eye AI initialized inside AiBrowser container. Web content is isolated in <web_content> untrusted envelopes.",
+      text: "Eye AI container initialized. Web content isolated in strict <web_content> sandboxes. Zero telemetry.",
     },
   ]);
+
+  // Fluctuating network telemetry while virtual mode is running
+  useEffect(() => {
+    if (!isOpen) return;
+    const interval = setInterval(() => {
+      const baseDl = 38.0 + Math.random() * 15.0;
+      const baseUl = 12.0 + Math.random() * 9.0;
+      setDlSpeed(baseDl.toFixed(1));
+      setUlSpeed(baseUl.toFixed(1));
+    }, 1800);
+    return () => clearInterval(interval);
+  }, [isOpen]);
+
+  useEffect(() => {
+    if (!isOpen) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        if (activePlaceholder) {
+          setActivePlaceholder(null);
+        } else if (!profileModalOpen) {
+          onClose();
+        }
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [isOpen, onClose, activePlaceholder, profileModalOpen]);
 
   if (!isOpen || !mounted) return null;
 
@@ -179,38 +227,109 @@ export function AiBrowserModal({ isOpen, onClose }: AiBrowserModalProps) {
             </div>
           </div>
 
-          {/* Right: Iconized Mode Switchers & Close */}
+          {/* Right: Iconized Mode Switchers, Native Apps & Close */}
           <div className="flex items-center gap-1">
+            {/* Native App Placeholders: Email, Calendar, Meetings */}
             <button
-              onClick={() => setActiveTab("simulator")}
+              onClick={() => setActivePlaceholder("email")}
+              className={`p-1.5 rounded-md transition-colors ${
+                activePlaceholder === "email"
+                  ? "bg-emerald-500/20 text-emerald-300"
+                  : "text-neutral-400 hover:text-white hover:bg-white/5"
+              }`}
+              title="ZMail Mailbox"
+            >
+              <Mail className="w-3.5 h-3.5" />
+            </button>
+
+            <button
+              onClick={() => setActivePlaceholder("calendar")}
+              className={`p-1.5 rounded-md transition-colors ${
+                activePlaceholder === "calendar"
+                  ? "bg-emerald-500/20 text-emerald-300"
+                  : "text-neutral-400 hover:text-white hover:bg-white/5"
+              }`}
+              title="Calendar & Timekeeper"
+            >
+              <Calendar className="w-3.5 h-3.5" />
+            </button>
+
+            <button
+              onClick={() => setActivePlaceholder("meetings")}
+              className={`p-1.5 rounded-md transition-colors ${
+                activePlaceholder === "meetings"
+                  ? "bg-emerald-500/20 text-emerald-300"
+                  : "text-neutral-400 hover:text-white hover:bg-white/5"
+              }`}
+              title="Peer Meetings & Voice"
+            >
+              <Video className="w-3.5 h-3.5" />
+            </button>
+
+            <div className="h-3 w-px bg-white/10 mx-0.5" />
+
+            {/* Isolated Zlet Wallet Button */}
+            <button
+              onClick={() => setActivePlaceholder("zlet")}
+              className={`px-1.5 py-1 rounded-md flex items-center gap-1 transition-colors border ${
+                activePlaceholder === "zlet"
+                  ? "bg-amber-500/20 text-amber-300 border-amber-500/40"
+                  : "bg-white/[0.03] text-neutral-300 border-white/10 hover:border-amber-400/40 hover:text-amber-300"
+              }`}
+              title="Zlet: Universal Sandbox Wallet & Payments"
+            >
+              <Wallet className="w-3.5 h-3.5 text-amber-400" />
+              <span className="text-[10px] font-mono font-medium">Zlet</span>
+            </button>
+
+            <div className="h-3 w-px bg-white/10 mx-0.5" />
+
+            {/* Zero-Knowledge Profile Custody Center */}
+            <button
+              onClick={() => setProfileModalOpen(true)}
+              className={`px-1.5 py-1 rounded-md flex items-center gap-1 transition-colors border ${
+                profile
+                  ? "bg-white/[0.03] text-emerald-400 border-emerald-500/30 hover:bg-emerald-500/10"
+                  : "bg-white/[0.03] text-neutral-400 border-white/10 hover:text-white"
+              }`}
+              title="Zero-Knowledge Profile & Passphrase Custody"
+            >
+              <User className="w-3.5 h-3.5" />
+              <span className="text-[10px] font-mono">
+                {profile ? `@${profile.username}` : "Profile"}
+              </span>
+            </button>
+
+            <div className="h-3 w-px bg-white/10 mx-0.5" />
+
+            {/* Viewport switch: Preview vs Download */}
+            <button
+              onClick={() => {
+                setActiveTab("simulator");
+                setActivePlaceholder(null);
+              }}
               className={`p-1.5 rounded-md flex items-center justify-center transition-colors ${
-                activeTab === "simulator"
+                activeTab === "simulator" && !activePlaceholder
                   ? "bg-white/15 text-emerald-400"
                   : "text-neutral-400 hover:text-white hover:bg-white/5"
               }`}
-              title="Browser Simulator"
+              title="Browser Viewport"
             >
-              <Eye className="w-4 h-4" />
+              <Eye className="w-3.5 h-3.5" />
             </button>
             <button
-              onClick={() => setActiveTab("download")}
+              onClick={() => {
+                setActiveTab("download");
+                setActivePlaceholder(null);
+              }}
               className={`p-1.5 rounded-md flex items-center justify-center transition-colors ${
-                activeTab === "download"
+                activeTab === "download" && !activePlaceholder
                   ? "bg-emerald-500 text-black shadow-sm"
                   : "text-neutral-400 hover:text-white hover:bg-white/5"
               }`}
               title="Download Desktop Binary (.exe / .zip)"
             >
-              <Download className="w-4 h-4" />
-            </button>
-            <div className="h-3 w-px bg-white/10 mx-1" />
-            <button
-              onClick={onClose}
-              className="p-1 text-neutral-400 hover:text-white hover:bg-white/10 rounded transition-colors"
-              aria-label="Close"
-              title="Close (Esc)"
-            >
-              <X className="w-4 h-4" />
+              <Download className="w-3.5 h-3.5" />
             </button>
           </div>
         </div>
@@ -244,7 +363,7 @@ export function AiBrowserModal({ isOpen, onClose }: AiBrowserModalProps) {
                     className="p-1.5 rounded text-amber-400 hover:bg-white/10 transition-colors"
                     title="Stop"
                   >
-                    <X className="w-3.5 h-3.5" />
+                    <Activity className="w-3.5 h-3.5 animate-spin" />
                   </button>
                 ) : (
                   <button
@@ -337,25 +456,35 @@ export function AiBrowserModal({ isOpen, onClose }: AiBrowserModalProps) {
                   referrerPolicy="no-referrer"
                 />
 
-                {/* Bottom Technical Telemetry Strip */}
-                <div className="border-t border-white/10 bg-[#0e100f] px-3 py-1 flex items-center justify-between text-[11px] text-neutral-400 font-mono">
+                {/* Bottom Technical Telemetry Strip with Live Network Speed Meter */}
+                <div className="border-t border-white/10 bg-[#0e100f] px-3 py-1.5 flex items-center justify-between text-[11px] text-neutral-400 font-mono select-none">
                   <div className="flex items-center gap-2">
                     <span className="flex items-center gap-1 text-emerald-400">
                       <Shield className="w-3 h-3" />
                       <span>PROXIED</span>
                     </span>
                     <span>/</span>
-                    <span className="truncate max-w-[280px] sm:max-w-md text-neutral-300">{currentUrl}</span>
+                    <span className="truncate max-w-[220px] sm:max-w-md text-neutral-300">
+                      {currentUrl}
+                    </span>
                     <span>/</span>
                     <span className="text-emerald-400">{shieldBlocked} shielded</span>
                   </div>
-                  <button
-                    onClick={() => setActiveTab("download")}
-                    className="text-emerald-400 hover:text-emerald-300 text-[10px] font-mono flex items-center gap-1 transition-colors"
-                  >
-                    <Download className="w-3 h-3" />
-                    <span>.exe (.zip)</span>
-                  </button>
+
+                  {/* Real-Time Download/Upload Speed Meter */}
+                  <div className="flex items-center gap-2.5 bg-black/50 px-2.5 py-0.5 rounded border border-white/10 text-[10px]">
+                    <div className="flex items-center gap-1 text-emerald-400" title="Virtual Inbound Speed">
+                      <ArrowDown className="w-3 h-3 animate-pulse" />
+                      <span className="font-semibold">{dlSpeed}</span>
+                      <span className="text-[9px] text-neutral-500">MB/s</span>
+                    </div>
+                    <div className="h-2.5 w-px bg-white/10" />
+                    <div className="flex items-center gap-1 text-sky-400" title="Virtual Outbound Speed">
+                      <ArrowUp className="w-3 h-3" />
+                      <span className="font-semibold">{ulSpeed}</span>
+                      <span className="text-[9px] text-neutral-500">MB/s</span>
+                    </div>
+                  </div>
                 </div>
               </div>
 
@@ -445,7 +574,7 @@ export function AiBrowserModal({ isOpen, onClose }: AiBrowserModalProps) {
         )}
 
         {/* Tab 2: Download PC Executable (.zip / .exe) + CLI Wget */}
-        {activeTab === "download" && (
+        {activeTab === "download" && !activePlaceholder && (
           <div className="flex-1 p-6 md:p-8 overflow-y-auto space-y-6">
             <div className="max-w-3xl mx-auto space-y-6">
               <div>
@@ -592,6 +721,157 @@ export function AiBrowserModal({ isOpen, onClose }: AiBrowserModalProps) {
             </div>
           </div>
         )}
+
+        {/* ------------------------------------------------------------------ */}
+        {/* Placeholder Overlays: Email, Calendar, Meetings, Zlet */}
+        {/* ------------------------------------------------------------------ */}
+        {activePlaceholder && (
+          <div className="flex-1 p-6 md:p-8 overflow-y-auto bg-[#090b0a] flex flex-col justify-between">
+            <div className="max-w-3xl mx-auto w-full space-y-6">
+              <div className="flex items-center justify-between border-b border-white/10 pb-4">
+                <div className="flex items-center gap-3">
+                  {activePlaceholder === "email" && <Mail className="w-5 h-5 text-emerald-400" />}
+                  {activePlaceholder === "calendar" && <Calendar className="w-5 h-5 text-sky-400" />}
+                  {activePlaceholder === "meetings" && <Video className="w-5 h-5 text-purple-400" />}
+                  {activePlaceholder === "zlet" && <Wallet className="w-5 h-5 text-amber-400" />}
+                  <div>
+                    <h3 className="text-sm font-bold text-white uppercase font-mono tracking-wider">
+                      {activePlaceholder === "email" && "ZenBox AI Mailbox"}
+                      {activePlaceholder === "calendar" && "Autonomous Calendar"}
+                      {activePlaceholder === "meetings" && "Peer Meetings & Voice"}
+                      {activePlaceholder === "zlet" && "Zlet: Universal Sandbox Wallet"}
+                    </h3>
+                    <p className="text-[11px] text-neutral-400">
+                      {activePlaceholder === "zlet"
+                        ? "Isolated financial sandbox: one screen for all digital assets, stablecoins, cards and wallets you control."
+                        : "Encrypted native capability within AiBrowser environment."}
+                    </p>
+                  </div>
+                </div>
+
+                <button
+                  onClick={() => setActivePlaceholder(null)}
+                  className="px-2.5 py-1 bg-white/5 hover:bg-white/10 text-xs font-mono text-neutral-300 rounded border border-white/10"
+                >
+                  Return to Browser
+                </button>
+              </div>
+
+              {/* 1. ZENBOX EMAIL PLACEHOLDER */}
+              {activePlaceholder === "email" && (
+                <div className="space-y-4">
+                  <div className="p-3.5 rounded-xl border border-white/10 bg-white/[0.02] flex items-center justify-between">
+                    <div>
+                      <div className="text-xs font-semibold text-white">Unified Inbox Active</div>
+                      <div className="text-xs text-neutral-400 font-mono">
+                        Identity: {profile ? profile.identities.emailPlaceholder : "tahseen@zmail.sec"}
+                      </div>
+                    </div>
+                    <span className="text-[10px] bg-emerald-500/10 text-emerald-400 px-2 py-0.5 rounded border border-emerald-500/20 font-mono">
+                      End-to-End Encrypted
+                    </span>
+                  </div>
+                  <div className="border border-white/10 rounded-xl p-8 text-center text-neutral-400 space-y-2">
+                    <Mail className="w-8 h-8 mx-auto text-neutral-600" />
+                    <div className="text-sm font-semibold text-white">ZMail Mailbox Service Standalone</div>
+                    <p className="text-xs max-w-md mx-auto text-neutral-400">
+                      Full email client engine with AI triage, autonomous scheduling, and phishing tripwires is running in <code>/zmail</code>.
+                    </p>
+                  </div>
+                </div>
+              )}
+
+              {/* 2. CALENDAR PLACEHOLDER */}
+              {activePlaceholder === "calendar" && (
+                <div className="space-y-4">
+                  <div className="p-3.5 rounded-xl border border-white/10 bg-white/[0.02]">
+                    <div className="text-xs font-semibold text-white">Autonomous Calendar Engine</div>
+                    <div className="text-xs text-neutral-400">
+                      Syncs commitments discovered across ZMail, chats, and meetings without cloud data brokers.
+                    </div>
+                  </div>
+                  <div className="border border-white/10 rounded-xl p-8 text-center text-neutral-400 space-y-2">
+                    <Calendar className="w-8 h-8 mx-auto text-neutral-600" />
+                    <div className="text-sm font-semibold text-white">Universal Timekeeper Engine Active</div>
+                    <p className="text-xs max-w-md mx-auto text-neutral-400">
+                      Local schedule container ready. Full module specifications registered in <code>/zcal</code>.
+                    </p>
+                  </div>
+                </div>
+              )}
+
+              {/* 3. MEETINGS PLACEHOLDER */}
+              {activePlaceholder === "meetings" && (
+                <div className="space-y-4">
+                  <div className="p-3.5 rounded-xl border border-white/10 bg-white/[0.02]">
+                    <div className="text-xs font-semibold text-white">Peer Video &amp; Voice Encryption</div>
+                    <div className="text-xs text-neutral-400">
+                      WebRTC peer mesh with noise isolation, local recording, and AI meeting transcripts.
+                    </div>
+                  </div>
+                  <div className="border border-white/10 rounded-xl p-8 text-center text-neutral-400 space-y-2">
+                    <Video className="w-8 h-8 mx-auto text-neutral-600" />
+                    <div className="text-sm font-semibold text-white">Peer Audio/Video Bridge Active</div>
+                    <p className="text-xs max-w-md mx-auto text-neutral-400">
+                      Decentralized meeting gateway specifications available in <code>/zmeet</code>.
+                    </p>
+                  </div>
+                </div>
+              )}
+
+              {/* 4. ZLET ISOLATED WALLET PLACEHOLDER */}
+              {activePlaceholder === "zlet" && (
+                <div className="space-y-4">
+                  <div className="p-3.5 rounded-xl border border-amber-500/20 bg-amber-500/[0.03] flex items-center justify-between">
+                    <div>
+                      <div className="text-xs font-semibold text-amber-300">Zlet Financial Sandbox</div>
+                      <div className="text-xs text-neutral-400 font-mono">
+                        Vault Address: {profile ? profile.identities.zletWalletAddress : "0x7F...c0de"}
+                      </div>
+                    </div>
+                    <span className="text-[10px] bg-amber-500/10 text-amber-300 px-2 py-0.5 rounded border border-amber-500/20 font-mono">
+                      Isolated
+                    </span>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                    <div className="p-3 rounded-xl border border-white/10 bg-white/[0.02]">
+                      <div className="text-[10px] font-mono text-neutral-400 uppercase">Unified Portfolio</div>
+                      <div className="text-base font-bold text-white font-mono mt-0.5">$0.00 USD</div>
+                      <div className="text-[10px] text-neutral-500">Multi-currency aggregate</div>
+                    </div>
+                    <div className="p-3 rounded-xl border border-white/10 bg-white/[0.02]">
+                      <div className="text-[10px] font-mono text-neutral-400 uppercase">Connected Rails</div>
+                      <div className="text-base font-bold text-emerald-400 font-mono mt-0.5">Ready</div>
+                      <div className="text-[10px] text-neutral-500">Card, Crypto, Mobile</div>
+                    </div>
+                    <div className="p-3 rounded-xl border border-white/10 bg-white/[0.02]">
+                      <div className="text-[10px] font-mono text-neutral-400 uppercase">DeFi &amp; Vaults</div>
+                      <div className="text-base font-bold text-amber-400 font-mono mt-0.5">Sandbox</div>
+                      <div className="text-[10px] text-neutral-500">No signing without consent</div>
+                    </div>
+                  </div>
+
+                  <div className="border border-white/10 rounded-xl p-6 text-center text-neutral-400 space-y-2">
+                    <Wallet className="w-8 h-8 mx-auto text-amber-500" />
+                    <div className="text-sm font-semibold text-white">One Screen for All Money Controlled</div>
+                    <p className="text-xs max-w-md mx-auto text-neutral-400">
+                      Zlet combines cards, payment wallets, digital assets, and DeFi protocols into a unified control layer. Full architecture in <code>/zlet</code>.
+                    </p>
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        )}
+
+        {/* Dedicated Zero-Knowledge Custody Modal */}
+        <AiBrowserProfileModal
+          isOpen={profileModalOpen}
+          onClose={() => setProfileModalOpen(false)}
+          currentProfile={profile}
+          onProfileUpdated={(p) => setProfile(p)}
+        />
       </div>
     </div>,
     document.body

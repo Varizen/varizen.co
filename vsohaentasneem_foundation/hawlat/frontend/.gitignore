@@ -1,0 +1,10 @@
+node_modules/
+.next/
+out/
+android/local.properties
+android/.gradle/
+android/app/build/
+android/build/
+ios/App/Pods/
+*.jks
+*.keystore

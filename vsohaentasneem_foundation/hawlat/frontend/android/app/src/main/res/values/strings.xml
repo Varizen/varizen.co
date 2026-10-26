@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">HAWLAT</string>
+    <string name="title_activity_main">HAWLAT</string>
+    <string name="package_name">com.stfl.hawlat</string>
+    <string name="custom_url_scheme">com.stfl.hawlat</string>
+</resources>

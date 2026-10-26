@@ -1,0 +1,56 @@
+{
+  "source": "Official google/fonts repository",
+  "families": [
+    {
+      "family": "hind-siliguri",
+      "source": "https://github.com/google/fonts/tree/main/ofl/hindsiliguri",
+      "license": "SIL Open Font License 1.1",
+      "files": [
+        "HindSiliguri-Regular.ttf",
+        "HindSiliguri-Medium.ttf",
+        "HindSiliguri-SemiBold.ttf",
+        "HindSiliguri-Bold.ttf"
+      ]
+    },
+    {
+      "family": "noto-sans-bengali",
+      "source": "https://github.com/google/fonts/tree/main/ofl/notosansbengali",
+      "license": "SIL Open Font License 1.1",
+      "files": [
+        "NotoSansBengali[wdth,wght].ttf"
+      ]
+    },
+    {
+      "family": "noto-serif-bengali",
+      "source": "https://github.com/google/fonts/tree/main/ofl/notoserifbengali",
+      "license": "SIL Open Font License 1.1",
+      "files": [
+        "NotoSerifBengali[wdth,wght].ttf"
+      ]
+    },
+    {
+      "family": "anek-bangla",
+      "source": "https://github.com/google/fonts/tree/main/ofl/anekbangla",
+      "license": "SIL Open Font License 1.1",
+      "files": [
+        "AnekBangla[wdth,wght].ttf"
+      ]
+    },
+    {
+      "family": "tiro-bangla",
+      "source": "https://github.com/google/fonts/tree/main/ofl/tirobangla",
+      "license": "SIL Open Font License 1.1",
+      "files": [
+        "TiroBangla-Regular.ttf"
+      ]
+    },
+    {
+      "family": "baloo-da-2",
+      "source": "https://github.com/google/fonts/tree/main/ofl/balooda2",
+      "license": "SIL Open Font License 1.1",
+      "files": [
+        "BalooDa2[wght].ttf"
+      ]
+    }
+  ]
+}

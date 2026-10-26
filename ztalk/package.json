@@ -1,0 +1,14 @@
+{
+  "name": "ztalk",
+  "version": "1.0.0",
+  "description": "ZTalk — Every Conversation. One Place. 14+ messengers, AI assistant, translation, secure by design.",
+  "main": "server/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node server/index.js",
+    "test": "node --test tests/*.test.js"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}

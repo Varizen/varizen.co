@@ -31,3 +31,23 @@ Prepared against the latest Varizen logo-use rules found in the Library.
 
 ## Source policy
 The `02_SOURCE_LIBRARY` folder retains all collected Library exports, including the duplicate variant, so no source asset is lost. The `01_RECOMMENDED_USE` folder is the curated operational set.
+
+## Generated app assets
+`04_APP_ASSETS/` is the **register of every asset actually shipped in the products**
+(favicons, app icons, navbar wordmarks, hero lockups). Nothing in it is drawn by
+hand — everything is derived from `01_RECOMMENDED_USE` by
+`scripts/build_app_icons.py` and installed into the apps by
+`scripts/install_app_icons.py`. See `04_APP_ASSETS/README.md` for the full
+asset-to-surface matrix and rebuild instructions.
+
+## Placement summary
+| Surface | Asset | Background |
+| --- | --- | --- |
+| Favicon / app icon | symbol-only V mark | transparent |
+| Light navbar / footer | `varizen-horizontal-color` | transparent |
+| Dark navbar / footer | `varizen-horizontal-white` | transparent |
+| Light hero / splash | `varizen-stacked-color` | transparent |
+| Dark hero / splash | `varizen-stacked-white` | transparent |
+
+Never use the full wordmark at favicon sizes, and never stretch, rotate or recolour
+the mark.

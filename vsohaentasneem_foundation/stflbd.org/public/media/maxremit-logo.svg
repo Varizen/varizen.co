@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <rect width="200" height="200" rx="32" fill="#064E3B"/>
+  <!-- Cross-Border Flow Ribbon & Exchange Rail -->
+  <path d="M50 115 C50 75, 95 65, 120 65 L145 65" stroke="#10B981" stroke-width="8" stroke-linecap="round" fill="none"/>
+  <path d="M130 50 L150 65 L130 80" fill="#10B981"/>
+  <path d="M150 85 C150 125, 105 135, 80 135 L55 135" stroke="#D97706" stroke-width="8" stroke-linecap="round" fill="none"/>
+  <path d="M70 120 L50 135 L70 150" fill="#D97706"/>
+</svg>

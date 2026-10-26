@@ -1,0 +1,739 @@
+Build **ZenBox**, a super-light, beautiful, universal AI email application.
+
+### 1. Core concept
+
+ZenBox is a **single mailbox interface for every email account a user owns**.
+
+The user can connect:
+
+- Gmail / Google Workspace
+- Outlook / Microsoft 365
+- Yahoo
+- iCloud Mail
+- IMAP / SMTP mailboxes
+- Custom-domain email
+- Other providers through standard OAuth, IMAP, SMTP, or provider APIs
+
+All connected mailboxes appear in **one unified inbox**, while the underlying emails, attachments, folders, contacts, and mailbox data remain stored at their **original/native providers**.
+
+**Do NOT create a new centralized email-storage system by default.**
+
+ZenBox should function primarily as an intelligent **mail client + AI orchestration layer**.
+
+---
+
+### 2. Basic email functionality
+
+Everything expected from a modern email client must work:
+
+- Receive mail
+- Send mail
+- Reply
+- Reply all
+- Forward
+- CC / BCC
+- Attachments
+- Download attachments
+- Search
+- Archive
+- Delete
+- Spam
+- Mark read/unread
+- Star / flag
+- Labels/folders
+- Drafts
+- Scheduled sending
+- Multiple signatures
+- Multiple identities
+- Contact suggestions
+- Threaded conversations
+- Inline previews
+- Notifications
+
+The experience should feel dramatically simpler than Gmail or Outlook.
+
+---
+
+### 3. AI does the heavy work
+
+The defining feature is that **AI operates the mailbox on behalf of the user**.
+
+AI should be able to:
+
+- Understand incoming messages
+- Summarize long conversations
+- Identify what requires action
+- Prioritize important mail
+- Detect deadlines
+- Detect requests
+- Detect invoices and documents
+- Extract dates, names, amounts and commitments
+- Draft replies
+- Suggest replies
+- Rewrite messages
+- Translate messages
+- Change tone
+- Prepare follow-ups
+- Remind the user about unanswered mail
+- Organize messages
+- Categorize mail
+- Find relevant old conversations
+- Search across every connected mailbox
+- Prepare daily email briefings
+- Identify duplicate/noisy messages
+- Detect suspicious/phishing messages
+- Prepare meeting responses
+- Extract tasks from emails
+- Track conversations requiring follow-up
+
+The user should be able to tell AI things such as:
+
+> "Find everything related to the SAMC project."
+
+> "Reply to everyone and tell them I'll review it tomorrow."
+
+> "Find the invoice from last month and tell me how much I owe."
+
+> "Handle this conversation."
+
+> "Clean up my inbox."
+
+AI should **show what it intends to do before consequential actions**, unless the user has explicitly granted permission for that action.
+
+---
+
+### 4. AI Agent Mode
+
+Create an optional **AI Agent Mode**.
+
+Instead of manually opening emails, the user can simply say:
+
+> "Take care of my emails."
+
+ZenBox analyzes the mailbox and presents:
+
+**Needs me**
+- 4 messages requiring your decision
+
+**AI can handle**
+- 12 routine replies
+- 3 scheduling requests
+- 2 follow-ups
+
+**Waiting**
+- 6 conversations awaiting responses
+
+**Important**
+- 3 high-priority messages
+
+The user can approve actions individually or approve a group.
+
+---
+
+### 5. Encrypted mail — exclusive ZenBox sessions
+
+Create a special feature called:
+
+## **ZenBox Secure Session**
+
+This is NOT ordinary email encryption.
+
+A user can initiate a **private encrypted email session** directly from ZenBox.
+
+The session should provide strong end-to-end encryption using modern, audited cryptographic standards.
+
+Important principle:
+
+**ZenBox should never pretend ordinary email is end-to-end encrypted.**
+
+When a secure message is sent, the recipient receives an appropriate notification/invitation explaining that the message must be opened through **ZenBox Secure Session**.
+
+If an encrypted ZenBox message arrives:
+
+1. Detect the secure-message format.
+2. Identify it as a ZenBox Secure Session.
+3. Do not expose decrypted content to ordinary mail-client handling.
+4. Open the message inside the secure ZenBox environment.
+5. Authenticate the recipient.
+6. Establish the encrypted session.
+7. Display the decrypted message only inside the secure session.
+8. Keep decrypted content out of ordinary mailbox storage whenever technically possible.
+
+Attachments in a secure session must also remain encrypted.
+
+Support:
+
+- Encrypted text
+- Encrypted attachments
+- Secure replies
+- Session expiration
+- Optional message expiration
+- Recipient verification
+- Device/session management
+- Key management
+- Security notifications
+- Revocation where technically possible
+
+Use **well-established cryptographic libraries and protocols**. Never invent cryptography.
+
+---
+
+### 6. AI + security boundary
+
+AI must NOT automatically receive unrestricted access to decrypted secure-session content.
+
+Create separate security boundaries:
+
+**Normal Mail**
+→ AI may process according to user permissions.
+
+**Secure Session**
+→ encrypted/private environment.
+
+AI access to secure-session content must be:
+
+- Explicitly authorized
+- Clearly visible
+- Revocable
+- Auditable
+
+Never silently send secure-session content to an external AI provider.
+
+---
+
+### 7. AIBrowser-style sandbox
+
+ZenBox should operate with an **AIBrowser-like sandbox architecture**.
+
+The AI agent should not have unrestricted access to the user's computer.
+
+Give the agent controlled capabilities such as:
+
+- Mail API access
+- Browser access when explicitly required
+- File access only when authorized
+- Calendar access only when authorized
+- Contact access only when authorized
+- Secure-session access only when authorized
+
+Use a permission model such as:
+
+**Read**
+→ Can inspect.
+
+**Prepare**
+→ Can draft.
+
+**Act**
+→ Can send/change/delete.
+
+**Secure**
+→ Can access encrypted sessions.
+
+Every sensitive capability should be permission controlled.
+
+---
+
+### 8. Native data principle
+
+This is critical.
+
+**ZenBox should not unnecessarily copy or migrate the user's data.**
+
+Examples:
+
+Gmail email → remains in Gmail.
+
+Outlook email → remains in Microsoft 365.
+
+IMAP email → remains on the IMAP server.
+
+Attachments → remain with their native provider unless the user explicitly downloads or exports them.
+
+Contacts → remain in their native contact system where possible.
+
+Calendar → remains in the native calendar provider.
+
+ZenBox stores only the minimum metadata/cache required to provide a fast experience.
+
+Use provider APIs, OAuth, IMAP/SMTP and local encrypted caches appropriately.
+
+---
+
+### 9. Unified search
+
+Create one extremely fast search box:
+
+**"Search everything…"**
+
+Search across all connected accounts.
+
+Examples:
+
+> invoice from ABC
+
+> emails from John about Malaysia
+
+> attachments containing passport
+
+> conversations where I promised to call
+
+> emails I haven't answered
+
+> everything related to Varizen
+
+AI should understand natural-language search rather than forcing users to learn search syntax.
+
+---
+
+### 10. UI philosophy
+
+The UI must be:
+
+**Beautiful + extremely lightweight + fast + calm.**
+
+Do NOT make it look like another Gmail clone.
+
+Think:
+
+- Minimal
+- Premium
+- Modern
+- Spacious
+- Fluid
+- Almost invisible chrome
+- Very fast
+- Keyboard friendly
+- Excellent typography
+- Subtle animation
+- Clean hierarchy
+- Dark/light themes
+- Responsive desktop/tablet/mobile
+
+Primary layout:
+
+**Left**
+- Unified Inbox
+- Important
+- AI Tasks
+- Drafts
+- Sent
+- Secure Sessions
+- Accounts
+
+**Center**
+- Conversation list
+
+**Right / contextual panel**
+- AI summary
+- Actions
+- extracted tasks
+- people
+- attachments
+- conversation intelligence
+
+The interface should adapt based on what the user is doing instead of permanently displaying dozens of controls.
+
+---
+
+### 11. Unified account model
+
+A user can connect multiple accounts.
+
+Example:
+
+**Tahseen**
+
+Gmail
+Outlook
+Varizen
+Personal domain
+iCloud
+
+All appear as one mailbox.
+
+But each message must retain:
+
+- Original provider
+- Original account
+- Original message ID
+- Thread ID
+- Folder/label
+- Provider metadata
+- Native URLs where applicable
+
+Sending must occur through the correct originating account.
+
+If the user replies to an email received at Outlook, ZenBox must send through Outlook rather than accidentally sending through Gmail.
+
+---
+
+### 12. AI identity awareness
+
+AI must understand which identity it is acting as.
+
+Example:
+
+**Personal**
+→ personal email signature
+
+**Varizen**
+→ Varizen signature
+
+**Business**
+→ business identity
+
+Before sending, display:
+
+**Sending as:**
+`business@example.com`
+
+This should be impossible to overlook.
+
+---
+
+### 13. Offline-first performance
+
+ZenBox must remain extremely responsive.
+
+Use:
+
+- Local encrypted cache
+- Incremental synchronization
+- Background synchronization
+- Provider-native IDs
+- Efficient indexing
+- Virtualized message lists
+- Lazy attachment loading
+- Streaming where appropriate
+
+Never download an entire mailbox unnecessarily.
+
+The application should feel instant even with hundreds of thousands of messages.
+
+---
+
+### 14. Architecture
+
+Build ZenBox as a modular application.
+
+Suggested architecture:
+
+**UI**
+- React / Next.js or equivalent
+- Modern component system
+- Highly optimized rendering
+
+**Desktop**
+- Lightweight desktop shell if required
+- Sandboxed AI execution
+
+**Backend**
+- Thin orchestration layer
+- Authentication
+- OAuth token management
+- Provider adapters
+- AI orchestration
+- Secure-session infrastructure
+
+**Provider adapters**
+
+```text
+ProviderAdapter
+ ├── Gmail
+ ├── Microsoft Graph
+ ├── IMAP/SMTP
+ ├── Yahoo
+ ├── iCloud
+ └── Generic providers
+```
+
+Never hard-code provider-specific logic throughout the application.
+
+---
+
+### 15. AI provider abstraction
+
+Do not tightly couple ZenBox to one AI provider.
+
+Create:
+
+```text
+AIProvider
+ ├── OpenAI
+ ├── Anthropic
+ ├── Gemini
+ ├── Local Model
+ └── Custom Enterprise Model
+```
+
+Allow the user or organization to select the AI provider.
+
+For sensitive environments, support local/on-device AI where practical.
+
+---
+
+### 16. Privacy
+
+Privacy must be a first-class feature.
+
+The application must clearly show:
+
+- What data AI can access
+- Which AI provider processes it
+- What remains local
+- What remains at the native mail provider
+- What is cached
+- What is encrypted
+- Which permissions are active
+
+Provide:
+
+**Privacy Center**
+
+with controls for:
+
+- AI access
+- Account access
+- Secure Sessions
+- Local cache
+- Connected devices
+- Active sessions
+- Provider tokens
+- Data deletion
+
+---
+
+### 17. Security requirements
+
+Implement:
+
+- OAuth 2.0 / provider-recommended authentication
+- PKCE where applicable
+- Encrypted credential/token storage
+- OS keychain/credential vault
+- Least-privilege permissions
+- Secure local storage
+- CSP
+- Sandboxed rendering
+- CSRF protection
+- XSS protection
+- Secure attachment handling
+- Malware-safe attachment previews
+- Audit logs for AI actions
+- Action confirmation for destructive/sensitive operations
+- Session/device management
+
+Never store provider passwords in plaintext.
+
+---
+
+### 18. AI action log
+
+Create an elegant activity history:
+
+**AI Activity**
+
+> Summarized 14 emails
+
+> Drafted reply to Sarah
+
+> Moved 8 newsletters to Promotions
+
+> Scheduled follow-up with John
+
+> Sent email from Varizen account
+
+> Secure Session created
+
+Each action should be inspectable and reversible where technically possible.
+
+---
+
+### 19. The most important UX rule
+
+The user should never feel like they are operating a complicated email system.
+
+They should feel like:
+
+> **"I have one intelligent mailbox, and it takes care of the boring parts."**
+
+The application must remain simple even though the underlying architecture is sophisticated.
+
+---
+
+### 20. Product personality
+
+ZenBox should feel like:
+
+**Email client**
++
+**AI executive assistant**
++
+**secure communication layer**
++
+**universal mailbox**
+
+But the interface should expose only what the user needs at that moment.
+
+No bloated dashboards.
+
+No unnecessary enterprise controls.
+
+No giant configuration screens.
+
+No unnecessary data migration.
+
+No vendor lock-in.
+
+No fake security claims.
+
+---
+
+### 21. Final acceptance criteria
+
+The finished product must:
+
+1. Connect multiple independent email providers.
+2. Present them as one unified mailbox.
+3. Send from the correct native account.
+4. Receive and synchronize mail without unnecessarily relocating it.
+5. Search across all connected accounts.
+6. Provide AI-powered email understanding and actions.
+7. Provide controlled AI-agent capabilities.
+8. Clearly separate normal email from secure communication.
+9. Support ZenBox Secure Sessions for encrypted communication.
+10. Keep secure-session content isolated from ordinary mail processing.
+11. Use a sandboxed permission model for AI.
+12. Preserve native provider data.
+13. Be extremely lightweight and fast.
+14. Have a premium, modern, uncluttered UI.
+15. Work reliably with large mailboxes.
+16. Provide complete permission visibility and AI action auditing.
+17. Never invent or implement proprietary cryptography.
+18. Never silently upload private mailbox data to an AI provider.
+19. Make every consequential AI action understandable to the user.
+20. Be production-ready rather than a visual prototype.
+
+
+
+### 22. Free Secure Mail Allowance
+
+ZenBox Secure Session must have a **free daily allowance** so anyone can use encrypted communication without paying.
+
+#### Free Account
+
+Every free ZenBox account receives:
+
+- **1 encrypted message sent per day**
+- **1 encrypted message received per day**
+- Secure replies count according to the applicable daily allowance
+- Encrypted attachments are supported within the same allowance
+- No credit card required
+- No subscription required
+
+The allowance resets automatically every 24 hours.
+
+The free tier should be genuinely usable, not a crippled demo.
+
+---
+
+### 23. Commercial Secure Mail
+
+Users who need more secure communication can upgrade to a paid plan.
+
+Paid plans can provide:
+
+- Higher daily/monthly encrypted-message limits
+- Unlimited or substantially higher secure messaging
+- Larger encrypted attachments
+- Longer secure-session retention
+- Advanced recipient verification
+- Multiple secure identities
+- Business domains
+- Team/organization administration
+- Audit logs
+- Security policies
+- Compliance controls
+- Enterprise AI controls
+- Dedicated infrastructure options
+
+The exact limits should be configurable from the server rather than hard-coded into the client.
+
+---
+
+### 24. Simple Pricing UX
+
+Do not aggressively advertise the paid plan.
+
+When a free user reaches the daily encrypted-mail allowance, show a simple message:
+
+> **You've used today's free Secure Mail allowance.**
+>
+> Free allowance resets tomorrow.
+>
+> Need more secure communication?
+> **Upgrade Secure Mail**
+
+Provide:
+
+**Wait until reset**  
+**Upgrade**
+
+Do not block ordinary non-encrypted email.
+
+---
+
+### 25. Commercial Reasoning
+
+The business model should be based primarily on **secure communication volume and professional features**, not on selling user data.
+
+Never monetize by:
+
+- Selling mailbox contents
+- Selling email metadata unnecessarily
+- Selling contacts
+- Selling AI-generated user profiles
+- Advertising based on private email content
+
+The commercial proposition should be:
+
+> **Normal email stays free. Secure communication is free to try every day, while professionals and businesses pay for higher secure-mail capacity and advanced controls.**
+
+This gives ZenBox a strong free product while creating a natural reason for businesses, professionals, organizations and high-volume users to upgrade.
+
+---
+
+### 26. Anti-abuse protection
+
+Because free encrypted mail can be abused, implement reasonable anti-abuse controls:
+
+- Rate limiting
+- Account reputation
+- Automated abuse detection
+- CAPTCHA/challenge mechanisms when necessary
+- Disposable-account protection
+- Secure-session quotas
+- Sender reputation controls
+- Abuse reporting
+- Block/revoke capabilities
+
+Do not weaken encryption itself to perform abuse detection.
+
+The system should prevent **spam and abuse**, not undermine the privacy of legitimate secure communication.
+
+---
+
+### 27. Product positioning
+
+ZenBox's simple message should be:
+
+> **All your email. One intelligent inbox. Secure when you need it.**
+
+And for Secure Mail:
+
+> **One free encrypted message every day. Upgrade when you need more.**
+
+Keep the product experience extremely simple despite the sophisticated infrastructure underneath.
+
+**Build ZenBox as a real, deployable product—not a mockup. Prioritize reliability, privacy, security, speed, and simplicity over feature count.**

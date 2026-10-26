@@ -1,0 +1,2288 @@
+{
+  "source": "https://www.samcb.edu.bd/",
+  "retrieved": "2026-10-24",
+  "counts": {
+    "posts": 39,
+    "pages": 2,
+    "media": 173
+  },
+  "records": [
+    {
+      "type": "post",
+      "title": "Photo Gallery",
+      "url": "https://www.samcb.edu.bd/photo-gallery/",
+      "published": "2026-09-22T15:10:42",
+      "modified": "2026-09-22T15:10:42",
+      "path": "website/posts/photo-gallery.md"
+    },
+    {
+      "type": "post",
+      "title": "Home",
+      "url": "https://www.samcb.edu.bd/home/",
+      "published": "2026-09-21T17:23:22",
+      "modified": "2026-09-23T04:25:12",
+      "path": "website/posts/home.md"
+    },
+    {
+      "type": "post",
+      "title": "Examination Result",
+      "url": "https://www.samcb.edu.bd/examinationresult/",
+      "published": "2025-03-16T10:45:53",
+      "modified": "2025-03-25T05:02:19",
+      "path": "website/posts/examinationresult.md"
+    },
+    {
+      "type": "post",
+      "title": "Anesthesiology",
+      "url": "https://www.samcb.edu.bd/anesthesiology/",
+      "published": "2025-03-11T06:12:20",
+      "modified": "2026-09-21T15:47:39",
+      "path": "website/posts/anesthesiology.md"
+    },
+    {
+      "type": "post",
+      "title": "Gynae and Obs",
+      "url": "https://www.samcb.edu.bd/gyne-and-obs/",
+      "published": "2025-03-11T04:40:20",
+      "modified": "2026-09-21T15:51:24",
+      "path": "website/posts/gyne-and-obs.md"
+    },
+    {
+      "type": "post",
+      "title": "Radiology & Imaging",
+      "url": "https://www.samcb.edu.bd/radiology-and-imaging/",
+      "published": "2025-03-11T04:38:20",
+      "modified": "2026-09-21T15:52:50",
+      "path": "website/posts/radiology-and-imaging.md"
+    },
+    {
+      "type": "post",
+      "title": "ENT",
+      "url": "https://www.samcb.edu.bd/ent/",
+      "published": "2025-03-11T04:36:55",
+      "modified": "2026-09-21T15:54:18",
+      "path": "website/posts/ent.md"
+    },
+    {
+      "type": "post",
+      "title": "Ophthalmology",
+      "url": "https://www.samcb.edu.bd/ophthalmology/",
+      "published": "2025-03-11T04:33:42",
+      "modified": "2026-09-21T15:57:00",
+      "path": "website/posts/ophthalmology.md"
+    },
+    {
+      "type": "post",
+      "title": "Orthopedics",
+      "url": "https://www.samcb.edu.bd/orthopedics/",
+      "published": "2025-03-11T04:32:24",
+      "modified": "2026-09-21T16:01:30",
+      "path": "website/posts/orthopedics.md"
+    },
+    {
+      "type": "post",
+      "title": "Pediatric Surgery",
+      "url": "https://www.samcb.edu.bd/pediatric-surgery/",
+      "published": "2025-03-11T04:30:24",
+      "modified": "2026-09-21T16:03:14",
+      "path": "website/posts/pediatric-surgery.md"
+    },
+    {
+      "type": "post",
+      "title": "Urology",
+      "url": "https://www.samcb.edu.bd/urology/",
+      "published": "2025-03-11T04:29:17",
+      "modified": "2026-09-21T16:03:55",
+      "path": "website/posts/urology.md"
+    },
+    {
+      "type": "post",
+      "title": "Surgery",
+      "url": "https://www.samcb.edu.bd/surgery/",
+      "published": "2025-03-11T04:28:27",
+      "modified": "2026-09-21T16:06:33",
+      "path": "website/posts/surgery.md"
+    },
+    {
+      "type": "post",
+      "title": "Endocrinology",
+      "url": "https://www.samcb.edu.bd/endocrinology/",
+      "published": "2025-03-11T04:26:33",
+      "modified": "2026-09-21T16:07:12",
+      "path": "website/posts/endocrinology.md"
+    },
+    {
+      "type": "post",
+      "title": "Psychiatry",
+      "url": "https://www.samcb.edu.bd/psychiatry/",
+      "published": "2025-03-11T04:25:23",
+      "modified": "2026-09-21T16:09:39",
+      "path": "website/posts/psychiatry.md"
+    },
+    {
+      "type": "post",
+      "title": "Pediatric Nephrology",
+      "url": "https://www.samcb.edu.bd/pediatric-nephrology/",
+      "published": "2025-03-11T04:23:59",
+      "modified": "2026-09-21T16:10:38",
+      "path": "website/posts/pediatric-nephrology.md"
+    },
+    {
+      "type": "post",
+      "title": "Neonatology",
+      "url": "https://www.samcb.edu.bd/neonatology/",
+      "published": "2025-03-11T04:22:17",
+      "modified": "2026-09-21T16:11:05",
+      "path": "website/posts/neonatology.md"
+    },
+    {
+      "type": "post",
+      "title": "Cardiology",
+      "url": "https://www.samcb.edu.bd/cardiology/",
+      "published": "2025-03-10T07:24:57",
+      "modified": "2026-09-21T16:12:25",
+      "path": "website/posts/cardiology.md"
+    },
+    {
+      "type": "post",
+      "title": "Hepatology",
+      "url": "https://www.samcb.edu.bd/hepatology/",
+      "published": "2025-03-10T07:24:17",
+      "modified": "2026-09-21T16:13:10",
+      "path": "website/posts/hepatology.md"
+    },
+    {
+      "type": "post",
+      "title": "Gastroenterology",
+      "url": "https://www.samcb.edu.bd/gastroenterology/",
+      "published": "2025-03-10T07:22:39",
+      "modified": "2026-09-21T16:13:49",
+      "path": "website/posts/gastroenterology.md"
+    },
+    {
+      "type": "post",
+      "title": "Respiratory Medicine",
+      "url": "https://www.samcb.edu.bd/respiratory-medicine/",
+      "published": "2025-03-10T07:21:27",
+      "modified": "2026-09-21T16:14:28",
+      "path": "website/posts/respiratory-medicine.md"
+    },
+    {
+      "type": "post",
+      "title": "Dermatology",
+      "url": "https://www.samcb.edu.bd/dermatology/",
+      "published": "2025-03-10T07:16:55",
+      "modified": "2026-09-21T16:15:23",
+      "path": "website/posts/dermatology.md"
+    },
+    {
+      "type": "post",
+      "title": "Nephrology",
+      "url": "https://www.samcb.edu.bd/nephrology/",
+      "published": "2025-03-10T07:15:59",
+      "modified": "2026-09-21T16:16:05",
+      "path": "website/posts/nephrology.md"
+    },
+    {
+      "type": "post",
+      "title": "Neuro-medicine",
+      "url": "https://www.samcb.edu.bd/neuromedicine/",
+      "published": "2025-03-10T07:14:24",
+      "modified": "2026-09-21T16:16:30",
+      "path": "website/posts/neuromedicine.md"
+    },
+    {
+      "type": "post",
+      "title": "Pediatrics",
+      "url": "https://www.samcb.edu.bd/pediatric/",
+      "published": "2025-03-10T07:12:51",
+      "modified": "2026-09-21T16:18:12",
+      "path": "website/posts/pediatric.md"
+    },
+    {
+      "type": "post",
+      "title": "Medicine",
+      "url": "https://www.samcb.edu.bd/medicine/",
+      "published": "2025-03-10T07:08:22",
+      "modified": "2026-09-21T16:20:06",
+      "path": "website/posts/medicine.md"
+    },
+    {
+      "type": "post",
+      "title": "Forensic Medicine",
+      "url": "https://www.samcb.edu.bd/forensic-medicine/",
+      "published": "2025-03-10T07:06:24",
+      "modified": "2026-09-23T04:25:21",
+      "path": "website/posts/forensic-medicine.md"
+    },
+    {
+      "type": "post",
+      "title": "Pharmacology",
+      "url": "https://www.samcb.edu.bd/pharmacology/",
+      "published": "2025-03-10T07:04:39",
+      "modified": "2026-09-21T16:34:16",
+      "path": "website/posts/pharmacology.md"
+    },
+    {
+      "type": "post",
+      "title": "Microbiology",
+      "url": "https://www.samcb.edu.bd/microbiology/",
+      "published": "2025-03-10T07:01:25",
+      "modified": "2026-09-22T04:06:43",
+      "path": "website/posts/microbiology.md"
+    },
+    {
+      "type": "post",
+      "title": "Pathology",
+      "url": "https://www.samcb.edu.bd/pathology/",
+      "published": "2025-03-10T07:00:09",
+      "modified": "2026-09-22T04:02:15",
+      "path": "website/posts/pathology.md"
+    },
+    {
+      "type": "post",
+      "title": "Community Medicine",
+      "url": "https://www.samcb.edu.bd/community-medicine/",
+      "published": "2025-03-10T06:58:44",
+      "modified": "2026-09-22T05:06:40",
+      "path": "website/posts/community-medicine.md"
+    },
+    {
+      "type": "post",
+      "title": "Biochemistry",
+      "url": "https://www.samcb.edu.bd/biochemistry/",
+      "published": "2025-03-10T06:56:10",
+      "modified": "2026-09-22T04:10:52",
+      "path": "website/posts/biochemistry.md"
+    },
+    {
+      "type": "post",
+      "title": "Physiology",
+      "url": "https://www.samcb.edu.bd/physiology/",
+      "published": "2025-03-10T06:51:50",
+      "modified": "2026-09-22T04:12:13",
+      "path": "website/posts/physiology.md"
+    },
+    {
+      "type": "post",
+      "title": "Anatomy",
+      "url": "https://www.samcb.edu.bd/anatomy/",
+      "published": "2025-03-10T06:50:52",
+      "modified": "2026-09-21T15:45:11",
+      "path": "website/posts/anatomy.md"
+    },
+    {
+      "type": "post",
+      "title": "Student Notice",
+      "url": "https://www.samcb.edu.bd/studentnotice/",
+      "published": "2022-01-29T06:01:55",
+      "modified": "2025-03-16T10:54:47",
+      "path": "website/posts/studentnotice.md"
+    },
+    {
+      "type": "post",
+      "title": "Notices",
+      "url": "https://www.samcb.edu.bd/notices/",
+      "published": "2021-06-01T03:34:04",
+      "modified": "2025-04-04T06:24:29",
+      "path": "website/posts/notices.md"
+    },
+    {
+      "type": "post",
+      "title": "Campus",
+      "url": "https://www.samcb.edu.bd/campus/",
+      "published": "2021-05-06T03:25:09",
+      "modified": "2025-04-04T06:22:55",
+      "path": "website/posts/campus.md"
+    },
+    {
+      "type": "post",
+      "title": "Office Contacts",
+      "url": "https://www.samcb.edu.bd/office-contacts/",
+      "published": "2021-05-04T02:04:41",
+      "modified": "2025-04-04T06:25:20",
+      "path": "website/posts/office-contacts.md"
+    },
+    {
+      "type": "post",
+      "title": "Faculties",
+      "url": "https://www.samcb.edu.bd/faculties/",
+      "published": "2021-05-04T02:03:54",
+      "modified": "2025-03-25T06:22:57",
+      "path": "website/posts/faculties.md"
+    },
+    {
+      "type": "post",
+      "title": "About Us",
+      "url": "https://www.samcb.edu.bd/about/",
+      "published": "2021-05-04T02:03:15",
+      "modified": "2025-03-18T08:56:42",
+      "path": "website/posts/about.md"
+    },
+    {
+      "type": "page",
+      "title": "Admission",
+      "url": "https://www.samcb.edu.bd/admission/",
+      "published": "2022-04-29T09:02:34",
+      "modified": "2025-03-13T06:12:56",
+      "path": "website/pages/admission.md"
+    },
+    {
+      "type": "page",
+      "title": "Home",
+      "url": "https://www.samcb.edu.bd/home/",
+      "published": "2021-05-05T07:40:44",
+      "modified": "2025-03-17T19:11:05",
+      "path": "website/pages/home.md"
+    }
+  ],
+  "resources": [
+    {
+      "url": "https://www.samcb.edu.bd/wp-json/wp/v2/posts",
+      "type": "api-metadata",
+      "path": "website\\metadata\\posts.json",
+      "retrieved": "2026-10-24"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/photo-gallery/",
+      "type": "post",
+      "path": "website\\posts\\photo-gallery.md",
+      "retrieved": "2026-10-24"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/home/",
+      "type": "post",
+      "path": "website\\posts\\home.md",
+      "retrieved": "2026-10-24"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/examinationresult/",
+      "type": "post",
+      "path": "website\\posts\\examinationresult.md",
+      "retrieved": "2026-10-24"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/anesthesiology/",
+      "type": "post",
+      "path": "website\\posts\\anesthesiology.md",
+      "retrieved": "2026-10-24"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/gyne-and-obs/",
+      "type": "post",
+      "path": "website\\posts\\gyne-and-obs.md",
+      "retrieved": "2026-10-24"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/radiology-and-imaging/",
+      "type": "post",
+      "path": "website\\posts\\radiology-and-imaging.md",
+      "retrieved": "2026-10-24"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/ent/",
+      "type": "post",
+      "path": "website\\posts\\ent.md",
+      "retrieved": "2026-10-24"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/ophthalmology/",
+      "type": "post",
+      "path": "website\\posts\\ophthalmology.md",
+      "retrieved": "2026-10-24"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/orthopedics/",
+      "type": "post",
+      "path": "website\\posts\\orthopedics.md",
+      "retrieved": "2026-10-24"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/pediatric-surgery/",
+      "type": "post",
+      "path": "website\\posts\\pediatric-surgery.md",
+      "retrieved": "2026-10-24"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/urology/",
+      "type": "post",
+      "path": "website\\posts\\urology.md",
+      "retrieved": "2026-10-24"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/surgery/",
+      "type": "post",
+      "path": "website\\posts\\surgery.md",
+      "retrieved": "2026-10-24"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/endocrinology/",
+      "type": "post",
+      "path": "website\\posts\\endocrinology.md",
+      "retrieved": "2026-10-24"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/psychiatry/",
+      "type": "post",
+      "path": "website\\posts\\psychiatry.md",
+      "retrieved": "2026-10-24"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/pediatric-nephrology/",
+      "type": "post",
+      "path": "website\\posts\\pediatric-nephrology.md",
+      "retrieved": "2026-10-24"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/neonatology/",
+      "type": "post",
+      "path": "website\\posts\\neonatology.md",
+      "retrieved": "2026-10-24"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/cardiology/",
+      "type": "post",
+      "path": "website\\posts\\cardiology.md",
+      "retrieved": "2026-10-24"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/hepatology/",
+      "type": "post",
+      "path": "website\\posts\\hepatology.md",
+      "retrieved": "2026-10-24"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/gastroenterology/",
+      "type": "post",
+      "path": "website\\posts\\gastroenterology.md",
+      "retrieved": "2026-10-24"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/respiratory-medicine/",
+      "type": "post",
+      "path": "website\\posts\\respiratory-medicine.md",
+      "retrieved": "2026-10-24"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/dermatology/",
+      "type": "post",
+      "path": "website\\posts\\dermatology.md",
+      "retrieved": "2026-10-24"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/nephrology/",
+      "type": "post",
+      "path": "website\\posts\\nephrology.md",
+      "retrieved": "2026-10-24"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/neuromedicine/",
+      "type": "post",
+      "path": "website\\posts\\neuromedicine.md",
+      "retrieved": "2026-10-24"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/pediatric/",
+      "type": "post",
+      "path": "website\\posts\\pediatric.md",
+      "retrieved": "2026-10-24"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/medicine/",
+      "type": "post",
+      "path": "website\\posts\\medicine.md",
+      "retrieved": "2026-10-24"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/forensic-medicine/",
+      "type": "post",
+      "path": "website\\posts\\forensic-medicine.md",
+      "retrieved": "2026-10-24"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/pharmacology/",
+      "type": "post",
+      "path": "website\\posts\\pharmacology.md",
+      "retrieved": "2026-10-24"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/microbiology/",
+      "type": "post",
+      "path": "website\\posts\\microbiology.md",
+      "retrieved": "2026-10-24"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/pathology/",
+      "type": "post",
+      "path": "website\\posts\\pathology.md",
+      "retrieved": "2026-10-24"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/community-medicine/",
+      "type": "post",
+      "path": "website\\posts\\community-medicine.md",
+      "retrieved": "2026-10-24"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/biochemistry/",
+      "type": "post",
+      "path": "website\\posts\\biochemistry.md",
+      "retrieved": "2026-10-24"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/physiology/",
+      "type": "post",
+      "path": "website\\posts\\physiology.md",
+      "retrieved": "2026-10-24"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/anatomy/",
+      "type": "post",
+      "path": "website\\posts\\anatomy.md",
+      "retrieved": "2026-10-24"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/studentnotice/",
+      "type": "post",
+      "path": "website\\posts\\studentnotice.md",
+      "retrieved": "2026-10-24"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/notices/",
+      "type": "post",
+      "path": "website\\posts\\notices.md",
+      "retrieved": "2026-10-24"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/campus/",
+      "type": "post",
+      "path": "website\\posts\\campus.md",
+      "retrieved": "2026-10-24"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/office-contacts/",
+      "type": "post",
+      "path": "website\\posts\\office-contacts.md",
+      "retrieved": "2026-10-24"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/faculties/",
+      "type": "post",
+      "path": "website\\posts\\faculties.md",
+      "retrieved": "2026-10-24"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/about/",
+      "type": "post",
+      "path": "website\\posts\\about.md",
+      "retrieved": "2026-10-24"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-json/wp/v2/pages",
+      "type": "api-metadata",
+      "path": "website\\metadata\\pages.json",
+      "retrieved": "2026-10-24"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/admission/",
+      "type": "page",
+      "path": "website\\pages\\admission.md",
+      "retrieved": "2026-10-24"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/home/",
+      "type": "page",
+      "path": "website\\pages\\home.md",
+      "retrieved": "2026-10-24"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-json/wp/v2/media",
+      "type": "media-metadata",
+      "path": "website\\metadata\\media.json",
+      "retrieved": "2026-10-24"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/",
+      "type": "html",
+      "path": "website\\html\\home.html",
+      "retrieved": "2026-10-24"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/",
+      "type": "full-page-text",
+      "path": "website\\html\\home.md",
+      "retrieved": "2026-10-24"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/office-contacts/",
+      "type": "html",
+      "path": "website\\html\\office-contacts-full.html",
+      "retrieved": "2026-10-24"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/office-contacts/",
+      "type": "full-page-text",
+      "path": "website\\html\\office-contacts-full.md",
+      "retrieved": "2026-10-24"
+    },
+    {
+      "url": "https://facebook.com/samcbsl",
+      "type": "external-link",
+      "retrieved": "2026-10-24"
+    },
+    {
+      "url": "https://samcb.edu.bd/wp-content/uploads/2021/05/1.jpeg",
+      "type": "media",
+      "path": "website\\assets\\jpeg\\19b9147f-1.jpeg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://samcb.edu.bd/wp-content/uploads/2021/05/10.jpeg",
+      "type": "media",
+      "path": "website\\assets\\jpeg\\5a85abf8-10.jpeg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://samcb.edu.bd/wp-content/uploads/2021/05/11.jpeg",
+      "type": "media",
+      "path": "website\\assets\\jpeg\\6a0653cd-11.jpeg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://samcb.edu.bd/wp-content/uploads/2021/05/12.jpeg",
+      "type": "media",
+      "path": "website\\assets\\jpeg\\74d3e58c-12.jpeg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://samcb.edu.bd/wp-content/uploads/2021/05/2.jpeg",
+      "type": "media",
+      "path": "website\\assets\\jpeg\\e548507a-2.jpeg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://samcb.edu.bd/wp-content/uploads/2021/05/20210815_112232.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\5508b119-20210815_112232.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://samcb.edu.bd/wp-content/uploads/2021/05/3.jpeg",
+      "type": "media",
+      "path": "website\\assets\\jpeg\\764ab942-3.jpeg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://samcb.edu.bd/wp-content/uploads/2021/05/4.jpeg",
+      "type": "media",
+      "path": "website\\assets\\jpeg\\99056df2-4.jpeg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://samcb.edu.bd/wp-content/uploads/2021/05/5.jpeg",
+      "type": "media",
+      "path": "website\\assets\\jpeg\\c9ffa140-5.jpeg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://samcb.edu.bd/wp-content/uploads/2021/05/6.jpeg",
+      "type": "media",
+      "path": "website\\assets\\jpeg\\e63a9dd9-6.jpeg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://samcb.edu.bd/wp-content/uploads/2021/05/8.jpeg",
+      "type": "media",
+      "path": "website\\assets\\jpeg\\81a56ee0-8.jpeg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://samcb.edu.bd/wp-content/uploads/2021/05/9.jpeg",
+      "type": "media",
+      "path": "website\\assets\\jpeg\\757d966c-9.jpeg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://samcb.edu.bd/wp-content/uploads/2021/05/DSC8696.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\3d2f9a97-DSC8696.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://samcb.edu.bd/wp-content/uploads/2021/05/DSC8711.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\379ac647-DSC8711.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://samcb.edu.bd/wp-content/uploads/2021/05/DSC8712.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\7755c033-DSC8712.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://samcb.edu.bd/wp-content/uploads/2021/05/DSC8726.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\e81fccbd-DSC8726.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://samcb.edu.bd/wp-content/uploads/2021/05/DSC8733.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\580210a1-DSC8733.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://samcb.edu.bd/wp-content/uploads/2021/05/DSC8913.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\d481fd24-DSC8913.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://samcb.edu.bd/wp-content/uploads/2021/05/DSC8915.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\772f4628-DSC8915.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://samcb.edu.bd/wp-content/uploads/2021/05/DSC8917.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\a6503786-DSC8917.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://samcb.edu.bd/wp-content/uploads/2021/05/DSC8939.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\69cdd811-DSC8939.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://samcb.edu.bd/wp-content/uploads/2021/05/DSC8943.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\f020c9f4-DSC8943.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://samcb.edu.bd/wp-content/uploads/2021/05/DSC8947.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\0f012597-DSC8947.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://samcb.edu.bd/wp-content/uploads/2021/05/DSC8955.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\b47e037b-DSC8955.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://samcb.edu.bd/wp-content/uploads/2021/05/IMG_20210815_111958.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\29de35fc-IMG_20210815_111958.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://samcb.edu.bd/wp-content/uploads/2021/05/al-amin-pa.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\43886160-al-amin-pa.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://samcb.edu.bd/wp-content/uploads/2021/05/second-College-building-1024x516.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\622ce0b8-second-College-building-1024x516.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://samcb.edu.bd/wp-content/uploads/2021/05/second-College-building.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\426e1dcf-second-College-building.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://samcb.edu.bd/wp-content/uploads/2021/06/admission-circular-June-2021.pdf",
+      "type": "document",
+      "path": "website\\assets\\pdf\\34a4b10f-admission-circular-June-2021.pdf",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://samcb.edu.bd/wp-content/uploads/2021/06/extension-admission-time.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\ac56dde6-extension-admission-time.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://samcb.edu.bd/wp-content/uploads/2021/06/orientation-class-2020-21-1.pdf",
+      "type": "document",
+      "path": "website\\assets\\pdf\\e4ca01ca-orientation-class-2020-21-1.pdf",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://samcb.edu.bd/wp-content/uploads/2021/06/orientation-class-2020-21-2.pdf",
+      "type": "document",
+      "path": "website\\assets\\pdf\\7884c6ae-orientation-class-2020-21-2.pdf",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://samcb.edu.bd/wp-content/uploads/2021/08/20210815_114528.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\dc946819-20210815_114528.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://samcb.edu.bd/wp-content/uploads/2021/09/Job-Application-Form.pdf",
+      "type": "document",
+      "path": "website\\assets\\pdf\\34bda1fe-Job-Application-Form.pdf",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://samcb.edu.bd/wp-content/uploads/2021/09/Job_Ad_7x3.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\789ff4c3-Job_Ad_7x3.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://samcb.edu.bd/wp-content/uploads/2021/10/IMG20210913114627.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\d390a631-IMG20210913114627.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://samcb.edu.bd/wp-content/uploads/2021/10/IMG20210914085244.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\c6946943-IMG20210914085244.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://samcb.edu.bd/wp-content/uploads/2021/10/IMG20210925111251.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\d45ddbd2-IMG20210925111251.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://samcb.edu.bd/wp-content/uploads/2021/10/IMG20211004125945.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\91aad710-IMG20211004125945.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://samcb.edu.bd/wp-content/uploads/2021/10/IMG_20210326_102022.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\e5b48ae9-IMG_20210326_102022.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://samcb.edu.bd/wp-content/uploads/2021/10/IMG_20210326_102421.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\277c06e6-IMG_20210326_102421.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://samcb.edu.bd/wp-content/uploads/2021/10/IMG_20210801_122828.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\6ff57542-IMG_20210801_122828.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://samcb.edu.bd/wp-content/uploads/2021/10/IMG_20210804_144936.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\34ff28c7-IMG_20210804_144936.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://samcb.edu.bd/wp-content/uploads/2021/10/IMG_20210804_144955.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\8eb94f0a-IMG_20210804_144955.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://samcb.edu.bd/wp-content/uploads/2021/10/IMG_20210804_145352.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\c33f00d7-IMG_20210804_145352.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://samcb.edu.bd/wp-content/uploads/2021/10/IMG_20210903_113436.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\9493ef48-IMG_20210903_113436.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://samcb.edu.bd/wp-content/uploads/2021/10/IMG_20210903_113515.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\12458bd3-IMG_20210903_113515.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://samcb.edu.bd/wp-content/uploads/2021/10/IMG_20210913_100832.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\d596ec94-IMG_20210913_100832.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://samcb.edu.bd/wp-content/uploads/2021/10/IMG_20210913_132536.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\3c9b57ef-IMG_20210913_132536.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://samcb.edu.bd/wp-content/uploads/2022/06/Advertisement-1.pdf",
+      "type": "document",
+      "path": "website\\assets\\pdf\\8f4e934a-Advertisement-1.pdf",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://samcb.edu.bd/wp-content/uploads/2022/07/Selected-for-admission.pdf",
+      "type": "document",
+      "path": "website\\assets\\pdf\\4c871c6f-Selected-for-admission.pdf",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://samcb.edu.bd/wp-content/uploads/2022/08/Indigent-and-Meritorious-list.pdf",
+      "type": "document",
+      "path": "website\\assets\\pdf\\089ef82e-Indigent-and-Meritorious-list.pdf",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://samcb.edu.bd/wp-content/uploads/2023/06/2023-06-26-18-31-5b2844215dbcf081e5990ed05053b0fc.pdf",
+      "type": "document",
+      "path": "website\\assets\\pdf\\c9c30819-2023-06-26-18-31-5b2844215dbcf081e5990ed05053b0fc.pdf",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://samcb.edu.bd/wp-content/uploads/2023/06/Selected-Candidates-After-2nd-Migration.pdf",
+      "type": "document",
+      "path": "website\\assets\\pdf\\3b13ae13-Selected-Candidates-After-2nd-Migration.pdf",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://samcb.edu.bd/wp-content/uploads/2023/06/instructions_nongov.pdf",
+      "type": "document",
+      "path": "website\\assets\\pdf\\5b9c4d9e-instructions_nongov.pdf",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://samcb.edu.bd/wp-content/uploads/2023/11/নিয়োগ-বিজ্ঞপ্তি-২০২৩.png",
+      "type": "media",
+      "path": "website\\assets\\png\\9fd663d0-নিয়োগ-বিজ্ঞপ্তি-২০২৩.png",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://samcb.edu.bd/wp-content/uploads/2025/03/ENT-Sarwar.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\6e516162-ENT-Sarwar.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://samcb.edu.bd/wp-content/uploads/2025/03/Opthalmology-Rabin.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\058460b7-Opthalmology-Rabin.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://samcb.edu.bd/wp-content/uploads/2025/03/Psychitry-Tapon.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\ff3c1235-Psychitry-Tapon.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://samcb.edu.bd/wp-content/uploads/2025/03/Rediology-Maksumul.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\1984965f-Rediology-Maksumul.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://wordpress.org/",
+      "type": "external-link",
+      "retrieved": "2026-10-24"
+    },
+    {
+      "url": "https://www.facebook.com/samcbsl/",
+      "type": "external-link",
+      "retrieved": "2026-10-24"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2021/05/1.jpeg",
+      "type": "media",
+      "path": "website\\assets\\jpeg\\a80b8780-1.jpeg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2021/05/10.jpeg",
+      "type": "media",
+      "path": "website\\assets\\jpeg\\4991a9d7-10.jpeg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2021/05/11.jpeg",
+      "type": "media",
+      "path": "website\\assets\\jpeg\\3d78aabe-11.jpeg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2021/05/12.jpeg",
+      "type": "media",
+      "path": "website\\assets\\jpeg\\b9d884c5-12.jpeg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2021/05/2.jpeg",
+      "type": "media",
+      "path": "website\\assets\\jpeg\\46c32c8c-2.jpeg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2021/05/20210815_112232.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\ec2b2d6c-20210815_112232.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2021/05/3.jpeg",
+      "type": "media",
+      "path": "website\\assets\\jpeg\\cfc078af-3.jpeg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2021/05/4.jpeg",
+      "type": "media",
+      "path": "website\\assets\\jpeg\\c01bd09d-4.jpeg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2021/05/5.jpeg",
+      "type": "media",
+      "path": "website\\assets\\jpeg\\5833a053-5.jpeg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2021/05/6.jpeg",
+      "type": "media",
+      "path": "website\\assets\\jpeg\\c032bac6-6.jpeg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2021/05/7.jpeg",
+      "type": "media",
+      "path": "website\\assets\\jpeg\\fe2784ea-7.jpeg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2021/05/8.jpeg",
+      "type": "media",
+      "path": "website\\assets\\jpeg\\7645c4dc-8.jpeg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2021/05/9.jpeg",
+      "type": "media",
+      "path": "website\\assets\\jpeg\\128ba3ff-9.jpeg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2021/05/DSC8696.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\de3f568f-DSC8696.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2021/05/DSC8711.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\efd5bee2-DSC8711.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2021/05/DSC8712.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\51cf15f0-DSC8712.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2021/05/DSC8726.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\75e58cb6-DSC8726.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2021/05/DSC8733.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\804689a9-DSC8733.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2021/05/DSC8913.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\f9fdeceb-DSC8913.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2021/05/DSC8915.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\228e3739-DSC8915.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2021/05/DSC8917.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\57eae640-DSC8917.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2021/05/DSC8939.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\d8dcfcd4-DSC8939.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2021/05/DSC8943.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\89f1926d-DSC8943.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2021/05/DSC8947.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\8f92670e-DSC8947.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2021/05/DSC8955.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\3ff9bdbe-DSC8955.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2021/05/IMG_20210815_111958.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\e83e71f4-IMG_20210815_111958.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2021/05/IMG_20210815_114926.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\91ae34bf-IMG_20210815_114926.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2021/05/al-amin-pa.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\fefff13a-al-amin-pa.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2021/05/authorized-letter-sadeque.pdf",
+      "type": "document",
+      "path": "website\\assets\\pdf\\4a39828d-authorized-letter-sadeque.pdf",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2021/05/cropped-logo-samc-1.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\28935fa2-cropped-logo-samc-1.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2021/05/cropped-logo-samc.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\72d29a88-cropped-logo-samc.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2021/05/cropped-samc-college-buildibg.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\1e4449e5-cropped-samc-college-buildibg.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2021/05/cropped-samc-logo-21-5-2021.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\a4e7be0b-cropped-samc-logo-21-5-2021.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2021/05/cropped-second-College-building.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\0db3645e-cropped-second-College-building.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2021/05/logo-samc.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\76571c83-logo-samc.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2021/05/sadequel-photo-writer-small.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\696d7f85-sadequel-photo-writer-small.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2021/05/samc-logo-21-5-2021.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\bef10df8-samc-logo-21-5-2021.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2021/05/second-College-building.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\ba3e7e57-second-College-building.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2021/06/admission-circular-June-2021.pdf",
+      "type": "document",
+      "path": "website\\assets\\pdf\\69c6c5c5-admission-circular-June-2021.pdf",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2021/06/extension-admission-time.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\2c90ff2a-extension-admission-time.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2021/06/orientation-class-2020-21-1.pdf",
+      "type": "document",
+      "path": "website\\assets\\pdf\\811c1533-orientation-class-2020-21-1.pdf",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2021/06/orientation-class-2020-21-2.pdf",
+      "type": "document",
+      "path": "website\\assets\\pdf\\94df370f-orientation-class-2020-21-2.pdf",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2021/07/College-Logo-update-e1625197560600.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\7b209847-College-Logo-update-e1625197560600.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2021/08/20210815_114528.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\3254434c-20210815_114528.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2021/09/Job-Application-Form.pdf",
+      "type": "document",
+      "path": "website\\assets\\pdf\\441826fa-Job-Application-Form.pdf",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2021/09/Job_Ad_7x3.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\337a0cbc-Job_Ad_7x3.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2021/10/IMG20210913114627.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\4fa9f7de-IMG20210913114627.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2021/10/IMG20210914085244.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\0511227c-IMG20210914085244.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2021/10/IMG20210925111251.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\486f62e3-IMG20210925111251.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2021/10/IMG20211004125945.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\bdfeecb4-IMG20211004125945.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2021/10/IMG_20210326_102022.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\f978c830-IMG_20210326_102022.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2021/10/IMG_20210326_102421.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\ae6e38a7-IMG_20210326_102421.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2021/10/IMG_20210801_122828.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\cb5e9e9f-IMG_20210801_122828.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2021/10/IMG_20210804_144936.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\fef259ee-IMG_20210804_144936.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2021/10/IMG_20210804_144955.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\f58b9508-IMG_20210804_144955.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2021/10/IMG_20210804_145352.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\8d8b1c51-IMG_20210804_145352.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2021/10/IMG_20210903_113436.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\d785b889-IMG_20210903_113436.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2021/10/IMG_20210903_113515.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\cecab51e-IMG_20210903_113515.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2021/10/IMG_20210913_100832.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\904b5335-IMG_20210913_100832.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2021/10/IMG_20210913_132536.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\985fddfe-IMG_20210913_132536.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2022/01/notice.pdf",
+      "type": "document",
+      "path": "website\\assets\\pdf\\77178f05-notice.pdf",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2022/02/IMG_20211211_125837_838.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\ba1b7401-IMG_20211211_125837_838.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2022/02/IMG_20211214_132449_670.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\13f812a6-IMG_20211214_132449_670.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2022/02/IMG_20220221_000641_509.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\0ad56444-IMG_20220221_000641_509.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2022/02/IMG_20220221_001036_361.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\e309692e-IMG_20220221_001036_361.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2022/04/Screenshot_5.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\e28d7c3b-Screenshot_5.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2022/06/Advertisement-1.pdf",
+      "type": "document",
+      "path": "website\\assets\\pdf\\6f41b47c-Advertisement-1.pdf",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2022/07/Selected-for-admission.pdf",
+      "type": "document",
+      "path": "website\\assets\\pdf\\2e4a3bff-Selected-for-admission.pdf",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2022/08/Indigent-and-Meritorious-list.pdf",
+      "type": "document",
+      "path": "website\\assets\\pdf\\842464e9-Indigent-and-Meritorious-list.pdf",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2023/06/2023-06-26-18-31-5b2844215dbcf081e5990ed05053b0fc.pdf",
+      "type": "document",
+      "path": "website\\assets\\pdf\\a4d56b71-2023-06-26-18-31-5b2844215dbcf081e5990ed05053b0fc.pdf",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2023/06/Selected-Candidates-After-2nd-Migration.pdf",
+      "type": "document",
+      "path": "website\\assets\\pdf\\e4a3ce30-Selected-Candidates-After-2nd-Migration.pdf",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2023/06/instructions_nongov.pdf",
+      "type": "document",
+      "path": "website\\assets\\pdf\\79d7536a-instructions_nongov.pdf",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2023/11/নিয়োগ-বিজ্ঞপ্তি-২০২৩.png",
+      "type": "media",
+      "path": "website\\assets\\png\\fa7c6087-নিয়োগ-বিজ্ঞপ্তি-২০২৩.png",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2025/03/Anatomy-Ela.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\0541c200-Anatomy-Ela.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2025/03/Anatomy-Huzaifa-Khanam.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\396c280c-Anatomy-Huzaifa-Khanam.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2025/03/Anatomy-Juthi.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\4a5f4171-Anatomy-Juthi.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2025/03/Anatomy-Marzia.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\03c8eb8a-Anatomy-Marzia.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2025/03/Anatomy-Raish-uddin.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\f28e51bf-Anatomy-Raish-uddin.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2025/03/Anatomy-Shammi.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\9cc3d91f-Anatomy-Shammi.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2025/03/Anatomy-Tamanna.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\d31bd516-Anatomy-Tamanna.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2025/03/Anesthesiology-Harshit.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\0497e1f8-Anesthesiology-Harshit.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2025/03/Asma-Ul-Husna3.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\c14f035b-Asma-Ul-Husna3.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2025/03/Biochemistry-Afroza.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\423d692b-Biochemistry-Afroza.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2025/03/Biochemistry-Bivob.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\067979f7-Biochemistry-Bivob.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2025/03/Biochemistry-Farhanaz.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\c5a7689c-Biochemistry-Farhanaz.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2025/03/Biochemistry-Golam-Sarwar.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\31a4b719-Biochemistry-Golam-Sarwar.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2025/03/Cardiology-Amirul-Khasru.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\31ba70ee-Cardiology-Amirul-Khasru.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2025/03/Cardiology-Zakir-hossain.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\46992c8d-Cardiology-Zakir-hossain.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2025/03/Commed-Abdur-rahim.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\b8854e8a-Commed-Abdur-rahim.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2025/03/Commed-Ishrak.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\6935cdf8-Commed-Ishrak.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2025/03/Commed-Jannatun.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\397040fb-Commed-Jannatun.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2025/03/Commed-Nazrul.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\7a96faea-Commed-Nazrul.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2025/03/Commed-Rakibuzzaman.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\2b44e844-Commed-Rakibuzzaman.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2025/03/Dermatology-Biplab.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\f94a2e06-Dermatology-Biplab.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2025/03/ENT-Sarwar.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\8f8bd5ed-ENT-Sarwar.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2025/03/F.-Medicine-Aminul-Islam.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\0bf2026f-F.-Medicine-Aminul-Islam.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2025/03/F.-Medicine-Asma-Ul-Husna.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\e7f26676-F.-Medicine-Asma-Ul-Husna.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2025/03/F.-Medicine-Habibur-Rahman.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\7e22d6cd-F.-Medicine-Habibur-Rahman.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2025/03/F.-Medicine-Noorjahan.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\1dff4e15-F.-Medicine-Noorjahan.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2025/03/F.-Medicine-Sadia-Zaman.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\b1073bf2-F.-Medicine-Sadia-Zaman.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2025/03/Gynae-Aforza.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\c955acc0-Gynae-Aforza.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2025/03/Gynae-Akbar-Hossain.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\e243bde4-Gynae-Akbar-Hossain.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2025/03/Gynae-Farida-Begum.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\46c20f95-Gynae-Farida-Begum.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2025/03/Iffat-Physiology.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\64a165b7-Iffat-Physiology.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2025/03/Medicine-Asit-Bhushan-Das.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\6d981add-Medicine-Asit-Bhushan-Das.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2025/03/Medicine-Mahiuddin.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\0e1b31c8-Medicine-Mahiuddin.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2025/03/Micro-Tanjirul-islam.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\cbb2c23a-Micro-Tanjirul-islam.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2025/03/Microbiology-Jahangir.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\2a647411-Microbiology-Jahangir.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2025/03/Microbiology-Muna.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\c2356c60-Microbiology-Muna.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2025/03/Microbiology-Nasir-Uddin.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\7cd953b3-Microbiology-Nasir-Uddin.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2025/03/Microbiology-Rakib-uz-zaman.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\92d94b7d-Microbiology-Rakib-uz-zaman.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2025/03/Microbiology-Sharika-Anan-Shital.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\9040c649-Microbiology-Sharika-Anan-Shital.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2025/03/Nabila-afrin.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\707f769b-Nabila-afrin.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2025/03/Opthalmology-Rabin.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\501f827f-Opthalmology-Rabin.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2025/03/PDF-logo-e1742108513866.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\5d4baf91-PDF-logo-e1742108513866.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2025/03/PDF-logo.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\d9593eb9-PDF-logo.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2025/03/Paediatric-Asim.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\e4034bb6-Paediatric-Asim.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2025/03/Paediatric-Mahmud.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\e74deb2e-Paediatric-Mahmud.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2025/03/Pathology-Anwar.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\96073df2-Pathology-Anwar.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2025/03/Pathology-Mehejeben-Shamsi-mim.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\d9134983-Pathology-Mehejeben-Shamsi-mim.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2025/03/Pathology-Nafisa-Binte-Bashar.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\b0810d3e-Pathology-Nafisa-Binte-Bashar.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2025/03/Pathology-Saiful.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\df110b75-Pathology-Saiful.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2025/03/Pathology-Tamanna-E-Noor.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\ef910660-Pathology-Tamanna-E-Noor.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2025/03/Pharmacology-Anwara-Sultana.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\cc809eb0-Pharmacology-Anwara-Sultana.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2025/03/Pharmacology-Atikur-Rahman.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\ad8afd80-Pharmacology-Atikur-Rahman.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2025/03/Pharmacology-Joy-Biswas.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\159ade14-Pharmacology-Joy-Biswas.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2025/03/Pharmacology-Nipu.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\d95a03e7-Pharmacology-Nipu.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2025/03/Pharmacology-Rakibul-Hasan.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\45020240-Pharmacology-Rakibul-Hasan.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2025/03/Pharmacology-Tajri-Jahan.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\2a34db0c-Pharmacology-Tajri-Jahan.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2025/03/Physiology-Iffat-Jahan.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\892d8b9e-Physiology-Iffat-Jahan.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2025/03/Physiology-Kona.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\efe6cdd5-Physiology-Kona.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2025/03/Physiology-Naimul.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\0b30dfbc-Physiology-Naimul.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2025/03/Physiology-Parijat.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\80a96c40-Physiology-Parijat.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2025/03/Physiology-Raihan-al-siddique.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\eb76ed20-Physiology-Raihan-al-siddique.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2025/03/Physiology-Sharmin-Akter.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\75d90d12-Physiology-Sharmin-Akter.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2025/03/Physiology-Tahia-Tamanna.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\76ae988b-Physiology-Tahia-Tamanna.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2025/03/Physiology-Zinas-Amin-Mihika.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\47a8dcb9-Physiology-Zinas-Amin-Mihika.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2025/03/Psychitry-Tapon.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\407d53ca-Psychitry-Tapon.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2025/03/Reazul-Islam-1.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\1a7aebc7-Reazul-Islam-1.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2025/03/Rediology-Maksumul.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\b9837169-Rediology-Maksumul.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2025/03/ResultFirst-Professional-M.B.B.S.-Examination-of-November-2024-New-Curriculum.pdf",
+      "type": "document",
+      "path": "website\\assets\\pdf\\acf80c36-ResultFirst-Professional-M.B.B.S.-Examination-of-November-2024-New-Curriculum.pdf",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2025/03/ResultSecond-Professional-M.B.B.S.-Examination-of-November-2024-New-Curriculum.pdf",
+      "type": "document",
+      "path": "website\\assets\\pdf\\45bfd9e1-ResultSecond-Professional-M.B.B.S.-Examination-of-November-2024-New-Curriculum.pdf",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2025/03/ResultThird-Professional-M.B.B.S.-Examination-of-November-2024.pdf",
+      "type": "document",
+      "path": "website\\assets\\pdf\\0a2a5a7e-ResultThird-Professional-M.B.B.S.-Examination-of-November-2024.pdf",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2025/03/Rumana-Rahman-1.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\e8b63978-Rumana-Rahman-1.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2025/03/SAMCdoc16-03-202512.40-Class-closed-notice.pdf",
+      "type": "document",
+      "path": "website\\assets\\pdf\\dd44eb78-SAMCdoc16-03-202512.40-Class-closed-notice.pdf",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2025/03/SAMCdoc16-03-202512.49-Class-Attend-notice.pdf",
+      "type": "document",
+      "path": "website\\assets\\pdf\\a2f93eeb-SAMCdoc16-03-202512.49-Class-Attend-notice.pdf",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2025/03/Shafikul-Islam-1.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\73b00de8-Shafikul-Islam-1.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2025/03/Shoyeb-Sir-1.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\7fe8942d-Shoyeb-Sir-1.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2025/03/Surgery-Basri-Talukder.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\06f7a6a7-Surgery-Basri-Talukder.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2025/03/cropped-samc-logo-21-5-2021.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\bd989fdf-cropped-samc-logo-21-5-2021.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2025/03/fblogo.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\cd209bc1-fblogo.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2025/03/female-icon.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\e2e6c092-female-icon.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2025/03/male-icon.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\b11ce3fb-male-icon.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2025/03/samc-logo-21-5-2021.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\c79aa859-samc-logo-21-5-2021.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2025/03/ytlogo.png",
+      "type": "media",
+      "path": "website\\assets\\png\\70c496b0-ytlogo.png",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2025/05/Dr.-Golam-Rahman-150-x-150.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\1fed9798-Dr.-Golam-Rahman-150-x-150.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2025/06/Anup-Kumar-Saha.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\7495145b-Anup-Kumar-Saha.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2025/06/Anwar-hossain-1.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\91b52855-Anwar-hossain-1.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2025/06/Nazia-Sharmin.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\3554b4fc-Nazia-Sharmin.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2025/09/Nazrul-Islam-Surgery.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\79ef38f2-Nazrul-Islam-Surgery.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2026/09/Asfi.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\3c5a1558-Asfi.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2026/09/Ashok-Narayan-Sir-1-1.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\94037aa3-Ashok-Narayan-Sir-1-1.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2026/09/Faizul-Bashar.jpeg",
+      "type": "media",
+      "path": "website\\assets\\jpeg\\7a0d632e-Faizul-Bashar.jpeg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2026/09/Ishrat-Jahan-1.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\3b70df3a-Ishrat-Jahan-1.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2026/09/Mahbub-Ur-Rahman-1.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\016d03c2-Mahbub-Ur-Rahman-1.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2026/09/Nasir-Uddin-Sir-1.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\4112af61-Nasir-Uddin-Sir-1.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2026/09/Nusrat-Ahmed-1.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\a104f655-Nusrat-Ahmed-1.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2026/09/Rakibuzzaman-Khan-1.png",
+      "type": "media",
+      "path": "website\\assets\\png\\f39529b1-Rakibuzzaman-Khan-1.png",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2026/09/Ripon-Kumar-1.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\93b38d5f-Ripon-Kumar-1.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2026/09/Sabrin-Sultana-Mam-1.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\6368e6fc-Sabrin-Sultana-Mam-1.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2026/09/Tamanna-Tanjin-1.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\1f77ef21-Tamanna-Tanjin-1.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2026/09/Uttam-Kumar-1.jpg",
+      "type": "media",
+      "path": "website\\assets\\jpg\\72c332f9-Uttam-Kumar-1.jpg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2026/09/bashar.jpeg",
+      "type": "media",
+      "path": "website\\assets\\jpeg\\1edc16f5-bashar.jpeg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/wp-content/uploads/2026/09/chairman.jpeg",
+      "type": "media",
+      "path": "website\\assets\\jpeg\\b335e131-chairman.jpeg",
+      "retrieved": "2026-10-24",
+      "status": "previously-downloaded"
+    },
+    {
+      "url": "https://www.samcb.edu.bd/",
+      "type": "html-index",
+      "path": "INDEX.html",
+      "retrieved": "2026-10-24"
+    }
+  ]
+}

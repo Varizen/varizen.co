@@ -30,5 +30,26 @@
     ".next/dev/types/**/*.ts",
     "**/*.mts"
   ],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules",
+    "vsohaentasneem_foundation",
+    "browser",
+    "zcal",
+    "zdrive",
+    "zflow",
+    "zform",
+    "zlet",
+    "zmail",
+    "zmeet",
+    "znote",
+    "zpass",
+    "zpay",
+    "zsign",
+    "ztalk",
+    "zvault",
+    "samcnhb",
+    "backpackers",
+    "hakimsarker.org",
+    "oiix"
+  ]
 }

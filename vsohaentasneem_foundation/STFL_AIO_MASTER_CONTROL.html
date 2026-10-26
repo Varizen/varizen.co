@@ -1,0 +1,3224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STFL AIO — Master Control & Living System Register</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@400;500;600&family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Noto+Sans+Bengali:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-base: #07090e;
+      --bg-surface: #0f141f;
+      --bg-surface-elevated: #161e2e;
+      --bg-card: rgba(22, 30, 46, 0.75);
+      --border-subtle: #1e293b;
+      --border-accent: #334155;
+      
+      --text-primary: #f8fafc;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+      
+      --accent-blue: #0284c7;
+      --accent-cyan: #06b6d4;
+      --accent-glow: rgba(6, 182, 212, 0.15);
+      
+      --status-pass: #10b981;
+      --status-pass-bg: rgba(16, 185, 129, 0.12);
+      --status-warn: #f59e0b;
+      --status-warn-bg: rgba(245, 158, 11, 0.12);
+      --status-danger: #ef4444;
+      --status-danger-bg: rgba(239, 68, 68, 0.12);
+      --status-purple: #a855f7;
+      --status-purple-bg: rgba(168, 85, 247, 0.12);
+
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --font-bn-header: 'Hind Siliguri', 'SolaimanLipi', 'Kalpurush', 'Noto Sans Bengali', sans-serif;
+      --font-bn-body: 'Baloo Da 2', 'Noto Sans Bengali', 'SolaimanLipi', 'Vrinda', sans-serif;
+    }
+
+    /* Bilingual Typography Classes */
+    .bn-heading, .bn-header {
+      font-family: var(--font-bn-header);
+      line-height: 1.6;
+    }
+    .bn-body {
+      font-family: var(--font-bn-body);
+      line-height: 1.7;
+    }
+    .bn-footer {
+      font-family: var(--font-bn-header);
+      line-height: 1.6;
+    }
+    [lang="bn"] h1, [lang="bn"] h2, [lang="bn"] h3, [lang="bn"] h4 {
+      font-family: var(--font-bn-header);
+      line-height: 1.6;
+    }
+    [lang="bn"] p, [lang="bn"] td, [lang="bn"] li {
+      font-family: var(--font-bn-body);
+      line-height: 1.7;
+    }
+
+    /* Language Switcher Component */
+    .lang-switcher-container {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      background: var(--bg-surface-elevated);
+      border: 1px solid var(--border-accent);
+      border-radius: 6px;
+      padding: 2px 4px;
+      margin-left: 6px;
+    }
+    .lang-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      font-size: 0.73rem;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .lang-btn:hover {
+      color: var(--text-primary);
+    }
+    .lang-btn.active {
+      background: var(--accent-blue);
+      color: #fff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-base);
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      padding-bottom: 80px;
+    }
+
+    /* Top Banner / System Telemetry Bar */
+    .top-telemetry-bar {
+      background: linear-gradient(90deg, #0c121e 0%, #111a2c 50%, #0c121e 100%);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 8px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+      font-family: var(--font-mono);
+      color: var(--text-secondary);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(12px);
+    }
+
+    .telemetry-group {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .telemetry-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .telemetry-item span.indicator {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+    }
+
+    .indicator.green { background: var(--status-pass); box-shadow: 0 0 8px var(--status-pass); }
+    .indicator.amber { background: var(--status-warn); box-shadow: 0 0 8px var(--status-warn); }
+    .indicator.red { background: var(--status-danger); box-shadow: 0 0 8px var(--status-danger); }
+
+    /* Header Container */
+    header.master-header {
+      padding: 36px 32px 20px;
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+
+    .header-title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .header-branding h1 {
+      font-size: 2.1rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      background: linear-gradient(135deg, #ffffff 0%, #94a3b8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .header-branding p {
+      color: var(--text-secondary);
+      font-size: 0.92rem;
+      margin-top: 6px;
+      max-width: 880px;
+    }
+
+    .quick-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .stat-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+      padding: 12px 16px;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .stat-card:hover {
+      border-color: var(--accent-cyan);
+      transform: translateY(-2px);
+    }
+
+    .stat-card .label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .stat-card .value {
+      font-size: 1.4rem;
+      font-weight: 700;
+      font-family: var(--font-mono);
+      color: var(--text-primary);
+      margin-top: 2px;
+    }
+
+    .stat-card .subtext {
+      font-size: 0.72rem;
+      color: var(--text-secondary);
+      margin-top: 1px;
+    }
+
+    /* Controls Bar: Search & Filter */
+    .controls-bar {
+      max-width: 1440px;
+      margin: 0 auto 20px;
+      padding: 0 32px;
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .search-wrapper {
+      flex: 1;
+      min-width: 320px;
+      position: relative;
+    }
+
+    .search-input {
+      width: 100%;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 12px 16px 12px 42px;
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      transition: all 0.2s;
+    }
+
+    .search-input:focus {
+      outline: none;
+      border-color: var(--accent-cyan);
+      box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.2);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      font-size: 1rem;
+    }
+
+    .filter-pills {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .filter-pill {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: 6px 14px;
+      font-size: 0.78rem;
+      color: var(--text-secondary);
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.2s;
+      user-select: none;
+    }
+
+    .filter-pill:hover, .filter-pill.active {
+      background: var(--bg-surface-elevated);
+      color: var(--accent-cyan);
+      border-color: var(--accent-cyan);
+    }
+
+    /* Navigation Tabs */
+    .nav-tabs-wrapper {
+      max-width: 1440px;
+      margin: 0 auto 20px;
+      padding: 0 32px;
+      border-bottom: 1px solid var(--border-subtle);
+      overflow-x: auto;
+    }
+
+    .nav-tabs {
+      display: flex;
+      gap: 6px;
+      list-style: none;
+      white-space: nowrap;
+    }
+
+    .nav-tab-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-secondary);
+      font-family: var(--font-sans);
+      font-size: 0.88rem;
+      font-weight: 600;
+      padding: 12px 16px;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-tab-btn:hover {
+      color: var(--text-primary);
+    }
+
+    .nav-tab-btn.active {
+      color: var(--accent-cyan);
+      border-bottom-color: var(--accent-cyan);
+      background: linear-gradient(180deg, transparent 0%, rgba(6, 182, 212, 0.05) 100%);
+    }
+
+    .tab-badge {
+      background: rgba(255, 255, 255, 0.08);
+      padding: 2px 7px;
+      border-radius: 10px;
+      font-size: 0.68rem;
+      font-family: var(--font-mono);
+    }
+
+    /* Content Area */
+    main.master-content {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    .tab-pane {
+      display: none;
+    }
+
+    .tab-pane.active {
+      display: block;
+      animation: fadeIn 0.2s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Panel Styles */
+    .panel {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 22px;
+      margin-bottom: 24px;
+      backdrop-filter: blur(8px);
+    }
+
+    .panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+      border-bottom: 1px solid var(--border-subtle);
+      padding-bottom: 14px;
+    }
+
+    .panel-header h2 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .panel-header .section-tag {
+      font-size: 0.72rem;
+      font-family: var(--font-mono);
+      background: var(--bg-surface-elevated);
+      padding: 4px 10px;
+      border-radius: 6px;
+      color: var(--accent-cyan);
+      border: 1px solid var(--border-accent);
+    }
+
+    /* Responsive Data Tables */
+    .table-container {
+      overflow-x: auto;
+      border-radius: 8px;
+      border: 1px solid var(--border-subtle);
+    }
+
+    table.data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.83rem;
+      text-align: left;
+    }
+
+    table.data-table th {
+      background: var(--bg-surface-elevated);
+      color: var(--text-secondary);
+      font-weight: 600;
+      padding: 11px 14px;
+      border-bottom: 1px solid var(--border-subtle);
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    table.data-table td {
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--border-subtle);
+      color: var(--text-primary);
+      vertical-align: top;
+    }
+
+    table.data-table tr:hover td {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    /* Badges & Pills */
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 3px 8px;
+      border-radius: 12px;
+      font-size: 0.68rem;
+      font-family: var(--font-mono);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .pill-pass { background: var(--status-pass-bg); color: var(--status-pass); border: 1px solid rgba(16, 185, 129, 0.25); }
+    .pill-warn { background: var(--status-warn-bg); color: var(--status-warn); border: 1px solid rgba(245, 158, 11, 0.25); }
+    .pill-danger { background: var(--status-danger-bg); color: var(--status-danger); border: 1px solid rgba(239, 68, 68, 0.25); }
+    .pill-purple { background: var(--status-purple-bg); color: var(--status-purple); border: 1px solid rgba(168, 85, 247, 0.25); }
+    .pill-cyan { background: var(--accent-glow); color: var(--accent-cyan); border: 1px solid rgba(6, 182, 212, 0.3); }
+
+    .code-chip {
+      font-family: var(--font-mono);
+      background: var(--bg-base);
+      border: 1px solid var(--border-subtle);
+      padding: 2px 5px;
+      border-radius: 4px;
+      font-size: 0.72rem;
+      color: #38bdf8;
+      display: inline-block;
+    }
+
+    /* Invariant Alert Cards */
+    .invariant-card {
+      background: rgba(239, 68, 68, 0.03);
+      border: 1px solid rgba(239, 68, 68, 0.2);
+      border-left: 4px solid var(--status-danger);
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin-bottom: 12px;
+    }
+
+    .invariant-card h4 {
+      color: #fca5a5;
+      font-size: 0.92rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .invariant-card p {
+      font-size: 0.83rem;
+      color: var(--text-secondary);
+    }
+
+    /* Tree View for Repository Sanitization */
+    .tree-view {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      background: var(--bg-base);
+      padding: 18px;
+      border-radius: 8px;
+      border: 1px solid var(--border-subtle);
+      color: #94a3b8;
+      line-height: 1.8;
+      overflow-x: auto;
+    }
+
+    .tree-folder { color: #38bdf8; font-weight: 600; }
+    .tree-file { color: #cbd5e1; }
+
+    /* Action Buttons */
+    .btn {
+      background: var(--bg-surface-elevated);
+      color: var(--text-primary);
+      border: 1px solid var(--border-accent);
+      padding: 8px 14px;
+      border-radius: 6px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      transition: all 0.2s;
+    }
+
+    .btn:hover {
+      background: var(--border-accent);
+      color: #fff;
+    }
+
+    .btn-primary {
+      background: var(--accent-blue);
+      border-color: var(--accent-cyan);
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-cyan);
+      color: #07090e;
+    }
+
+    /* JSON Viewer Pre Block */
+    pre.json-dump {
+      background: var(--bg-base);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 18px;
+      color: #7dd3fc;
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      max-height: 600px;
+      overflow: auto;
+      white-space: pre-wrap;
+      word-break: break-all;
+    }
+
+    /* Two-Column Responsive Layout */
+    .comp-know-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    @media (max-width: 1024px) {
+      .comp-know-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top System Telemetry Bar -->
+  <aside class="top-telemetry-bar" aria-label="System Telemetry">
+    <div class="telemetry-group">
+      <div class="telemetry-item">
+        <span class="indicator amber"></span>
+        <span>PRODUCTION RELEASE GATE: <strong>PENDING (Prompt 13 Gate Closed)</strong></span>
+      </div>
+      <div class="telemetry-item">
+        <span class="indicator green"></span>
+        <span>BACKEND VITEST: <strong>236 / 236 PASS</strong></span>
+      </div>
+      <div class="telemetry-item">
+        <span class="indicator green"></span>
+        <span>ICON POLICY: <strong>0 VIOLATIONS (iconoir-react)</strong></span>
+      </div>
+    </div>
+    <div class="telemetry-group">
+      <div class="telemetry-item">
+        <span>SCHEMA: <strong>0002_aio_parties_iam.sql</strong></span>
+      </div>
+      <div class="telemetry-item">
+        <span>AUTHORITY CEILING: <strong>LEVEL 3 STRICT</strong></span>
+      </div>
+      <div class="telemetry-item">
+        <span>DOC ID: <strong>STFL-DOC-2026-MASTER-CONTROL-V1</strong></span>
+      </div>
+      <div class="telemetry-item">
+        <span style="font-size: 0.72rem; color: var(--text-muted); margin-right: 4px;">LANG:</span>
+        <div class="lang-switcher-container" role="group" aria-label="Language Selector">
+          <button id="lang-btn-en" class="lang-btn active" onclick="setLanguage('en')">EN</button>
+          <button id="lang-btn-bn" class="lang-btn" onclick="setLanguage('bn')">বাংলা</button>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Master Header -->
+  <header class="master-header">
+    <div class="header-title-row">
+      <div class="header-branding">
+        <h1>STFL AIO — Master Control & Living System Register</h1>
+        <p>Authoritative single-source human and machine register for the SohaelTasneem Foundation (STFL) Autonomous Enterprise Platform. Embeds complete technical, architectural, operational, and cleanup metadata.</p>
+        <div style="margin-top: 6px; font-size: 0.84rem; color: #38bdf8; font-weight: 500;">
+          <div>Made with love from Dhaka, Kuala Lumpur, Wyoming and Varizen Inc.</div>
+          <div class="bn-footer" style="color: #7dd3fc; font-size: 0.82rem; margin-top: 2px;">ঢাকা, কুয়ালালামপুর, ওয়াইওমিং এবং ভ্যারিজেন ইনকর্পোরেটেড থেকে ভালোবাসায় তৈরি</div>
+        </div>
+      </div>
+      <div class="header-actions">
+        <button class="btn btn-primary" onclick="exportMasterJson()">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Export Master JSON
+        </button>
+      </div>
+    </div>
+
+    <!-- Quick Stats Grid -->
+    <div class="quick-stats-grid">
+      <div class="stat-card">
+        <div class="label">Total Features</div>
+        <div class="value" id="stat-features">40</div>
+        <div class="subtext">Core Substrates & Engines</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Management Consoles</div>
+        <div class="value">18</div>
+        <div class="subtext">16 Core + Compliance + Knowledge</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Experience Segments</div>
+        <div class="value">4</div>
+        <div class="subtext">Learn, Service, Admin, Relief</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Constitutional Invariants</div>
+        <div class="value">12</div>
+        <div class="subtext">Never To Be Changed</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Archive Candidates</div>
+        <div class="value">24</div>
+        <div class="subtext">Consolidated Markdown Reports</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Vitest Test Suites</div>
+        <div class="value">11 / 11</div>
+        <div class="subtext">100% Passing (236 tests)</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Controls Bar: Search & Filter -->
+  <section class="controls-bar" aria-label="Search and Filter Controls">
+    <div class="search-wrapper">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="global-search" class="search-input" placeholder="Search features, files, consoles, invariants, or cleanup items (e.g. 'attestation', '0002', 'MODERATOR_A')..." oninput="handleSearch(this.value)">
+    </div>
+    <div class="filter-pills">
+      <div class="filter-pill active" onclick="setFilter('ALL', this)">All Features</div>
+      <div class="filter-pill" onclick="setFilter('VERIFIED', this)">Verified / Implemented</div>
+      <div class="filter-pill" onclick="setFilter('ARCHITECTURE', this)">Architecture & Spec</div>
+      <div class="filter-pill" onclick="setFilter('CORE_SECURITY', this)">Core Security</div>
+      <div class="filter-pill" onclick="setFilter('GOVERNANCE', this)">Governance</div>
+      <div class="filter-pill" onclick="setFilter('MULTI_PROJECT', this)">Multi-Project</div>
+    </div>
+  </section>
+
+  <!-- Navigation Tabs -->
+  <nav class="nav-tabs-wrapper" aria-label="Master Control Sections">
+    <ul class="nav-tabs">
+      <li><button class="nav-tab-btn active" onclick="switchTab('tab-features', this)">1. Complete Feature Register <span class="tab-badge">1–8</span></button></li>
+      <li><button class="nav-tab-btn" onclick="switchTab('tab-invariants', this)">2. Constitutional Invariants <span class="tab-badge">9</span></button></li>
+      <li><button class="nav-tab-btn" onclick="switchTab('tab-cleanup', this)">3. Cleanup & Redundancies <span class="tab-badge">10–14</span></button></li>
+      <li><button class="nav-tab-btn" onclick="switchTab('tab-consoles', this)">4. Consoles, Roles & Projects <span class="tab-badge">15, 17</span></button></li>
+      <li><button class="nav-tab-btn" onclick="switchTab('tab-compliance', this)">5. Compliance & Knowledge <span class="tab-badge">16</span></button></li>
+      <li><button class="nav-tab-btn" onclick="switchTab('tab-readiness', this)">6. Readiness, Gaps & Changelog <span class="tab-badge">18–20</span></button></li>
+      <li><button class="nav-tab-btn" onclick="switchTab('tab-bilingual', this)">7. Bilingual & Typography <span class="tab-badge">BN/EN</span></button></li>
+      <li><button class="nav-tab-btn" onclick="switchTab('tab-json', this)">8. Machine JSON Truth <span class="tab-badge">DATA</span></button></li>
+    </ul>
+  </nav>
+
+  <!-- Master Content Body -->
+  <main class="master-content">
+
+    <!-- TAB 1: Complete Feature Register (Sections 1-8) -->
+    <section id="tab-features" class="tab-pane active" aria-labelledby="features-heading">
+      <div class="panel">
+        <div class="panel-header">
+          <div>
+            <h2 id="features-heading">One-Page Complete Feature Register & Secret Mechanics</h2>
+            <p style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 4px;">40 full features across the STFL AIO platform, mapping exact internal crypto, file ownership, prompt origins, dependencies, and mutability rules.</p>
+          </div>
+          <span class="section-tag">SECTIONS 1–8</span>
+        </div>
+
+        <div class="table-container">
+          <table class="data-table" id="features-table">
+            <thead>
+              <tr>
+                <th>ID / Feature</th>
+                <th>Status</th>
+                <th>Secret / Internal Implementation Mechanics</th>
+                <th>Owning Files & Folders</th>
+                <th>Introduced In</th>
+                <th>Dependencies</th>
+                <th>Extensibility (Add / Mod / Del)</th>
+              </tr>
+            </thead>
+            <tbody id="features-table-body">
+              <!-- Dynamically populated from embedded JSON -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 2: Constitutional Invariants (Section 9) -->
+    <section id="tab-invariants" class="tab-pane" aria-labelledby="invariants-heading">
+      <div class="panel">
+        <div class="panel-header">
+          <div>
+            <h2 id="invariants-heading">What Must NEVER Be Changed (Constitutional Invariants)</h2>
+            <p style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 4px;">Non-negotiable foundational axioms ratified by the SohaelTasneem Foundation Board of Trustees and enforced in code.</p>
+          </div>
+          <span class="section-tag">SECTION 9</span>
+        </div>
+
+        <div id="invariants-container">
+          <!-- Populated from embedded JSON -->
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 3: Repository Cleanup & Architecture Map (Sections 10-14) -->
+    <section id="tab-cleanup" class="tab-pane" aria-labelledby="cleanup-heading">
+      <div class="panel">
+        <div class="panel-header">
+          <div>
+            <h2 id="cleanup-heading">Repository Cleanup, Duplicates & Sanitized Layout</h2>
+            <p style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 4px;">Blueprint for consolidating 68+ root markdown reports into this master HTML book and establishing a sanitized repository layout.</p>
+          </div>
+          <span class="section-tag">SECTIONS 10–14</span>
+        </div>
+
+        <h3 style="margin-bottom: 12px; font-size: 0.98rem; color: var(--accent-cyan);">1. Redundant, Duplicate & Superseded File Inventory</h3>
+        <div class="table-container" style="margin-bottom: 24px;">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Source File / Folder</th>
+                <th>Redundancy Type</th>
+                <th>Replacement / Authoritative Target</th>
+                <th>Recommended Action</th>
+              </tr>
+            </thead>
+            <tbody id="redundancy-table-body">
+              <!-- Populated from JSON -->
+            </tbody>
+          </table>
+        </div>
+
+        <h3 style="margin-bottom: 12px; font-size: 0.98rem; color: var(--status-pass);">2. Target Sanitized Repository Structure</h3>
+        <p style="color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 12px;">The target post-cleanup layout once old Markdown phase reports are archived:</p>
+        <div class="tree-view" id="sanitized-tree-view">
+          <!-- Populated from JSON -->
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 4: Consoles, User Classes & Project Model (Sections 15, 17) -->
+    <section id="tab-consoles" class="tab-pane" aria-labelledby="consoles-heading">
+      <div class="panel">
+        <div class="panel-header">
+          <div>
+            <h2 id="consoles-heading">18 Management Consoles, User Classes & Project Ecosystem</h2>
+            <p style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 4px;">Unified directory of the 18 enterprise consoles, User Classes 00–12, Relief Moderators, and multi-tenant project expansion archetypes.</p>
+          </div>
+          <span class="section-tag">SECTIONS 15, 17</span>
+        </div>
+
+        <h3 style="margin-bottom: 12px; font-size: 0.98rem; color: var(--accent-cyan);">1. Master 18-Console Directory</h3>
+        <div class="table-container" style="margin-bottom: 24px;">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Console Code</th>
+                <th>Display Name</th>
+                <th>Primary User Classes</th>
+                <th>Relief Moderator Access</th>
+                <th>Key Responsibility & Endpoints</th>
+              </tr>
+            </thead>
+            <tbody id="consoles-table-body">
+              <!-- Populated from JSON -->
+            </tbody>
+          </table>
+        </div>
+
+        <h3 style="margin-bottom: 12px; font-size: 0.98rem; color: var(--status-purple);">2. Future Project Expansion Archetypes</h3>
+        <div class="table-container">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Archetype Code</th>
+                <th>Archetype Title</th>
+                <th>P&L Model</th>
+                <th>Governance & Compliance Bound</th>
+                <th>Default Project Modules & Agents</th>
+              </tr>
+            </thead>
+            <tbody id="archetypes-table-body">
+              <!-- Populated from JSON -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 5: Compliance, Knowledge & Training Architecture (Section 16) -->
+    <section id="tab-compliance" class="tab-pane" aria-labelledby="compliance-heading">
+      <div class="panel">
+        <div class="panel-header">
+          <div>
+            <h2 id="compliance-heading">Compliance Intelligence & Knowledge/Training Substrate</h2>
+            <p style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 4px;">Synthesis of the 21 statutory compliance domains, 4 experience segments, 11 pictorial types, and certification authorization gating.</p>
+          </div>
+          <span class="section-tag">SECTION 16</span>
+        </div>
+
+        <div class="comp-know-grid">
+          <div>
+            <h3 style="font-size: 0.98rem; color: #f59e0b; margin-bottom: 12px;">⚖️ 21 Statutory Compliance Domains</h3>
+            <div class="table-container">
+              <table class="data-table">
+                <thead><tr><th>Domain Code</th><th>Statutory Source</th><th>Interception Trigger</th></tr></thead>
+                <tbody id="compliance-domains-body"></tbody>
+              </table>
+            </div>
+          </div>
+          <div>
+            <h3 style="font-size: 0.98rem; color: #06b6d4; margin-bottom: 12px;">🎓 4 Experience Segments & Pictorial Engine</h3>
+            <div class="table-container">
+              <table class="data-table">
+                <thead><tr><th>Segment / Component</th><th>Target Audience</th><th>Delivery Mechanics</th></tr></thead>
+                <tbody id="training-segments-body"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 6: Production Readiness, Known Gaps & Changelog (Sections 18-20) -->
+    <section id="tab-readiness" class="tab-pane" aria-labelledby="readiness-heading">
+      <div class="panel">
+        <div class="panel-header">
+          <div>
+            <h2 id="readiness-heading">Production Readiness, Known Gaps & Milestone Changelog</h2>
+            <p style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 4px;">Honest technical gap audit, release gate prerequisites, and chronological prompt progression.</p>
+          </div>
+          <span class="section-tag">SECTIONS 18–20</span>
+        </div>
+
+        <h3 style="margin-bottom: 12px; font-size: 0.98rem; color: var(--status-warn);">1. Production Release Gate: PENDING</h3>
+        <div class="invariant-card" style="border-left-color: var(--status-warn); background: rgba(245, 158, 11, 0.04);">
+          <h4 style="color: #fcd34d;">⚠️ Cloudflare Edge Deployment & Physical Release Verification Incomplete</h4>
+          <p>While local backend tests (236/236 Vitest), database migrations (0001 & 0002), and iconography linting pass with 100% compliance, production verification remains strictly <strong>PENDING</strong> until Cloudflare Worker edge routes, real KeyStore hardware attestation on Android, and production Cloudflare D1/Hyperdrive replication are confirmed live.</p>
+        </div>
+
+        <h3 style="margin: 20px 0 12px; font-size: 0.98rem; color: #f87171;">2. Honest Technical Gaps Register</h3>
+        <div class="table-container" style="margin-bottom: 24px;">
+          <table class="data-table">
+            <thead><tr><th>Component</th><th>Current Implementation</th><th>Target Production State</th><th>Severity</th></tr></thead>
+            <tbody id="gaps-table-body"></tbody>
+          </table>
+        </div>
+
+        <h3 style="margin-bottom: 12px; font-size: 0.98rem; color: #a78bfa;">3. Chronological Milestone Changelog</h3>
+        <div class="table-container">
+          <table class="data-table">
+            <thead><tr><th>Phase / Prompt</th><th>Date / Cycle</th><th>Core Milestone</th><th>Key Artifacts Produced</th></tr></thead>
+            <tbody id="changelog-table-body"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 7: Bilingual & Typography Governance -->
+    <section id="tab-bilingual" class="tab-pane" aria-labelledby="bilingual-heading">
+      <div class="panel">
+        <div class="panel-header">
+          <div>
+            <h2 id="bilingual-heading">Bilingual (BN / EN) & Typography Governance</h2>
+            <p style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 4px;">Mandatory first-class bilingual architecture across Web, Android, Consoles, Documents, and Physical Print Substrates with strict font family governance.</p>
+          </div>
+          <span class="section-tag">CONSTITUTIONAL BRAND GOVERNANCE</span>
+        </div>
+
+        <!-- Typography Stack Cards -->
+        <div class="comp-know-grid" style="margin-bottom: 24px;">
+          <div style="background: var(--bg-surface-elevated); border: 1px solid var(--border-subtle); border-radius: 8px; padding: 18px;">
+            <h3 style="font-size: 1.05rem; color: #38bdf8; margin-bottom: 10px; display: flex; align-items: center; gap: 8px;">
+              <span class="code-chip">BANGLA TYPOGRAPHY</span>
+            </h3>
+            <ul style="list-style: none; font-size: 0.84rem; color: var(--text-secondary); line-height: 1.8;">
+              <li><strong style="color: #fff;">Headers & Footers:</strong> <span style="color: #7dd3fc; font-family: var(--font-bn-header); font-weight: 700;">Hind Siliguri</span> (SemiBold 600, Bold 700) — <span class="pill pill-cyan">MANDATORY EMBEDDED</span></li>
+              <li><strong style="color: #fff;">Body & Content:</strong> <span style="color: #7dd3fc; font-family: var(--font-bn-body);">Baloo Da 2</span> (UI/Interactive 400, 500) &amp; <span style="color: #7dd3fc;">Noto Sans Bengali</span> (Dense Data/Tables)</li>
+              <li><strong style="color: #fff;">Line-Height Governance:</strong> <strong>1.6 to 1.8</strong> (Increased to prevent matra and conjunct clipping)</li>
+              <li><strong style="color: #fff;">Unicode Normalization:</strong> Strict Unicode NFC Canonical Composition &amp; OpenType layout preservation</li>
+            </ul>
+          </div>
+
+          <div style="background: var(--bg-surface-elevated); border: 1px solid var(--border-subtle); border-radius: 8px; padding: 18px;">
+            <h3 style="font-size: 1.05rem; color: var(--status-pass); margin-bottom: 10px; display: flex; align-items: center; gap: 8px;">
+              <span class="code-chip">ENGLISH TYPOGRAPHY &amp; ATTRIBUTION</span>
+            </h3>
+            <ul style="list-style: none; font-size: 0.84rem; color: var(--text-secondary); line-height: 1.8;">
+              <li><strong style="color: #fff;">Headers &amp; Body:</strong> <span style="color: #86efac; font-family: var(--font-sans); font-weight: 600;">Inter</span> (STFL Approved Guidelines: 400, 500, 600, 700, 800)</li>
+              <li><strong style="color: #fff;">Monospace / Audit / Hashes:</strong> <span style="color: #86efac; font-family: var(--font-mono);">JetBrains Mono</span> (400, 500, 600)</li>
+              <li><strong style="color: #fff;">Creative Attribution (EN):</strong> <em>Made with love from Dhaka, Kuala Lumpur, Wyoming and Varizen Inc.</em></li>
+              <li><strong style="color: #fff;">Creative Attribution (BN):</strong> <span class="bn-footer" style="color: #7dd3fc;">ঢাকা, কুয়ালালামপুর, ওয়াইওমিং এবং ভ্যারিজেন ইনকর্পোরেটেড থেকে ভালোবাসায় তৈরি</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Linguistic Invariants & Embedding Table -->
+        <h3 style="margin-bottom: 12px; font-size: 0.98rem; color: #a78bfa;">Cross-Platform Font Embedding &amp; Linguistic Standards</h3>
+        <div class="table-container" style="margin-bottom: 24px;">
+          <table class="data-table">
+            <thead><tr><th>Platform / Substrate</th><th>Font Embedding Mechanism</th><th>Direction</th><th>Missing Translations Handling</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr>
+                <td><strong>Web Applications &amp; Consoles</strong></td>
+                <td>Google Fonts CDN preconnect + local WOFF2 fallbacks (font-display: swap)</td>
+                <td><span class="pill pill-cyan">LTR</span></td>
+                <td>Automated CI validation; Zero runtime machine translation</td>
+                <td><span class="pill pill-pass">COMPLIANT</span></td>
+              </tr>
+              <tr>
+                <td><strong>Native Android Client</strong></td>
+                <td>Bundled TrueType fonts in apk/app/src/main/res/font/ (Zero host OS reliance)</td>
+                <td><span class="pill pill-cyan">LTR</span></td>
+                <td>Pre-compiled XML string resources (res/values/ and res/values-bn/)</td>
+                <td><span class="pill pill-pass">COMPLIANT</span></td>
+              </tr>
+              <tr>
+                <td><strong>PDF Documents &amp; Print</strong></td>
+                <td>TrueType/OpenType font embedding in PDF generation substrate (Zero dropped glyphs)</td>
+                <td><span class="pill pill-cyan">LTR</span></td>
+                <td>Strict pre-render validation; missing keys block PDF generation</td>
+                <td><span class="pill pill-pass">COMPLIANT</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Live Bilingual Feature Dictionary -->
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+          <h3 style="font-size: 0.98rem; color: #38bdf8;">Live Bilingual Platform Feature Register (40 / 40 Verified)</h3>
+          <span class="pill pill-pass">BILINGUAL COVERAGE: 100% (0 MISSING)</span>
+        </div>
+        <div class="table-container">
+          <table class="data-table">
+            <thead><tr><th>ID</th><th>English Feature Name</th><th>Bangla Feature Name (Hind Siliguri)</th><th>English Description</th><th>Bangla Description (Baloo Da 2 / Noto Sans)</th></tr></thead>
+            <tbody id="bilingual-table-body"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 8: Machine-Readable JSON Truth Block -->
+    <section id="tab-json" class="tab-pane" aria-labelledby="json-heading">
+      <div class="panel">
+        <div class="panel-header">
+          <div>
+            <h2 id="json-heading">Machine-Readable Internal Source of Truth (JSON)</h2>
+            <p style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 4px;">This embedded JSON payload is parsed by tooling, agents, and automated release gates. It contains the exact verified facts of the entire STFL AIO platform.</p>
+          </div>
+          <div style="display: flex; gap: 8px;">
+            <button class="btn" onclick="copyJsonToClipboard()">Copy JSON</button>
+            <button class="btn btn-primary" onclick="exportMasterJson()">Download JSON</button>
+          </div>
+        </div>
+
+        <pre class="json-dump" id="json-display"></pre>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Authoritative Master Footer -->
+  <footer style="margin-top: 48px; padding: 28px 32px; border-top: 1px solid var(--border-subtle); text-align: center; color: var(--text-muted); font-size: 0.85rem; background: var(--bg-surface);">
+    <div style="margin-bottom: 4px; color: var(--text-primary); font-weight: 600; letter-spacing: -0.01em;">
+      STFL AIO — Autonomous Enterprise Platform Architecture &amp; Master Control Book
+    </div>
+    <div class="bn-heading" style="margin-bottom: 8px; color: #94a3b8; font-size: 0.88rem; font-weight: 600;">
+      এসটিএফএল এআইও — স্বায়ত্তশাসিত এন্টারপ্রাইজ প্ল্যাটফর্ম আর্কিটেকচার ও মাস্টার কন্ট্রোল
+    </div>
+    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; font-size: 0.82rem; color: #38bdf8; font-weight: 500;">
+      <div>Made with love from Dhaka, Kuala Lumpur, Wyoming and Varizen Inc.</div>
+      <div class="bn-footer" style="color: #7dd3fc; font-size: 0.84rem;">ঢাকা, কুয়ালালামপুর, ওয়াইওমিং এবং ভ্যারিজেন ইনকর্পোরেটেড থেকে ভালোবাসায় তৈরি</div>
+    </div>
+    <div style="margin-top: 8px; font-size: 0.74rem; color: var(--text-muted); font-family: var(--font-mono);">
+      Document ID: STFL-DOC-2026-MASTER-CONTROL-V1 &bull; Master Version: 1.0.0 &bull; Release Gate: PENDING (Prompt 13 Closed)
+    </div>
+  </footer>
+
+  <!-- ========================================================================= -->
+  <!-- MACHINE-READABLE SOURCE OF TRUTH (JSON)                                    -->
+  <!-- ========================================================================= -->
+  <script id="stfl-master-control-data" type="application/json">
+{
+  "system": "STFL Autonomous Enterprise Platform (STFL AIO)",
+  "document_id": "STFL-DOC-2026-MASTER-CONTROL-V1",
+  "version": "1.0.0",
+  "ratified_date": "2026-10-15",
+  "attribution": "Made with love from Dhaka, Kuala Lumpur, Wyoming and Varizen Inc.",
+  "production_readiness_status": "PENDING (Prompt 13 Gate Closed)",
+  "test_metrics": {
+    "vitest_backend": "236/236 PASS (11 test files)",
+    "icon_policy": "0 Violations (iconoir-react exclusively)",
+    "migrations": "0001_init.sql & 0002_aio_parties_iam.sql fully verified"
+  },
+  "features": [
+    {
+      "id": "FEAT-01",
+      "name": "Hardware Device Attestation Substrate",
+      "status": "VERIFIED",
+      "category": "Core Security",
+      "secret_mechanics": "Android KeyStore hardware-backed RSA/EC keypair generation, nonce challenge-response, device fingerprint binding (STFL-DVC-*), fallback mock key for local test suites.",
+      "owning_files": [
+        "apk/security/src/main/java/...",
+        "apk/api/src/crypto.ts",
+        "apk/api/src/middleware.ts"
+      ],
+      "introduced_in": "Prompt 1 & Prompt 2 (Device Security & Red Team)",
+      "dependencies": [
+        "PostgreSQL 16",
+        "Android KeyStore / WebAuthn"
+      ],
+      "extensibility": "Can ADD new biometric types; NEVER REMOVE hardware binding",
+      "name_bn": "হার্ডওয়্যার ডিভাইস অ্যাটেস্টেশন সাবস্ট্রেট",
+      "description_bn": "অ্যান্ড্রয়েড কি-স্টোর ভিত্তিক হার্ডওয়্যার ক্রিপ্টোগ্রাফিক কি-পেয়ার এবং ননস যাচাইকরণ।"
+    },
+    {
+      "id": "FEAT-02",
+      "name": "Device Binding & Instant Revocation Ledger",
+      "status": "VERIFIED",
+      "category": "Core Security",
+      "secret_mechanics": "device_registrations table with public_key_pem, status (BOUND/REVOKED/SUSPENDED), binding_user_id. Revocation cascades session termination across all projects instantly.",
+      "owning_files": [
+        "apk/api/migrations/0002_aio_parties_iam.sql",
+        "apk/api/src/middleware.ts"
+      ],
+      "introduced_in": "Prompt 1 & 2",
+      "dependencies": [
+        "FEAT-01 Attestation",
+        "PostgreSQL 16"
+      ],
+      "extensibility": "Can ADD remote wipe triggers; NEVER PERMIT unbound device writes",
+      "name_bn": "ডিভাইস বাইন্ডিং ও তাৎক্ষণিক প্রত্যাহার লেজার",
+      "description_bn": "ডিভাইস রেজিস্ট্রেশন লেজার এবং তাৎক্ষণিক সেশন সমাপ্তি ক্যাস্কেড।"
+    },
+    {
+      "id": "FEAT-03",
+      "name": "10-Dimensional Enterprise Audit Substrate",
+      "status": "VERIFIED",
+      "category": "Core Security",
+      "secret_mechanics": "Immutable enterprise_audit_logs table with SHA-256 payload hashing, user_id, device_id, ip_address, session_id, unit_code, project_id, action, timestamp, result. Zero UPDATE/DELETE triggers.",
+      "owning_files": [
+        "apk/api/migrations/0002_aio_parties_iam.sql",
+        "apk/api/src/repositories/audit.ts",
+        "apk/api/src/middleware.ts"
+      ],
+      "introduced_in": "Prompt 3 & 4 (Database Migration & Stress)",
+      "dependencies": [
+        "PostgreSQL 16 Triggers"
+      ],
+      "extensibility": "Can ADD dimension columns; NEVER DELETE or MODIFY records",
+      "name_bn": "১০-মাত্রিক এন্টারপ্রাইজ অডিট সাবস্ট্রেট",
+      "description_bn": "SHA-256 পেলোড হ্যাশিং সহ অপরিবর্তনীয় এন্টারপ্রাইজ অডিট লগ।"
+    },
+    {
+      "id": "FEAT-04",
+      "name": "PostgreSQL Trigger-Enforced Audit Immutability",
+      "status": "VERIFIED",
+      "category": "Core Security",
+      "secret_mechanics": "BEFORE UPDATE OR DELETE ON enterprise_audit_logs trigger aborts statement with exception 'AUDIT_LOG_IMMUTABLE'. Prohibits superuser tampering.",
+      "owning_files": [
+        "apk/api/migrations/0002_aio_parties_iam.sql"
+      ],
+      "introduced_in": "Prompt 3 (Database Migration)",
+      "dependencies": [
+        "PostgreSQL 16 PL/pgSQL"
+      ],
+      "extensibility": "Constitutional Invariant; NEVER DISABLE or DROP trigger",
+      "name_bn": "পোস্টগ্রেসকিউএল ট্রিগার-এনফোর্সড অডিট অপরিবর্তনীয়তা",
+      "description_bn": "ডাটাবেস ট্রিগার দ্বারা অডিট রেকর্ডের আপডেট ও ডিলিট সম্পূর্ণ প্রতিরোধ।"
+    },
+    {
+      "id": "FEAT-05",
+      "name": "13-Dimensional Contextual Authorization Engine",
+      "status": "VERIFIED",
+      "category": "Governance",
+      "secret_mechanics": "Hono middleware evaluating user_class (00-12), role, unit_code, project_id, device_id, device_tier, ip_reputation, active_session, training_status, approval_status, statutory_hold, kill_switch, biometric_freshness.",
+      "owning_files": [
+        "apk/api/src/authorization/engine.ts",
+        "apk/api/src/middleware.ts",
+        "test/authorization_engine.test.ts"
+      ],
+      "introduced_in": "Prompt 5 (13-D Authorization Engine)",
+      "dependencies": [
+        "FEAT-01 Device Attestation",
+        "FEAT-03 Audit Substrate"
+      ],
+      "extensibility": "Can ADD policy rules in iam_workspace_policies; NEVER BYPASS gateway",
+      "name_bn": "১৩-মাত্রিক প্রাসঙ্গিক অনুমোদন ইঞ্জিন",
+      "description_bn": "ব্যবহারকারী ক্লাস, ভূমিকা, প্রকল্প ও সুযোগ ভিত্তিক আরব্যাক/এব্যাক মূল্যায়ন।"
+    },
+    {
+      "id": "FEAT-06",
+      "name": "Dynamic Workspace Policy Enforcement",
+      "status": "VERIFIED",
+      "category": "Governance",
+      "secret_mechanics": "Server-side iam_workspace_policies table queries. Replaces client-side hardcoding. Evaluates route access dynamically against JWT claims.",
+      "owning_files": [
+        "apk/api/src/authorization/engine.ts",
+        "STFL_AIO_USER_CLASS_WORKSPACE_MATRIX.md"
+      ],
+      "introduced_in": "Prompt 5 & 12.5",
+      "dependencies": [
+        "PostgreSQL 16",
+        "FEAT-05 13-D Auth"
+      ],
+      "extensibility": "Can ADD new console policy mappings; NEVER DEFAULT to ALLOW",
+      "name_bn": "ডাইনামিক ওয়ার্কস্পেস নীতি প্রয়োগ",
+      "description_bn": "কনসোল ও ওয়ার্কস্পেস রেন্ডারিংয়ের জন্য পলিসি এনফোর্সমেন্ট গেটওয়ে।"
+    },
+    {
+      "id": "FEAT-07",
+      "name": "Dual-Custody Approval Engine",
+      "status": "VERIFIED",
+      "category": "Governance",
+      "secret_mechanics": "Enforces creator != approver. Rejection of self-approval by Super Admin (Class 00) and AI Agents (Class 10). Cryptographic counter-signature ledger.",
+      "owning_files": [
+        "apk/api/src/approval/engine.ts",
+        "apk/api/src/routes/consoles.ts",
+        "test/approval_engine.test.ts"
+      ],
+      "introduced_in": "Prompt 6 (Approval Engine)",
+      "dependencies": [
+        "FEAT-05 13-D Auth",
+        "PostgreSQL 16 Transactions"
+      ],
+      "extensibility": "Can ADD multi-tier approval steps; NEVER PERMIT self-approval",
+      "name_bn": "দ্বৈত-হেফাজত অনুমোদন ইঞ্জিন",
+      "description_bn": "আর্থিক ও প্রশাসনিক পরিবর্তনের জন্য দুই-ব্যক্তি অনুমোদন নিয়ন্ত্রণ।"
+    },
+    {
+      "id": "FEAT-08",
+      "name": "Anti-Collusion Separation of Duties Verifier",
+      "status": "VERIFIED",
+      "category": "Governance",
+      "secret_mechanics": "Enforces approver != disburser. Verifies that the entity signing the payment disbursement token is independent of the financial approver.",
+      "owning_files": [
+        "apk/api/src/approval/engine.ts",
+        "test/approval_engine.test.ts"
+      ],
+      "introduced_in": "Prompt 6",
+      "dependencies": [
+        "FEAT-07 Approval Engine"
+      ],
+      "extensibility": "Can ADD compliance countersignatures; NEVER MERGE approval and disbursement roles",
+      "name_bn": "অ্যান্টি-কলুশন দায়িত্ব পৃথকীকরণ যাচাইকারী",
+      "description_bn": "অনুরোধকারী এবং অনুমোদনকারী একই ব্যক্তি হওয়া প্রতিরোধক ইঞ্জিন।"
+    },
+    {
+      "id": "FEAT-09",
+      "name": "Cryptographic Counter-Signature Ledger",
+      "status": "VERIFIED",
+      "category": "Governance",
+      "secret_mechanics": "Dual ECDSA P-256 signatures stored in approval_signatures table with signed SHA-256 voucher payload hashes.",
+      "owning_files": [
+        "apk/api/src/approval/engine.ts",
+        "apk/api/src/crypto.ts"
+      ],
+      "introduced_in": "Prompt 6",
+      "dependencies": [
+        "Crypto Substrate"
+      ],
+      "extensibility": "Can ADD multi-party threshold signatures (3-of-5); NEVER STORE unsigned approvals",
+      "name_bn": "ক্রিপ্টোগ্রাফিক কাউন্টার-সিগনেচার লেজার",
+      "description_bn": "বহুদলীয় অনুমোদনের জন্য পাবলিক কি ভিত্তিক ডিজিটাল স্বাক্ষর যাচাই।"
+    },
+    {
+      "id": "FEAT-10",
+      "name": "Forensic Steganographic Document Watermarking",
+      "status": "VERIFIED",
+      "category": "Operations",
+      "secret_mechanics": "Yellow Micro-Dot matrix encoding operator user_id, workstation device_id, and print millisecond timestamp imperceptibly into PDF page background.",
+      "owning_files": [
+        "apk/api/src/print/engine.ts",
+        "test/controlled_print.test.ts"
+      ],
+      "introduced_in": "Prompt 7 (Controlled Print Forensics)",
+      "dependencies": [
+        "PDFKit / Canvas Engine"
+      ],
+      "extensibility": "Can ADD invisible digital watermarking; NEVER PERMIT raw unwatermarked prints",
+      "name_bn": "ফরেনসিক স্টেগানোগ্রাফিক নথি ওয়াটারমার্কিং",
+      "description_bn": "স্ক্রিন ও পিডিএফ নথিতে ব্যবহারকারী ও ডিভাইস মেটাডাটা ওয়াটারমার্কিং।"
+    },
+    {
+      "id": "FEAT-11",
+      "name": "Deterministic Document ID Generator",
+      "status": "VERIFIED",
+      "category": "Operations",
+      "secret_mechanics": "Deterministic STFL-DOC-{YEAR}-{UNIT}-{SEQ} formatting with Luhn check-digit verification.",
+      "owning_files": [
+        "apk/api/src/documents/engine.ts",
+        "test/document_engine.test.ts"
+      ],
+      "introduced_in": "Prompt 7",
+      "dependencies": [
+        "PostgreSQL Sequence Engine"
+      ],
+      "extensibility": "Can ADD project-specific prefix codes; NEVER REUSE document IDs",
+      "name_bn": "ডিটারমিনিস্টিক ডকুমেন্ট আইডি জেনারেটর",
+      "description_bn": "প্রতিষ্ঠানের স্ট্যান্ডার্ড অনুযায়ী অনন্য ক্রিপ্টোগ্রাফিক নথি শনাক্তকারী।"
+    },
+    {
+      "id": "FEAT-12",
+      "name": "Public Document Verification Gateway",
+      "status": "VERIFIED",
+      "category": "Operations",
+      "secret_mechanics": "Public route /verify/:hash allows external verification of document authenticity, validity date, and issuing authority without authenticating.",
+      "owning_files": [
+        "apk/api/src/routes/verify.ts",
+        "apk/web/src/app/verify/..."
+      ],
+      "introduced_in": "Prompt 7 & 12",
+      "dependencies": [
+        "R2 Storage Vault",
+        "Crypto Hashes"
+      ],
+      "extensibility": "Can ADD QR code scanners; NEVER EXPOSE non-public PII payload in verify",
+      "name_bn": "পাবলিক ডকুমেন্ট ভেরিফিকেশন গেটওয়ে",
+      "description_bn": "কিউআর কোড এবং হ্যাশ ম্যাচিংয়ের মাধ্যমে পাবলিক নথি বৈধতা যাচাই।"
+    },
+    {
+      "id": "FEAT-13",
+      "name": "Governed Multi-Channel Communications Gateway",
+      "status": "VERIFIED",
+      "category": "Operations",
+      "secret_mechanics": "Central dispatcher for SMS/WhatsApp/Email with anti-hallucination template approval, provider failover, rate limiting, and cryptographic dispatch receipts.",
+      "owning_files": [
+        "apk/api/src/comms/gateway.ts",
+        "apk/api/src/routes/comms.ts",
+        "test/comms_gateway.test.ts"
+      ],
+      "introduced_in": "Prompt 8 (Comms Gateway)",
+      "dependencies": [
+        "FEAT-03 Audit",
+        "External SMS Aggregators"
+      ],
+      "extensibility": "Can ADD communication channels; NEVER BYPASS central dispatcher",
+      "name_bn": "নিয়ন্ত্রিত মাল্টি-চ্যানেল যোগাযোগ গেটওয়ে",
+      "description_bn": "এসএমএস, হোয়াটসঅ্যাপ ও পুশ নোটিফিকেশনের অডিটযোগ্য বার্তা প্রেরণ ব্যবস্থা।"
+    },
+    {
+      "id": "FEAT-14",
+      "name": "Anti-Hallucination Template Approval Substrate",
+      "status": "VERIFIED",
+      "category": "Operations",
+      "secret_mechanics": "Outbound messages must match pre-approved templates in comms_templates table with variable sanitization. Free-form AI-generated output is blocked.",
+      "owning_files": [
+        "apk/api/src/comms/gateway.ts",
+        "test/comms_gateway.test.ts"
+      ],
+      "introduced_in": "Prompt 8",
+      "dependencies": [
+        "FEAT-13 Comms Gateway"
+      ],
+      "extensibility": "Can ADD pre-approved templates; NEVER ALLOW raw AI prompt output to SMS",
+      "name_bn": "অ্যান্টি-হ্যালুসিনেশন টেমপ্লেট অনুমোদন সাবস্ট্রেট",
+      "description_bn": "এআই জেনারেটেড বার্তার জন্য বাধ্যতামূলক প্রি-ভেটেড টেমপ্লেট যাচাই।"
+    },
+    {
+      "id": "FEAT-15",
+      "name": "Autonomous Agent Runtime & Constitutional Sandbox",
+      "status": "VERIFIED",
+      "category": "Autonomous AI",
+      "secret_mechanics": "Strict Level 3 authority ceiling (Read/Draft/Analyze/Recommend only). Tool allowlist filtering per agent, confidence boundary gating (0.98 threshold), kill switch hook, zero user masquerading.",
+      "owning_files": [
+        "apk/api/src/agents/runtime.ts",
+        "apk/api/src/routes/agents.ts",
+        "test/agent_red_team.test.ts"
+      ],
+      "introduced_in": "Prompt 9, 10 & 11 (Agent Substrate & Red Team)",
+      "dependencies": [
+        "FEAT-05 13-D Auth",
+        "FEAT-07 Approval Engine"
+      ],
+      "extensibility": "Can ADD new Level 1-3 agents; NEVER GRANT Level 4+ authority",
+      "name_bn": "স্বায়ত্তশাসিত এজেন্ট রানটাইম ও সাংবিধানিক স্যান্ডবক্স",
+      "description_bn": "লেভেল ৩ সর্বোচ্চ ক্ষমতা সীমা সহ স্বায়ত্তশাসিত এআই এক্সিকিউশন রানটাইম।"
+    },
+    {
+      "id": "FEAT-16",
+      "name": "Agent Confidence Boundary Evaluator",
+      "status": "VERIFIED",
+      "category": "Autonomous AI",
+      "secret_mechanics": "Rejects recommendations with confidence score < 0.98 for high-impact financial or tenant actions. Aborts boundary tampering (0.979999... attacks).",
+      "owning_files": [
+        "apk/api/src/agents/runtime.ts",
+        "test/agent_red_team.test.ts"
+      ],
+      "introduced_in": "Prompt 11 (Agent Red Team)",
+      "dependencies": [
+        "FEAT-15 Agent Runtime"
+      ],
+      "extensibility": "Can RAISE confidence thresholds; NEVER LOWER below 0.98 for critical domains",
+      "name_bn": "এজেন্ট আত্মবিশ্বাস সীমা মূল্যায়নকারী",
+      "description_bn": "০.৯৮ থ্রেশহোল্ডের নিচে মানুষের হস্তক্ষেপে স্বয়ংক্রিয় এসকেলেশন ইঞ্জিন।"
+    },
+    {
+      "id": "FEAT-17",
+      "name": "Agent Emergency Kill Switch Substrate",
+      "status": "VERIFIED",
+      "category": "Autonomous AI",
+      "secret_mechanics": "Global and per-agent kill switch flag in agent_control table. CISO (Class 07) can revoke all active agent execution tokens instantaneously.",
+      "owning_files": [
+        "apk/api/src/agents/runtime.ts",
+        "apk/api/src/routes/agents.ts"
+      ],
+      "introduced_in": "Prompt 9 & 11",
+      "dependencies": [
+        "Redis / KV Cache",
+        "FEAT-03 Audit"
+      ],
+      "extensibility": "Can ADD automatic circuit breakers; NEVER PREVENT manual kill switch override",
+      "name_bn": "এজেন্ট জরুরি কিল-সুইচ সাবস্ট্রেট",
+      "description_bn": "যেকোনো এআই এজেন্টকে একক ট্রানজ্যাকশনে তাৎক্ষণিক নিষ্ক্রিয় করার নিরাপত্তা ব্যবস্থা।"
+    },
+    {
+      "id": "FEAT-18",
+      "name": "16 Core Management Consoles API",
+      "status": "VERIFIED",
+      "category": "Consoles",
+      "secret_mechanics": "Discrete API endpoints for Governance, Executive, Finance, Property, Microfinance, Workforce, E-Commerce, Projects, Assets, Documents, Comms, Security, Agents, Devices, IAM, System Admin.",
+      "owning_files": [
+        "apk/api/src/routes/consoles.ts",
+        "apk/web/src/app/admin/...",
+        "test/governed_consoles.test.ts"
+      ],
+      "introduced_in": "Prompt 10 & 12 (Management Consoles & Demo)",
+      "dependencies": [
+        "FEAT-05 13-D Auth",
+        "PostgreSQL 16 RLS"
+      ],
+      "extensibility": "Can ADD console views; NEVER MERGE disparate administrative units",
+      "name_bn": "১৬টি কোর ম্যানেজমেন্ট কনসোল এপিআই",
+      "description_bn": "প্রতিষ্ঠানের ১৬টি বিভাগীয় প্রশাসনিক কনসোলের কেন্দ্রীয় এপিআই ইন্টারফেস।"
+    },
+    {
+      "id": "FEAT-19",
+      "name": "Console 17: Compliance & Legal Intelligence Console",
+      "status": "ARCHITECTURE",
+      "category": "Consoles",
+      "secret_mechanics": "Dedicated interface for Legal Counsel & Compliance Officers to inspect statutory holds, manage legal review cases, and audit regulatory rules.",
+      "owning_files": [
+        "STFL_AIO_COMPLIANCE_CONSOLE_SPEC.md",
+        "STFL_AIO_CONSOLE_SPECIFICATION.md"
+      ],
+      "introduced_in": "Prompt 12.5 (Sections 41–62)",
+      "dependencies": [
+        "FEAT-18 Consoles",
+        "Compliance Rule Registry"
+      ],
+      "extensibility": "Can ADD compliance dashboards; NEVER BYPASS statutory hold releases",
+      "name_bn": "কনসোল ১৭: কমপ্লায়েন্স ও আইনি বুদ্ধিমত্তা কনসোল",
+      "description_bn": "২১টি বিধিবদ্ধ আইনি এলাকা পর্যবেক্ষণ ও বিচারিক ঝুঁকি ব্যবস্থাপনা কনসোল।"
+    },
+    {
+      "id": "FEAT-20",
+      "name": "Console 18: Knowledge, Training & Service Console",
+      "status": "ARCHITECTURE",
+      "category": "Consoles",
+      "secret_mechanics": "Central operational hub for Course Management, Visual Asset Studio, SOP Library, Quizzes, Certification Authority, and Moderator Work Queue.",
+      "owning_files": [
+        "STFL_AIO_CONSOLE_SPECIFICATION.md",
+        "STFL_AIO_KNOWLEDGE_ARCHITECTURE.md"
+      ],
+      "introduced_in": "Prompt 12.5 (Sections 63–82)",
+      "dependencies": [
+        "FEAT-18 Consoles",
+        "Knowledge Vault"
+      ],
+      "extensibility": "Can ADD training courses; NEVER REMOVE mandatory compliance modules",
+      "name_bn": "কনসোল ১৮: জ্ঞান, প্রশিক্ষণ ও সেবা কনসোল",
+      "description_bn": "শিক্ষা, প্রশিক্ষণ, সার্টিফিকেশন এবং মডারেশন পরিচালনার জন্য সমন্বিত কনসোল।"
+    },
+    {
+      "id": "FEAT-21",
+      "name": "Segment 01: User Learning Center",
+      "status": "ARCHITECTURE",
+      "category": "Knowledge",
+      "secret_mechanics": "Public and field worker educational center with pictorial instructions, step-by-step guides, multilingual audio, and touch simulations.",
+      "owning_files": [
+        "STFL_AIO_KNOWLEDGE_ARCHITECTURE.md",
+        "STFL_AIO_PICTORIAL_TRAINING_MODEL.md"
+      ],
+      "introduced_in": "Prompt 12.5 (Section 64)",
+      "dependencies": [
+        "Asset Vault",
+        "Responsive Web/Android"
+      ],
+      "extensibility": "Can ADD regional translations; NEVER PRESENT administrative clutter",
+      "name_bn": "সেগমেন্ট ০১: ব্যবহারকারী লার্নিং সেন্টার",
+      "description_bn": "জনসাধারণ, সুবিধাভোগী ও মাঠকর্মীদের জন্য চিত্রভিত্তিক প্রশিক্ষণ কেন্দ্র।"
+    },
+    {
+      "id": "FEAT-22",
+      "name": "Segment 02: Service & Operations Center",
+      "status": "ARCHITECTURE",
+      "category": "Knowledge",
+      "secret_mechanics": "Actionable SOP library, operational runbooks, SEV-1 to SEV-4 incident procedures, deterministic escalation ladders, and AI diagnostics.",
+      "owning_files": [
+        "STFL_AIO_SERVICE_CENTER_MODEL.md"
+      ],
+      "introduced_in": "Prompt 12.5 (Section 65)",
+      "dependencies": [
+        "Knowledge Items",
+        "FEAT-03 Audit"
+      ],
+      "extensibility": "Can ADD operational SOPs; NEVER SERVE superseded documentation",
+      "name_bn": "সেগমেন্ট ০২: সেবা ও অপারেশন সেন্টার",
+      "description_bn": "অপারেশনাল এসওপি, মাঠ নির্দেশিকা এবং সেবা টিকিট ট্র্যাকিং পোর্টাল।"
+    },
+    {
+      "id": "FEAT-23",
+      "name": "Segment 03: Administration & Governance Center",
+      "status": "ARCHITECTURE",
+      "category": "Knowledge",
+      "secret_mechanics": "IAM manuals, cryptographic trust policies, compliance procedures, change management runbooks, and statutory audit guides.",
+      "owning_files": [
+        "STFL_AIO_KNOWLEDGE_ARCHITECTURE.md"
+      ],
+      "introduced_in": "Prompt 12.5 (Section 66)",
+      "dependencies": [
+        "Governance Registry"
+      ],
+      "extensibility": "Can ADD policy guidelines; NEVER ALLOW unilateral policy change",
+      "name_bn": "সেগমেন্ট ০৩: প্রশাসন ও শাসন কেন্দ্র",
+      "description_bn": "বোর্ড নীতি, প্রাতিষ্ঠানিক প্রবিধান ও নির্বাহী সিদ্ধান্ত ব্যবস্থাপনা।"
+    },
+    {
+      "id": "FEAT-24",
+      "name": "Segment 04: Moderation & Relief Center",
+      "status": "ARCHITECTURE",
+      "category": "Knowledge",
+      "secret_mechanics": "Administrative relief tier with MODERATOR_A and MODERATOR_B. Eliminates single point of failure without granting full root/Super Admin authority.",
+      "owning_files": [
+        "STFL_AIO_MODERATOR_MODEL.md"
+      ],
+      "introduced_in": "Prompt 12.5 (Sections 67, 68)",
+      "dependencies": [
+        "FEAT-05 13-D Auth",
+        "FEAT-25 Work Queue"
+      ],
+      "extensibility": "Can ADD relief queue handlers; NEVER GRANT Class 00 superadmin rights",
+      "name_bn": "সেগমেন্ট ০৪: মডারেশন ও রিলিফ সেন্টার",
+      "description_bn": "মডারেটর এ ও বি-এর জন্য নিয়ন্ত্রিত দায়িত্ব বণ্টন ও রিলিফ সহায়তা।"
+    },
+    {
+      "id": "FEAT-25",
+      "name": "Controlled Moderator Work Queue",
+      "status": "ARCHITECTURE",
+      "category": "Knowledge",
+      "secret_mechanics": "moderator_work_queue table managing 9 item types (USER_HELP, ACCOUNT_SUPPORT, TRAINING_REVIEW, SOP_UPDATE, ESCALATION, etc.) with SLA timers.",
+      "owning_files": [
+        "STFL_AIO_MODERATOR_MODEL.md"
+      ],
+      "introduced_in": "Prompt 12.5 (Section 77)",
+      "dependencies": [
+        "PostgreSQL 16",
+        "FEAT-24 Moderation Model"
+      ],
+      "extensibility": "Can ADD queue classifications; NEVER ALLOW unassigned SLA breach",
+      "name_bn": "নিয়ন্ত্রিত মডারেটর কাজের সারি",
+      "description_bn": "সময়সীমাবদ্ধ ও অডিটযোগ্য ব্যাকলগ সহায়তা কার্যপ্রবাহ।"
+    },
+    {
+      "id": "FEAT-26",
+      "name": "Multi-Project Tenant Isolation Engine",
+      "status": "ARCHITECTURE",
+      "category": "Multi-Project",
+      "secret_mechanics": "PostgreSQL Row-Level Security on project_id. Ensures stakeholders in Project A cannot access records in Project B without explicit multi-membership.",
+      "owning_files": [
+        "STFL_AIO_PROJECT_ISOLATION_MODEL.md",
+        "STFL_AIO_MULTI_PROJECT_ARCHITECTURE.md"
+      ],
+      "introduced_in": "Prompt 12.5 (Sections 1–40)",
+      "dependencies": [
+        "PostgreSQL 16 RLS"
+      ],
+      "extensibility": "Can ADD independent projects; NEVER WEAKEN RLS policies",
+      "name_bn": "মাল্টি-প্রজেক্ট টেন্যান্ট আইসোলেশন ইঞ্জিন",
+      "description_bn": "প্রকল্পগুলোর মধ্যে ডাটা সম্পূর্ণ আলাদা রাখার লজিক্যাল ও শারীরিক সীমানা।"
+    },
+    {
+      "id": "FEAT-27",
+      "name": "Custom Domain & Subdomain Hostname Router",
+      "status": "ARCHITECTURE",
+      "category": "Multi-Project",
+      "secret_mechanics": "Edge router matching Host header (e.g. greendelta-agro.org, health.stflbd.app) and injecting verified x-project-context into request pipeline.",
+      "owning_files": [
+        "STFL_AIO_MULTI_PROJECT_ARCHITECTURE.md",
+        "STFL_AIO_PROJECT_WEBSITE_MODEL.md"
+      ],
+      "introduced_in": "Prompt 12.5 (Section 13)",
+      "dependencies": [
+        "Cloudflare Workers Edge Routing"
+      ],
+      "extensibility": "Can ADD custom domains; NEVER LEAK cross-domain cookies",
+      "name_bn": "কাস্টম ডোমেইন ও সাবডোমেইন হোস্টনেম রাউটার",
+      "description_bn": "ক্লাউডফ্লেয়ার ভিত্তিক এজ রাউটিং এবং স্বতন্ত্র প্রকল্প ব্র্যান্ডিং গেটওয়ে।"
+    },
+    {
+      "id": "FEAT-28",
+      "name": "Project Chart of Accounts & Sub-Ledger Engine",
+      "status": "ARCHITECTURE",
+      "category": "Multi-Project",
+      "secret_mechanics": "Isolated double-entry general ledger per project with strict NUMERIC(18, 2) currency enforcement. Dual-leg intercompany clearing accounts for transfers.",
+      "owning_files": [
+        "STFL_AIO_PROJECT_FINANCE_MODEL.md"
+      ],
+      "introduced_in": "Prompt 12.5 (Section 15)",
+      "dependencies": [
+        "FEAT-03 Audit",
+        "PostgreSQL Transactions"
+      ],
+      "extensibility": "Can ADD project account sub-codes; NEVER ALLOW unbalanced ledger entries",
+      "name_bn": "প্রজেক্ট চার্ট অব অ্যাকাউন্টস ও সাব-লেজার ইঞ্জিন",
+      "description_bn": "NUMERIC(18,2) নির্ভুলতায় দ্বি-স্তর বিশিষ্ট সাধারণ খতিয়ান ও হিসাবরক্ষণ।"
+    },
+    {
+      "id": "FEAT-29",
+      "name": "Project Operational Lifecycle State Machine",
+      "status": "ARCHITECTURE",
+      "category": "Multi-Project",
+      "secret_mechanics": "DRAFT ➔ STAGING ➔ PILOT ➔ ACTIVE ➔ SUSPENDED ➔ SUNSETTING ➔ ARCHIVED transitions with formal trustee exit clearance.",
+      "owning_files": [
+        "STFL_AIO_PROJECT_LIFECYCLE.md"
+      ],
+      "introduced_in": "Prompt 12.5 (Section 22)",
+      "dependencies": [
+        "PostgreSQL 16",
+        "FEAT-07 Approval Engine"
+      ],
+      "extensibility": "Can ADD lifecycle sub-states; NEVER DELETE audit trails on project archive",
+      "name_bn": "প্রজেক্ট অপারেশনাল লাইফসাইকেল স্টেট মেশিন",
+      "description_bn": "প্রস্তাবনা থেকে সমাপ্তি পর্যন্ত প্রকল্পের অপরিবর্তনীয় পর্যায় পরিচালনা।"
+    },
+    {
+      "id": "FEAT-30",
+      "name": "Multi-Jurisdictional Statute Resolver",
+      "status": "ARCHITECTURE",
+      "category": "Compliance",
+      "secret_mechanics": "Resolves legal statutory rules across 21 domains (Labour, Waqf, Land, Tax, MRA, Cyber Security) based on project location and operation type.",
+      "owning_files": [
+        "STFL_AIO_COMPLIANCE_ARCHITECTURE.md",
+        "STFL_AIO_REGULATORY_RULE_MODEL.md"
+      ],
+      "introduced_in": "Prompt 12.5 (Sections 41–62)",
+      "dependencies": [
+        "Compliance Rule Registry"
+      ],
+      "extensibility": "Can ADD new statutory acts; NEVER OVERRIDE national laws",
+      "name_bn": "বহু-এখতিয়ারভুক্ত সংবিধি সমাধানকারী",
+      "description_bn": "বাংলাদেশ আইন, শ্রম আইন এবং আন্তর্জাতিক মানের আইনি ম্যাপিং ইঞ্জিন।"
+    },
+    {
+      "id": "FEAT-31",
+      "name": "Automated Statutory Hold & Legal Review Engine",
+      "status": "ARCHITECTURE",
+      "category": "Compliance",
+      "secret_mechanics": "Automatically freezes workflows violating statutory limits (e.g. lease > 3 yrs, advance rent > 3 mo) and creates a formal LEGAL_REVIEW_CASE ticket.",
+      "owning_files": [
+        "STFL_AIO_LEGAL_ESCALATION_MODEL.md"
+      ],
+      "introduced_in": "Prompt 12.5 (Section 45)",
+      "dependencies": [
+        "FEAT-30 Statute Resolver"
+      ],
+      "extensibility": "Can ADD legal escalation paths; NEVER ALLOW automated bypass of legal holds",
+      "name_bn": "স্বয়ংক্রিয় সংবিধিবদ্ধ হোল্ড ও আইনি পর্যালোচনা ইঞ্জিন",
+      "description_bn": "আইনি বিরোধ বা লঙ্ঘনের ক্ষেত্রে তাৎক্ষণিক অপারেশনাল হোল্ড প্রক্রিয়া।"
+    },
+    {
+      "id": "FEAT-32",
+      "name": "Pictorial / Visual-First Training Engine",
+      "status": "ARCHITECTURE",
+      "category": "Knowledge",
+      "secret_mechanics": "Visual instructional material supporting 11 content types (Image, Diagram, Flowchart, Animation, Video, Simulation, Checklist, Quiz, etc.).",
+      "owning_files": [
+        "STFL_AIO_PICTORIAL_TRAINING_MODEL.md"
+      ],
+      "introduced_in": "Prompt 12.5 (Section 69)",
+      "dependencies": [
+        "R2 Asset Storage",
+        "Offline Cache Engine"
+      ],
+      "extensibility": "Can ADD visual media types; NEVER SERVE uncompressed >20MB raw video",
+      "name_bn": "চিত্রভিত্তিক / ভিজ্যুয়াল-ফার্স্ট প্রশিক্ষণ ইঞ্জিন",
+      "description_bn": "স্বল্প-সাক্ষর মাঠকর্মীদের জন্য ইন্টারেক্টিভ ও সচিত্র নির্দেশিকা ব্যবস্থা।"
+    },
+    {
+      "id": "FEAT-33",
+      "name": "Cryptographic Training Certification Authority",
+      "status": "ARCHITECTURE",
+      "category": "Knowledge",
+      "secret_mechanics": "Issues immutable STFL-CER-* digital certificates with ECDSA P-256 signatures, passing score evaluation, and automated 365-day expiry tracking.",
+      "owning_files": [
+        "STFL_AIO_TRAINING_CERTIFICATION_MODEL.md"
+      ],
+      "introduced_in": "Prompt 12.5 (Section 73)",
+      "dependencies": [
+        "Crypto Substrate",
+        "FEAT-03 Audit"
+      ],
+      "extensibility": "Can ADD certification courses; NEVER ISSUE cert without passing assessment",
+      "name_bn": "ক্রিপ্টোগ্রাফিক প্রশিক্ষণ সার্টিফিকেশন কর্তৃপক্ষ",
+      "description_bn": "ডিজিটাল স্বাক্ষরযুক্ত প্রশিক্ষণ সমাপ্তি ও যোগ্যতা সনদ জারি ব্যবস্থা।"
+    },
+    {
+      "id": "FEAT-34",
+      "name": "Training-Gated Authorization Check",
+      "status": "ARCHITECTURE",
+      "category": "Knowledge",
+      "secret_mechanics": "13-D Authorization Engine checks user active TRAINING_STATUS for sensitive operations (microfinance.collect, property.lease_create).",
+      "owning_files": [
+        "STFL_AIO_TRAINING_ARCHITECTURE.md",
+        "STFL_AIO_TRAINING_CERTIFICATION_MODEL.md"
+      ],
+      "introduced_in": "Prompt 12.5 (Section 73)",
+      "dependencies": [
+        "FEAT-05 13-D Auth",
+        "FEAT-33 Cert Authority"
+      ],
+      "extensibility": "Can ADD gated action rules; NEVER PERMIT uncertified high-risk executions",
+      "name_bn": "প্রশিক্ষণ-সংযুক্ত অনুমোদন যাচাই",
+      "description_bn": "সার্টিফাইড প্রশিক্ষণ ছাড়া সংবেদনশীল অপারেশন ব্লক করার নিরাপত্তা গেট।"
+    },
+    {
+      "id": "FEAT-35",
+      "name": "Mandatory Platform Compliance Training Non-Erasure",
+      "status": "ARCHITECTURE",
+      "category": "Knowledge",
+      "secret_mechanics": "Enforces that projects automatically inherit mandatory STFL platform compliance courses. Attempts to delete or suppress mandatory training are blocked.",
+      "owning_files": [
+        "STFL_AIO_TRAINING_ARCHITECTURE.md",
+        "STFL_AIO_KNOWLEDGE_GOVERNANCE_MODEL.md"
+      ],
+      "introduced_in": "Prompt 12.5 (Section 71)",
+      "dependencies": [
+        "Knowledge Governance Vault"
+      ],
+      "extensibility": "Can ADD project specialized modules; NEVER SUPPRESS core platform training",
+      "name_bn": "বাধ্যতামূলক কমপ্লায়েন্স প্রশিক্ষণ অপরিবর্তনীয়তা",
+      "description_bn": "কোনো প্রশাসক কর্তৃক প্রশিক্ষণ রেকর্ড পরিবর্তন বা মুছে ফেলা সম্পূর্ণ নিষিদ্ধ।"
+    },
+    {
+      "id": "FEAT-36",
+      "name": "In-Workflow Contextual Walkthrough Guidance",
+      "status": "ARCHITECTURE",
+      "category": "Knowledge",
+      "secret_mechanics": "Embedded 'Step 3 of 7' visual cards rendered directly inside live operational forms with plain-language explanations and policy notices.",
+      "owning_files": [
+        "STFL_AIO_TRAINING_UX_MODEL.md"
+      ],
+      "introduced_in": "Prompt 12.5 (Section 75)",
+      "dependencies": [
+        "Next.js 15 UI / Android Compose"
+      ],
+      "extensibility": "Can ADD walkthrough steps; NEVER DISRUPT completed forms",
+      "name_bn": "ইন-ওয়ার্কফ্লো প্রাসঙ্গিক ওয়াকথ্রু নির্দেশিকা",
+      "description_bn": "ব্যবহারকারীকে জটিল প্রক্রিয়ার মধ্য দিয়ে ধাপে ধাপে গাইড করার ব্যবস্থা।"
+    },
+    {
+      "id": "FEAT-37",
+      "name": "Dynamic Compliance Intercept in UI",
+      "status": "ARCHITECTURE",
+      "category": "Knowledge",
+      "secret_mechanics": "Instant form field intercept that converts the contextual training panel into a STOP / REVIEW REQUIRED banner when inputs breach statutory limits.",
+      "owning_files": [
+        "STFL_AIO_TRAINING_UX_MODEL.md"
+      ],
+      "introduced_in": "Prompt 12.5 (Section 75)",
+      "dependencies": [
+        "FEAT-30 Statute Resolver",
+        "Frontend Form State"
+      ],
+      "extensibility": "Can ADD validation rules; NEVER PERMIT form submit when blocked",
+      "name_bn": "ইউজার ইন্টারফেসে ডাইনামিক কমপ্লায়েন্স ইন্টারসেপ্ট",
+      "description_bn": "আইন বা নীতি লঙ্ঘনের ক্ষেত্রে ফর্মে তাৎক্ষণিক রিয়েল-টাইম সতর্কতা।"
+    },
+    {
+      "id": "FEAT-38",
+      "name": "AI-Assisted Troubleshooting with Provenance",
+      "status": "ARCHITECTURE",
+      "category": "Knowledge",
+      "secret_mechanics": "Operational diagnostic assistant answering queries strictly from approved, versioned SOPs. Mandatory citation of document code, version, and section.",
+      "owning_files": [
+        "STFL_AIO_SERVICE_CENTER_MODEL.md"
+      ],
+      "introduced_in": "Prompt 12.5 (Section 76)",
+      "dependencies": [
+        "Approved SOP Vault",
+        "RAG Pipeline"
+      ],
+      "extensibility": "Can ADD indexed SOPs; NEVER SPECULATE on unratified edge cases",
+      "name_bn": "উৎস-প্রমাণিত এআই-সহায়তাপ্রাপ্ত সমস্যা সমাধান",
+      "description_bn": "আইনি উদ্ধৃতি ও রেফারেন্স সহ এআই সমস্যা সমাধান ও পরামর্শ ব্যবস্থা।"
+    },
+    {
+      "id": "FEAT-39",
+      "name": "Cloudflare Workers Edge Gateway & KV Cache",
+      "status": "ARCHITECTURE",
+      "category": "Infrastructure",
+      "secret_mechanics": "Cloudflare Workers edge entrypoint with rate-limiting KV stores, DDoS scrubbing, TLS termination, and Hyperdrive connection pooling to PostgreSQL.",
+      "owning_files": [
+        "apk/api/src/cache.ts",
+        "apk/api/src/env.ts"
+      ],
+      "introduced_in": "Prompt 12 & 13",
+      "dependencies": [
+        "Cloudflare Workers Runtime"
+      ],
+      "extensibility": "Can ADD edge cache rules; NEVER EXPOSE raw database port to public internet",
+      "name_bn": "ক্লাউডফ্লেয়ার ওয়ার্কার্স এজ গেটওয়ে ও কেভি ক্যাশ",
+      "description_bn": "সার্বজনীন সাইট ও এপিআই-এর জন্য আল্ট্রা-লো লেটেন্সি ডিস্ট্রিবিউটেড এজ আর্কিটেকচার।"
+    },
+    {
+      "id": "FEAT-40",
+      "name": "Interactive Demo Mock Environment",
+      "status": "VERIFIED",
+      "category": "Demo & Testing",
+      "secret_mechanics": "Synthetic tenant and user generator with isolated mock credentials, passing 15/15 Vitest tests for safe sandbox evaluation.",
+      "owning_files": [
+        "apk/api/src/routes/demo.ts",
+        "test/demo_environment.test.ts",
+        "STFL_AIO_DEMO_ENVIRONMENT.md"
+      ],
+      "introduced_in": "Prompt 12 (Demo Environment)",
+      "dependencies": [
+        "PostgreSQL 16",
+        "FEAT-05 13-D Auth"
+      ],
+      "extensibility": "Can ADD synthetic demo personas; NEVER MIX demo data with production",
+      "name_bn": "ইন্টারেক্টিভ ডেমো মক পরিবেশ",
+      "description_bn": "মূল ডাটাবেস অক্ষুণ্ণ রেখে নিরাপদ স্টেকহোল্ডার প্রদর্শনী ও প্রশিক্ষণ পরিবেশ।"
+    },
+    {
+      "id": "FEAT-GRIO-AGREEMENT-01",
+      "name": "GrihostiOS Master Agreement & Contract Engine",
+      "status": "VERIFIED",
+      "category": "Property, Land & Rural Enterprise Operations",
+      "secret_mechanics": "Governed contract engine (\"User enters facts, system supplies structure\") with 8 ratified Bangladesh templates, dynamic GREEN/AMBER/RED Legal Readiness Gate, special condition conflict detection, SHA-256 cryptographic immutability, QR public verification, electronically signed rent receipts, and Land Reforms Ordinance 1984 1/3 statutory barga settlement.",
+      "owning_files": [
+        "main/api/src/grihosti/engine.ts",
+        "main/api/src/grihosti/templates.ts",
+        "main/api/src/grihosti/types.ts",
+        "main/api/src/routes/grihosti.ts",
+        "main/api/test/grihosti.test.ts",
+        "main/web/src/app/admin/property/page.tsx"
+      ],
+      "introduced_in": "GrihostiOS Master Implementation",
+      "dependencies": [
+        "PostgreSQL 16",
+        "FEAT-05 13-D Auth",
+        "FEAT-26 Property Management",
+        "STFL Digital Document Engine",
+        "Constitutional Invariant #2 (SoD)"
+      ],
+      "extensibility": "Can register new ratified legal templates per jurisdiction or statutory amendment; never mutate executed agreements.",
+      "name_bn": "গৃহস্থালি মাস্টার চুক্তি ও আইনি টেমপ্লেট ইঞ্জিন",
+      "description_bn": "বাংলাদেশ-প্রথম রিয়েল এস্টেট, জমি, বর্গাচাষ ও পল্লী যৌথ প্রকল্প চুক্তি পরিচালনাকারী আইনি প্রস্তুতি যাচাই গেট এবং ডিজিটাল রসিদ ব্যবস্থা।"
+    }
+  ],
+  "constitutional_invariants": [
+    {
+      "number": 1,
+      "title": "Level 3 Authority Ceiling for Autonomous Agents",
+      "rule": "No autonomous software agent or AI assistant may exceed Level 3 authority. Agents may read, analyze, draft, and recommend. Any state mutation, financial disbursement, or policy change requires physical human approval.",
+      "code_enforcement": "apk/api/src/agents/runtime.ts checks authority_level <= 3. Vitest test test/agent_red_team.test.ts rejects Level 4 execution."
+    },
+    {
+      "number": 2,
+      "title": "Zero Self-Approval & Anti-Collusion Invariant",
+      "rule": "The creator of a record cannot approve it; the approver cannot disburse it. Super Admin (Class 00) and AI Agents (Class 10) are constitutionally prohibited from self-approving expenditures.",
+      "code_enforcement": "apk/api/src/approval/engine.ts enforces creator_id != approver_id. Throws ANTI_COLLUSION_VIOLATION."
+    },
+    {
+      "number": 3,
+      "title": "Strict Financial Precision (No Floating Point)",
+      "rule": "All monetary amounts, account ledgers, and transactions across STFL core and all projects must use NUMERIC(18, 2). Floating-point IEEE 754 representations are strictly banned.",
+      "code_enforcement": "PostgreSQL schemas 0001 & 0002 define NUMERIC(18, 2). API validation uses Zod string-decimal parser."
+    },
+    {
+      "number": 4,
+      "title": "Immutable Enterprise Audit Log",
+      "rule": "Audit records written to enterprise_audit_logs cannot be updated, soft-deleted, or purged by any user, including database superusers.",
+      "code_enforcement": "PostgreSQL trigger prevent_audit_log_mutation aborts any UPDATE or DELETE statement."
+    },
+    {
+      "number": 5,
+      "title": "Mandatory Device Attestation for Operational Access",
+      "rule": "Non-public operational consoles require bound hardware tokens (STFL-DVC-*). Token compromise instantly revokes session across all projects.",
+      "code_enforcement": "apk/api/src/middleware.ts validates x-device-id against device_registrations."
+    },
+    {
+      "number": 6,
+      "title": "Single PostgreSQL Authoritative Persistence",
+      "rule": "All projects, tenants, sub-ledgers, and entities share the authoritative PostgreSQL 16 cluster. Rogue external databases or split-brain ledgers are forbidden.",
+      "code_enforcement": "Central db.ts connection pool with Row-Level Security."
+    },
+    {
+      "number": 7,
+      "title": "Forensic Steganographic Document Watermarking",
+      "rule": "Every generated institutional document must bear a SHA-256 hash, an official STFL-DOC-* ID, and invisible forensic printer operator dots.",
+      "code_enforcement": "apk/api/src/print/engine.ts injects Yellow Micro-Dot matrix encoding user ID and timestamp."
+    },
+    {
+      "number": 8,
+      "title": "Governed Communications Gateway Only",
+      "rule": "No project or module may deploy an unapproved SMS, WhatsApp, or email provider. All messaging flows through the audited platform gateway.",
+      "code_enforcement": "apk/api/src/comms/gateway.ts verifies template hashes before dispatching to external APIs."
+    },
+    {
+      "number": 9,
+      "title": "Statutory Law Non-Waivability",
+      "rule": "No project or local authority can waive or dilute national statutory limits (e.g. Labour Act 2006, Waqf Ordinance 1962, Premises Rent Act).",
+      "code_enforcement": "STFL_AIO_COMPLIANCE_ARCHITECTURE.md blocks project rule configurations from overriding national statutes."
+    },
+    {
+      "number": 10,
+      "title": "Zero Single Point of Failure (SPOF) via Relief Moderators",
+      "rule": "Operational relief roles MODERATOR_A and MODERATOR_B provide high-availability continuity without inheriting root or Super Admin authority.",
+      "code_enforcement": "STFL_AIO_MODERATOR_MODEL.md caps moderator actions; prohibits SQL console and master key access."
+    },
+    {
+      "number": 11,
+      "title": "Mandatory Platform Compliance Training Non-Erasure",
+      "rule": "Projects can add local training but cannot silently delete, hide, or waive platform-mandatory compliance and child safeguarding courses.",
+      "code_enforcement": "STFL_AIO_TRAINING_ARCHITECTURE.md marks core courses is_platform_mandatory=true."
+    },
+    {
+      "number": 12,
+      "title": "Zero Cross-Project Data Leakage",
+      "rule": "A user or agent in Project A has zero implicit visibility or access to Project B without explicit multi-project membership or Trustee oversight.",
+      "code_enforcement": "PostgreSQL Row-Level Security partitions tables by project_id."
+    }
+  ],
+  "consoles": [
+    {
+      "id": 1,
+      "code": "GOVERNANCE",
+      "name": "Governance Center",
+      "roles": [
+        "CLASS_01 (Trustee)"
+      ],
+      "relief": "Read Only",
+      "scope": "Charitable Trust Oversight, Resolutions, Trustees Meetings"
+    },
+    {
+      "id": 2,
+      "code": "EXECUTIVE",
+      "name": "Executive Command",
+      "roles": [
+        "CLASS_02 (Executive Director)"
+      ],
+      "relief": "Read Only",
+      "scope": "Strategic Directives, Foundation-Wide KPI Dashboard"
+    },
+    {
+      "id": 3,
+      "code": "FINANCE",
+      "name": "Finance Control",
+      "roles": [
+        "CLASS_06 (Finance)"
+      ],
+      "relief": "Read Queue Only",
+      "scope": "General Ledger, Dual-Custody Disbursement, Bank Reconciliations"
+    },
+    {
+      "id": 4,
+      "code": "PROPERTY",
+      "name": "Property Management",
+      "roles": [
+        "CLASS_03 (Unit Head)",
+        "CLASS_04 (Officer)"
+      ],
+      "relief": "Ticket Queue",
+      "scope": "Waqf Estates, Commercial Leases, Rent Collections, Tenant Portal"
+    },
+    {
+      "id": 5,
+      "code": "MICROFINANCE",
+      "name": "Microfinance Center",
+      "roles": [
+        "CLASS_03 (Unit Head)",
+        "CLASS_05 (Field Collector)"
+      ],
+      "relief": "Ticket Queue",
+      "scope": "Qard-al-Hasan Loans, Group Collections, Borrower Portal"
+    },
+    {
+      "id": 6,
+      "code": "WORKFORCE",
+      "name": "Workforce Center (HR)",
+      "roles": [
+        "CLASS_09 (HR Lead)"
+      ],
+      "relief": "Ticket Queue",
+      "scope": "Staff Rostering, Biometric Attendance, Payroll, Leave"
+    },
+    {
+      "id": 7,
+      "code": "ECOMMERCE",
+      "name": "E-Commerce Operations",
+      "roles": [
+        "CLASS_04 (Officer)",
+        "CLASS_05 (Delivery)"
+      ],
+      "relief": "Ticket Queue",
+      "scope": "Order Fulfillment, Warehouse Inventory, Customer Care"
+    },
+    {
+      "id": 8,
+      "code": "PROJECTS",
+      "name": "Projects & Agency Command",
+      "roles": [
+        "CLASS_03 (Project Head)",
+        "CLASS_04 (Officer)"
+      ],
+      "relief": "Ticket Queue",
+      "scope": "Cross-Project Multi-Tenancy, Beneficiary Registry, Milestone Tracking"
+    },
+    {
+      "id": 9,
+      "code": "ASSETS",
+      "name": "Asset Management",
+      "roles": [
+        "CLASS_04 (Officer)"
+      ],
+      "relief": "Ticket Queue",
+      "scope": "Fixed Asset Register, QR Tagging, Maintenance Schedules"
+    },
+    {
+      "id": 10,
+      "code": "DOCUMENTS",
+      "name": "Document Control & Issuance",
+      "roles": [
+        "CLASS_08 (Document Officer)"
+      ],
+      "relief": "Assist / OCR",
+      "scope": "Official Certificates, Contracts, Deed Storage, Verification Gateway"
+    },
+    {
+      "id": 11,
+      "code": "COMMS",
+      "name": "Communications & Dispatch",
+      "roles": [
+        "CLASS_04 (Officer)"
+      ],
+      "relief": "Inbound Queue",
+      "scope": "Outbound Campaigns, Anti-Hallucination Templates, Delivery Logs"
+    },
+    {
+      "id": 12,
+      "code": "SECURITY",
+      "name": "Security & Audit Operations",
+      "roles": [
+        "CLASS_07 (CISO / Security)"
+      ],
+      "relief": "Audit Logs",
+      "scope": "Enterprise Audit Trails, Threat Detection, Session Terminations"
+    },
+    {
+      "id": 13,
+      "code": "AGENT_CTRL",
+      "name": "Autonomous Agent Command",
+      "roles": [
+        "CLASS_07 (Security)",
+        "CLASS_03 (Lead)"
+      ],
+      "relief": "Monitor Heartbeats",
+      "scope": "Agent Health, Tool Allowlists, Global Kill Switch Hook"
+    },
+    {
+      "id": 14,
+      "code": "DEVICE_MGMT",
+      "name": "Hardware Device Management",
+      "roles": [
+        "CLASS_07 (Security)"
+      ],
+      "relief": "Assist Lockout",
+      "scope": "Hardware KeyStore Enrolment, Device Binding, Remote Wipe"
+    },
+    {
+      "id": 15,
+      "code": "IAM",
+      "name": "Identity & Access (IAM)",
+      "roles": [
+        "CLASS_00 (Super Admin)"
+      ],
+      "relief": "Reset Queue",
+      "scope": "User Directory, Role Bindings, Password Policies, MFA Enrolment"
+    },
+    {
+      "id": 16,
+      "code": "SYS_ADMIN",
+      "name": "Core System Administration",
+      "roles": [
+        "CLASS_00 (Super Admin)"
+      ],
+      "relief": "DENIED (No Relief)",
+      "scope": "Database Migrations, Infrastructure, Cryptographic Root Keys"
+    },
+    {
+      "id": 17,
+      "code": "COMPLIANCE",
+      "name": "Compliance & Legal Console",
+      "roles": [
+        "Legal Counsel",
+        "Compliance Lead"
+      ],
+      "relief": "Referral Review",
+      "scope": "21 Statutory Domains, Legal Review Cases, Rule Versioning, Hold Releases"
+    },
+    {
+      "id": 18,
+      "code": "KNOWLEDGE",
+      "name": "Knowledge, Training & Service",
+      "roles": [
+        "Service Manager",
+        "Training Lead"
+      ],
+      "relief": "FULL (Q-A & Q-B)",
+      "scope": "Courses, Visual Guides, SOPs, Moderator Work Queue, Certificates"
+    }
+  ],
+  "cleanup_map": {
+    "redundant_files": [
+      {
+        "file": "STFL_USER_CLASS_MATRIX.md",
+        "type": "Superseded",
+        "replacement": "STFL_AIO_USER_CLASS_WORKSPACE_MATRIX.md",
+        "action": "Archive to _old/specifications/"
+      },
+      {
+        "file": "STFL_AGENT_AUTHORIZATION_MODEL.md",
+        "type": "Superseded",
+        "replacement": "STFL_AIO_AGENT_MODEL.md & STFL_AIO_PROJECT_AGENT_MODEL.md",
+        "action": "Archive to _old/specifications/"
+      },
+      {
+        "file": "STFL_AGENT_AUTHORIZATION_MODEL.zip",
+        "type": "Legacy Archive",
+        "replacement": "STFL_AIO_MASTER_CONTROL.html",
+        "action": "Delete or Move to _old/archives/"
+      },
+      {
+        "file": "stfl.zip",
+        "type": "Stale 1.68GB Archive",
+        "replacement": "Active Git Repository",
+        "action": "Relocate outside workspace root"
+      },
+      {
+        "file": "STFL_MANAGEMENT_BACKENDS.md",
+        "type": "Superseded",
+        "replacement": "STFL_AIO_CONSOLE_SPECIFICATION.md",
+        "action": "Archive to _old/specifications/"
+      },
+      {
+        "file": "STFL_MIGRATION_PLAN.md",
+        "type": "Duplicate",
+        "replacement": "STFL_DATABASE_MIGRATION_PLAN.md",
+        "action": "Consolidate into single migration guide"
+      },
+      {
+        "file": "STFL_AIO_PHASE_1_IMPLEMENTATION_REPORT.md",
+        "type": "Phase Report",
+        "replacement": "STFL_AIO_MASTER_CONTROL.html",
+        "action": "Archive to _old/phase_reports/"
+      },
+      {
+        "file": "STFL_AIO_PHASE_1_RED_TEAM_REPORT.md",
+        "type": "Phase Report",
+        "replacement": "STFL_AIO_MASTER_CONTROL.html",
+        "action": "Archive to _old/phase_reports/"
+      },
+      {
+        "file": "STFL_AIO_PHASE_2_DATABASE_REPORT.md",
+        "type": "Phase Report",
+        "replacement": "STFL_AIO_MASTER_CONTROL.html",
+        "action": "Archive to _old/phase_reports/"
+      },
+      {
+        "file": "STFL_AIO_PHASE_3_AUTHORIZATION_REPORT.md",
+        "type": "Phase Report",
+        "replacement": "STFL_AIO_MASTER_CONTROL.html",
+        "action": "Archive to _old/phase_reports/"
+      },
+      {
+        "file": "STFL_AIO_PHASE_4_APPROVAL_REPORT.md",
+        "type": "Phase Report",
+        "replacement": "STFL_AIO_MASTER_CONTROL.html",
+        "action": "Archive to _old/phase_reports/"
+      },
+      {
+        "file": "STFL_AIO_PHASE_5_DOCUMENT_REPORT.md",
+        "type": "Phase Report",
+        "replacement": "STFL_AIO_MASTER_CONTROL.html",
+        "action": "Archive to _old/phase_reports/"
+      },
+      {
+        "file": "STFL_AIO_PHASE_6_PRINT_REPORT.md",
+        "type": "Phase Report",
+        "replacement": "STFL_AIO_MASTER_CONTROL.html",
+        "action": "Archive to _old/phase_reports/"
+      },
+      {
+        "file": "STFL_AIO_PHASE_7_COMMS_REPORT.md",
+        "type": "Phase Report",
+        "replacement": "STFL_AIO_MASTER_CONTROL.html",
+        "action": "Archive to _old/phase_reports/"
+      },
+      {
+        "file": "STFL_AIO_PHASE_8_AGENT_REPORT.md",
+        "type": "Phase Report",
+        "replacement": "STFL_AIO_MASTER_CONTROL.html",
+        "action": "Archive to _old/phase_reports/"
+      },
+      {
+        "file": "STFL_AIO_PHASE_9_RED_TEAM_REPORT.md",
+        "type": "Phase Report",
+        "replacement": "STFL_AIO_MASTER_CONTROL.html",
+        "action": "Archive to _old/phase_reports/"
+      },
+      {
+        "file": "STFL_AIO_PHASE_10_CONSOLES_REPORT.md",
+        "type": "Phase Report",
+        "replacement": "STFL_AIO_MASTER_CONTROL.html",
+        "action": "Archive to _old/phase_reports/"
+      },
+      {
+        "file": "STFL_AIO_PHASE_12_5_MULTI_PROJECT_ARCHITECTURE_REPORT.md",
+        "type": "Phase Report",
+        "replacement": "STFL_AIO_MASTER_CONTROL.html",
+        "action": "Archive to _old/phase_reports/"
+      }
+    ],
+    "sanitized_folder_structure": {
+      "root": [
+        "STFL_AIO_MASTER_CONTROL.html (Authoritative Master Control Book & JSON Truth)",
+        "STFL_AIO_CONSTITUTION.md (Constitutional Invariants & Board Veto Authority)",
+        "STFL_AIO_ARCHITECTURE.md (High-Level Enterprise Architecture Blueprint)",
+        "STFL_AIO_SECURITY_MODEL.md (Cryptographic & Hardware Trust Model)",
+        "apk/ (Active Multiplatform Code Repository: Android, API, Web)",
+        "docs/ (Curated Reference Specifications & DDL Guides)",
+        "archive/ (Frozen Historical Phase Reports & Migration Audits)"
+      ],
+      "apk_structure": [
+        "apk/api/ (Hono + TypeScript Authoritative API Gateway & Services)",
+        "apk/web/ (Next.js 15 Operational Web Frontend & Admin Portals)",
+        "apk/app/ (Android Jetpack Compose Operational Field Application)",
+        "apk/core/ (Shared Multiplatform Domain Models & DTOs)",
+        "apk/security/ (Android KeyStore Hardware Attestation Module)",
+        "apk/data/ (Repositories, Room Database, Network Clients)",
+        "apk/ui/ (Design Tokens, Theme, Reusable Android Components)"
+      ]
+    }
+  },
+  "project_expansion_archetypes": [
+    {
+      "code": "ARCH_AGRO",
+      "title": "Social Enterprise / Commercial Production",
+      "p_and_l": "Independent Commercial P&L (Balance Sheet, Inventory, VAT)",
+      "compliance": "Companies Act 1994, VAT Act 2012, Food Safety 2013",
+      "modules": "Inventory, Order Dispatch, Micro-Invoicing, Traceability Agent"
+    },
+    {
+      "code": "ARCH_CLINIC",
+      "title": "Humanitarian Field Health Clinic",
+      "p_and_l": "Restricted Donor Grant Accounting (Fund Balancing)",
+      "compliance": "Drugs Act 1940, Medical Practice Act, Beneficiary Privacy",
+      "modules": "Patient Intake, Cold-Chain Tracking, Pharmacy Dispensing, Triage Agent"
+    },
+    {
+      "code": "ARCH_RESEARCH",
+      "title": "Academic Research & Publishing Fellowship",
+      "p_and_l": "Endowment Stipend & Publication Grant",
+      "compliance": "Copyright Act 2000, Academic Integrity, Data Ethics",
+      "modules": "Fellowship Grants, Peer Review Tracking, Digital Library, Literature Agent"
+    },
+    {
+      "code": "ARCH_COMMUNITY",
+      "title": "Community Micro-Grant & Relief Mission",
+      "p_and_l": "Zero-Interest Micro-Financing & Emergency Relief",
+      "compliance": "Microcredit Regulatory Authority (MRA) Rules, Disaster Relief",
+      "modules": "Beneficiary Survey, Cashless Disbursement, Field Auditing Agent"
+    }
+  ],
+  "compliance_domains": [
+    {
+      "code": "DOM-01",
+      "name": "Land & Real Property",
+      "canonical_code": "LAND_PROPERTY",
+      "act": "State Acquisition & Tenancy Act 1950, Waqf Ordinance 1962",
+      "trigger": "Estate lease term > 3 yrs, property conveyance, administrator mutation"
+    },
+    {
+      "code": "DOM-02",
+      "name": "Lease & Tenancy",
+      "canonical_code": "LEASE_TENANCY",
+      "act": "Transfer of Property Act 1882, Premises Rent Control Act 1991",
+      "trigger": "Advance rent deposit > 3 months, eviction without notice, rent revision"
+    },
+    {
+      "code": "DOM-03",
+      "name": "Labour & Employment Law",
+      "canonical_code": "LABOUR_EMPLOYMENT",
+      "act": "Bangladesh Labour Act 2006 (Amended 2013/2018)",
+      "trigger": "Overtime calculation, child labor check, minimum wage, termination notice"
+    },
+    {
+      "code": "DOM-04",
+      "name": "Banking & Microfinance",
+      "canonical_code": "FINANCE_BANKING",
+      "act": "Microcredit Regulatory Authority Act 2006, Bank Company Act 1991",
+      "trigger": "Interest rate ceiling compliance, borrower collection harassment check"
+    },
+    {
+      "code": "DOM-05",
+      "name": "Taxation & Levies",
+      "canonical_code": "TAXATION",
+      "act": "Income Tax Act 2023, Value Added Tax & Supplementary Duty Act 2012",
+      "trigger": "Withholding tax deduction at source on payments > 50,000 BDT, VAT invoicing"
+    },
+    {
+      "code": "DOM-06",
+      "name": "Corporate Governance",
+      "canonical_code": "CORPORATE",
+      "act": "Societies Registration Act 1860, Companies Act 1994, Trust Act 1882",
+      "trigger": "Trust deed compliance, board resolutions, annual statutory filings"
+    },
+    {
+      "code": "DOM-07",
+      "name": "Contracts & Commercial",
+      "canonical_code": "CONTRACT",
+      "act": "Contract Act 1872, Sale of Goods Act 1930",
+      "trigger": "Vendor agreements, indemnity clauses, breach of terms"
+    },
+    {
+      "code": "DOM-08",
+      "name": "Public & Trust Procurement",
+      "canonical_code": "PROCUREMENT",
+      "act": "Public Procurement Rules 2008 (PPR)",
+      "trigger": "Tender threshold, minimum 3 vendor quotation enforcement for > 100k BDT"
+    },
+    {
+      "code": "DOM-09",
+      "name": "Data Privacy & Protection",
+      "canonical_code": "DATA_PRIVACY",
+      "act": "Cyber Security Act 2023, National Telecommunication Guidelines",
+      "trigger": "Biometric data storage, cross-border data transfer, health records"
+    },
+    {
+      "code": "DOM-10",
+      "name": "Cybersecurity & Cloud",
+      "canonical_code": "CYBERSECURITY",
+      "act": "National Cyber Security Policy, Bangladesh Bank ICT Guidelines",
+      "trigger": "Hardware attestation failure, encryption key rotation, audit tamper attempt"
+    },
+    {
+      "code": "DOM-11",
+      "name": "Occupational Health & Safety",
+      "canonical_code": "HEALTH_SAFETY",
+      "act": "Factory Rules, Directorate of Inspection for Factories (DIFE)",
+      "trigger": "Field safety incidents, clinic hazardous waste disposal"
+    },
+    {
+      "code": "DOM-12",
+      "name": "Environmental Standards",
+      "canonical_code": "ENVIRONMENT",
+      "act": "Bangladesh Environment Conservation Act 1995",
+      "trigger": "Agricultural chemical storage, clinical bio-waste protocols"
+    },
+    {
+      "code": "DOM-13",
+      "name": "Immigration & Expatriates",
+      "canonical_code": "IMMIGRATION",
+      "act": "Foreigners Act 1946, BIDA Work Permit Guidelines",
+      "trigger": "Foreign volunteer onboarding, donor visa compliance"
+    },
+    {
+      "code": "DOM-14",
+      "name": "Licensing & Trade Permits",
+      "canonical_code": "LICENSING",
+      "act": "City Corporation Trade Licensing Regulations, Fire Service Act",
+      "trigger": "Commercial warehouse trade license expiry, clinic operating license"
+    },
+    {
+      "code": "DOM-15",
+      "name": "Consumer Rights Protection",
+      "canonical_code": "CONSUMER",
+      "act": "Consumer Rights Protection Act 2009",
+      "trigger": "E-commerce product labeling, refund disputes, price gouging"
+    },
+    {
+      "code": "DOM-16",
+      "name": "Anti-Fraud & Embezzlement",
+      "canonical_code": "ANTI_FRAUD",
+      "act": "Penal Code 1860, Prevention of Corruption Act 1947",
+      "trigger": "Dual-control bypass, ghost beneficiary detection, double vouchers"
+    },
+    {
+      "code": "DOM-17",
+      "name": "Anti-Money Laundering & Terror",
+      "canonical_code": "ANTI_CORRUPTION",
+      "act": "Money Laundering Prevention Act 2012, Anti-Terrorism Act 2009",
+      "trigger": "Cash transactions > 500k BDT, politically exposed persons, sanction lists"
+    },
+    {
+      "code": "DOM-18",
+      "name": "Child & Adult Safeguarding",
+      "canonical_code": "SAFEGUARDING",
+      "act": "Children Act 2013, International Safeguarding Charters",
+      "trigger": "Orphanage access, minor beneficiary records, background checks"
+    },
+    {
+      "code": "DOM-19",
+      "name": "Foreign Donations & Grants",
+      "canonical_code": "GRANTS",
+      "act": "Foreign Donations (Voluntary Activities) Regulation Act 2016",
+      "trigger": "Foreign fund intake, NGO Affairs Bureau project approval, FD-6/FD-7 filings"
+    },
+    {
+      "code": "DOM-20",
+      "name": "Donor Covenants & Conditions",
+      "canonical_code": "DONOR_REQUIREMENTS",
+      "act": "Bilateral Grant Agreements, Multilateral Project Covenants",
+      "trigger": "Restricted grant reallocations, milestone delay reporting, audit clauses"
+    },
+    {
+      "code": "DOM-21",
+      "name": "Internal STFL Platform Policy",
+      "canonical_code": "INTERNAL_POLICY",
+      "act": "STFL Platform Constitution 2026, Foundation Trust Deed",
+      "trigger": "Authority level 3 agent violations, self-approval attempts, code of conduct"
+    }
+  ],
+  "user_classes": [
+    {
+      "code": "CLASS_00",
+      "title": "Super Administrator",
+      "tier": "Tier 1 (Security Key)",
+      "scope": "Global Infrastructure & Root IAM",
+      "relief_allowed": false,
+      "description": "Emergency recovery, database schema migration, master IAM configuration."
+    },
+    {
+      "code": "CLASS_01",
+      "title": "Board Trustee",
+      "tier": "Tier 1 (Biometric / Key)",
+      "scope": "Foundation-Wide Governance",
+      "relief_allowed": false,
+      "description": "Trust resolutions, constitutional policy amendments, sovereign oversight."
+    },
+    {
+      "code": "CLASS_02",
+      "title": "Executive Director",
+      "tier": "Tier 1 (Enrolled Hardware)",
+      "scope": "Operational Directorate",
+      "relief_allowed": false,
+      "description": "Cross-unit management, high-value approvals, strategic directives."
+    },
+    {
+      "code": "CLASS_03",
+      "title": "Unit / Project Head",
+      "tier": "Tier 2 (Hardware Token)",
+      "scope": "Department / Project Realm",
+      "relief_allowed": true,
+      "description": "Departmental operational control, project budgets, milestone sign-offs."
+    },
+    {
+      "code": "CLASS_04",
+      "title": "Operational Officer",
+      "tier": "Tier 2 (Bound Workstation)",
+      "scope": "Assigned Operational Unit",
+      "relief_allowed": true,
+      "description": "Standard transactional entry, verification, and customer processing."
+    },
+    {
+      "code": "CLASS_05",
+      "title": "Field Worker",
+      "tier": "Tier 3 (Bound Android Device)",
+      "scope": "Designated Field Zone",
+      "relief_allowed": false,
+      "description": "Mobile surveys, cash collections, medical triage, delivery confirmations."
+    },
+    {
+      "code": "CLASS_06",
+      "title": "Finance Comptroller",
+      "tier": "Tier 1 (Enrolled Device)",
+      "scope": "Financial Sub-Ledgers",
+      "relief_allowed": false,
+      "description": "General ledger postings, dual-custody disbursements, bank reconciliations."
+    },
+    {
+      "code": "CLASS_07",
+      "title": "Security & Audit Officer",
+      "tier": "Tier 1 (Hardware Key)",
+      "scope": "Enterprise Audit & Defense",
+      "relief_allowed": false,
+      "description": "Audit trail forensic inspection, threat detection, emergency agent quarantine."
+    },
+    {
+      "code": "CLASS_08",
+      "title": "Document Officer",
+      "tier": "Tier 2 (Bound Workstation)",
+      "scope": "Official Document Vault",
+      "relief_allowed": true,
+      "description": "Deed issuance, contract generation, certificate watermarking."
+    },
+    {
+      "code": "CLASS_09",
+      "title": "HR & Workforce Lead",
+      "tier": "Tier 2 (Enrolled Device)",
+      "scope": "Workforce & Rosters",
+      "relief_allowed": true,
+      "description": "Staff onboarding, attendance verification, payroll dispatch, leave approvals."
+    },
+    {
+      "code": "CLASS_10",
+      "title": "Autonomous AI Agent",
+      "tier": "Software Cryptographic Token",
+      "scope": "Constrained Tool Sandbox",
+      "relief_allowed": false,
+      "description": "Level 3 authority ceiling (Read/Draft/Analyze/Recommend only; no self-mutation)."
+    },
+    {
+      "code": "CLASS_11",
+      "title": "External Stakeholder",
+      "tier": "Browser MFA Session",
+      "scope": "Assigned Project Portal",
+      "relief_allowed": false,
+      "description": "Partner NGO leads, external auditors, bilateral donors."
+    },
+    {
+      "code": "CLASS_12",
+      "title": "Public / Beneficiary",
+      "tier": "Web Session / SMS OTP",
+      "scope": "Self-Service Records",
+      "relief_allowed": false,
+      "description": "Public users, tenants, loan applicants, community beneficiaries."
+    },
+    {
+      "code": "MODERATOR_A",
+      "title": "Operational & User Support Relief Moderator",
+      "tier": "Tier 2 (Enrolled Device)",
+      "scope": "Assigned Service Queues",
+      "relief_allowed": true,
+      "description": "Routine user assistance, account recovery, training assessment review; zero self-approval."
+    },
+    {
+      "code": "MODERATOR_B",
+      "title": "Technical, Knowledge & Escalation Relief Moderator",
+      "tier": "Tier 2 (Enrolled Device)",
+      "scope": "Assigned Technical Queues",
+      "relief_allowed": true,
+      "description": "SOP curation, technical triage, compliance referral, escalation routing; zero self-approval."
+    }
+  ],
+  "core_architecture_entities": [
+    {
+      "name": "Party",
+      "table": "parties",
+      "key_invariants": "Universal root entity for all natural persons, trusts, companies, and external organizations.",
+      "owning_spec": "STFL_PARTY_RELATIONSHIP_MODEL.md"
+    },
+    {
+      "name": "Identity",
+      "table": "users (credentials)",
+      "key_invariants": "Argon2id password hashing, mandatory WebAuthn/TOTP MFA, cryptographic session tokens.",
+      "owning_spec": "STFL_IAM_ARCHITECTURE.md"
+    },
+    {
+      "name": "User",
+      "table": "users",
+      "key_invariants": "User class (CLASS_00 to CLASS_12) assignment, hardware device binding, unit/project memberships.",
+      "owning_spec": "STFL_USER_CLASS_MATRIX.md"
+    },
+    {
+      "name": "Agent",
+      "table": "agents / agent_runs",
+      "key_invariants": "Strict Level 3 authority ceiling, tool allowlist filtering, kill switch hook, zero user masquerading.",
+      "owning_spec": "STFL_AIO_AGENT_MODEL.md"
+    },
+    {
+      "name": "Device",
+      "table": "device_registrations",
+      "key_invariants": "Hardware KeyStore attestation, device fingerprint binding (STFL-DVC-*), instant cross-project revocation.",
+      "owning_spec": "STFL_AIO_SECURITY_MODEL.md"
+    },
+    {
+      "name": "Project",
+      "table": "projects",
+      "key_invariants": "First-class tenant container, Row-Level Security, dedicated sub-ledger, custom domain routing.",
+      "owning_spec": "STFL_AIO_PROJECT_MODEL.md"
+    },
+    {
+      "name": "Relationship",
+      "table": "party_relationships",
+      "key_invariants": "Typed, directed associations between parties (STFL-REL-*) with cryptographic timestamps.",
+      "owning_spec": "STFL_RELATIONSHIP_CATALOG.md"
+    },
+    {
+      "name": "Resource",
+      "table": "resources (virtual)",
+      "key_invariants": "Discrete domain target (e.g. voucher, lease, medical intake) guarded by 13-D authorization.",
+      "owning_spec": "STFL_SCOPE_MODEL.md"
+    },
+    {
+      "name": "Scope",
+      "table": "scopes",
+      "key_invariants": "Boundary strings enforcing geographical, unit, and project constraints on access.",
+      "owning_spec": "STFL_SCOPE_MODEL.md"
+    },
+    {
+      "name": "Permission",
+      "table": "permissions",
+      "key_invariants": "Granular action verbs (e.g. microfinance.collect, property.lease_create).",
+      "owning_spec": "STFL_AUTHORIZATION_MODEL.md"
+    },
+    {
+      "name": "Policy",
+      "table": "iam_workspace_policies",
+      "key_invariants": "Dynamic server-side authorization evaluation against user class, role, and context.",
+      "owning_spec": "STFL_AIO_USER_CLASS_WORKSPACE_MATRIX.md"
+    },
+    {
+      "name": "Approval",
+      "table": "approval_requests",
+      "key_invariants": "Dual-custody enforcement (creator != approver != disburser), counter-signature ledger.",
+      "owning_spec": "STFL_APPROVAL_ENGINE.md"
+    },
+    {
+      "name": "Action",
+      "table": "pipeline executions",
+      "key_invariants": "Discrete state mutation processed through 13-D authorization and compliance evaluation.",
+      "owning_spec": "STFL_AIO_EXECUTION_PIPELINE.md"
+    },
+    {
+      "name": "Audit",
+      "table": "enterprise_audit_logs",
+      "key_invariants": "10-D append-only ledger, SHA-256 payload hashing, trigger-enforced immutability.",
+      "owning_spec": "STFL_AUDIT_MODEL.md"
+    }
+  ],
+  "brand_governance": {
+    "master_anchor": "SohaelTasneem Foundation (STFL) — stflbd.app",
+    "co_branding_hierarchy": "STFL Institutional Anchor > Zonal Directorate > Autonomous Project Brand",
+    "zonal_divisions": [
+      "Dhaka Division",
+      "Sylhet Division",
+      "Chittagong Division",
+      "Rajshahi Division",
+      "International Grants Office"
+    ],
+    "project_brand_autonomy": "Projects may maintain custom domains (e.g. greendelta-agro.org), independent logos, and tailored theme accents.",
+    "mandatory_institutional_watermark": "All project websites, portals, and print documents must display: 'An Autonomous Enterprise of SohaelTasneem Foundation (STFL)'.",
+    "design_tokens": {
+      "primary_palette": "--stfl-brand-navy: #0c121e, --stfl-accent-cyan: #06b6d4, --stfl-accent-blue: #0284c7",
+      "typography": "Inter (UI & headings), JetBrains Mono (code & IDs)",
+      "forensic_stamp": "Yellow micro-dot operator stamp, cryptographic SHA-256 hash, and instant verification QR payload"
+    }
+  },
+  "experience_segments": [
+    {
+      "code": "SEG-01",
+      "name": "User Learning Center",
+      "audience": "Public, Field Workers, Beneficiaries, Tenants",
+      "mechanics": "Pictorial tutorials, step-by-step videos, interactive touch simulations, safety badges"
+    },
+    {
+      "code": "SEG-02",
+      "name": "Service & Operations Center",
+      "audience": "Supervisors, Operational Officers, Support Desk",
+      "mechanics": "Actionable SOP runbooks, SEV-1 to SEV-4 incident workflows, grounded AI diagnostics"
+    },
+    {
+      "code": "SEG-03",
+      "name": "Administration & Governance Center",
+      "audience": "Trustees, Executives, Legal Counsel, CISO",
+      "mechanics": "IAM procedures, compliance hold management, statutory audit manuals, key vaults"
+    },
+    {
+      "code": "SEG-04",
+      "name": "Moderation & Relief Center",
+      "audience": "MODERATOR_A, MODERATOR_B, Primary Admin",
+      "mechanics": "Controlled 9-item work queue, administrative relief, zero self-approval, escalation ladders"
+    }
+  ],
+  "known_gaps": [
+    {
+      "component": "Hardware KeyStore",
+      "current": "Software fallback mock in API vitest",
+      "target": "Hardware-backed Android KeyStore on physical devices",
+      "severity": "HIGH (Required for Release Gate)"
+    },
+    {
+      "component": "Edge Cloudflare Routes",
+      "current": "Tested via local Hono HTTP server (port 8787)",
+      "target": "Deploy to Cloudflare Workers with real Hyperdrive / D1 bindings",
+      "severity": "HIGH (Prompt 13 Gate)"
+    },
+    {
+      "component": "SMS Provider Failover",
+      "current": "Mock dispatcher with recorded cryptographic receipts",
+      "target": "Multi-vendor live carrier connections (Grameenphone, Banglalink, Robi)",
+      "severity": "MEDIUM (Pre-Production)"
+    },
+    {
+      "component": "Mobile Camera Biometric Liveness",
+      "current": "Static test image validation",
+      "target": "Real-time active pupil/depth movement detection",
+      "severity": "MEDIUM (Field App Polish)"
+    }
+  ],
+  "changelog": [
+    {
+      "phase": "Prompt 1",
+      "date": "2026-10-15",
+      "milestone": "Device Security Substrate & Hardware Attestation",
+      "artifacts": [
+        "STFL_AIO_SECURITY_MODEL.md",
+        "STFL_AIO_PHASE_1_IMPLEMENTATION_REPORT.md"
+      ]
+    },
+    {
+      "phase": "Prompt 2",
+      "date": "2026-10-15",
+      "milestone": "Device Security Red Team Penetration Testing",
+      "artifacts": [
+        "STFL_AIO_PHASE_1_RED_TEAM_REPORT.md"
+      ]
+    },
+    {
+      "phase": "Prompt 3 & 4",
+      "date": "2026-10-15",
+      "milestone": "Database Migration (0002) & Destructive Stress Tests",
+      "artifacts": [
+        "0002_aio_parties_iam.sql",
+        "test/migration_destructive.test.ts"
+      ]
+    },
+    {
+      "phase": "Prompt 5",
+      "date": "2026-10-15",
+      "milestone": "13-Dimensional Contextual Authorization Engine",
+      "artifacts": [
+        "test/authorization_engine.test.ts",
+        "STFL_AIO_PHASE_3_AUTHORIZATION_REPORT.md"
+      ]
+    },
+    {
+      "phase": "Prompt 6",
+      "date": "2026-10-15",
+      "milestone": "Dual-Custody Approval Engine & Anti-Collusion",
+      "artifacts": [
+        "test/approval_engine.test.ts",
+        "STFL_AIO_PHASE_4_APPROVAL_REPORT.md"
+      ]
+    },
+    {
+      "phase": "Prompt 7",
+      "date": "2026-10-15",
+      "milestone": "Cryptographic Document Engine & Print Forensics",
+      "artifacts": [
+        "test/document_engine.test.ts",
+        "test/controlled_print.test.ts"
+      ]
+    },
+    {
+      "phase": "Prompt 8",
+      "date": "2026-10-15",
+      "milestone": "Governed Multi-Channel Communications Gateway",
+      "artifacts": [
+        "test/comms_gateway.test.ts",
+        "STFL_AIO_PHASE_7_COMMS_REPORT.md"
+      ]
+    },
+    {
+      "phase": "Prompt 9 & 10",
+      "date": "2026-10-15",
+      "milestone": "Autonomous Agent Runtime & 16 Management Consoles",
+      "artifacts": [
+        "test/agent_runtime.test.ts",
+        "test/governed_consoles.test.ts"
+      ]
+    },
+    {
+      "phase": "Prompt 11",
+      "date": "2026-10-15",
+      "milestone": "Agent Red-Team Adversarial Penetration (Closed PASS)",
+      "artifacts": [
+        "test/agent_red_team.test.ts",
+        "STFL_AIO_PHASE_9_RED_TEAM_REPORT.md"
+      ]
+    },
+    {
+      "phase": "Prompt 12",
+      "date": "2026-10-15",
+      "milestone": "Governed Workspaces & Demo Environment",
+      "artifacts": [
+        "test/demo_environment.test.ts",
+        "STFL_AIO_DEMO_ENVIRONMENT.md"
+      ]
+    },
+    {
+      "phase": "Prompt 12.5 (1-40)",
+      "date": "2026-10-15",
+      "milestone": "Multi-Project Architecture & Tenant Model",
+      "artifacts": [
+        "STFL_AIO_MULTI_PROJECT_ARCHITECTURE.md",
+        "15 Project Specification Suite"
+      ]
+    },
+    {
+      "phase": "Prompt 12.5 (41-62)",
+      "date": "2026-10-15",
+      "milestone": "Compliance, Regulatory & Legal Intelligence Layer",
+      "artifacts": [
+        "STFL_AIO_COMPLIANCE_ARCHITECTURE.md",
+        "9 Compliance Model Suite"
+      ]
+    },
+    {
+      "phase": "Prompt 12.5 (63-82)",
+      "date": "2026-10-15",
+      "milestone": "Knowledge, Training, Service & Moderation Architecture",
+      "artifacts": [
+        "STFL_AIO_KNOWLEDGE_ARCHITECTURE.md",
+        "8 Knowledge Model Suite",
+        "STFL_AIO_CONSOLE_SPECIFICATION.md"
+      ]
+    },
+    {
+      "phase": "Prompt 12.5 (Master)",
+      "date": "2026-10-15",
+      "milestone": "Unified Master Control Book & JSON Truth Register",
+      "artifacts": [
+        "STFL_AIO_MASTER_CONTROL.html"
+      ]
+    }
+  ],
+  "bilingual_governance": {
+    "status": "RATIFIED_CONSTITUTIONAL",
+    "supported_languages": [
+      "en",
+      "bn"
+    ],
+    "direction": {
+      "en": "ltr",
+      "bn": "ltr"
+    },
+    "default_language": "en",
+    "user_selectable": true,
+    "persistence_mechanism": "COOKIE_AND_PROFILE",
+    "runtime_machine_translation_prohibited": true,
+    "creative_attribution": {
+      "en": "Made with love from Dhaka, Kuala Lumpur, Wyoming and Varizen Inc.",
+      "bn": "ঢাকা, কুয়ালালামপুর, ওয়াইওমিং এবং ভ্যারিজেন ইনকর্পোরেটেড থেকে ভালোবাসায় তৈরি",
+      "classification": "CREATIVE_ATTRIBUTION_NON_LEGAL"
+    },
+    "typography_system": {
+      "bangla_headers": {
+        "font_family": "Hind Siliguri",
+        "weights": [
+          600,
+          700
+        ],
+        "line_height": "1.6 - 1.7",
+        "embedding": "MANDATORY_EMBEDDED",
+        "fallback_stack": "'Hind Siliguri', 'SolaimanLipi', 'Kalpurush', 'Noto Sans Bengali', sans-serif"
+      },
+      "bangla_footers": {
+        "font_family": "Hind Siliguri",
+        "weights": [
+          600,
+          700
+        ],
+        "line_height": "1.6 - 1.7",
+        "embedding": "MANDATORY_EMBEDDED",
+        "fallback_stack": "'Hind Siliguri', 'SolaimanLipi', 'Kalpurush', 'Noto Sans Bengali', sans-serif"
+      },
+      "bangla_body": {
+        "font_family": "Baloo Da 2 / Noto Sans Bengali",
+        "weights": [
+          400,
+          500
+        ],
+        "line_height": "1.7 - 1.8",
+        "embedding": "MANDATORY_EMBEDDED",
+        "fallback_stack": "'Baloo Da 2', 'Noto Sans Bengali', 'SolaimanLipi', 'Vrinda', sans-serif"
+      },
+      "english_headers": {
+        "font_family": "Inter",
+        "weights": [
+          600,
+          700,
+          800
+        ],
+        "line_height": "1.3 - 1.4",
+        "fallback_stack": "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+      },
+      "english_body": {
+        "font_family": "Inter",
+        "weights": [
+          400,
+          500
+        ],
+        "line_height": "1.5",
+        "fallback_stack": "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+      },
+      "monospace": {
+        "font_family": "JetBrains Mono",
+        "weights": [
+          400,
+          500,
+          600
+        ],
+        "line_height": "1.45 - 1.5",
+        "fallback_stack": "'JetBrains Mono', 'Courier New', monospace"
+      }
+    },
+    "audit": {
+      "total_features": 41,
+      "features_with_bn": 41,
+      "features_with_en": 41,
+      "missing_bn_features": 0,
+      "missing_en_features": 0,
+      "unembedded_bangla_fonts": 0,
+      "typography_violations": 0,
+      "coverage_percentage": "100%"
+    }
+  }
+}
+</script>
+
+  <!-- ========================================================================= -->
+  <!-- CLIENT LOGIC & DYNAMIC CONTROLS                                           -->
+  <!-- ========================================================================= -->
+  <script>
+    let masterData = {};
+    let activeFilter = 'ALL';
+    let searchQuery = '';
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Load JSON Data
+      try {
+        const rawJson = document.getElementById('stfl-master-control-data').textContent;
+        masterData = JSON.parse(rawJson);
+        window.STFL_AIO_MASTER_DATA = masterData;
+        document.getElementById('json-display').textContent = JSON.stringify(masterData, null, 2);
+        document.getElementById('stat-features').textContent = masterData.features.length;
+      } catch (err) {
+        console.error('Failed to parse embedded JSON data:', err);
+      }
+
+      // 2. Render Tables & Views
+      renderFeaturesTable();
+      renderInvariants();
+      renderRedundancyTable();
+      renderSanitizedTree();
+      renderConsolesTable();
+      renderArchetypesTable();
+      renderComplianceTable();
+      renderTrainingTable();
+      renderGapsTable();
+      renderChangelogTable();
+      renderBilingualTable();
+    });
+
+    // Tab Switching
+    function switchTab(tabId, btn) {
+      document.querySelectorAll('.tab-pane').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.nav-tab-btn').forEach(el => el.classList.remove('active'));
+      document.getElementById(tabId).classList.add('active');
+      btn.classList.add('active');
+    }
+
+    // Filter Chips
+    function setFilter(filterType, element) {
+      activeFilter = filterType;
+      document.querySelectorAll('.filter-pill').forEach(el => el.classList.remove('active'));
+      element.classList.add('active');
+      renderFeaturesTable();
+    }
+
+    // Global Search
+    function handleSearch(query) {
+      searchQuery = query.toLowerCase().trim();
+      renderFeaturesTable();
+    }
+
+    // Render Features Table (Sections 1-8)
+    function renderFeaturesTable() {
+      const tbody = document.getElementById('features-table-body');
+      tbody.innerHTML = '';
+
+      if (!masterData.features) return;
+
+      const filtered = masterData.features.filter(item => {
+        let matchesFilter = true;
+        if (activeFilter === 'VERIFIED') matchesFilter = item.status === 'VERIFIED';
+        else if (activeFilter === 'ARCHITECTURE') matchesFilter = item.status === 'ARCHITECTURE';
+        else if (activeFilter === 'CORE_SECURITY') matchesFilter = item.category === 'Core Security';
+        else if (activeFilter === 'GOVERNANCE') matchesFilter = item.category === 'Governance';
+        else if (activeFilter === 'MULTI_PROJECT') matchesFilter = item.category === 'Multi-Project';
+
+        const matchesSearch = !searchQuery ||
+          item.name.toLowerCase().includes(searchQuery) ||
+          item.secret_mechanics.toLowerCase().includes(searchQuery) ||
+          item.owning_files.some(f => f.toLowerCase().includes(searchQuery)) ||
+          item.introduced_in.toLowerCase().includes(searchQuery) ||
+          item.id.toLowerCase().includes(searchQuery);
+
+        return matchesFilter && matchesSearch;
+      });
+
+      filtered.forEach(feat => {
+        const tr = document.createElement('tr');
+        const pillClass = feat.status === 'VERIFIED' ? 'pill-pass' : 'pill-warn';
+        
+        tr.innerHTML = `
+          <td>
+            <strong>${feat.name}</strong><br>
+            <span class="pill pill-cyan" style="margin-top: 4px;">${feat.id}</span>
+            <span style="font-size: 0.73rem; color: var(--text-muted); display: block; margin-top: 2px;">${feat.category}</span>
+          </td>
+          <td><span class="pill ${pillClass}">${feat.status}</span></td>
+          <td style="max-width: 320px; font-size: 0.79rem; color: #cbd5e1;">${feat.secret_mechanics}</td>
+          <td>
+            ${feat.owning_files.map(f => `<div class="code-chip" style="margin-bottom: 3px;">${f}</div>`).join('')}
+          </td>
+          <td style="font-size: 0.78rem; color: var(--text-secondary);">${feat.introduced_in}</td>
+          <td style="font-size: 0.74rem; color: var(--text-muted); font-family: var(--font-mono);">${feat.dependencies.join(', ')}</td>
+          <td><span style="font-size: 0.74rem; color: #38bdf8; font-weight: 500;">${feat.extensibility}</span></td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    // Render Invariants (Section 9)
+    function renderInvariants() {
+      const container = document.getElementById('invariants-container');
+      container.innerHTML = '';
+
+      if (!masterData.constitutional_invariants) return;
+
+      masterData.constitutional_invariants.forEach(inv => {
+        const card = document.createElement('div');
+        card.className = 'invariant-card';
+        card.innerHTML = `
+          <h4>🛡️ Invariant #${inv.number}: ${inv.title}</h4>
+          <p style="margin-bottom: 6px; color: #f1f5f9;">${inv.rule}</p>
+          <div style="font-size: 0.74rem; font-family: var(--font-mono); color: #94a3b8;">
+            <strong style="color: var(--status-pass);">Code Enforcement:</strong> ${inv.code_enforcement}
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    // Render Redundancy Table (Sections 10, 12, 13)
+    function renderRedundancyTable() {
+      const tbody = document.getElementById('redundancy-table-body');
+      tbody.innerHTML = '';
+
+      if (!masterData.cleanup_map || !masterData.cleanup_map.redundant_files) return;
+
+      masterData.cleanup_map.redundant_files.forEach(item => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td><span class="code-chip">${item.file}</span></td>
+          <td><span class="pill pill-danger">${item.type}</span></td>
+          <td style="color: var(--status-pass); font-weight: 500;">${item.replacement}</td>
+          <td><span class="pill pill-purple">${item.action}</span></td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    // Render Sanitized Tree (Section 14)
+    function renderSanitizedTree() {
+      const el = document.getElementById('sanitized-tree-view');
+      const s = masterData.cleanup_map.sanitized_folder_structure;
+      
+      let html = `<div class="tree-folder">stfl/ (Sanitized Production Root)</div>`;
+      s.root.forEach(r => {
+        html += `&nbsp;&nbsp;├── <span class="tree-file">${r}</span><br>`;
+      });
+      html += `<br><div class="tree-folder">apk/ (Source Repository Modules)</div>`;
+      s.apk_structure.forEach(m => {
+        html += `&nbsp;&nbsp;├── <span class="tree-file">${m}</span><br>`;
+      });
+      
+      el.innerHTML = html;
+    }
+
+    // Render Consoles (Section 17)
+    function renderConsolesTable() {
+      const tbody = document.getElementById('consoles-table-body');
+      tbody.innerHTML = '';
+
+      if (!masterData.consoles) return;
+
+      masterData.consoles.forEach(c => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td><strong>${c.id}</strong></td>
+          <td><span class="code-chip">${c.code}</span></td>
+          <td><strong>${c.name}</strong></td>
+          <td style="font-size: 0.77rem; color: #38bdf8;">${c.roles.join(', ')}</td>
+          <td><span class="pill pill-purple">${c.relief}</span></td>
+          <td style="font-size: 0.79rem; color: var(--text-secondary);">${c.scope}</td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    // Render Archetypes (Section 15)
+    function renderArchetypesTable() {
+      const tbody = document.getElementById('archetypes-table-body');
+      tbody.innerHTML = '';
+
+      if (!masterData.project_expansion_archetypes) return;
+
+      masterData.project_expansion_archetypes.forEach(a => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td><span class="code-chip">${a.code}</span></td>
+          <td><strong>${a.title}</strong></td>
+          <td style="font-size: 0.79rem; color: var(--status-pass);">${a.p_and_l}</td>
+          <td style="font-size: 0.79rem; color: #f59e0b;">${a.compliance}</td>
+          <td style="font-size: 0.77rem; color: var(--text-secondary);">${a.modules}</td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    // Render Compliance Table (Section 16)
+    function renderComplianceTable() {
+      const tbody = document.getElementById('compliance-domains-body');
+      tbody.innerHTML = '';
+
+      if (!masterData.compliance_domains) return;
+
+      masterData.compliance_domains.forEach(d => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td><span class="code-chip">${d.code}</span><br><strong>${d.name}</strong></td>
+          <td style="font-size: 0.77rem; color: #38bdf8;">${d.act}</td>
+          <td style="font-size: 0.77rem; color: var(--text-secondary);">${d.trigger}</td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    // Render Training Table (Section 16)
+    function renderTrainingTable() {
+      const tbody = document.getElementById('training-segments-body');
+      tbody.innerHTML = '';
+
+      if (!masterData.experience_segments) return;
+
+      masterData.experience_segments.forEach(seg => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td><span class="code-chip">${seg.code}</span><br><strong>${seg.name}</strong></td>
+          <td style="font-size: 0.77rem; color: var(--status-pass);">${seg.audience}</td>
+          <td style="font-size: 0.77rem; color: var(--text-secondary);">${seg.mechanics}</td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    // Render Gaps Table (Section 19)
+    function renderGapsTable() {
+      const tbody = document.getElementById('gaps-table-body');
+      tbody.innerHTML = '';
+
+      if (!masterData.known_gaps) return;
+
+      masterData.known_gaps.forEach(g => {
+        const tr = document.createElement('tr');
+        const pillClass = g.severity.includes('HIGH') ? 'pill-danger' : 'pill-warn';
+        tr.innerHTML = `
+          <td><strong>${g.component}</strong></td>
+          <td style="font-size: 0.79rem; color: #94a3b8;">${g.current}</td>
+          <td style="font-size: 0.79rem; color: var(--status-pass); font-weight: 500;">${g.target}</td>
+          <td><span class="pill ${pillClass}">${g.severity}</span></td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    // Render Changelog Table (Section 20)
+    function renderChangelogTable() {
+      const tbody = document.getElementById('changelog-table-body');
+      tbody.innerHTML = '';
+
+      if (!masterData.changelog) return;
+
+      masterData.changelog.forEach(entry => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td><span class="code-chip">${entry.phase}</span></td>
+          <td style="font-size: 0.78rem; color: var(--text-muted); font-family: var(--font-mono);">${entry.date}</td>
+          <td><strong>${entry.milestone}</strong></td>
+          <td style="font-size: 0.74rem; color: #38bdf8;">${entry.artifacts.join('<br>')}</td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    // Export Master JSON
+    function exportMasterJson() {
+      const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(masterData, null, 2));
+      const downloadAnchor = document.createElement('a');
+      downloadAnchor.setAttribute("href", dataStr);
+      downloadAnchor.setAttribute("download", "stfl_aio_master_control.json");
+      document.body.appendChild(downloadAnchor);
+      downloadAnchor.click();
+      downloadAnchor.remove();
+    }
+
+    // Copy JSON to Clipboard
+    let currentLang = 'en';
+
+    function setLanguage(lang) {
+      currentLang = lang;
+      document.documentElement.setAttribute('lang', lang);
+      document.getElementById('lang-btn-en').classList.toggle('active', lang === 'en');
+      document.getElementById('lang-btn-bn').classList.toggle('active', lang === 'bn');
+      
+      const titleEl = document.getElementById('main-header-title');
+      const descEl = document.getElementById('main-header-desc');
+      if (titleEl && descEl) {
+        if (lang === 'bn') {
+          titleEl.textContent = 'এসটিএফএল এআইও — মাস্টার আর্কিটেকচার কন্ট্রোল ও লিভিং সিস্টেম রেজিস্টার';
+          titleEl.className = 'bn-heading';
+          descEl.textContent = 'সোহেলতাসনীম ফাউন্ডেশন (এসটিএফএল) স্বায়ত্তশাসিত এন্টারপ্রাইজ প্ল্যাটফর্মের জন্য একক প্রামাণিক মানব ও মেশিন রেজিস্টার। সম্পূর্ণ প্রযুক্তিগত, অপারেশনাল এবং অডিট মেটাডাটা অন্তর্ভুক্ত।';
+          descEl.className = 'bn-body';
+        } else {
+          titleEl.textContent = 'STFL AIO — Master Control & Living System Register';
+          titleEl.className = '';
+          descEl.textContent = 'Authoritative single-source human and machine register for the SohaelTasneem Foundation (STFL) Autonomous Enterprise Platform. Embeds complete technical, architectural, operational, and cleanup metadata.';
+          descEl.className = '';
+        }
+      }
+
+      renderFeaturesTable();
+      renderBilingualTable();
+      try { localStorage.setItem('stfl_master_lang', lang); } catch (e) {}
+    }
+
+    function renderBilingualTable() {
+      const tbody = document.getElementById('bilingual-table-body');
+      if (!tbody || !masterData.features) return;
+      tbody.innerHTML = '';
+
+      masterData.features.forEach(f => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td><span class="code-chip">${f.id}</span></td>
+          <td><strong>${f.name}</strong></td>
+          <td><strong class="bn-heading" style="color: #38bdf8;">${f.name_bn || f.name}</strong></td>
+          <td style="font-size: 0.77rem; color: #cbd5e1;">${f.secret_mechanics}</td>
+          <td style="font-size: 0.77rem; color: #94a3b8;" class="bn-body">${f.description_bn || ''}</td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    function copyJsonToClipboard() {
+      navigator.clipboard.writeText(JSON.stringify(masterData, null, 2))
+        .then(() => alert("Master JSON copied to clipboard!"))
+        .catch(err => alert("Failed to copy JSON: " + err));
+    }
+  </script>
+</body>
+</html>

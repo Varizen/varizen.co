@@ -1,0 +1,1995 @@
+# ZLET
+## Universal Global Wallet, Payments & DeFi Sandbox
+
+Build **Zlet**, a globally oriented, sandboxed financial application that brings together the user's **mobile money, payment wallets, card wallets, digital wallets, stablecoins, cryptocurrencies, DeFi protocols and supported payment networks** into one unified interface.
+
+Zlet is **not a conventional bank**.
+
+The fundamental product philosophy is:
+
+> **One screen for all the money the user is actually allowed to control.**
+
+The user should not have to jump between:
+
+- Google Pay
+- Apple Pay
+- Samsung Wallet
+- regional mobile financial services
+- mobile wallets
+- payment apps
+- prepaid wallets
+- merchant wallets
+- crypto wallets
+- stablecoins
+- DeFi protocols
+- exchanges
+- payment cards
+- loyalty/payment balances
+- supported digital assets
+
+Zlet should provide one intelligent control layer over them.
+
+---
+
+# 1. Core Product Concept
+
+Zlet is a **Universal Financial Interface**.
+
+Instead of replacing every financial provider, Zlet connects to them through the appropriate official mechanism:
+
+```text
+                    ZLET
+                      │
+       ┌──────────────┼──────────────┐
+       │              │              │
+   PAYMENTS         MONEY           DEFI
+       │              │              │
+ Mobile Wallets   MFS / Wallets   DEX
+ Apple Pay        Prepaid         Lending
+ Google Pay       Stored Value    Liquidity
+ Samsung Wallet   Payment Apps    Staking
+ Cards*           Remittance      LP
+       │              │              │
+       └──────────────┼──────────────┘
+                      │
+               Unified Interface
+```
+
+`*` Cards may be represented through supported wallet/payment integrations; Zlet must not pretend to replace card-network or bank infrastructure where it cannot legally do so.
+
+---
+
+# 2. Non-Bank Principle
+
+Zlet must **not become a disguised conventional bank**.
+
+Do not build a fake banking ledger and pretend that Zlet itself holds deposits.
+
+Instead:
+
+- Native balances remain with their providers.
+- Native wallets remain with their providers.
+- Blockchain assets remain in the user's wallet or approved custody arrangement.
+- Payment credentials remain within the applicable secure wallet/tokenization system.
+- Zlet maintains only the minimum data required for orchestration, authorization, transaction history and user experience.
+
+Where a jurisdiction requires licensing for custody, money transmission, stored value, exchange, brokerage, remittance or other regulated activity, Zlet must use an appropriately licensed provider or structure the feature accordingly.
+
+**Never bypass licensing requirements.**
+
+---
+
+# 3. Universal Wallet Screen
+
+The primary Zlet screen should be radically simple.
+
+## TOTAL AVAILABLE
+
+Show an intelligent overview of the user's accessible assets:
+
+**Available now**
+
+- Mobile money
+- Payment wallets
+- Stablecoins
+- Crypto
+- DeFi positions
+- Supported prepaid balances
+- Other supported digital balances
+
+Do not blindly add balances that cannot actually be spent, transferred or withdrawn.
+
+Instead distinguish:
+
+### Spendable
+Immediately usable.
+
+### Transferable
+Can be transferred but not directly spent.
+
+### Invested
+Locked or deployed.
+
+### Pending
+Transaction not settled.
+
+### Restricted
+Requires provider/jurisdiction action.
+
+### Estimated
+Value calculated from current market prices.
+
+---
+
+# 4. One Universal Action Box
+
+At the center of Zlet:
+
+## "What do you want to do?"
+
+Examples:
+
+> Send RM500 to John.
+
+> Pay this merchant.
+
+> Convert USDC to MYR.
+
+> Move money from my MFS wallet to my crypto wallet.
+
+> Find the cheapest way to send $1,000 internationally.
+
+> Swap ETH for USDC.
+
+> Show me all my balances.
+
+> Pay this invoice.
+
+> Find the best available route.
+
+> Deposit into this DeFi protocol.
+
+> Withdraw my liquidity.
+
+AI interprets the request and determines what connected rails can legitimately execute it.
+
+---
+
+# 5. Universal Exchange Point
+
+Create the concept of a:
+
+# Zlet Exchange Point
+
+This is **not necessarily a single centralized exchange**.
+
+It is an intelligent routing and execution layer.
+
+Example:
+
+```text
+User Request
+     ↓
+Zlet AI Router
+     ↓
+Available Rails
+ ┌───┼────┬────┬────┐
+ MFS  Wallet DEX  P2P
+     │
+ Liquidity / FX / Fees
+     ↓
+Best Valid Route
+     ↓
+User Confirmation
+     ↓
+Execution
+```
+
+The Exchange Point should compare:
+
+- Exchange rate
+- Network fee
+- Provider fee
+- Slippage
+- Settlement time
+- Liquidity
+- Geographic availability
+- Transaction limits
+- KYC requirements
+- Risk level
+- Supported currencies
+- Supported chains
+- Gas cost
+
+Then recommend the best **legitimate** route.
+
+---
+
+# 6. Important Routing Principle
+
+Zlet must never "find a way" by bypassing:
+
+- KYC
+- AML controls
+- sanctions
+- provider restrictions
+- geographic restrictions
+- transaction limits
+- licensing requirements
+- identity verification
+- blockchain compliance controls
+
+Instead:
+
+> **Find the best available compliant route among all connected rails.**
+
+If the desired route is unavailable:
+
+**"This route isn't currently supported. Here are the legitimate alternatives."**
+
+---
+
+# 7. Mobile Financial Services
+
+Support integrations with compatible MFS and mobile-wallet providers.
+
+Examples may include:
+
+- Regional mobile money
+- Telecom wallets
+- QR wallets
+- Stored-value wallets
+- Merchant wallets
+- Payment apps
+
+Provider adapters must be modular.
+
+```text
+MobileMoneyProvider
+ ├── Provider A
+ ├── Provider B
+ ├── Provider C
+ ├── Provider D
+ └── Generic API / OAuth adapter
+```
+
+Do not hard-code a country-specific architecture.
+
+---
+
+# 8. Global Payment Wallet Layer
+
+Integrate supported wallet ecosystems through their official APIs, SDKs or approved mechanisms.
+
+Potential categories:
+
+- Apple Pay
+- Google Pay
+- Samsung Wallet
+- Regional payment wallets
+- QR payment systems
+- Merchant payment networks
+- Tokenized payment credentials
+
+Important:
+
+Zlet must **not extract, clone or bypass secure payment credentials**.
+
+Where Apple/Google/Samsung or another ecosystem does not permit direct aggregation, Zlet should integrate at the supported platform boundary rather than attempting to circumvent it.
+
+---
+
+# 9. Payment Cards
+
+Where supported, represent payment cards through authorized integrations.
+
+Show:
+
+- Card name
+- Last four digits
+- Network
+- Available payment capability
+- Tokenized status
+- Spending limits where available
+- Provider
+
+Never store raw card numbers unnecessarily.
+
+Never store CVV/CVC.
+
+Use tokenization and provider-hosted secure payment interfaces where applicable.
+
+---
+
+# 10. QR Payment
+
+Create a universal QR payment interface.
+
+The user can:
+
+**Scan QR**
+
+Zlet identifies the payment scheme where possible.
+
+Then:
+
+```text
+Merchant
+Amount
+Currency
+Payment Rail
+Fee
+Source Wallet
+```
+
+AI recommends the appropriate connected payment source.
+
+User confirms.
+
+Payment executes through the supported provider.
+
+Do not fabricate interoperability where the underlying QR scheme does not support it.
+
+---
+
+# 11. NFC / Tap-to-Pay
+
+Where operating-system and provider APIs allow:
+
+- Tap to pay
+- Payment credential selection
+- Wallet selection
+- Merchant payment
+
+Zlet should act as an orchestration/interface layer.
+
+Never attempt to bypass OS secure-element, wallet or tokenization restrictions.
+
+---
+
+# 12. Universal Send
+
+Create:
+
+# SEND
+
+The user enters:
+
+**Recipient**
+
+**Amount**
+
+**Currency**
+
+Zlet determines which connected rails can serve the recipient.
+
+Potential routes:
+
+- Mobile money
+- Wallet-to-wallet
+- Stablecoin
+- Crypto
+- Supported payment network
+- Licensed remittance provider
+- P2P settlement mechanism
+
+Show:
+
+### Recommended
+
+**$1,000**
+
+Fee: $4.20  
+ETA: 2–10 minutes
+
+### Alternative
+
+Fee: $8.70  
+ETA: 1–2 days
+
+### DeFi route
+
+Fee: $2.10  
+ETA: ~2 minutes  
+Network: Ethereum/L2
+
+Then require confirmation.
+
+---
+
+# 13. Universal Receive
+
+Create:
+
+# RECEIVE
+
+The user can generate a receiving interface supporting available rails.
+
+Depending on the user's connected services:
+
+- Payment link
+- QR
+- Wallet address
+- Stablecoin address
+- Supported MFS identifier
+- Payment request
+- Invoice
+- Deep link
+- Provider-native payment request
+
+Zlet should automatically identify which rails are available.
+
+---
+
+# 14. Universal Request Money
+
+Allow:
+
+> "Request RM500 from John."
+
+Generate the best supported payment request.
+
+Provide:
+
+- Amount
+- Currency
+- Expiration
+- Payment methods
+- QR
+- Link
+- Optional memo
+
+---
+
+# 15. Universal Exchange
+
+Create:
+
+# CONVERT
+
+The user can request:
+
+> Convert USD to MYR.
+
+or:
+
+> Convert USDC to EUR.
+
+or:
+
+> Convert ETH to USDC.
+
+Zlet compares available execution venues.
+
+Possible sources:
+
+- Connected wallets
+- DEX aggregators
+- Licensed exchanges
+- Payment providers
+- Liquidity providers
+- Stablecoin rails
+- P2P liquidity
+
+Show:
+
+**You send**
+
+**You receive**
+
+**Rate**
+
+**Fees**
+
+**Slippage**
+
+**Network**
+
+**Provider**
+
+**Settlement time**
+
+**Risk**
+
+Never hide material fees.
+
+---
+
+# 16. DeFi Layer
+
+Zlet should provide a dedicated:
+
+# DeFi Sandbox
+
+Support compatible protocols across multiple chains.
+
+Categories:
+
+- DEX
+- Aggregators
+- Lending
+- Borrowing
+- Liquidity pools
+- Staking
+- Restaking where supported
+- Yield protocols
+- Stablecoin protocols
+- Perpetuals where legally and technically appropriate
+- Tokenized assets where legally supported
+- On-chain governance
+
+The user should see DeFi positions in one interface.
+
+---
+
+# 17. Non-Custodial DeFi Principle
+
+Prefer:
+
+**User wallet → protocol**
+
+rather than:
+
+**User → Zlet custody → protocol**
+
+where technically and legally possible.
+
+Zlet should orchestrate transactions without taking ownership of user assets.
+
+Support:
+
+- WalletConnect
+- Hardware wallets
+- Mobile wallets
+- Browser wallets
+- Embedded wallets where appropriate
+- Smart wallets
+- Passkey-based wallets where supported
+
+Never ask the user to provide a seed phrase to Zlet.
+
+---
+
+# 18. DeFi Simulation Sandbox
+
+Before a transaction executes, provide:
+
+# SIMULATE
+
+Example:
+
+> Swap 5 ETH to USDC.
+
+Show:
+
+**Input**
+
+5 ETH
+
+**Expected output**
+
+X USDC
+
+**Gas**
+
+X
+
+**Price impact**
+
+X%
+
+**Slippage**
+
+X%
+
+**Route**
+
+ETH → USDC
+
+**Protocol**
+
+DEX
+
+**Risks**
+
+- Smart contract risk
+- Slippage
+- Liquidity
+- Network congestion
+
+Then:
+
+**Confirm transaction**
+
+---
+
+# 19. DeFi Risk Engine
+
+Every DeFi action should receive an understandable risk presentation.
+
+Example:
+
+### Risk
+
+**Medium**
+
+Reasons:
+
+- Audited protocol
+- High liquidity
+- Established contract
+- Moderate smart-contract exposure
+
+Do not claim that audits mean a protocol is safe.
+
+Clearly distinguish:
+
+- Protocol age
+- TVL
+- Audit status
+- Contract verification
+- Liquidity
+- Oracle dependency
+- Smart-contract risk
+- Counterparty risk
+- Bridge risk
+- Stablecoin risk
+- Governance risk
+
+---
+
+# 20. Cross-Chain Layer
+
+Support multiple blockchain networks through adapters.
+
+Example:
+
+```text
+ChainAdapter
+ ├── Ethereum
+ ├── Bitcoin
+ ├── Solana
+ ├── BNB Chain
+ ├── Polygon
+ ├── Arbitrum
+ ├── Base
+ ├── Optimism
+ └── Other supported chains
+```
+
+Do not assume every token exists on every chain.
+
+Always display:
+
+**Asset + Chain**
+
+Example:
+
+`USDC — Ethereum`
+
+`USDC — Base`
+
+`USDC — Solana`
+
+---
+
+# 21. Cross-Chain Routing
+
+Where legitimate bridges or cross-chain protocols exist, Zlet can compare routes.
+
+Show:
+
+- Bridge
+- Fee
+- Gas
+- Estimated time
+- Destination chain
+- Security model
+- Liquidity
+- Risk
+
+Never disguise a bridge as a simple transfer.
+
+---
+
+# 22. Stablecoin Hub
+
+Create:
+
+# Stablecoins
+
+Display:
+
+- USDC
+- USDT
+- DAI
+- Other supported stablecoins
+
+Show:
+
+- Chain
+- Balance
+- Approximate fiat value
+- Transfer capability
+- Exchange capability
+- DeFi deployment
+- Risk classification
+
+Never assume all stablecoins are equivalent.
+
+---
+
+# 23. Asset Dashboard
+
+Create:
+
+# MY ASSETS
+
+Categories:
+
+### Cash-like
+Supported payment/MFS balances.
+
+### Digital Money
+Stablecoins.
+
+### Crypto
+BTC, ETH, etc.
+
+### DeFi
+Liquidity, lending, staking.
+
+### Pending
+Unsettled transactions.
+
+### Locked
+Vesting/time-locked assets.
+
+The total portfolio must clearly distinguish **market value** from **actually spendable balance**.
+
+---
+
+# 24. AI Financial Assistant
+
+AI should become the user's operational financial interface.
+
+Examples:
+
+> "How much money do I actually have available to spend?"
+
+> "How much is sitting idle?"
+
+> "Find my cheapest way to send $2,000."
+
+> "What assets can I convert immediately?"
+
+> "Show me my DeFi exposure."
+
+> "What transactions are pending?"
+
+> "Why did this transaction fail?"
+
+> "Prepare this payment."
+
+> "Find the cheapest route."
+
+AI must explain its reasoning in concise, understandable terms.
+
+---
+
+# 25. AI Must Never Invent Balances
+
+The AI must always use live/verified provider data when available.
+
+Never hallucinate:
+
+- Balance
+- Transaction
+- Exchange rate
+- Fee
+- Wallet address
+- Payment status
+- Blockchain confirmation
+
+If data is stale:
+
+**"Last synchronized 4 minutes ago."**
+
+---
+
+# 26. Transaction Confirmation
+
+Every consequential transaction gets a clear confirmation screen.
+
+Example:
+
+## CONFIRM
+
+**Send**
+
+1,000 USDC
+
+**From**
+
+Wallet A
+
+**To**
+
+John
+
+**Network**
+
+Base
+
+**Network fee**
+
+$0.12
+
+**Provider fee**
+
+$1.00
+
+**Recipient receives**
+
+998.88 USDC
+
+**Risk**
+
+Normal
+
+**Confirm**
+
+Never let an AI agent silently execute irreversible financial transactions unless the user has explicitly configured that exact authorization policy.
+
+---
+
+# 27. AI Agent Permissions
+
+Use:
+
+### Observe
+View balances and transactions.
+
+### Analyze
+Calculate routes and opportunities.
+
+### Prepare
+Create unsigned transactions/payment instructions.
+
+### Execute
+Submit authorized transactions.
+
+### Manage
+Perform permitted recurring operations.
+
+### DeFi
+Interact with approved protocols.
+
+### High Risk
+Require additional confirmation.
+
+Users should be able to configure:
+
+**Never execute automatically**
+
+or:
+
+**Allow automatic execution below $X**
+
+or:
+
+**Allow recurring approved transactions**
+
+---
+
+# 28. Transaction Policy Engine
+
+Create:
+
+# Zlet Guard
+
+Rules such as:
+
+> Never send more than RM1,000 automatically.
+
+> Never interact with unknown smart contracts.
+
+> Require confirmation for new recipients.
+
+> Never use a bridge without approval.
+
+> Never transact with sanctioned addresses.
+
+> Never spend from my business wallet automatically.
+
+> Require biometric/device confirmation for transactions above $500.
+
+Policies should be evaluated before execution.
+
+---
+
+# 29. Fraud Protection
+
+Provide:
+
+- Recipient risk checks
+- Address verification
+- Transaction simulation
+- Phishing detection
+- Malicious contract warnings
+- Token approval warnings
+- Suspicious QR detection
+- Payment-link verification
+- Duplicate payment detection
+- Unusual transaction alerts
+
+Do not claim perfect fraud detection.
+
+---
+
+# 30. Wallet Security
+
+Support secure wallet management.
+
+Prefer:
+
+- Hardware wallet
+- Secure enclave
+- OS keychain
+- Passkeys
+- MPC where appropriate
+- Smart accounts
+
+Never expose private keys unnecessarily.
+
+Never request a seed phrase through ordinary UI.
+
+---
+
+# 31. Universal Transaction History
+
+Create one timeline:
+
+# ACTIVITY
+
+Examples:
+
+**Paid merchant**
+RM120
+
+**Received**
+USDC 500
+
+**Swapped**
+ETH → USDC
+
+**MFS transfer**
+RM300
+
+**DeFi deposit**
+2 ETH
+
+**Card wallet payment**
+RM80
+
+Every item shows:
+
+- Source
+- Destination
+- Network/provider
+- Amount
+- Fee
+- Status
+- Timestamp
+- Transaction ID/reference
+
+---
+
+# 32. Transaction Search
+
+Natural-language search:
+
+> "Show everything I spent this week."
+
+> "Find all USDC transactions."
+
+> "What did I pay John?"
+
+> "Show failed transactions."
+
+> "Find my highest fees."
+
+> "Show DeFi transactions this month."
+
+---
+
+# 33. Global FX Engine
+
+Create a live FX layer.
+
+Support conversion between:
+
+- Fiat
+- Stablecoins
+- Crypto
+- Supported digital money
+
+Show:
+
+- Mid-market reference
+- Provider rate
+- Spread
+- Fee
+- Effective rate
+
+Never claim a rate is "best" without defining the comparison universe and timestamp.
+
+---
+
+# 34. Merchant Mode
+
+Create:
+
+# PAY
+
+Merchant-facing experience:
+
+- QR
+- Payment link
+- Invoice
+- Amount
+- Currency
+- Payment methods
+
+The merchant should be able to accept supported payment rails without manually understanding every underlying network.
+
+---
+
+# 35. Invoice Mode
+
+Create:
+
+# REQUEST / INVOICE
+
+Support:
+
+- Customer
+- Amount
+- Currency
+- Due date
+- Description
+- QR
+- Payment link
+- Supported rails
+- Status
+
+AI can reconcile incoming payments where provider data supports it.
+
+---
+
+# 36. Subscription Manager
+
+Optional feature:
+
+Track recurring payments across connected payment sources.
+
+Show:
+
+- Merchant
+- Amount
+- Frequency
+- Next payment
+- Source
+- Cancellation information where available
+
+Do not cancel services automatically without authorization.
+
+---
+
+# 37. Remittance Routing
+
+Create:
+
+# SEND GLOBAL
+
+User:
+
+> Send $2,000 to Bangladesh.
+
+Zlet evaluates available legitimate routes.
+
+Potential routes:
+
+- Licensed remittance provider
+- Supported MFS
+- Stablecoin route where legally permitted
+- Wallet transfer
+- Payment provider
+- Other authorized rails
+
+Compare:
+
+**Recipient gets**
+
+**Total cost**
+
+**ETA**
+
+**FX rate**
+
+**Requirements**
+
+**Risk**
+
+Never bypass remittance licensing or AML requirements.
+
+---
+
+# 38. Geographic Intelligence
+
+The system must understand that financial functionality varies by country.
+
+Create:
+
+# Availability Engine
+
+For every feature:
+
+**Available**
+
+**Limited**
+
+**Not supported**
+
+**Requires verification**
+
+**Requires licensed partner**
+
+Never expose a feature simply because an API exists if the service cannot legally be offered in that jurisdiction.
+
+---
+
+# 39. Global Provider Adapter
+
+Build a provider abstraction:
+
+```text
+FinancialProvider
+ ├── PaymentWallet
+ ├── MobileMoney
+ ├── CardWallet
+ ├── Remittance
+ ├── Exchange
+ ├── CryptoWallet
+ ├── Stablecoin
+ ├── DeFiProtocol
+ ├── DEX
+ └── PaymentNetwork
+```
+
+Each provider exposes capabilities:
+
+```text
+getBalance()
+getTransactions()
+createPayment()
+createTransfer()
+getQuote()
+executeSwap()
+getStatus()
+getLimits()
+getCapabilities()
+```
+
+Never assume all providers support all operations.
+
+---
+
+# 40. Sandboxed Architecture
+
+Zlet must behave like a financial version of an **AIBrowser sandbox**.
+
+The AI operates inside a controlled environment.
+
+It receives only the capabilities granted to it.
+
+```text
+Zlet AI
+   │
+   ▼
+Permission Sandbox
+   │
+   ├── Wallet Read
+   ├── Payment Prepare
+   ├── Payment Execute
+   ├── Exchange Quote
+   ├── DeFi Simulation
+   ├── DeFi Execute
+   └── Transaction History
+```
+
+No unrestricted operating-system access.
+
+No unrestricted browser access.
+
+No unrestricted filesystem access.
+
+No unrestricted financial credentials.
+
+---
+
+# 41. Credential Isolation
+
+Provider credentials must be isolated from the AI model whenever possible.
+
+The AI should request:
+
+> "Execute payment through Provider X."
+
+The secure execution layer performs the operation.
+
+The model should not receive:
+
+- Passwords
+- Private keys
+- Seed phrases
+- Raw card credentials
+- OAuth client secrets
+- Authentication cookies
+
+---
+
+# 42. Native Data Principle
+
+Zlet should follow the same philosophy as ZenBox and ZenCalendar:
+
+> **Connect. Orchestrate. Don't unnecessarily relocate.**
+
+Examples:
+
+MFS balance → remains with MFS provider.
+
+Google Pay credential → remains within its supported wallet infrastructure.
+
+Apple Pay credential → remains within Apple-supported infrastructure.
+
+Crypto → remains in user's wallet.
+
+DeFi position → remains on-chain.
+
+Zlet stores the minimum operational metadata required.
+
+---
+
+# 43. Privacy Center
+
+Create:
+
+# Zlet Privacy Center
+
+Show:
+
+- Connected providers
+- Permissions
+- AI access
+- Cached data
+- Wallet access
+- DeFi permissions
+- Transaction permissions
+- Active devices
+- Sessions
+- Data retention
+- Third-party AI providers
+
+User can revoke access instantly.
+
+---
+
+# 44. Security Center
+
+Create:
+
+# Zlet Security Center
+
+Display:
+
+**Device security**
+
+**Wallet security**
+
+**Provider connections**
+
+**Active sessions**
+
+**Recent transactions**
+
+**Approved contracts**
+
+**Approved recipients**
+
+**AI permissions**
+
+**Risk alerts**
+
+---
+
+# 45. AI Activity Log
+
+Create:
+
+# AI ACTIVITY
+
+Examples:
+
+> Compared 7 payment routes.
+
+> Found cheaper transfer route.
+
+> Simulated USDC swap.
+
+> Prepared payment.
+
+> User approved transaction.
+
+> Submitted transaction.
+
+> Blockchain confirmed transaction.
+
+Every action must have an audit trail.
+
+---
+
+# 46. Transaction State Machine
+
+Every financial operation must have explicit states:
+
+```text
+CREATED
+   ↓
+QUOTED
+   ↓
+SIMULATED
+   ↓
+AWAITING_APPROVAL
+   ↓
+AUTHORIZED
+   ↓
+SUBMITTED
+   ↓
+PROCESSING
+   ↓
+CONFIRMED
+```
+
+Failure states:
+
+```text
+REJECTED
+FAILED
+EXPIRED
+CANCELLED
+REVERSED
+```
+
+Never display a transaction as successful merely because an API request was accepted.
+
+---
+
+# 47. Idempotency
+
+Every financial operation must support idempotency.
+
+A retry must never accidentally create:
+
+- Duplicate payments
+- Duplicate swaps
+- Duplicate transfers
+- Duplicate DeFi deposits
+
+Use provider transaction IDs and internal idempotency keys.
+
+---
+
+# 48. Decimal / Financial Math
+
+Never use floating-point arithmetic for monetary calculations.
+
+Use:
+
+- Decimal
+- Integer minor units
+- Fixed-precision numeric types
+
+For blockchain assets, correctly respect token decimals.
+
+All calculations must be deterministic and auditable.
+
+---
+
+# 49. Fee Transparency
+
+Never hide fees.
+
+Before execution show:
+
+**Amount**
+
+**Provider fee**
+
+**Network fee**
+
+**Exchange spread**
+
+**Slippage**
+
+**Other charges**
+
+**Total cost**
+
+**Recipient receives**
+
+---
+
+# 50. DeFi Approval Safety
+
+For ERC-20-style token approvals and similar mechanisms:
+
+Warn the user when an approval grants:
+
+- Unlimited allowance
+- High-risk contract access
+- Unknown contract access
+
+Provide where technically possible:
+
+**Exact amount approval**
+
+rather than unlimited approval.
+
+---
+
+# 51. Smart Contract Interaction
+
+Every DeFi interaction should display:
+
+**Protocol**
+
+**Contract**
+
+**Network**
+
+**Function**
+
+**Assets**
+
+**Expected result**
+
+**Gas**
+
+**Risk**
+
+The user should never sign an opaque transaction if the wallet/provider can provide a meaningful simulation or transaction description.
+
+---
+
+# 52. Portfolio Intelligence
+
+AI can explain:
+
+> "Your portfolio is 61% stablecoins, 24% ETH, 10% BTC and 5% DeFi positions."
+
+But distinguish:
+
+**Facts**
+
+from
+
+**Estimates**
+
+and
+
+**AI opinions**.
+
+Never provide investment advice disguised as certainty.
+
+---
+
+# 53. No Forced Custody
+
+The preferred architecture is:
+
+```text
+USER
+ ↓
+ZLET
+ ↓
+AUTHORIZED PROVIDER / USER WALLET
+ ↓
+BLOCKCHAIN / PAYMENT NETWORK
+```
+
+not:
+
+```text
+USER
+ ↓
+ZLET
+ ↓
+ZLET CUSTODY
+ ↓
+EVERYTHING
+```
+
+Only introduce custody where there is a legitimate business, technical and regulatory reason, with the necessary licensing/partner structure.
+
+---
+
+# 54. No Conventional Bank Requirement
+
+The architecture should not depend on conventional bank accounts as the central operating model.
+
+Zlet should focus on:
+
+- Mobile money
+- Payment wallets
+- Digital wallets
+- Payment networks
+- Stablecoins
+- Crypto
+- DeFi
+- Licensed payment/remittance partners
+- Other supported non-bank financial rails
+
+However, if a provider technically requires a bank account as an underlying settlement rail, Zlet may support that provider **without making conventional banking the core Zlet product**.
+
+---
+
+# 55. Business Model
+
+Zlet should monetize infrastructure and value-added services rather than user financial data.
+
+Potential revenue:
+
+- Premium subscription
+- Payment routing fee
+- Exchange spread where permitted and transparently disclosed
+- Business accounts
+- Merchant tools
+- DeFi analytics
+- Advanced automation
+- API access
+- Enterprise deployment
+- White-label infrastructure
+- Secure transaction services
+
+Never sell private financial data.
+
+---
+
+# 56. Free Tier
+
+Provide a genuinely useful free version.
+
+### Free
+
+- Connect supported wallets
+- Unified dashboard
+- Basic transaction history
+- Basic payment routing
+- Basic AI assistant
+- Basic DeFi visibility
+- Basic wallet support
+- Basic QR/payment links where supported
+
+### Pro
+
+- Advanced AI
+- Advanced routing
+- More provider connections
+- DeFi automation
+- Portfolio intelligence
+- Advanced transaction controls
+- Higher limits
+
+### Business
+
+- Merchant tools
+- Team wallets
+- Multi-user permissions
+- Accounting integrations
+- Audit logs
+- API
+- Organization controls
+
+### Enterprise
+
+- Private infrastructure
+- Private AI
+- Custom policies
+- Advanced compliance
+- Dedicated integrations
+- Custom deployment
+
+---
+
+# 57. Universal Home Screen
+
+The main Zlet interface should show only what matters.
+
+## ZLET
+
+### Available
+
+**RM 12,450**
+
+### Digital Assets
+
+**$8,240**
+
+### DeFi
+
+**$3,180**
+
+### Pending
+
+**2 transactions**
+
+### Today
+
+**RM420 spent**
+
+Then four giant actions:
+
+**PAY**
+
+**SEND**
+
+**RECEIVE**
+
+**EXCHANGE**
+
+Everything else is secondary.
+
+---
+
+# 58. AI Command Bar
+
+At the bottom/top:
+
+> **Ask Zlet**
+
+Examples:
+
+> "Send RM500 to John."
+
+> "What's my cheapest way to send $2,000?"
+
+> "Convert my USDC to MYR."
+
+> "Show my DeFi positions."
+
+> "Why is this transfer pending?"
+
+> "Prepare but don't execute this transaction."
+
+The user should be able to operate almost the entire application through this command interface.
+
+---
+
+# 59. Mobile-first
+
+Zlet must be designed primarily for mobile.
+
+Requirements:
+
+- One-hand operation
+- Large touch targets
+- Biometric confirmation
+- Fast launch
+- Minimal network usage
+- Offline transaction history where safe
+- Clear transaction states
+- Excellent dark mode
+- Native-feeling interactions
+
+Desktop/web should provide the same underlying account but with more information density.
+
+---
+
+# 60. Desktop / Web
+
+Desktop version can expose:
+
+- Portfolio
+- DeFi positions
+- Transaction analytics
+- Provider management
+- Advanced routing
+- Business tools
+- Merchant dashboard
+- AI agent console
+
+But retain the same minimal visual language.
+
+---
+
+# 61. Cross-Device Security
+
+Support:
+
+- Device registration
+- Session management
+- Passkeys
+- Hardware-backed keys where available
+- Biometric confirmation
+- Device trust
+- Transaction signing confirmation
+
+A new device should not automatically inherit high-risk transaction permissions.
+
+---
+
+# 62. Emergency Controls
+
+Create:
+
+# LOCK ZLET
+
+One action should be able to:
+
+- Disable AI execution
+- Disable payment execution
+- Disable DeFi execution
+- Revoke active sessions where supported
+- Lock local wallet access where supported
+- Require reauthentication
+
+The user's underlying assets remain controlled by their actual providers/wallets.
+
+---
+
+# 63. Developer Architecture
+
+Use modular services:
+
+```text
+ZLET
+│
+├── Identity
+├── Provider Gateway
+├── Wallet Gateway
+├── Payment Router
+├── Exchange Router
+├── DeFi Router
+├── Quote Engine
+├── Risk Engine
+├── Transaction Engine
+├── AI Agent
+├── Permission Engine
+├── Sandbox
+├── Audit Engine
+├── Notification Engine
+└── Analytics
+```
+
+The critical services must remain independent.
+
+---
+
+# 64. Provider Capability Discovery
+
+Every connected provider should advertise its capabilities:
+
+```text
+Provider:
+Mobile Wallet X
+
+Capabilities:
+✓ Receive
+✓ Send
+✓ QR
+✓ Balance
+✓ Transaction History
+✗ DeFi
+✗ Cross-border
+✗ Exchange
+```
+
+Zlet's router should use these capabilities dynamically.
+
+---
+
+# 65. Universal Capability Engine
+
+Instead of hard-coding:
+
+> "Provider X can do Y."
+
+Build a capability system:
+
+```text
+CAPABILITY:
+PAY
+SEND
+RECEIVE
+EXCHANGE
+SWAP
+DEPOSIT
+WITHDRAW
+STAKE
+BORROW
+LEND
+STREAM
+REQUEST
+QR
+NFC
+```
+
+Each provider advertises which capabilities it supports.
+
+This makes Zlet extensible globally.
+
+---
+
+# 66. Compliance Architecture
+
+Compliance must be modular and jurisdiction-aware.
+
+Create:
+
+# Compliance Engine
+
+It evaluates:
+
+- User jurisdiction
+- Provider jurisdiction
+- Transaction type
+- Amount
+- Asset
+- Destination
+- Risk
+- KYC status
+- AML requirements
+- Sanctions screening where applicable
+- Licensing requirements
+
+The engine determines:
+
+**Allowed**
+
+**Allowed with verification**
+
+**Partner required**
+
+**Unavailable**
+
+Do not build mechanisms designed to evade these controls.
+
+---
+
+# 67. The Golden Rule
+
+Zlet should always answer:
+
+> **"What is the best legitimate way to accomplish what the user wants?"**
+
+Not:
+
+> "How can we bypass the system?"
+
+If a direct route doesn't exist, Zlet searches the connected ecosystem for an available compliant route.
+
+---
+
+# 68. Final Product Flow
+
+The entire Zlet philosophy should be:
+
+```text
+USER
+  ↓
+ASK ZLET
+  ↓
+UNDERSTAND INTENT
+  ↓
+DISCOVER AVAILABLE RAILS
+  ↓
+CHECK PERMISSIONS
+  ↓
+CHECK COMPLIANCE
+  ↓
+COMPARE COST / SPEED / RISK
+  ↓
+SIMULATE
+  ↓
+SHOW EXACT RESULT
+  ↓
+USER APPROVES
+  ↓
+SECURE EXECUTION
+  ↓
+VERIFY SETTLEMENT
+  ↓
+UPDATE UNIVERSAL ACTIVITY
+```
+
+---
+
+# 69. Final Acceptance Criteria
+
+Zlet is successful only if it can:
+
+1. Aggregate supported mobile wallets.
+2. Aggregate supported MFS services.
+3. Integrate supported Apple/Google/Samsung wallet functionality where permitted.
+4. Integrate supported payment networks.
+5. Connect crypto wallets.
+6. Display stablecoins.
+7. Display DeFi positions.
+8. Connect supported DeFi protocols.
+9. Compare legitimate payment routes.
+10. Compare legitimate exchange routes.
+11. Provide universal send.
+12. Provide universal receive.
+13. Provide universal payment.
+14. Provide universal exchange.
+15. Provide QR payment flows.
+16. Provide payment requests.
+17. Provide merchant functionality.
+18. Provide cross-chain routing where supported.
+19. Provide DeFi simulation.
+20. Provide transaction simulation.
+21. Provide comprehensive fee transparency.
+22. Provide AI financial orchestration.
+23. Provide permission-controlled AI agents.
+24. Keep private keys and sensitive credentials outside the AI layer.
+25. Keep native assets at their native providers wherever possible.
+26. Provide strong transaction confirmation.
+27. Prevent duplicate transactions.
+28. Provide complete auditability.
+29. Provide jurisdiction-aware availability.
+30. Never bypass KYC, AML, sanctions, licensing or provider security controls.
+31. Never claim unsupported interoperability.
+32. Never hallucinate balances, prices or transaction status.
+33. Remain non-bank-centric.
+34. Prefer non-custodial architecture.
+35. Provide an isolated financial sandbox.
+36. Be mobile-first.
+37. Be extremely lightweight.
+38. Be extensible through provider adapters.
+39. Support global expansion without rebuilding the core architecture.
+40. Be production-ready rather than a visual prototype.
+
+---
+
+# ZLET PRODUCT POSITIONING
+
+## Zlet
+
+### **One screen. Every wallet. Every payment. Every asset.**
+
+Secondary positioning:
+
+> **Your universal financial control layer.**
+
+And the long-term ecosystem:
+
+```text
+ZENBOX
+Communication
+       ↓
+ZENCALENDAR
+Scheduling
+       ↓
+ZENMEET
+Meetings
+       ↓
+ZLET
+Money + Payments + Digital Assets
+```
+
+The common architecture across all products should be:
+
+**AI + Sandbox + Native Data + User Permission + One Simple Interface.**
+
+Zlet should feel like the **control center**, while the actual money, wallets, payment credentials and on-chain assets remain under the control of their respective native systems.

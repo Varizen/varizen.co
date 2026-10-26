@@ -1,0 +1,23 @@
+{
+  "schema": "samcb-it-joiner-request-1",
+  "request_id": "IT-MVLK3EB8",
+  "created_at": "2026-10-23T22:43:23.060Z",
+  "status": "DOWNLOADED — awaiting approved HR/IT submission",
+  "full_name": "Abdur Rahman",
+  "department": "Anatomy",
+  "designation": "Lecturer",
+  "joining_date": "2023-12-02",
+  "phone": "+8801700000000",
+  "recovery_email": "",
+  "employee_type": "Faculty",
+  "hr_reference": "TEST-ONLY",
+  "suggested_person_id": "AR20231202-0",
+  "suggested_email": "dr.rahman.abdur@samcbbd.email",
+  "services": [
+    "Email account"
+  ],
+  "notes": "",
+  "temporary_password_included": false,
+  "password_policy": "IT must issue credentials securely and enforce change after first login; shared default not exported.",
+  "confirmation": true
+}

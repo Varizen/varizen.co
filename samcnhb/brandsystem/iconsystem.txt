@@ -1,0 +1,8 @@
+SELECTED: Health Icons, outline only. See icons.html and assets/ICON-LICENSE.html.
+License: CC0 1.0; source registry: assets/icons/registry.json.
+Do not mix with any other family.
+
+Use any of the following approved three, but DO NOT mix one with others
+https://svg.health
+https://healthicons.org/
+https://www.iconyz.com/sets/medical-icon?

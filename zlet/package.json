@@ -1,0 +1,28 @@
+{
+  "name": "zlet",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Zlet — one screen. Every wallet. Every payment. Every asset. Universal financial control layer with a permissioned AI sandbox.",
+  "main": "server/index.js",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node server/index.js",
+    "test": "node --test tests/*.test.js",
+    "check": "node --check server/index.js && node --test tests/*.test.js"
+  },
+  "keywords": [
+    "wallet",
+    "payments",
+    "stablecoin",
+    "defi",
+    "sandbox",
+    "ai",
+    "non-custodial"
+  ],
+  "dependencies": {},
+  "devDependencies": {}
+}

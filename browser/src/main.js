@@ -11,6 +11,7 @@ const bookmarks = require('./modules/bookmarks');
 const xdm = require('./modules/xdm');
 
 let chromeH = 76; // grows when the find bar is visible
+const statusBarH = 30;
 let win, ui;
 const tabs = new Map(); // id -> { view, sleeping, title, url, private }
 let activeId = null;
@@ -76,7 +77,7 @@ function layout() {
   const w = Math.max(0, width - panelWidth);
   for (const [id, t] of tabs) {
     if (id === activeId) {
-      t.view.setBounds({ x: 0, y: chromeH, width: w, height: height - chromeH });
+      t.view.setBounds({ x: 0, y: chromeH, width: w, height: Math.max(0, height - chromeH - statusBarH) });
       t.view.setVisible(true);
     } else {
       t.view.setVisible(false);
@@ -198,6 +199,37 @@ ipcMain.handle('nav:state', () => {
   };
 });
 ipcMain.handle('panel:width', (_e, w) => { panelWidth = Math.max(0, Number(w) || 0); layout(); });
+
+// ---- Z Services registry ----
+const Z_SERVICES = [
+  { id: 'zmeet', name: 'ZMeet', desc: 'Meetings & live sessions', url: 'http://127.0.0.1:4400', health: '/api/health' },
+  { id: 'zcal', name: 'ZCal', desc: 'Calendar & scheduling', url: 'http://127.0.0.1:4300', health: '/api/health' },
+  { id: 'zmail', name: 'ZMail', desc: 'Email & secure sessions', url: 'http://127.0.0.1:4200', health: '/api/counts' },
+  { id: 'ztalk', name: 'ZTalk', desc: 'Messaging, 14+ platforms', url: 'http://127.0.0.1:4500', health: '/api/health' }
+];
+
+async function probeService(svc) {
+  try {
+    const ctl = new AbortController();
+    const t = setTimeout(() => ctl.abort(), 2500);
+    const res = await fetch(svc.url + svc.health, { signal: ctl.signal });
+    clearTimeout(t);
+    return { ...svc, online: res.ok, status: res.status };
+  } catch {
+    return { ...svc, online: false, status: 0 };
+  }
+}
+
+ipcMain.handle('services:list', async () => {
+  const results = await Promise.all(Z_SERVICES.map(probeService));
+  return results;
+});
+ipcMain.handle('services:open', (_e, id) => {
+  const svc = Z_SERVICES.find((s) => s.id === id);
+  if (!svc) return { ok: false };
+  const tabId = createTab(svc.url, true);
+  return { ok: true, tabId };
+});
 ipcMain.handle('chrome:height', (_e, h) => { chromeH = Math.max(0, Number(h) || 76); layout(); });
 ipcMain.handle('tab:private', () => createTab('aibrowser://newtab', true, true));
 ipcMain.handle('find:start', (_e, text) => {

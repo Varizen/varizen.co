@@ -1,6 +1,6 @@
 import { expect, test } from "@playwright/test";
 
-const routes = ["/", "/platform", "/solutions", "/products", "/industries", "/trust", "/company", "/contact", "/portfolio", "/insights", "/showcase", "/investment", "/products/kidon", "/solutions/ai-governance", "/industries/healthcare", "/trust/security"];
+const routes = ["/", "/platform", "/solutions", "/products", "/industries", "/trust", "/company", "/contact", "/portfolio", "/insights", "/showcase", "/investment", "/support", "/products/kidon", "/solutions/ai-governance", "/industries/healthcare", "/trust/security"];
 
 test("public routes render with real branding and no runtime errors", async ({ page }) => {
   const errors: string[] = [];

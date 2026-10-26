@@ -1,0 +1,314 @@
+================================================================================
+STFL FONT / TYPOGRAPHY AUDIT
+Site:      https://stflbd.org
+Audited:   2026-10-18
+Scope:     Entire web property (61 pages, 2 layouts, 6 shared components)
+Method:    Live HTML + 2 built CSS bundles + full source sweep
+Source:    stflbd.org/src/app, stflbd.org/components
+================================================================================
+
+--------------------------------------------------------------------------------
+1. FONT FAMILIES
+--------------------------------------------------------------------------------
+
+#  FAMILY                    ROLE (INTENDED)              WEIGHTS        LOADS?   WHERE USED
+-  ------------------------  ---------------------------  -------------  -------  ----------------------------
+1  Hind Siliguri             Default for ALL text         400/500/600/700  YES*    --font-sans first family
+                             (Bengali AND English)                          (x2)     -> every page
+2  Noto Sans Bengali         Bengali fallback             400/500/600/700  YES     2nd family in --font-sans
+                                                                             (BN only, no Latin subset)
+3  Inter                     English headings/body        100-900 variable  LOADED   Declared in layout.tsx only
+                                                                             BUT      0 elements apply it
+                                                                             UNUSED
+4  JetBrains Mono            Labels, IDs, metrics,        400/500/700      NO       794 usages -> renders in
+                             eyebrows, audit codes                       (no @font-face,  Consolas instead
+                                                                          no CDN)
+5  Baloo Da 2                Bengali body (per spec)      400-700          NO       0 effective
+                                                                          (@import stripped
+                                                                           from build)
+6  font-serif                ACCIDENTAL / OFF-BRAND      ui-serif,        YES      28 usages:
+                             (Georgia / Cambria /         Georgia,        (system) hakimsarker (25),
+                             Times New Roman)             Cambria,                 grihostios (1),
+                                                          Times New Roman          error.tsx (1),
+                                                                                   not-found.tsx (1)
+7  system-ui                 One-off inline override      --               YES      brand/page.tsx:470
+                                                                             (system)
+
+* Hind Siliguri is loaded TWICE:
+  - next/font WOFF2 subsets (Bengali + Latin + Latin-Ext), 12 @font-face rules
+  - 4 local TTF files from /fonts/ (Regular, Medium, SemiBold, Bold), all HTTP 200
+
+EFFECTIVE STACK (globals.css:40)
+  Hind Siliguri -> Noto Sans Bengali -> Baloo Da 2 -> Inter -> system-ui
+  -> -apple-system -> BlinkMacSystemFont -> Segoe UI -> Roboto -> sans-serif
+
+CONSEQUENCE: Because Hind Siliguri is first and covers Latin, ALL English text
+on the site renders in Hind Siliguri. Inter never appears.
+
+--------------------------------------------------------------------------------
+2. FONT SIZES  (nominal -> rendered)
+--------------------------------------------------------------------------------
+
+Root font-size = 16px x 1.10 = 17.6px  (globals.css:210, --viewer-scale: 1.10)
+Therefore every rem-based size renders 10% LARGER than its Tailwind name.
+Arbitrary px sizes do NOT scale.
+
+CLASS          NOMINAL   RENDERED   USES
+-------------  --------  ---------  -----
+text-[9px]       9px       9px         9
+text-[10px]     10px      10px       242
+text-[11px]     11px      11px       147
+text-xs         12px      13.2px     894
+text-sm         14px      15.4px     366
+text-[15px]     15px      15px         6
+text-base       16px      17.6px     153
+text-lg         18px      19.8px     133
+text-xl         20px      22.0px      99
+text-2xl        24px      26.4px     159
+text-3xl        30px      33.0px      98
+text-4xl        36px      39.6px      31
+text-5xl        48px      52.8px      38
+text-6xl        60px      66.0px       5
+text-7xl        72px      79.2px       1
+-------------  --------  ---------  -----
+TOTAL SIZE DECLARATIONS: 2,381
+
+GLOBAL ELEMENT SIZES (unlayered rules, globals.css:241-360)
+
+ELEMENT              RULE                                  RENDERED
+-------------------  ------------------------------------  --------------
+h1                   clamp(2.5rem, 4.2vw, 3.5rem)          44.0 - 61.6px
+h2                   clamp(2rem, 3.2vw, 2.75rem)           35.2 - 48.4px
+h3                   clamp(1.45rem, 2.1vw, 1.85rem)        25.5 - 32.6px
+h4                   clamp(1.2rem, 1.6vw, 1.45rem)         21.1 - 25.5px
+p                    1rem                                  17.6px
+Lead / hero p        clamp(1.05rem, 1.25vw, 1.2rem)        18.5 - 21.1px
+nav a                0.9375rem                             16.5px
+Card h2 / h3         1.25rem                               22.0px
+Card p               0.95rem                               16.7px
+Eyebrow / kicker     0.75rem, letter-spacing 0.12em        13.2px
+Meta / date          0.8125rem                             14.3px
+Buttons              0.9375rem                             16.5px
+
+MOBILE OVERRIDES (max-width: 640px)
+  h1  clamp(2.05rem, 10vw, 2.7rem)   36.1 - 47.5px
+  h2  clamp(1.75rem, 8vw, 2.2rem)    30.8 - 38.7px
+  h3  1.35rem                        23.8px
+  p   line-height 1.6
+
+--------------------------------------------------------------------------------
+3. WEIGHTS, LINE-HEIGHT, TRACKING
+--------------------------------------------------------------------------------
+
+FONT WEIGHTS
+  font-bold        700   743 usages
+  font-semibold    600   410
+  font-medium      500    98
+  font-normal      400    63
+  font-extrabold   800    16
+  font-light       300     1
+
+LINE HEIGHT
+  leading-relaxed  1.625   330 usages
+  leading-tight    1.25     38
+  leading-none     1.0       9
+  leading-snug     1.375     4
+  leading-[1.15]            2
+  leading-[1.08]            1
+  leading-[1.1]             1
+  body             1.65   (globals.css:236)
+  h1               1.08
+  h2               1.12
+  h3               1.20
+  h4               1.30
+  BN body          1.75   (.stfl-bn-body)
+
+TRACKING / CASE
+  tracking-wide    220 usages
+  tracking-tight    75
+  uppercase        253
+  h1 letter-spacing -0.025em
+  h2 letter-spacing -0.020em
+
+--------------------------------------------------------------------------------
+4. BREAKDOWN BY AREA
+--------------------------------------------------------------------------------
+
+AREA            DOMINANT SIZES                          MONO  SERIF
+--------------  --------------------------------------  ----  -----
+Admin (20 pg)   text-xs (367), [10px] (149), [11px] (55)  322     0
+Public pages    text-xs (237), text-sm (160), base (76)   194     2
+Initiatives     text-xs (117), [10px] (51), [11px] (50)   148    26
+Programs        text-xs (52), text-sm (41)                45     0
+Brand           text-sm (64), text-xs (60)                37     0
+Components      text-xs (61), text-sm (43)                48     0
+
+FONT-FAMILY CLASS USAGE (source-wide)
+  font-mono    794
+  font-hind    218   (UNDEFINED - no CSS rule generated)
+  font-serif    28
+  font-sans     21
+  font-noto      3   (UNDEFINED - no CSS rule generated)
+
+--------------------------------------------------------------------------------
+5. FONT ASSETS ON DISK
+--------------------------------------------------------------------------------
+
+WEB (stflbd.org/public/fonts/)
+  HindSiliguri-Regular.ttf     250,052 bytes
+  HindSiliguri-Medium.ttf      266,516
+  HindSiliguri-SemiBold.ttf    272,740
+  HindSiliguri-Bold.ttf        287,660
+  HindSiliguri-Light.ttf       259,344   (declared nowhere)
+  OFL.txt                        4,371
+
+NEXT BUILD CACHE (stflbd.org/.next/static/media/)
+  22 WOFF2 files (Hind Siliguri, Noto Sans Bengali, Inter subsets)
+
+ANDROID (main/core/src/main/res/font/)
+  hind_siliguri_regular.ttf    250,052
+  hind_siliguri_medium.ttf     266,516
+  hind_siliguri_semibold.ttf   272,740
+  hind_siliguri_bold.ttf       287,660
+  hind_siliguri_light.ttf      259,344
+  inter_variable.ttf           876,576
+
+MISSING EVERYWHERE: JetBrains Mono, Baloo Da 2, Noto Sans Bengali (TTF)
+
+--------------------------------------------------------------------------------
+6. PROBLEMS FOUND
+--------------------------------------------------------------------------------
+
+[1] JETBRAINS MONO IS NEVER LOADED
+    794 elements request font-mono. No @font-face exists and no CDN link is
+    present. Every label, ID, metric and eyebrow renders in Consolas.
+    Files: globals.css:46 (token only), all admin pages, Navigation, Footer.
+
+[2] BALOO DA 2 IS NEVER LOADED
+    globals.css:2 has @import url('https://fonts.googleapis.com/css2?family=
+    Baloo+Da+2...'). The built CSS contains ZERO @import statements and the
+    live HTML contains ZERO fonts.googleapis.com references. The import is
+    stripped during build. Bengali body text falls through to Noto Sans Bengali.
+
+[3] INTER IS LOADED BUT UNUSED
+    layout.tsx:7 declares Inter and emits 7 @font-face rules + the
+    --font-inter variable, but --font-sans puts Hind Siliguri first and no
+    element uses a font-inter class. English text renders in Hind Siliguri.
+
+[4] font-hind / font-noto ARE UNDEFINED CLASSES
+    221 usages across 34 files. No .font-hind or .font-noto rule exists in
+    the built CSS. They silently do nothing.
+    Worst offenders: grihostios (10), brandcenter (10), 20 public pages (8 each).
+
+[5] HIND SILIGURI IS LOADED TWICE
+    next/font WOFF2 subsets AND 4 local TTFs from /fonts/. Both are active.
+    Wasted bytes on every first visit.
+
+[6] GLOBAL TYPOGRAPHY OVERRIDES TAILWIND UTILITIES
+    The h1-h4, p, nav, article p, eyebrow and meta rules in globals.css:241-360
+    sit OUTSIDE any @layer. Tailwind's .text-* utilities live inside
+    @layer utilities. Unlayered CSS always beats layered CSS, so:
+      - ~370 heading text-* classes are dead
+      - ~355 paragraph text-xs/sm/[10px] classes are dead
+      - 313 paragraph leading-* classes are dead
+    Example: <h1 className="text-4xl"> renders at the global h1 clamp size,
+    not 39.6px.
+
+[7] OFF-BRAND SERIF ON HAKIM SARKER PAGE
+    25 font-serif usages (Georgia / Cambria / Times New Roman) on
+    initiatives/hakimsarker/page.tsx, plus 1 on grihostios, error and not-found.
+    Not part of the approved brand system.
+
+[8] MIXED SCALING BREAKS THE TYPE SCALE
+    rem sizes grow 10% with --viewer-scale, but the 404 px-based sizes
+    (9px, 10px, 11px, 15px) stay fixed. The small-text tier does not scale
+    with the accessibility setting.
+
+[9] NO FONT PRELOAD
+    Live HTML has zero <link rel="preload" as="font">. Fonts are discovered
+    only after CSS parse, delaying first paint of Bengali text.
+
+[10] NO OPENTYPE FEATURE SETTINGS
+     STFL_BRAND_SYSTEM.md:131 mandates font-feature-settings: "kern" 1,
+     "liga" 1. No such declaration exists anywhere in the source.
+
+--------------------------------------------------------------------------------
+7. SPEC vs IMPLEMENTATION
+--------------------------------------------------------------------------------
+
+SPEC (STFL_VI_TYPOGRAPHY_SYSTEM.md / STFL_BRAND_SYSTEM.md)
+  BN headings   Hind Siliguri 600/700
+  BN body       Noto Sans Bengali 400/500  (Baloo Da 2 secondary)
+  BN UI         Noto Sans Bengali / Baloo Da 2
+  EN headings   Inter 600/700/800
+  EN body       Inter 400/500
+  Mono          JetBrains Mono 400/500/700
+
+IMPLEMENTATION
+  BN headings   Hind Siliguri 600/700          MATCH
+  BN body       Hind Siliguri (not Noto)       MISMATCH
+  BN UI         Hind Siliguri                  MISMATCH
+  EN headings   Hind Siliguri (not Inter)      MISMATCH
+  EN body       Hind Siliguri (not Inter)      MISMATCH
+  Mono          Consolas (not JetBrains Mono)  MISMATCH
+
+Net result: 5 of 6 spec rows are not implemented. The site is effectively
+single-font (Hind Siliguri) plus a Consolas fallback.
+
+--------------------------------------------------------------------------------
+8. RECOMMENDED FIXES (priority order)
+--------------------------------------------------------------------------------
+
+P1  Self-host JetBrains Mono (400/500/700 WOFF2) and add @font-face rules.
+    Removes the 794-element Consolas fallback.
+
+P2  Self-host Baloo Da 2 or delete the dead @import and update the spec.
+    Currently the spec promises a font the site never loads.
+
+P3  Move globals.css:241-360 into @layer base so Tailwind text-* utilities
+    work again. This is the single highest-impact change: it restores ~1,000
+    currently-dead utility classes.
+
+P4  Decide the English font. Either:
+      (a) put Inter before Hind Siliguri in --font-sans, or
+      (b) drop Inter entirely and update the spec to "Hind Siliguri for all".
+    Today Inter is downloaded and never used.
+
+P5  Remove the duplicate Hind Siliguri load. Keep next/font WOFF2 subsets and
+    delete the 4 local @font-face TTF blocks (or vice versa).
+
+P6  Define .font-hind and .font-noto, or remove the 221 dead usages.
+
+P7  Replace font-serif on hakimsarker with the approved stack.
+
+P8  Convert the 404 px-based sizes to rem so the viewer scale applies uniformly.
+
+P9  Add <link rel="preload" as="font" type="font/woff2" crossorigin> for the
+    primary Bengali weight.
+
+P10 Add font-feature-settings: "kern" 1, "liga" 1 to body per brand spec.
+
+--------------------------------------------------------------------------------
+9. KEY FILE REFERENCES
+--------------------------------------------------------------------------------
+
+stflbd.org/src/app/layout.tsx:7-24          next/font declarations
+stflbd.org/src/app/layout.tsx:54            font variable classes on <html>
+stflbd.org/src/app/globals.css:2            dead Baloo Da 2 @import
+stflbd.org/src/app/globals.css:7-35         local Hind Siliguri @font-face (x4)
+stflbd.org/src/app/globals.css:39-46        @theme inline font tokens
+stflbd.org/src/app/globals.css:77-80        body font-family
+stflbd.org/src/app/globals.css:210-360      STFL-TYPOGRAPHY-V2 block (unlayered)
+stflbd.org/src/app/globals.css:241           h1 clamp
+stflbd.org/src/app/globals.css:264           p 1rem
+stflbd.org/src/app/globals.css:303           card p 0.95rem
+stflbd.org/src/app/brand/page.tsx:470       inline system-ui override
+stflbd.org/src/app/initiatives/hakimsarker/page.tsx:315   font-serif
+stflbd.org/src/app/initiatives/grihostios/page.tsx:429    font-serif
+stflbd.org/src/app/page.tsx:71-72           largest headings (7xl / 6xl)
+stflbd.org/public/fonts/                    local TTF assets
+main/core/src/main/res/font/                Android font assets
+
+================================================================================
+END OF REPORT
+================================================================================

@@ -1,0 +1,9 @@
+User-agent: *
+Disallow: /admin
+Disallow: /admin/
+Disallow: /login
+Disallow: /signup
+Disallow: /_next/
+Allow: /
+
+Sitemap: https://stflbd.org/sitemap.xml

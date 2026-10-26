@@ -1,0 +1,32 @@
+{
+  "name": "stfl-web",
+  "version": "1.0.0",
+  "description": "STFL Official Website",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "npm run verify:icons && next build",
+    "start": "next start",
+    "lint": "next lint",
+    "type-check": "tsc --noEmit",
+    "verify:icons": "node scripts/verify-icon-policy.mjs",
+    "predeploy": "echo 'LEGACY MIRROR — DO NOT DEPLOY, see STFL_DOMAIN_SEPARATION_ARCHITECTURE.md' && exit 1"
+  },
+  "dependencies": {
+    "iconoir-react": "^7.12.1",
+    "next": "^15.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "tailwindcss": "^4.3.3"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.3",
+    "@types/node": "^20.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "autoprefixer": "^10.6.1",
+    "eslint": "^10.12.0",
+    "postcss": "^8.5.29",
+    "typescript": "^5.0.0"
+  }
+}

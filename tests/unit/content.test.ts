@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { getIndustry, getProduct, getSolution, industries, products, solutions } from "@/content/site";
+import { getIndustry, getProduct, getSolution, industries, kofi, products, solutions } from "@/content/site";
 
 describe("content and public routing", () => {
   it("has unique, explicit content routes", () => {
@@ -18,5 +18,10 @@ describe("content and public routing", () => {
       expect(product.status).toBeTruthy();
       expect(product.stage).not.toBe("Published");
     }
+  });
+  it("publishes only the public Ko-fi page, never the private dashboard", () => {
+    expect(kofi.url).toBe(`https://ko-fi.com/${kofi.slug}`);
+    expect(kofi.url).not.toMatch(/manage/i);
+    expect(kofi.embedUrl.startsWith(kofi.url)).toBe(true);
   });
 });

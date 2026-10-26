@@ -5,6 +5,18 @@ export type Industry = { slug: string; name: string; summary: string; challenge:
 
 export const company = { name: "Varizen Inc.", url: "https://varizen.co", email: "hi@varizen.co", privacy: "privacy@varizen.co", support: "support@varizen.co", emergency: "emmergency@varizen.co" };
 
+/**
+ * Voluntary support channel (Ko-fi).
+ * `slug` is the public page handle — https://ko-fi.com/<slug>.
+ * The /Manage/ dashboard URL is private and must never be published.
+ */
+export const kofi = {
+  slug: "varizen",
+  url: "https://ko-fi.com/varizen",
+  embedUrl: "https://ko-fi.com/varizen/?hidefeed=true&widget=true&embed=true&preview=true",
+  label: "Support Varizen on Ko-fi",
+} as const;
+
 export const nav = [
   { label: "Platform", href: "/platform" },
   { label: "Solutions", href: "/solutions" },

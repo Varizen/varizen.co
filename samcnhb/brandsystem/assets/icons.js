@@ -1,0 +1,2 @@
+/* Load only the selected Health Icons outline sprite for [data-icon] placeholders. */
+(()=>{const nodes=[...document.querySelectorAll('[data-icon]')];if(!nodes.length||!window.SAMC_ICON_SPRITE)return;const holder=document.createElement('div');holder.hidden=true;holder.setAttribute('aria-hidden','true');holder.innerHTML=window.SAMC_ICON_SPRITE;document.body.prepend(holder);for(const svg of nodes){svg.setAttribute('viewBox','0 0 48 48');svg.classList.add('brand-icon');svg.innerHTML=`<use href="#${svg.dataset.icon}"></use>`;}})();

@@ -1,0 +1,223 @@
+================================================================================
+ADRIAN FRUTIGER TYPEFACES — LICENSING & SUBSTITUTION REPORT
+Project:   SohaelTasneem Foundation (STFL) — stflbd.org
+Date:      2026-10-18
+================================================================================
+
+--------------------------------------------------------------------------------
+1. WHY THE FONTS WERE NOT DOWNLOADED
+--------------------------------------------------------------------------------
+
+Adrian Frutiger (1928-2015) designed typefaces that are all commercially
+licensed. They are NOT open source and NOT in the public domain. Downloading
+them from "free font" sites, GitHub mirrors, or CDN dumps would be copyright
+infringement and a licence violation.
+
+Every Frutiger typeface is owned and licensed by Monotype / Linotype (Monotype
+acquired Linotype in 2006). A webfont licence must be purchased per domain and
+per pageview tier. I did not download them, and I recommend you do not either.
+
+--------------------------------------------------------------------------------
+2. THE FRUTIGER CATALOGUE (all commercial)
+--------------------------------------------------------------------------------
+
+FAMILY              YEAR   CLASSIFICATION              RIGHTS HOLDER
+------------------  -----  --------------------------  ----------------------
+Breughel            1951   Renaissance serif           Monotype / Linotype
+Egyptienne F        1956   Egyptian / slab serif       Monotype / Linotype
+Ondine              1954   Script / calligraphic       Monotype / Linotype
+Méridien            1957   Incised serif               Monotype / Linotype
+Univers             1957   Neo-grotesque sans          Monotype / Linotype
+Apollo              1962   Transitional serif          Monotype / Linotype
+Serifa              1967   Slab serif                  Monotype / Linotype
+OCR-B               1968   Machine-readable monospace  Monotype / Linotype
+Icone               1980   Flare-serif display         Monotype / Linotype
+Glypha              1979   Slab serif                  Monotype / Linotype
+Frutiger            1976   Humanist sans               Monotype / Linotype
+Frutiger Serif      1988   Humanist serif              Monotype / Linotype
+Avenir              1988   Geometric humanist sans     Monotype / Linotype
+Vectora             1990   Humanist sans               Monotype / Linotype
+Frutiger Stones     1998   Display / decorative        Monotype / Linotype
+Frutiger Symbols    1998   Symbol / icon               Monotype / Linotype
+Frutiger Capitalis  2000   Display / titling           Monotype / Linotype
+Frutiger Arabic     2007   Arabic humanist             Monotype / Linotype
+Neue Frutiger       2009   Revised humanist sans       Monotype / Linotype
+Frutiger Neue       2013   Revised humanist sans       Monotype / Linotype
+Frutiger Cyrillic   --     Cyrillic humanist           Monotype / Linotype
+
+--------------------------------------------------------------------------------
+3. HOW TO LICENSE LEGITIMATELY
+--------------------------------------------------------------------------------
+
+VENDOR              URL                                    NOTES
+------------------  -------------------------------------  --------------------
+Monotype            https://www.monotype.com/fonts         Official owner.
+                                                           Web licence sold as
+                                                           "Monotype Web Fonts"
+                                                           (pageview tiers).
+Adobe Fonts         https://fonts.adobe.com                Included with a
+                                                           Creative Cloud
+                                                           subscription. Search
+                                                           "Frutiger", "Univers",
+                                                           "Avenir". Web use is
+                                                           covered by the CC
+                                                           licence.
+MyFonts             https://www.myfonts.com                Monotype reseller.
+Fonts.com           https://www.fonts.com                  Monotype reseller.
+Linotype            https://www.linotype.com               Legacy catalogue.
+
+TYPICAL COST (indicative, verify current pricing)
+  Desktop licence (5 users, 1 family)      USD 150 - 400
+  Web licence (1 domain, 250k pv/mo)       USD 100 - 300 / year
+  Full family (all weights, web + desktop) USD 500 - 1,500
+
+For a foundation website, a single-domain web licence for one family
+(e.g. Frutiger or Univers, 4-6 weights) is the realistic minimum.
+
+--------------------------------------------------------------------------------
+4. WHAT WAS INSTALLED INSTEAD — MUKTA
+--------------------------------------------------------------------------------
+
+Chosen substitute: MUKTA
+  Designer:    Vaibhav Singh / Ek Type
+  Licence:     SIL Open Font License 1.1 (free for commercial use, self-hosting,
+               modification and redistribution)
+  Source:      @fontsource/mukta v5.3.0 (npm), upstream Google Fonts
+  Why:         Humanist grotesque with the same open apertures, low contrast
+               and generous x-height as Frutiger/Univers. Ships Latin, Latin-Ext
+               and Devanagari. Closest OFL match to the Frutiger skeleton.
+
+INSTALLED FILES
+  stflbd.org/public/fonts/mukta/
+    mukta-latin-300-normal.woff2        21,164 bytes
+    mukta-latin-400-normal.woff2        20,480
+    mukta-latin-500-normal.woff2        21,236
+    mukta-latin-600-normal.woff2        21,176
+    mukta-latin-700-normal.woff2        21,604
+    mukta-latin-800-normal.woff2        21,024
+    mukta-latin-ext-400-normal.woff2    14,676
+    mukta-latin-ext-600-normal.woff2    14,972
+    mukta-latin-ext-700-normal.woff2    15,424
+    OFL.txt                              4,861
+
+  Total added: ~172 KB (WOFF2 only, no WOFF fallback needed for modern browsers)
+
+CODE CHANGES
+  stflbd.org/src/app/globals.css
+    - 9 @font-face blocks for Mukta (300/400/500/600/700/800 Latin +
+      400/600/700 Latin-Ext), each with an explicit unicode-range so Bengali
+      codepoints are never claimed by Mukta.
+    - --font-sans now starts with 'Mukta'
+    - --font-en-header / --font-en-body now start with 'Mukta'
+    - .stfl-en-header / .stfl-en-body now start with 'Mukta'
+    - NEW .font-hind utility (was referenced 218x but never defined)
+    - NEW .font-noto utility (was referenced 3x but never defined)
+    - NEW .font-mukta utility
+    - body now has font-feature-settings: "kern" 1, "liga" 1
+      (mandated by STFL_BRAND_SYSTEM.md:131, previously missing)
+
+  stflbd.org/package.json
+    - added dependency @fontsource/mukta ^5.3.0
+
+--------------------------------------------------------------------------------
+5. HOW THE BILINGUAL SPLIT NOW WORKS
+--------------------------------------------------------------------------------
+
+Mukta has NO Bengali glyphs. That is intentional and is what makes the split
+clean: the browser resolves each character against the stack in order.
+
+  Latin / digits / punctuation  ->  Mukta          (Frutiger-style)
+  Bengali codepoints U+0980-09FF ->  Hind Siliguri  (unchanged, brand-mandated)
+  Fallback if both fail          ->  Noto Sans Bengali -> system-ui
+
+Because every Mukta @font-face declares a unicode-range that excludes Bengali,
+Bengali text can never be rendered by Mukta even if it is first in the stack.
+Verified in-browser: Bengali sample "(ঢাকা, কুয়ালালামপুর, ওয়াইওমি" resolves to
+Hind Siliguri at 17.6px; Latin resolves to Mukta.
+
+--------------------------------------------------------------------------------
+6. VERIFICATION PERFORMED
+--------------------------------------------------------------------------------
+
+  next build                          PASS (all 61 routes compiled)
+  @font-face Mukta in built CSS       9 rules
+  --font-sans starts with Mukta       YES
+  .font-hind / .font-noto defined     YES (previously undefined)
+  font-feature-settings kern/liga     YES
+  /fonts/mukta/*.woff2 served         200, font/woff2, correct byte sizes
+  document.fonts.check('400 16px Mukta')   true
+  document.fonts.check('700 16px Mukta')   true
+  Mukta 400/500/600/700 status         loaded
+  Bengali resolves to Hind Siliguri    YES
+  Latin resolves to Mukta              YES
+
+--------------------------------------------------------------------------------
+7. OTHER OPEN-SOURCE FRUTIGER / UNIVERS SUBSTITUTES
+--------------------------------------------------------------------------------
+
+If Mukta does not suit, these are all OFL and safe to self-host:
+
+FAMILY            CLOSEST TO        NOTES
+----------------  ----------------  ------------------------------------------
+Mukta             Frutiger/Univers  INSTALLED. Humanist, Latin + Devanagari.
+Fira Sans         Frutiger          Very close proportions. Mozilla. Latin,
+                                    Cyrillic, Greek. No Bengali.
+Source Sans 3     Frutiger/Univers  Adobe. Neutral institutional. Latin,
+                                    Cyrillic, Greek.
+Signika           Frutiger          Softer, taller x-height. Latin only.
+PT Sans           Univers           Compact humanist. Latin + Cyrillic.
+Hind              Frutiger          Same superfamily as Hind Siliguri. Latin +
+                                    Devanagari. Pairs natively with the Bengali.
+IBM Plex Sans     Univers/Frutiger  Corporate neutral. Latin, Cyrillic, Greek,
+                                    Arabic, Hebrew, Thai.
+Public Sans       Univers           US government design system. Latin only.
+Archivo           Univers           Grotesque, tighter. Latin + Latin-Ext.
+Roboto            Univers-ish       Ubiquitous but generic.
+
+For a Bengali-first institution, "Hind" is worth a look: it is the Latin
+sibling of Hind Siliguri, so the two share metrics and stroke logic.
+
+--------------------------------------------------------------------------------
+8. SEPARATE BUG FOUND DURING VERIFICATION (NOT FIXED)
+--------------------------------------------------------------------------------
+
+globals.css contains this selector inside the STFL-TYPOGRAPHY-V2 block:
+
+    [class*="lead"] { font-size: clamp(1.05rem, 1.25vw, 1.2rem); }
+
+The substring "lead" also matches every Tailwind "leading-*" class
+(leading-relaxed, leading-tight, leading-[1.08], ...). Because this rule is
+unlayered it beats @layer utilities.
+
+Measured impact on the live homepage:
+  49 elements match the selector
+  49 of those are leading-* only (zero are actual "lead" paragraphs)
+  The hero <h1> renders at 18.48px instead of its intended 44-61.6px
+  Every h2, h3 and body paragraph in those sections is also pinned to 18.48px
+
+Suggested fix (one line):
+    [class*="lead"]  ->  [class~="lead"]
+
+This is a pre-existing defect, independent of the font work, and it changes
+site-wide visual output, so it was left for your decision.
+
+--------------------------------------------------------------------------------
+9. RECOMMENDATION
+--------------------------------------------------------------------------------
+
+Short term   Ship Mukta. It is free, self-hosted, offline-safe, and visually
+             in the Frutiger family. Zero licence risk.
+
+Long term    If the brand genuinely requires Frutiger or Univers, buy a
+             single-domain web licence from Monotype or use Adobe Fonts via a
+             Creative Cloud subscription, then swap the family name in
+             globals.css. The unicode-range split already in place means only
+             the Latin @font-face blocks need to change.
+
+Do not source these fonts from free-download sites. Beyond the legal exposure,
+those files are frequently re-cut, mis-hinted or malware-wrapped, and they will
+break Bengali conjunct rendering when mixed into this stack.
+
+================================================================================
+END OF REPORT
+================================================================================

@@ -1,0 +1,145 @@
+{
+  "schema": "stfl-portfolio-technologies-v1",
+  "registry_version": "2026.10.18",
+  "last_updated": "2026-10-18T11:21:48.2412006+08:00",
+  "organization": "SohaelTasneem Foundation",
+  "toolchain": {
+    "node": "v24.20.0",
+    "npm": "11.19.0",
+    "jdk": "21.0.12.1 LTS",
+    "gradle": "9.8.1",
+    "wrangler": "^4.149.0",
+    "vitest": "^5.0.3",
+    "eslint": "9"
+  },
+  "stacks": [
+    {
+      "area": "web-foundation",
+      "folder": "stflbd.org",
+      "framework": "Next.js 15 (App Router)",
+      "ui": "React 19",
+      "language": "TypeScript 5",
+      "styling": "Tailwind CSS 4",
+      "icons": "iconoir-react ^7.12.1",
+      "lint": "ESLint 9",
+      "adapter": "@opennextjs/cloudflare ^1.20.12",
+      "runtime": "Cloudflare Workers (nodejs_compat)",
+      "package_manager": "npm"
+    },
+    {
+      "area": "web-app",
+      "folder": "main/web",
+      "framework": "Next.js 15 (App Router)",
+      "ui": "React 19",
+      "language": "TypeScript 5",
+      "styling": "Tailwind CSS 4",
+      "icons": "iconoir-react ^7.12.1",
+      "lint": "ESLint 9",
+      "adapter": "@opennextjs/cloudflare ^1.20.12",
+      "runtime": "Cloudflare Workers (nodejs_compat)",
+      "package_manager": "npm"
+    },
+    {
+      "area": "api",
+      "folder": "main/api",
+      "framework": "Hono ^4.9.7",
+      "language": "TypeScript ^5.9.2",
+      "runtime": "Cloudflare Workers (nodejs_compat)",
+      "database_driver": "postgres ^3.4.9 via Hyperdrive",
+      "migrations": "main/api/migrations/ (0001, 0002, 0003)",
+      "tests": "Vitest ^5.0.3",
+      "deploy_tool": "Wrangler ^4.149.0",
+      "package_manager": "npm"
+    },
+    {
+      "area": "android",
+      "folder": "main",
+      "language": "Kotlin",
+      "ui": "Jetpack Compose",
+      "build": "Gradle 9.8.1 (wrapper)",
+      "jdk": "21",
+      "min_sdk": 26,
+      "namespace": "foundation.sohaeltasneem.app",
+      "application_id": "foundation.sohaeltasneem.app",
+      "cache": "Room",
+      "security": "Encrypted storage, screen protection",
+      "mock_backend": "devmockserver (JDK HttpServer, never shipped)"
+    },
+    {
+      "area": "infrastructure",
+      "edge_compute": "Cloudflare Workers (3)",
+      "object_storage": "Cloudflare R2 (stfl-media)",
+      "kv": "Cloudflare KV (CONFIG_KV)",
+      "database_proxy": "Cloudflare Hyperdrive",
+      "database": "PostgreSQL",
+      "dns": "Cloudflare (stflbd.org, stflbd.app)",
+      "distribution": "Google Play"
+    },
+    {
+      "area": "design-system",
+      "color_tokens": "stflbd.org/stfl-brand-tokens.css, main/web/stfl-brand-tokens.css",
+      "token_source": "STFL_VI_BRAND_GUIDELINES.md",
+      "typography_spec": "STFL_VI_TYPOGRAPHY_SYSTEM.md",
+      "icon_policy": "stflbd.org/STFL_ICONOGRAPHY_POLICY.md",
+      "icon_library": "Iconoir (iconoir-react) — no other icon source permitted"
+    },
+    {
+      "area": "legacy",
+      "folders": [
+        "web",
+        "apk",
+        "files/web/aakutu-board"
+      ],
+      "note": "web/ and apk/ are legacy mirrors that must not deploy. files/web/aakutu-board is an unrelated project."
+    }
+  ],
+  "fonts": [
+    {
+      "family": "Hind Siliguri",
+      "role": "BN headings",
+      "bundled_at": [
+        "stflbd.org/public/fonts/",
+        "main/web/public/fonts/",
+        "main/core/src/main/res/font/",
+        "main/assets/branding/fonts/"
+      ]
+    },
+    {
+      "family": "Noto Sans Bengali",
+      "role": "BN body",
+      "bundled_at": [
+        "Next.js font cache"
+      ]
+    },
+    {
+      "family": "Baloo Da 2",
+      "role": "BN UI",
+      "bundled_at": [
+        "Google Fonts CSS2",
+        "local"
+      ]
+    },
+    {
+      "family": "Inter",
+      "role": "EN headings and body",
+      "bundled_at": [
+        "Next.js font cache",
+        "main/core/src/main/res/font/inter_variable.ttf"
+      ]
+    },
+    {
+      "family": "JetBrains Mono",
+      "role": "Code",
+      "bundled_at": [
+        "CSS import / monospace fallback"
+      ]
+    }
+  ],
+  "rules": [
+    "Iconoir only. No other icon library, no hand-drawn interface icons.",
+    "No new framework without a registry entry.",
+    "No alternate production runtime. Cloudflare Workers is the only edge runtime.",
+    "No second database. PostgreSQL via Hyperdrive is the only production data store.",
+    "No secrets in code."
+  ]
+}

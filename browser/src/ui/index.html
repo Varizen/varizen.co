@@ -4,11 +4,16 @@
 <meta charset="utf-8" />
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'" />
 <title>AiBrowser</title>
+<link rel="icon" href="assets/varizen-symbol.png" type="image/png" />
 <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 <header id="chrome">
   <div id="tabstrip">
+    <div id="brandmark">
+      <img class="brand-mark" src="assets/varizen-symbol-white.png" alt="Varizen" />
+      <span>AiBrowser</span><span class="brand-version">v0.1</span>
+    </div>
     <div id="tabs"></div>
     <button id="newtab" title="New tab">+</button>
   </div>
@@ -24,10 +29,11 @@
       <span id="shield" title="Eye Shield: Permanent Ad, Adware, Malware & Tracker Blocker">🛡 <b id="blocked">0</b></span>
     </div>
     <button id="btn-bm" title="Bookmark Library & One-Way Sync">★</button>
-    <button id="btn-zenbox" title="ZenBox Universal AI Mailbox">✉</button>
+    <button id="btn-zenbox" title="ZMail Universal AI Mailbox">✉</button>
     <button id="btn-ai" title="Eye AI">👁</button>
     <button id="btn-dl" title="XDM Content Transport & Downloads">⤓</button>
     <button id="btn-menu" title="Menu">☰</button>
+    <button id="btn-services" title="Z Services" class="z-btn">Z</button>
   </div>
   <div id="bookmark-bar">
     <div id="bm-bar-items"></div>
@@ -51,7 +57,8 @@
 <aside id="panel" class="hidden">
   <div class="panel-head">
     <nav id="panel-tabs">
-      <button data-panel="zenbox" class="active">ZenBox</button>
+      <button data-panel="zenbox" class="active">ZMail</button>
+      <button data-panel="services">Z Services</button>
       <button data-panel="bm">Bookmarks</button>
       <button data-panel="ai">Eye AI</button>
       <button data-panel="dl">XDM Downloads</button>
@@ -87,7 +94,7 @@
     <!-- AI Agent Mode Triage Banner -->
     <div id="zb-agent-banner" class="zb-agent-panel hidden">
       <div class="zb-agent-title">
-        <span>⚡ ZenBox AI Agent Triage</span>
+        <span>⚡ ZMail AI Agent Triage</span>
         <button id="zb-agent-close">×</button>
       </div>
       <div id="zb-agent-stats" class="zb-agent-stats"></div>
@@ -150,7 +157,7 @@
         </label>
         <label class="row zb-secure-option">
           <input id="zb-comp-secure" type="checkbox" />
-          <b>ZenBox Secure Session (Zero-Knowledge End-to-End Encrypted)</b>
+          <b>ZMail Secure Session (Zero-Knowledge End-to-End Encrypted)</b>
         </label>
         <textarea id="zb-comp-body" placeholder="Write your message here..."></textarea>
         <div class="zb-compose-footer">
@@ -159,6 +166,19 @@
         </div>
       </div>
     </div>
+  </section>
+
+  <section id="p-services" class="pane hidden">
+    <div class="svc-head">
+      <span class="svc-title">Z Services</span>
+      <button id="svc-refresh" class="icon-btn" title="Re-check health">⟳</button>
+    </div>
+    <div class="svc-note">
+      Launch any Z app as a native tab. Each service runs locally and is
+      health-probed; unavailable services are shown as offline.
+    </div>
+    <div class="svc-list" id="svc-list"></div>
+    <div class="svc-foot" id="svc-foot"></div>
   </section>
 
   <section id="p-bm" class="pane hidden">
@@ -271,6 +291,17 @@
     <p class="muted" id="version"></p>
   </section>
 </aside>
+
+<footer id="statusbar">
+  <div class="status-trust"><span class="status-dot"></span><b>Protected by Varizen Trust</b></div>
+  <span class="status-separator"></span>
+  <span class="status-label"><span class="status-dot"></span>Secure browsing</span>
+  <span class="status-separator"></span>
+  <span class="status-label"><span class="status-dot"></span>Zero telemetry</span>
+  <span class="status-isolation"><span class="status-dot"></span>Isolation mode</span>
+  <span id="status-url">Ready</span>
+  <span class="status-blocked"><span>Shielded</span><b id="status-blocked">0</b></span>
+</footer>
 
 <script src="app.js"></script>
 </body>

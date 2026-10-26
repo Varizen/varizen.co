@@ -1,0 +1,7 @@
+SOURCE NOTES
+1. Source package: user-supplied brandsystem.zip, inspected 24 Oct 2026.
+2. The package defines three palette directions: Blue Professional, Green Wellness, Purple Innovation.
+3. It includes English and Bangla font candidates. This guideline narrows each system to two production families.
+4. The package includes Health Icons outline assets and a CC0 provenance page.
+5. The package's logo-review page flags a naming discrepancy; final legal/name verification is required.
+6. External design reference: OpenAI public Design Guidelines and OpenAI Developers UI guidelines. Used only for general design discipline, not copied identity assets.

@@ -1,0 +1,174 @@
+[
+  {
+    "id": 263,
+    "date": "2022-04-29T09:02:34",
+    "date_gmt": "2022-04-29T09:02:34",
+    "guid": {
+      "rendered": "http://samcb.edu.bd/?page_id=263"
+    },
+    "modified": "2025-03-13T06:12:56",
+    "modified_gmt": "2025-03-13T06:12:56",
+    "slug": "admission",
+    "status": "publish",
+    "type": "page",
+    "link": "https://www.samcb.edu.bd/admission/",
+    "title": {
+      "rendered": "Admission"
+    },
+    "content": {
+      "rendered": "<p>&nbsp;</p>\n<table style=\"background-color: lightgreen; height: 10px;\" width=\"700\">\n<tbody>\n<tr>\n<td style=\"text-align: center;\">07-06-2022</td>\n<td style=\"text-align: left;\">2021-2022 Academic Session MBBS 1st Year Admission Notification</td>\n<td style=\"text-align: left;\"><a href=\"https://samcb.edu.bd/wp-content/uploads/2022/06/Advertisement-1.pdf\">Open/Download as PDF</a></td>\n</tr>\n</tbody>\n<tbody>\n<tr>\n<td style=\"text-align: center;\">07-07-2022</td>\n<td style=\"text-align: left;\">Selected list of students applying for admission to MBBS course in the 2021-2022 Academic Year</td>\n<td style=\"text-align: left;\"><a href=\"https://samcb.edu.bd/wp-content/uploads/2022/07/Selected-for-admission.pdf\">Open/Download as PDF</a></td>\n</tr>\n</tbody>\n<tbody>\n<tr>\n<td style=\"text-align: center;\">19-08-2022</td>\n<td style=\"text-align: left;\">Selected and waiting list of students applying for indigent and meritorious quota admission to MBBS course in the 2021-2022 Academic Year.</td>\n<td style=\"text-align: left;\"><a href=\"https://samcb.edu.bd/wp-content/uploads/2022/08/Indigent-and-Meritorious-list.pdf\">Open/Download as PDF</a></td>\n</tr>\n</tbody>\n<tbody>\n<tr>\n<td style=\"text-align: center;\">05-06-2023</td>\n<td style=\"text-align: left;\">Guidelines for Online Application for MBBS 1st Year Admission for Academic Year 2022-2023.</td>\n<td style=\"text-align: left;\"><a href=\"https://samcb.edu.bd/wp-content/uploads/2023/06/instructions_nongov.pdf\">Open/Download as PDF</a></td>\n</tr>\n</tbody>\n</table>\n",
+      "protected": false
+    },
+    "excerpt": {
+      "rendered": "<p>&nbsp; 07-06-2022 2021-2022 Academic Session MBBS 1st Year Admission Notification Open/Download as PDF 07-07-2022 Selected list of students applying for admission to MBBS course in the 2021-2022 Academic Year Open/Download as PDF 19-08-2022 Selected and waiting list of students applying for indigent and meritorious quota admission to MBBS course in the 2021-2022 Academic Year. Open/Download &hellip; </p>\n<p class=\"link-more\"><a href=\"https://www.samcb.edu.bd/admission/\" class=\"more-link\">Continue reading<span class=\"screen-reader-text\"> &#8220;Admission&#8221;</span></a></p>\n",
+      "protected": false
+    },
+    "author": 2,
+    "featured_media": 0,
+    "parent": 0,
+    "menu_order": 0,
+    "comment_status": "closed",
+    "ping_status": "closed",
+    "template": "",
+    "meta": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://www.samcb.edu.bd/wp-json/wp/v2/pages/263"
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://www.samcb.edu.bd/wp-json/wp/v2/pages"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://www.samcb.edu.bd/wp-json/wp/v2/types/page"
+        }
+      ],
+      "author": [
+        {
+          "embeddable": true,
+          "href": "https://www.samcb.edu.bd/wp-json/wp/v2/users/2"
+        }
+      ],
+      "replies": [
+        {
+          "embeddable": true,
+          "href": "https://www.samcb.edu.bd/wp-json/wp/v2/comments?post=263"
+        }
+      ],
+      "version-history": [
+        {
+          "count": 37,
+          "href": "https://www.samcb.edu.bd/wp-json/wp/v2/pages/263/revisions"
+        }
+      ],
+      "predecessor-version": [
+        {
+          "id": 654,
+          "href": "https://www.samcb.edu.bd/wp-json/wp/v2/pages/263/revisions/654"
+        }
+      ],
+      "wp:attachment": [
+        {
+          "href": "https://www.samcb.edu.bd/wp-json/wp/v2/media?parent=263"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 82,
+    "date": "2021-05-05T07:40:44",
+    "date_gmt": "2021-05-05T07:40:44",
+    "guid": {
+      "rendered": "http://samcb.edu.bd/?page_id=82"
+    },
+    "modified": "2025-03-17T19:11:05",
+    "modified_gmt": "2025-03-17T19:11:05",
+    "slug": "home",
+    "status": "publish",
+    "type": "page",
+    "link": "https://www.samcb.edu.bd/home/",
+    "title": {
+      "rendered": "Home"
+    },
+    "content": {
+      "rendered": "\r\n<h2 style=\"text-align: center;\"><span style=\"color: #0000ff;\"><strong>WELCOME TO</strong></span></h2>\r\n<h2 style=\"text-align: center;\"><span style=\"color: #000000;\"><strong>South Apollo Medical College, Barishal.</strong></span></h2>\r\n\r\n\r\n\r\n<p style=\"text-align: left;\"> </p>\r\n\r\n\r\n\r\n<figure class=\"wp-block-image\"><img class=\"wp-image-123  aligncenter\" src=\"https://samcb.edu.bd/wp-content/uploads/2021/05/second-College-building.jpg\" alt=\"\" width=\"552\" height=\"278\" srcset=\"https://www.samcb.edu.bd/wp-content/uploads/2021/05/second-College-building.jpg 1052w, https://www.samcb.edu.bd/wp-content/uploads/2021/05/second-College-building-300x151.jpg 300w, https://www.samcb.edu.bd/wp-content/uploads/2021/05/second-College-building-768x387.jpg 768w, https://www.samcb.edu.bd/wp-content/uploads/2021/05/second-College-building-1024x516.jpg 1024w\" sizes=\"(max-width: 552px) 100vw, 552px\" /></figure>\r\n<p>&nbsp;</p>\r\n<h4 style=\"text-align: center;\"><span style=\"color: #0000ff;\"><span style=\"color: #ff0000;\">*<a style=\"color: #ff0000;\" href=\"https://samcb.edu.bd/wp-content/uploads/2023/11/নিয়োগ-বিজ্ঞপ্তি-২০২৩.png\" target=\"_blank\" rel=\"noopener noreferrer\">নিয়োগ বিজ্ঞপ্তি- ২০২৩</a></span></span></h4>\r\n<h4 style=\"text-align: center;\"><span style=\"color: #0000ff;\"><a style=\"color: #0000ff;\" href=\"https://samcb.edu.bd/wp-content/uploads/2021/09/Job-Application-Form.pdf\" target=\"_blank\" rel=\"noopener noreferrer\"><span style=\"color: #ff0000;\">চাকুরীর আবেদন ফরম</span></a></span></h4>\r\n<p>&nbsp;</p>\r\n<h4 style=\"text-align: center;\"> </h4>\r\n\r\n<div class=\"clear\" style=\"margin: 0 0 20px 0;\"> </div>\r\n<div class=\"container\">\r\n<div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12\" style=\"padding: 0 10px 0 10px;\">\r\n<div class=\"col-lg-6 col-md-6 col-sm-6 col-xs-12\" style=\"padding: 0 0 0 0;\">\r\n<div style=\"font-family: Oswald; font-size: 15px; background: #b1aeae; color: #ffffff; padding: 3px 0px 3px 10px; text-align: left;\"><span style=\"color: #ffcc00;\"><strong>Location Map</strong></span></div>\r\n<div style=\"border: 2px solid #b1aeae; padding: 5px;\"><iframe style=\"border: 0;\" src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13658.237914778787!2d90.33680958536364!3d22.676599364156225!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x375535001a46135b%3A0x5f2a57eff5ebab14!2sSouth%20Apollo%20Medical%20College!5e1!3m2!1sbn!2sbd!4v1742237344669!5m2!1sbn!2sbd\" width=\"552\" height=\"400\" allowfullscreen=\"allowfullscreen\"><span data-mce-type=\"bookmark\" style=\"display: inline-block; width: 0px; overflow: hidden; line-height: 0;\" class=\"mce_SELRES_start\">﻿</span><span data-mce-type=\"bookmark\" style=\"display: inline-block; width: 0px; overflow: hidden; line-height: 0;\" class=\"mce_SELRES_start\">﻿</span><span data-mce-type=\"bookmark\" style=\"display: inline-block; width: 0px; overflow: hidden; line-height: 0;\" class=\"mce_SELRES_start\">﻿</span><span data-mce-type=\"bookmark\" style=\"display: inline-block; width: 0px; overflow: hidden; line-height: 0;\" class=\"mce_SELRES_start\">﻿</span><span data-mce-type=\"bookmark\" style=\"display: inline-block; width: 0px; overflow: hidden; line-height: 0;\" class=\"mce_SELRES_start\">﻿</span><span data-mce-type=\"bookmark\" style=\"display: inline-block; width: 0px; overflow: hidden; line-height: 0;\" class=\"mce_SELRES_start\">﻿</span><span data-mce-type=\"bookmark\" style=\"display: inline-block; width: 0px; overflow: hidden; line-height: 0;\" class=\"mce_SELRES_start\"><span data-mce-type=\"bookmark\" style=\"display: inline-block; width: 0px; overflow: hidden; line-height: 0;\" class=\"mce_SELRES_start\">﻿</span>﻿</span></iframe></div>\r\n </div>\r\n</div>\r\n</div>\r\n\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n",
+      "protected": false
+    },
+    "excerpt": {
+      "rendered": "<p>WELCOME TO South Apollo Medical College, Barishal.     Location Map ﻿﻿﻿﻿﻿﻿﻿﻿   &nbsp; &nbsp;</p>\n",
+      "protected": false
+    },
+    "author": 1,
+    "featured_media": 0,
+    "parent": 0,
+    "menu_order": 0,
+    "comment_status": "closed",
+    "ping_status": "closed",
+    "template": "",
+    "meta": [],
+    "_links": {
+      "self": [
+        {
+          "href": "https://www.samcb.edu.bd/wp-json/wp/v2/pages/82"
+        }
+      ],
+      "collection": [
+        {
+          "href": "https://www.samcb.edu.bd/wp-json/wp/v2/pages"
+        }
+      ],
+      "about": [
+        {
+          "href": "https://www.samcb.edu.bd/wp-json/wp/v2/types/page"
+        }
+      ],
+      "author": [
+        {
+          "embeddable": true,
+          "href": "https://www.samcb.edu.bd/wp-json/wp/v2/users/1"
+        }
+      ],
+      "replies": [
+        {
+          "embeddable": true,
+          "href": "https://www.samcb.edu.bd/wp-json/wp/v2/comments?post=82"
+        }
+      ],
+      "version-history": [
+        {
+          "count": 43,
+          "href": "https://www.samcb.edu.bd/wp-json/wp/v2/pages/82/revisions"
+        }
+      ],
+      "predecessor-version": [
+        {
+          "id": 795,
+          "href": "https://www.samcb.edu.bd/wp-json/wp/v2/pages/82/revisions/795"
+        }
+      ],
+      "wp:attachment": [
+        {
+          "href": "https://www.samcb.edu.bd/wp-json/wp/v2/media?parent=82"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  }
+]

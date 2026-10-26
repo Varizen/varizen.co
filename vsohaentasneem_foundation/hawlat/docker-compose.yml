@@ -1,0 +1,29 @@
+services:
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: hawlat
+      POSTGRES_PASSWORD: ${HAWLAT_DB_PASSWORD:?set HAWLAT_DB_PASSWORD}
+      POSTGRES_DB: hawlat
+    volumes: [dbdata:/var/lib/postgresql/data]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U hawlat"]
+      interval: 5s
+      retries: 10
+  migrate:
+    build: ./backend
+    command: ["alembic", "upgrade", "head"]
+    working_dir: /app
+    environment:
+      HAWLAT_DATABASE_URL: postgresql+psycopg://hawlat:${HAWLAT_DB_PASSWORD}@db:5432/hawlat
+    depends_on: {db: {condition: service_healthy}}
+  api:
+    build: ./backend
+    environment:
+      HAWLAT_ENV: ${HAWLAT_ENV:-staging}
+      HAWLAT_DATABASE_URL: postgresql+psycopg://hawlat:${HAWLAT_DB_PASSWORD}@db:5432/hawlat
+      HAWLAT_JWT_SECRET: ${HAWLAT_JWT_SECRET:?set HAWLAT_JWT_SECRET}
+    ports: ["8000:8000"]
+    depends_on: {migrate: {condition: service_completed_successfully}}
+volumes:
+  dbdata: {}

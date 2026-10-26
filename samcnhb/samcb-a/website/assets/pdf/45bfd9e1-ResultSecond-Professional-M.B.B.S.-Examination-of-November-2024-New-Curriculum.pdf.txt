@@ -1,0 +1,58 @@
+--- Page 1 ---
+University of Dhaka
+Second Professional M.B.B.S. Examination of November 2024 (New Curriculum) Held in December 2024
+College Name Reg. Session Roll Student Name Gender Year of ad. S. Type Result
+1 South Apollo Medical College 10132 2021-22 4931 Amina Jahan Tahsin Female 2022 Regular Passed
+2 South Apollo Medical College 10097 2021-22 4932 Tasnim Alam Esha Female 2022 Regular Passed
+3 South Apollo Medical College 10106 2021-22 4933 Navid Hasan Munna Male 2022 Regular Passed
+4 South Apollo Medical College 10101 2021-22 4934 NUSRAT JAHAN MITU Female 2022 Regular Passed
+5 South Apollo Medical College 10129 2021-22 4935 SYEDA RUFAIDA JAHAN SARA Female 2022 Regular Referred(Pharma)
+6 South Apollo Medical College 10124 2021-22 4936 TAHIA RAHMAN KHUSBU Female 2022 Regular Referred(Pharma)
+7 South Apollo Medical College 10110 2021-22 4937 ANINDITA KHAN Female 2022 Regular Passed
+8 South Apollo Medical College 10128 2021-22 4938 TANJEEM JAHAN TAMANNA Female 2022 Regular Referred(For Med.)
+9 South Apollo Medical College 10095 2021-22 4939 TASMIA AHSAN Female 2022 Regular Passed
+10 South Apollo Medical College 10092 2021-22 4940 MD. NOBIN KHAN Male 2022 Regular Referred(For Med.)
+11 South Apollo Medical College 10122 2021-22 4941 ANIKA TASNIM Female 2022 Regular Passed
+12 South Apollo Medical College 10104 2021-22 4942 NAWARAT MAISARA KHAN Female 2022 Regular Passed
+13 South Apollo Medical College 10115 2021-22 4943 MD. AL KAYUM TANVIR Male 2022 Regular Passed
+14 South Apollo Medical College 10119 2021-22 4944 ARNAB DAS Male 2022 Regular Passed
+15 South Apollo Medical College 10105 2021-22 4945 TASMEHA AHMED Female 2022 Regular Passed
+16 South Apollo Medical College 10120 2021-22 4946 MD. AIAZ IBRAHIM Male 2022 Regular Passed
+17 South Apollo Medical College 10123 2021-22 4947 AZIMUN KABIR ORPITA Female 2022 Regular Passed
+18 South Apollo Medical College 10094 2021-22 4948 Abdul Alim Rahat Male 2022 Regular Passed
+19 South Apollo Medical College 10091 2021-22 4949 Parvej Mosharaf Male 2022 Regular Passed
+20 South Apollo Medical College 10121 2021-22 4950 MAHAFUJA MUNA Female 2022 Regular Passed
+
+--- Page 2 ---
+Second Professional M.B.B.S. Examination of November 2024 (New Curriculum) Held in December 2024
+College Name Reg. Session Roll Student Name Gender Year of ad. S. Type Result
+21 South Apollo Medical College 10103 2021-22 4951 MAISHA RAHMAN Female 2022 Regular Passed
+22 South Apollo Medical College 10139 2021-22 4952 SUME MAZUMDER Female 2022 Regular Passed
+23 South Apollo Medical College 10099 2021-22 4953 ANANYA SARKER BANNYA Female 2022 Regular Passed
+24 South Apollo Medical College 10090 2021-22 4954 MAHJABIN ARA Female 2022 Regular Passed
+25 South Apollo Medical College 10137 2021-22 4955 ARTHE MAJUMDER Female 2022 Regular Passed
+26 South Apollo Medical College 10126 2021-22 4956 PROGGA HALDER Female 2022 Regular Passed
+27 South Apollo Medical College 10107 2021-22 4957 AUTHAI SAMADDER DOLA Female 2022 Regular Passed
+28 South Apollo Medical College 10131 2021-22 4958 STUTI DEY SMARAN Female 2022 Regular Passed
+29 South Apollo Medical College 10125 2021-22 4959 Arpon saha Male 2022 Regular Passed
+30 South Apollo Medical College 10114 2021-22 4960 JESMIN AKHTER JUI Female 2022 Regular Passed
+31 South Apollo Medical College 10093 2021-22 4961 SAKIB HASSAN RAFI Male 2022 Regular Passed
+32 South Apollo Medical College 10100 2021-22 4962 Afifa Tasnim Female 2022 Regular Passed
+33 South Apollo Medical College 10096 2021-22 4963 MD. MARUF HASAN SEYAM Male 2022 Regular Passed
+34 South Apollo Medical College 10111 2021-22 4964 SHEFAT RUHUL AMIN Male 2022 Regular Passed
+35 South Apollo Medical College 10113 2021-22 4965 TANHA AREFIN ARNA Female 2022 Regular Passed
+36 South Apollo Medical College 10098 2021-22 4966 ISRAT JAHAN Female 2022 Regular Passed
+37 South Apollo Medical College 10112 2021-22 4967 SAMSUNNAHAR RAKHI Female 2022 Regular Passed
+38 South Apollo Medical College 10109 2021-22 4968 NOUSHIN TABASSUM TAKY Female 2022 Regular Passed
+39 South Apollo Medical College 10135 2021-22 4969 TASNIMAH TASNI Female 2022 Regular Referred(Pharma)
+40 South Apollo Medical College 10102 2021-22 4970 FARIHA OMAR BINTI Female 2022 Regular Passed
+
+--- Page 3 ---
+Result Publish Date:
+Controller of Examinations
+University of Dhaka
+Second Professional M.B.B.S. Examination of November 2024 (New Curriculum) Held in December 2024
+College Name Reg. Session Roll Student Name Gender Year of ad. S. Type Result
+41 South Apollo Medical College 10118 2021-22 4971 MD. MANZARUL ISLAM Male 2022 Regular Passed
+
+--- Page 4 ---

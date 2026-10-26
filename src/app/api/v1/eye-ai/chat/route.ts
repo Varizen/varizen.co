@@ -93,7 +93,9 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: UNAVAILABLE }, { status: 503 });
     }
 
-    const data = await upstreamRes.json();
+    const data = (await upstreamRes.json()) as {
+      choices?: Array<{ message?: { content?: string } }>;
+    };
     const text = data.choices?.[0]?.message?.content ?? "";
 
     return NextResponse.json(

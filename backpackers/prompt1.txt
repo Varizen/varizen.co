@@ -1,0 +1,1640 @@
+# MASTER BUILD PROMPT
+## Build a Global Student Travel Earnings Platform
+### Malaysia → Bangladesh Backpacker / Luggage Transport Network
+
+Build a professional, trustworthy, mobile-first web platform that creates a legitimate opportunity for students and backpackers travelling from **Malaysia to Bangladesh** to reduce their travel cost by carrying **eligible, declared and verified personal/consignment items** within their actual airline baggage allowance.
+
+The concept should become known as:
+
+> **“Travel to Bangladesh and earn back part of your flight cost.”**
+
+The platform must make this opportunity extremely easy to understand for students searching online for ways to earn money while studying or travelling in Malaysia.
+
+However, this must **never** become a platform for smuggling, undeclared commercial goods, prohibited goods, controlled substances, or customs/airline-rule evasion.
+
+The product must be designed around:
+
+**Verified Traveller + Verified Item + Verified Route + Verified Baggage Capacity + Transparent Payment + Customs Compliance**
+
+---
+
+# 1. CORE PRODUCT CONCEPT
+
+Create a two-sided marketplace:
+
+```text
+TRAVELLER
+    │
+    │ Has unused eligible baggage capacity
+    ▼
+PLATFORM
+    │
+    │ Matches verified demand
+    ▼
+SENDER / RECIPIENT
+    │
+    ▼
+BANGLADESH
+```
+
+A student or traveller already travelling from Malaysia to Bangladesh can register their upcoming trip.
+
+They specify:
+
+- Departure city
+- Arrival city
+- Airline
+- Flight date
+- Ticket class
+- Actual baggage allowance
+- Available eligible capacity
+- Destination city
+- Preferred handover method
+
+The platform then matches them with eligible, verified consignments.
+
+---
+
+# 2. IMPORTANT POSITIONING
+
+Do NOT market this as:
+
+> “Carry anything to Bangladesh and get a free flight.”
+
+Do NOT market it as:
+
+> “Avoid courier charges.”
+
+Do NOT market it as:
+
+> “Bring goods without customs.”
+
+Do NOT encourage:
+
+- Hidden goods
+- Undeclared goods
+- Prohibited goods
+- Controlled substances
+- Cash movement
+- Concealed commercial imports
+- False declarations
+- Circumventing airline baggage rules
+- Circumventing customs
+
+Instead use:
+
+> **“Turn eligible unused baggage capacity into travel savings.”**
+
+and:
+
+> **“Travel Malaysia → Bangladesh. Carry verified eligible items. Earn a travel-cost contribution.”**
+
+---
+
+# 3. 30 KG CONCEPT
+
+The core marketing concept can be:
+
+## “Up to 30 KG”
+
+But never assume every traveller has 30 kg available.
+
+The system must calculate:
+
+```text
+AIRLINE ALLOWANCE
+-
+TRAVELLER'S OWN BAGGAGE
+-
+SAFETY / OPERATIONAL BUFFER
+=
+ELIGIBLE PLATFORM CAPACITY
+```
+
+Example:
+
+```text
+Airline allowance: 40 KG
+Traveller's own baggage: 12 KG
+Operational buffer: 3 KG
+
+Eligible platform capacity:
+25 KG
+```
+
+The traveller cannot manually override the verified capacity.
+
+The platform must show:
+
+**Available capacity: 25 KG**
+
+not:
+
+**Guaranteed 30 KG**
+
+---
+
+# 4. 50–70% TRAVEL SAVINGS CONCEPT
+
+The platform may use:
+
+> **“Potentially reduce your effective travel cost by up to 50–70%.”**
+
+But never guarantee this amount.
+
+The actual contribution should depend on:
+
+- Route
+- Airline
+- Flight date
+- Available baggage
+- Demand
+- Weight
+- Destination
+- Item category
+- Verification
+- Market rate
+- Platform fee
+- Compliance costs
+
+Display:
+
+```text
+Estimated travel contribution
+
+RM 180 – RM 420
+
+Potential contribution:
+up to 50–70% of eligible travel cost
+```
+
+Use the word **“potential”** or **“estimated”** everywhere.
+
+---
+
+# 5. TARGET AUDIENCE
+
+Primary audience:
+
+### Students in Malaysia
+
+Especially:
+
+- International students
+- Bangladeshi students
+- Students travelling home
+- Exchange students
+- University students
+- Backpackers
+- Frequent Malaysia → Bangladesh travellers
+- Students visiting family
+
+Secondary audience:
+
+- Professionals
+- Migrant workers
+- Families travelling home
+- Frequent travellers
+- Backpackers
+- Digital nomads
+
+---
+
+# 6. PRIMARY SEO OBJECTIVE
+
+The platform must aggressively target legitimate search intent around:
+
+### “easy ways to earn money in Malaysia”
+
+### “student jobs Malaysia”
+
+### “student earning Malaysia”
+
+### “earn money while studying in Malaysia”
+
+### “student side income Malaysia”
+
+### “earn from travelling”
+
+### “earn money travelling Malaysia”
+
+### “student travel jobs Malaysia”
+
+### “Malaysia to Bangladesh travel”
+
+### “Malaysia Bangladesh baggage”
+
+### “carry luggage Malaysia Bangladesh”
+
+### “send luggage Malaysia Bangladesh”
+
+### “cheap Malaysia Bangladesh travel”
+
+### “reduce flight cost Malaysia Bangladesh”
+
+### “student flight savings Malaysia”
+
+### “backpacker Malaysia Bangladesh”
+
+### “travel and earn Malaysia”
+
+Do NOT attempt to manipulate Google rankings through spam.
+
+Build genuine SEO authority through:
+
+- Useful guides
+- Student resources
+- Route information
+- Baggage calculators
+- Airline comparisons
+- Customs education
+- Travel-cost calculators
+- Original data
+- FAQ pages
+- University-area landing pages
+- City-to-city landing pages
+- Real traveller stories
+- Transparent pricing
+
+Never guarantee:
+
+> “We will rank #1 on Google.”
+
+Instead optimize aggressively for the goal:
+
+> **Become the most useful search result for legitimate student travel-earning opportunities in Malaysia.**
+
+---
+
+# 7. HOMEPAGE HERO
+
+The first screen should immediately explain the opportunity.
+
+## Headline
+
+> **Going to Bangladesh? Make Your Empty Baggage Work for You.**
+
+Alternative:
+
+> **Travel Home. Carry Eligible Items. Earn Toward Your Flight.**
+
+Supporting copy:
+
+> Travelling from Malaysia to Bangladesh? Register your trip, verify your available baggage capacity, and get matched with eligible items that can help offset part of your travel cost.
+
+Primary CTA:
+
+### “Register My Trip”
+
+Secondary CTA:
+
+### “How It Works”
+
+Third CTA:
+
+### “Calculate My Potential Earnings”
+
+---
+
+# 8. HERO CALCULATOR
+
+Place an interactive calculator directly on the homepage.
+
+Inputs:
+
+```text
+Departure
+[ Kuala Lumpur ]
+
+Destination
+[ Dhaka ]
+
+Flight date
+[ Select date ]
+
+Airline
+[ Select airline ]
+
+Ticket / fare
+[ Select ]
+
+Total baggage allowance
+[ 30 KG ]
+
+My own baggage
+[ 10 KG ]
+
+Available capacity
+[ Automatically calculated ]
+```
+
+Output:
+
+```text
+Eligible capacity
+18 KG
+
+Estimated contribution
+RM XXX – RM XXX
+
+Potential travel-cost reduction
+XX%
+
+Demand level
+HIGH
+```
+
+Add:
+
+> **Final eligibility depends on airline, customs, item verification and route conditions.**
+
+---
+
+# 9. STUDENT-FIRST UX
+
+The entire experience should be understandable within 30 seconds.
+
+The homepage should answer:
+
+### What is this?
+
+Travel and earn from eligible unused baggage capacity.
+
+### Who can use it?
+
+Students and verified travellers travelling Malaysia → Bangladesh.
+
+### How much can I earn?
+
+Depends on route, capacity, demand and eligible items.
+
+### Do I need to pay?
+
+Registration should be free.
+
+### Do I need to carry unknown items?
+
+**No. Never.**
+
+Only accept verified, documented and eligible items.
+
+---
+
+# 10. REGISTRATION FLOW
+
+Create a multi-step registration system.
+
+## STEP 1 — Account
+
+- Name
+- Email
+- Mobile number
+- Country
+- Preferred language
+
+## STEP 2 — Identity
+
+KYC / identity verification.
+
+Collect only what is necessary.
+
+Possible:
+
+- Passport
+- Malaysian student ID
+- University ID
+- Visa / immigration information where legally appropriate
+
+Use encrypted storage.
+
+Never expose identity documents publicly.
+
+---
+
+# 11. STUDENT VERIFICATION
+
+Optional verification levels:
+
+### Basic Traveller
+
+Identity verified.
+
+### Student Traveller
+
+Student status verified.
+
+### Trusted Traveller
+
+Identity + travel history + successful completed trips.
+
+### Verified Partner
+
+Higher verification level for trusted logistics partners.
+
+Display badges:
+
+```text
+✓ Identity Verified
+✓ Student Verified
+✓ Flight Verified
+✓ Baggage Verified
+✓ Completed Trips
+```
+
+---
+
+# 12. TRIP REGISTRATION
+
+Traveller enters:
+
+```text
+Origin country
+Malaysia
+
+Origin city
+Kuala Lumpur / Johor Bahru / Penang / etc.
+
+Destination country
+Bangladesh
+
+Destination city
+Dhaka / Chittagong / Sylhet / etc.
+
+Airline
+[Airline]
+
+Flight date
+[Date]
+
+Flight number
+[Flight]
+
+Ticket class
+[Economy / Business]
+
+Verified baggage allowance
+[KG]
+
+Traveller's own baggage
+[KG]
+```
+
+Where technically possible, validate the airline/flight.
+
+Do not allow the user to falsely claim baggage capacity.
+
+---
+
+# 13. BAGGAGE CAPACITY ENGINE
+
+Build a dedicated calculation engine.
+
+```text
+verified_airline_allowance
+-
+declared_personal_baggage
+-
+operational_buffer
+=
+available_capacity
+```
+
+All calculations must be server-side.
+
+Never trust client-side values.
+
+---
+
+# 14. ITEM REGISTRATION
+
+A sender must register an item before matching.
+
+Required:
+
+- Item description
+- Quantity
+- Approximate weight
+- Approximate value
+- Sender
+- Recipient
+- Origin
+- Destination
+- Category
+- Supporting documentation
+- Invoice / receipt when appropriate
+- Customs classification where applicable
+
+---
+
+# 15. ITEM CATEGORIES
+
+Create controlled categories.
+
+### Potentially eligible
+
+- Personal clothing
+- Books
+- Educational materials
+- Personal documents
+- Approved personal-use items
+- Other explicitly approved categories
+
+### Restricted
+
+Items requiring additional review or permits.
+
+### Prohibited
+
+Items that cannot be accepted.
+
+The platform must maintain a dynamic prohibited/restricted-items database.
+
+Never allow a user to bypass the restriction system.
+
+---
+
+# 16. CUSTOMS COMPLIANCE
+
+Create a prominent:
+
+## “Can I Carry This?” checker
+
+User enters:
+
+> “Laptop”
+
+System responds:
+
+```text
+Potentially eligible
+
+Additional checks may apply.
+
+Check:
+✓ Personal-use status
+✓ Quantity
+✓ Value
+✓ Airline rules
+✓ Bangladesh import rules
+✓ Malaysia export rules
+```
+
+For uncertain items:
+
+> **Manual review required.**
+
+Never provide false certainty.
+
+Malaysian Customs requires travellers to declare applicable taxable/prohibited goods and provides specific import/export prohibition rules.
+
+---
+
+# 17. PROHIBITED / HIGH-RISK ITEMS
+
+Create hard blocks for categories such as:
+
+- Illegal drugs
+- Controlled substances
+- Weapons
+- Explosives
+- Undeclared cash
+- Counterfeit goods
+- Dangerous goods
+- Restricted strategic items without authorization
+- Items prohibited by applicable Malaysian or Bangladeshi law
+- Items prohibited by the airline
+
+Malaysian Customs specifically notes that restricted strategic items may require permits and declarations.
+
+Never provide instructions for circumventing these restrictions.
+
+---
+
+# 18. PACKAGE VERIFICATION
+
+Every accepted item receives:
+
+```text
+Item ID
+QR code
+Sender ID
+Traveller ID
+Origin
+Destination
+Weight
+Declared contents
+Declared value
+Verification status
+Chain-of-custody history
+```
+
+The traveller must be able to see exactly what they are carrying.
+
+Never allow:
+
+> “sealed unknown package”
+
+as an accepted status.
+
+---
+
+# 19. CHAIN OF CUSTODY
+
+Build:
+
+```text
+REGISTERED
+↓
+DOCUMENT VERIFIED
+↓
+ITEM VERIFIED
+↓
+MATCHED
+↓
+HANDED TO TRAVELLER
+↓
+TRAVELLER ACCEPTED
+↓
+AIRPORT CHECK-IN
+↓
+DEPARTED MALAYSIA
+↓
+ARRIVED BANGLADESH
+↓
+CUSTOMS / CLEARANCE
+↓
+DELIVERED
+↓
+COMPLETED
+```
+
+Every transition should generate an audit record.
+
+---
+
+# 20. QR IDENTIFICATION
+
+Every package gets a unique QR code.
+
+Traveller app:
+
+### “My Trips”
+
+shows:
+
+```text
+Trip
+KUL → DAC
+
+Flight
+MHxxx
+
+Date
+XX XXX 2026
+
+Capacity
+22 KG
+
+Assigned
+3 packages
+
+Total
+11.5 KG
+```
+
+Each package:
+
+```text
+Package #VZ-XXXXXX
+
+✓ Verified
+✓ Declared
+✓ Matched
+```
+
+---
+
+# 21. PAYMENT SYSTEM
+
+Do not make payment depend merely on carrying weight.
+
+Use:
+
+```text
+Base contribution
++
+Verified weight
++
+Route demand
++
+Urgency
++
+Reliability bonus
+-
+Platform fee
+-
+Applicable costs
+```
+
+Payment is released after verified completion.
+
+Use:
+
+- Escrow-like workflow where legally permissible
+- Payment milestones
+- Refund handling
+- Dispute handling
+- Audit trail
+
+Do not present the platform as a bank or remittance provider unless appropriately licensed.
+
+---
+
+# 22. TRAVELLER EARNINGS DASHBOARD
+
+Show:
+
+```text
+This Trip
+
+Available capacity
+18 KG
+
+Assigned
+13.5 KG
+
+Estimated contribution
+RM 320
+
+Platform fee
+RM XX
+
+Estimated net
+RM XXX
+```
+
+Lifetime:
+
+```text
+Trips completed
+12
+
+Total KG transported
+147 KG
+
+Total travel contributions
+RM X,XXX
+
+Successful deliveries
+12
+
+Trust score
+98%
+```
+
+---
+
+# 23. TRUST SCORE
+
+Create a transparent traveller reputation system.
+
+Factors:
+
+- Identity verification
+- Student verification
+- Flight verification
+- Successful trips
+- On-time completion
+- Package integrity
+- Recipient confirmation
+- Dispute history
+- Policy compliance
+
+Never allow users to purchase a fake trust score.
+
+---
+
+# 24. MATCHING ENGINE
+
+Build intelligent matching.
+
+Match:
+
+```text
+Traveller
++
+Available capacity
++
+Route
++
+Date
++
+Destination
++
+Item eligibility
++
+Weight
++
+Compliance
++
+Trust score
+```
+
+Example:
+
+```text
+Kuala Lumpur
+→ Dhaka
+28 Oct
+
+Available:
+18 KG
+
+Demand:
+HIGH
+
+Matches:
+7 verified items
+
+Potential contribution:
+RM 380
+```
+
+---
+
+# 25. TRAVELLER MAP
+
+Show routes:
+
+```text
+Malaysia
+│
+├── Kuala Lumpur
+├── Johor Bahru
+├── Penang
+├── Kota Kinabalu
+└── Kuching
+       │
+       ▼
+Bangladesh
+├── Dhaka
+├── Chittagong
+└── Sylhet
+```
+
+Show demand heatmap.
+
+Example:
+
+**Dhaka — High demand**
+
+**Sylhet — Medium demand**
+
+Do not fabricate demand.
+
+Use actual platform data.
+
+---
+
+# 26. “EARN MONEY IN MALAYSIA” LANDING PAGE
+
+Create a dedicated SEO landing page:
+
+## `/earn-money-in-malaysia`
+
+Headline:
+
+> **Easy Student Earning Opportunity in Malaysia: Travel & Earn**
+
+Explain:
+
+> Already travelling to Bangladesh? You may be able to use eligible unused baggage capacity to earn a travel-cost contribution through verified item matching.
+
+Explain:
+
+- No registration fee
+- Student-friendly
+- Travel-based
+- Flexible
+- Verified
+- Compliance-first
+- Transparent earnings
+
+Avoid misleading claims.
+
+---
+
+# 27. STUDENT SEO CONTENT HUB
+
+Create:
+
+```text
+/guides
+/earn-money-in-malaysia
+/student-side-income-malaysia
+/student-jobs-malaysia
+/earn-while-studying-malaysia
+/travel-and-earn
+/malaysia-to-bangladesh
+/malaysia-bangladesh-baggage
+/malaysia-bangladesh-travel-cost
+/student-travel-savings
+```
+
+Create genuinely useful articles.
+
+Examples:
+
+### “10 Legitimate Ways Students Can Earn Money in Malaysia”
+
+Place the travel opportunity prominently but do not falsely claim it is the universally best option.
+
+### “How Students Can Reduce the Cost of Flying From Malaysia to Bangladesh”
+
+### “How Baggage Allowance Works”
+
+### “What Can You Legally Carry From Malaysia to Bangladesh?”
+
+### “Student Travel Earnings Calculator”
+
+### “Malaysia → Bangladesh Travel Guide”
+
+---
+
+# 28. UNIVERSITY SEO
+
+Create location-aware pages:
+
+```text
+/students/utm
+/students/um
+/students/ukm
+/students/usm
+/students/uum
+/students/monash-malaysia
+/students/taylor's
+/students/sunway
+/students/inti
+```
+
+Only publish pages with genuinely useful localized content.
+
+Do not create thousands of thin doorway pages.
+
+---
+
+# 29. UNIVERSITY AMBASSADOR PROGRAM
+
+Create:
+
+## Campus Ambassador
+
+Students can promote the platform.
+
+Rewards:
+
+- Referral credits
+- Travel contribution bonuses
+- Ambassador status
+- Verified community reputation
+
+Do not use pyramid-style recruitment.
+
+Rewards must be tied to legitimate platform activity, not simply recruiting more people.
+
+---
+
+# 30. REFERRAL SYSTEM
+
+```text
+Invite a friend
+↓
+Friend verifies account
+↓
+Friend completes legitimate trip
+↓
+Referral reward
+```
+
+Do not pay rewards merely for:
+
+- Fake registrations
+- Repeated accounts
+- Identity manipulation
+- Recruitment chains
+
+---
+
+# 31. SOCIAL MEDIA ENGINE
+
+Create shareable cards:
+
+```text
+“I’m flying Malaysia → Bangladesh.”
+
+“I have 8 KG verified capacity.”
+
+“Want to send an eligible item?”
+
+[Request Match]
+```
+
+Generate:
+
+- Instagram cards
+- TikTok scripts
+- Facebook posts
+- WhatsApp share cards
+- Telegram share cards
+- Student community graphics
+
+---
+
+# 32. VIRAL REFERRAL MESSAGE
+
+Primary message:
+
+> **Going home to Bangladesh? Don't let your unused baggage allowance go to waste.**
+
+Secondary:
+
+> **Your next flight could cost you much less.**
+
+CTA:
+
+> **Check Your Travel Earnings**
+
+---
+
+# 33. MOBILE APP
+
+Build mobile-first.
+
+Bottom navigation:
+
+```text
+Home
+Trips
+Matches
+Earnings
+Profile
+```
+
+Traveller:
+
+```text
+Register Trip
+↓
+Verify Flight
+↓
+Calculate Capacity
+↓
+Receive Matches
+↓
+Approve Items
+↓
+Travel
+↓
+Complete Delivery
+↓
+Receive Contribution
+```
+
+Sender:
+
+```text
+Create Request
+↓
+Describe Item
+↓
+Upload Documents
+↓
+Eligibility Check
+↓
+Find Traveller
+↓
+Confirm Match
+↓
+Handover
+↓
+Track
+↓
+Confirm Delivery
+```
+
+---
+
+# 34. ADMIN CONTROL CENTER
+
+Build a serious operations dashboard.
+
+Modules:
+
+### Users
+- Traveller
+- Sender
+- Recipient
+- Ambassador
+- Admin
+
+### KYC
+
+### Trips
+
+### Flights
+
+### Capacity
+
+### Packages
+
+### Compliance
+
+### Restricted items
+
+### Matches
+
+### Payments
+
+### Disputes
+
+### Risk
+
+### Audit
+
+### Analytics
+
+### SEO
+
+---
+
+# 35. RISK ENGINE
+
+Automatically flag:
+
+- New account + high-value item
+- Unusual weight
+- Multiple packages
+- Repeated sender/receiver patterns
+- High-risk categories
+- Inconsistent declarations
+- Suspicious account relationships
+- Excessive transaction frequency
+- Identity mismatch
+- Flight mismatch
+- Destination mismatch
+
+High-risk transactions:
+
+> **Manual review required**
+
+Never allow the system to automatically bypass review.
+
+---
+
+# 36. ANTI-FRAUD
+
+Implement:
+
+- Device fingerprinting where lawful
+- IP risk analysis
+- Duplicate-account detection
+- Identity verification
+- Payment risk checks
+- Package QR verification
+- Flight verification
+- Audit trails
+- Rate limits
+- Abuse detection
+
+Protect user privacy.
+
+Do not collect unnecessary personal information.
+
+---
+
+# 37. SECURITY
+
+Use:
+
+- HTTPS
+- Encryption at rest
+- Encryption in transit
+- Secure authentication
+- MFA
+- RBAC
+- Tenant isolation
+- Audit logs
+- Secure document storage
+- Signed URLs
+- Malware scanning for uploaded documents
+- Rate limiting
+- WAF
+- Secure secrets management
+
+Identity documents must never be publicly accessible.
+
+---
+
+# 38. LEGAL / COMPLIANCE CENTER
+
+Create:
+
+## “Travel & Carrying Rules”
+
+Explain clearly:
+
+- Airline baggage rules
+- Malaysian customs
+- Bangladesh customs
+- Restricted goods
+- Prohibited goods
+- Declaration requirements
+- Duties/taxes
+- Traveller responsibility
+- Platform responsibility
+- Sender responsibility
+
+Malaysian Customs explicitly states that travellers must declare applicable taxable and prohibited goods and that export restrictions may apply.
+
+Include links to authoritative government sources.
+
+Do not give legal advice.
+
+Show:
+
+> **Rules can change. Always verify current requirements before travel.**
+
+---
+
+# 39. AIRLINE INTEGRATION
+
+Create an airline database.
+
+For every airline:
+
+- Baggage allowance
+- Fare class
+- Maximum piece weight
+- Dimensions
+- Excess baggage
+- Route
+- Restrictions
+- Official policy link
+
+Do not assume “30 KG” applies universally.
+
+For example, Malaysia Airlines currently has different baggage entitlements by fare/status, while AirAsia has fare-dependent checked baggage options.
+
+---
+
+# 40. TRAVEL COST CALCULATOR
+
+Create:
+
+## “How Much Can I Save?”
+
+Inputs:
+
+```text
+Flight cost
+RM 1,200
+
+Baggage allowance
+30 KG
+
+Personal baggage
+10 KG
+
+Eligible capacity
+17 KG
+
+Expected contribution
+RM 500
+```
+
+Output:
+
+```text
+Estimated effective flight cost
+
+RM 700
+
+Potential saving:
+41.7%
+```
+
+Clearly label this as:
+
+**ESTIMATE**
+
+---
+
+# 41. BUSINESS MODEL
+
+Potential revenue:
+
+### Transaction fee
+
+Percentage of successful completed matches.
+
+### Verification fee
+
+Only where appropriate.
+
+### Premium traveller services
+
+Optional.
+
+### Corporate logistics
+
+B2B service.
+
+### Sponsored student campaigns
+
+Universities / brands / travel partners.
+
+### Travel partnerships
+
+Airlines / agencies / student organizations.
+
+Never build the business model around encouraging users to carry more goods than legally permitted.
+
+---
+
+# 42. BRAND NAME
+
+The platform should have a short, memorable brand.
+
+Possible naming direction:
+
+- CarryHome
+- HomeCarry
+- FlyCarry
+- Carry2Home
+- Bag2Home
+- Pack2Home
+- FlyBack
+- Back2BD
+- CarryBD
+- Travel2Earn
+
+The final name should be checked for:
+
+- Domain availability
+- Trademark conflicts
+- Social handles
+- Malaysia registration
+- Bangladesh registration
+- International usability
+
+Do not assume availability.
+
+---
+
+# 43. VISUAL DESIGN
+
+Design language:
+
+**Premium student fintech + travel marketplace**
+
+Use:
+
+- Varizen Titanium principles where applicable
+- Minimal interface
+- Strong typography
+- Clean cards
+- Route visualizations
+- Flight-style UI
+- Travel timeline
+- Trust badges
+- QR codes
+- Clear financial numbers
+
+Primary aesthetic:
+
+```text
+Premium
+Clean
+Trustworthy
+Young
+International
+Secure
+```
+
+Avoid:
+
+- Cheap courier-company aesthetics
+- Excessive green/red
+- Gambling-like earnings UI
+- Fake urgency
+- “Get rich” messaging
+
+---
+
+# 44. HOMEPAGE STRUCTURE
+
+Build the homepage in this exact order:
+
+```text
+HERO
+↓
+“Travel & Earn” Calculator
+↓
+How It Works
+↓
+Why Students Use It
+↓
+Live / Verified Routes
+↓
+Potential Earnings Examples
+↓
+Safety & Verification
+↓
+What You Can / Cannot Carry
+↓
+Student Testimonials
+↓
+University / Campus Program
+↓
+Travel Guides
+↓
+FAQ
+↓
+Register Your Trip
+```
+
+---
+
+# 45. CORE TRUST MESSAGE
+
+Place prominently:
+
+> **We don't ask you to carry unknown packages.**
+
+Then:
+
+> Every accepted item must be declared, verified and eligible under applicable rules.
+
+This should be one of the platform's strongest differentiators.
+
+---
+
+# 46. ZERO-TOLERANCE POLICY
+
+The platform must immediately reject:
+
+- Unknown packages
+- Unverified contents
+- Prohibited goods
+- Controlled substances
+- Weapons
+- Dangerous goods
+- Counterfeit goods
+- Concealed commercial shipments
+- False declarations
+- Attempts to bypass customs
+- Attempts to exceed airline baggage allowance
+
+Suspicious activity should trigger:
+
+**ACCOUNT REVIEW + TRANSACTION HOLD + POSSIBLE REPORTING WHERE REQUIRED BY LAW**
+
+---
+
+# 47. ANALYTICS
+
+Track:
+
+### Acquisition
+
+- Organic search
+- Student referrals
+- Campus ambassadors
+- Social
+- Direct
+
+### Traveller
+
+- Registrations
+- Verified travellers
+- Trips
+- Capacity
+- Utilization
+
+### Marketplace
+
+- Requests
+- Matches
+- Completed trips
+- KG
+- Route demand
+
+### Financial
+
+- GMV
+- Traveller contributions
+- Platform revenue
+- Refunds
+- Disputes
+
+### Trust
+
+- Verification rate
+- Rejection rate
+- Fraud rate
+- Disputes
+- Successful delivery rate
+
+---
+
+# 48. SEO TECHNICAL REQUIREMENTS
+
+Implement:
+
+- SSR
+- Semantic HTML
+- Schema.org
+- Organization schema
+- FAQ schema where eligible
+- Breadcrumb schema
+- Article schema
+- WebSite schema
+- Sitemap
+- Robots.txt
+- Canonical URLs
+- Open Graph
+- Twitter/X cards
+- Fast Core Web Vitals
+- Image optimization
+- Internal linking
+- Search-friendly URLs
+
+Create a strong content architecture rather than keyword stuffing.
+
+---
+
+# 49. SEARCH ENGINE STRATEGY
+
+The strategic goal is:
+
+When someone searches:
+
+> **easy way to earn money in Malaysia as a student**
+
+the platform should be a highly relevant result.
+
+When someone searches:
+
+> **student side income Malaysia**
+
+the platform should have a useful dedicated guide.
+
+When someone searches:
+
+> **travel and earn Malaysia Bangladesh**
+
+the platform should have a dedicated route page.
+
+When someone searches:
+
+> **Malaysia Bangladesh baggage**
+
+the platform should have a baggage guide and calculator.
+
+Do not claim guaranteed first position.
+
+Build authority through:
+
+- Original calculators
+- Original route data
+- Helpful content
+- Transparent policies
+- Real user experiences
+- University partnerships
+- High-quality backlinks
+- Structured data
+- Fast technical performance
+
+---
+
+# 50. FINAL PRODUCT MESSAGE
+
+The entire product should communicate one simple idea:
+
+> **Already travelling to Bangladesh? Put your eligible unused baggage capacity to work and reduce your travel cost.**
+
+Secondary:
+
+> **Register your trip. Get verified. Carry only eligible items. Earn after successful completion.**
+
+The platform is **not a courier loophole**.
+
+It is a:
+
+> **Verified traveller-powered logistics marketplace with a student travel savings model.**
+
+Build it to be:
+
+**Legal-first · Compliance-first · Student-first · Mobile-first · SEO-first · Trust-first · International-ready**
+
+And design the system so the Malaysia → Bangladesh route is the first major market, while the underlying architecture can later support other verified international travel corridors.

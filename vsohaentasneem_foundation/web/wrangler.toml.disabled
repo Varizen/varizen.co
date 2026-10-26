@@ -1,0 +1,26 @@
+name = "stfl-web"
+type = "javascript"
+account_id = "REPLACE_WITH_CLOUDFLARE_ACCOUNT_ID"
+workers_dev = false
+routes = [
+  { pattern = "stflbd.app/*", zone_name = "stflbd.app" },
+  { pattern = "www.stflbd.app/*", zone_name = "stflbd.app" }
+]
+
+[env.production]
+name = "stfl-web-production"
+routes = [
+  { pattern = "stflbd.app/*", zone_name = "stflbd.app" },
+  { pattern = "www.stflbd.app/*", zone_name = "stflbd.app" }
+]
+vars = { ENVIRONMENT = "production" }
+
+[env.staging]
+name = "stfl-web-staging"
+routes = [
+  { pattern = "staging.stflbd.app/*", zone_name = "stflbd.app" }
+]
+vars = { ENVIRONMENT = "staging" }
+
+# Build configuration for Next.js
+build = { command = "npm run build", cwd = "./", root_dir = ".next" }

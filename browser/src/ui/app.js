@@ -16,6 +16,7 @@ function renderTabs(tabs) {
   }));
   const active = tabs.find((t) => t.active);
   if (active && document.activeElement !== $('#omnibox')) $('#omnibox').value = active.url === 'aibrowser://newtab' ? '' : active.url;
+  if ($('#status-url')) $('#status-url').textContent = active?.url?.replace(/^https?:\/\//, '') || 'Ready';
   $('#lock').textContent = active?.url?.startsWith('https:') ? '🔒' : active?.url?.startsWith('http:') ? '⚠' : '🔒';
 }
 eye.tabs.onUpdate(renderTabs);
@@ -110,6 +111,7 @@ function openPanel(name) {
   watchPerf(name === 'perf');
   if (name === 'mcp') renderMcp();
   if (name === 'zenbox') initZenBox();
+  if (name === 'services') initServices();
   if (name === 'bm') renderBookmarkLibrary();
   if (name === 'dl') refreshXdmDrives();
   if (name === 'settings') { refreshShield(); refreshGateway(); refreshSettingsDrives(); }
@@ -125,13 +127,55 @@ function closePanel() {
   eye.panelWidth(0);
   watchPerf(false);
 }
+
+// ---------- Z Services launcher ----------
+let svcLoading = false;
+async function initServices() {
+  const list = $('#svc-list');
+  if (svcLoading) return;
+  svcLoading = true;
+  list.innerHTML = '<div class="svc-loading">Checking local services…</div>';
+  try {
+    const services = await eye.services.list();
+    const byId = { zmeet: '📹', zcal: '📅', zmail: '✉', ztalk: '💬' };
+    list.innerHTML = services
+      .map(
+        (s) => `<div class="svc-item ${s.online ? 'online' : 'offline'}" data-id="${s.id}">
+          <div class="svc-icon">${byId[s.id] || 'Z'}</div>
+          <div class="svc-main">
+            <div class="svc-name">${s.name}</div>
+            <div class="svc-desc">${s.desc}</div>
+            <div class="svc-meta">
+              <span class="svc-status">${s.online ? '● online' : '○ offline'}${s.status ? ` · ${s.status}` : ''}</span>
+              <span class="svc-url">${s.url}</span>
+            </div>
+          </div>
+          <button class="svc-open" data-open="${s.id}" ${s.online ? '' : 'disabled'}>Open</button>
+        </div>`
+      )
+      .join('');
+    const online = services.filter((s) => s.online).length;
+    $('#svc-foot').textContent = `${online} of ${services.length} Z services online`;
+    list.querySelectorAll('[data-open]').forEach((btn) => {
+      btn.onclick = () => eye.services.open(btn.dataset.open);
+    });
+  } catch (e) {
+    list.innerHTML = `<div class="svc-loading">Could not probe services: ${e.message}</div>`;
+  } finally {
+    svcLoading = false;
+  }
+}
+$('#svc-refresh').onclick = initServices;
+
 $('#btn-bm').onclick = () => openPanel('bm');
 $('#btn-zenbox').onclick = () => openPanel('zenbox');
 $('#btn-ai').onclick = () => openPanel('ai');
 $('#btn-dl').onclick = () => openPanel('dl');
 $('#btn-menu').onclick = () => openPanel('settings');
+$('#btn-services').onclick = () => openPanel('services');
 $('#panel-close').onclick = closePanel;
 document.querySelectorAll('#panel-tabs button').forEach((b) => { b.onclick = () => openPanel(b.dataset.panel); });
+openPanel('ai');
 
 // ---------- Eye AI ----------
 function addMsg(role, text) {
@@ -203,7 +247,10 @@ eye.downloads.onUpdate((d) => {
 
 // ---------- Shield ----------
 let blocked = 0;
-eye.shield.onBlocked(() => { $('#blocked').textContent = ++blocked; });
+eye.shield.onBlocked(() => {
+  $('#blocked').textContent = ++blocked;
+  if ($('#status-blocked')) $('#status-blocked').textContent = blocked;
+});
 
 async function refreshShield() {
   const s = await eye.shieldCtl.state();
@@ -474,7 +521,7 @@ async function openZenBoxDetail(id) {
   // Secure Session or Plain Body
   if (msg.isSecureSession && !msg.isDecrypted) {
     const vault = el('div', 'zb-secure-vault');
-    vault.append(el('h4', null, '🔒 ZenBox Secure Session Protected'));
+    vault.append(el('h4', null, '🔒 ZMail Secure Session Protected'));
     vault.append(el('p', 'muted', 'This message was delivered with zero-knowledge end-to-end encryption. It is isolated from regular email storage and unauthenticated readers.'));
     const decryptBtn = el('button', 'primary', 'Authenticate & Establish Secure Session');
     decryptBtn.onclick = async () => {
@@ -670,7 +717,10 @@ async function renderBookmarkBar() {
   const barItems = items.filter((b) => b.bar);
   barItems.forEach((b) => {
     const it = el('div', 'bm-item');
-    it.append(el('span', 'fav', '🌐'));
+    const title = b.title.toLowerCase();
+    const mark = title.includes('varizen') ? 'V' : title.includes('github') ? 'GH' : title.includes('duckduckgo') ? 'D' : title.includes('hacker news') || title.includes('ycombinator') ? 'Y' : title.includes('ko-fi') || title.includes('kofi') ? 'K' : '•';
+    const provider = title.includes('github') ? 'github' : title.includes('duckduckgo') ? 'duckduckgo' : title.includes('hacker news') || title.includes('ycombinator') ? 'hackernews' : title.includes('ko-fi') || title.includes('kofi') ? 'kofi' : '';
+    it.append(el('span', 'fav ' + provider, mark));
     it.append(el('span', null, b.title));
     it.title = `${b.title}\n${b.url}`;
     it.onclick = () => eye.nav.go(b.url);

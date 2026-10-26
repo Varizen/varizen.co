@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <rect width="200" height="200" rx="32" fill="#1E1B4B"/>
+  <!-- Interlocking Skill Nexus & Mobility Loop -->
+  <circle cx="75" cy="85" r="32" stroke="#3B82F6" stroke-width="8" fill="none"/>
+  <circle cx="125" cy="115" r="32" stroke="#F59E0B" stroke-width="8" fill="none"/>
+  <path d="M96 66 L144 114" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="100" cy="100" r="10" fill="#38BDF8"/>
+</svg>

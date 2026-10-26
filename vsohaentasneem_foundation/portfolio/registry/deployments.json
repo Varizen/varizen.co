@@ -1,0 +1,159 @@
+{
+  "schema": "stfl-portfolio-deployments-v1",
+  "registry_version": "2026.10.18",
+  "last_updated": "2026-10-18T11:21:39.6473213+08:00",
+  "organization": "SohaelTasneem Foundation",
+  "cloudflare": {
+    "account_id": "ffdc985581a586cce38fc03d38bd1e61",
+    "config_kv_id": "a2f247fbc4914040adc3c78befb6bb7a",
+    "r2_bucket": "stfl-media",
+    "hyperdrive_binding": "HYPERDRIVE",
+    "hyperdrive_id_in_repo": "REPLACE_WITH_HYPERDRIVE_ID (placeholder by design)"
+  },
+  "ci_cd": {
+    "github_actions_workflows": [],
+    "note": "No .github/workflows directory exists in any repository in this workspace."
+  },
+  "secrets": {
+    "worker_secrets": [
+      "JWT_SECRET",
+      "R2_ACCOUNT_ID",
+      "R2_ACCESS_KEY_ID",
+      "R2_SECRET_ACCESS_KEY"
+    ],
+    "set_via": "wrangler secret put",
+    "in_repository": false,
+    "credential_files_untouched": [
+      "main/keystore.properties",
+      "apk/keystore.properties",
+      "main/local.properties",
+      "apk/local.properties",
+      "main/api/.dev.vars",
+      "main/web/.env.production",
+      "stflbd.org/.env.production",
+      "web/.env.production"
+    ]
+  },
+  "deployable_count": 4,
+  "deployables": [
+    {
+      "id": "DEP-ORG",
+      "folder": "stflbd.org",
+      "worker": "stfl-foundation-web",
+      "config": "stflbd.org/wrangler.toml",
+      "routes": [
+        "stflbd.org",
+        "www.stflbd.org"
+      ],
+      "domain": "https://stflbd.org",
+      "build": "npm run build -> npx opennextjs-cloudflare build",
+      "deploy": "wrangler deploy",
+      "status": "PRODUCTION",
+      "deployable": true,
+      "external_path_dependencies": [
+        {
+          "reference": "node ../scripts/verify-domain-separation.mjs",
+          "file": "stflbd.org/package.json",
+          "breaks_if_moved": true
+        }
+      ]
+    },
+    {
+      "id": "DEP-APP",
+      "folder": "main/web",
+      "worker": "stfl-web",
+      "config": "main/web/wrangler.toml",
+      "routes": [
+        "stflbd.app/*",
+        "www.stflbd.app/*",
+        "staging.stflbd.app/*"
+      ],
+      "domain": "https://stflbd.app",
+      "build": "npm run build -> npx opennextjs-cloudflare build",
+      "deploy": "wrangler deploy",
+      "status": "PRODUCTION",
+      "deployable": true,
+      "external_path_dependencies": [
+        {
+          "reference": "node ../../scripts/verify-domain-separation.mjs",
+          "file": "main/web/package.json",
+          "breaks_if_moved": true
+        }
+      ]
+    },
+    {
+      "id": "DEP-API",
+      "folder": "main/api",
+      "worker": "stfl-api",
+      "config": "main/api/wrangler.toml",
+      "routes": [
+        "stflbd.app/api/*",
+        "www.stflbd.app/api/*",
+        "staging.stflbd.app/api/*"
+      ],
+      "domain": "https://stflbd.app/api/v1",
+      "build": "wrangler deploy --dry-run --outdir dist",
+      "deploy": "wrangler deploy",
+      "status": "PRODUCTION",
+      "deployable": true,
+      "external_path_dependencies": []
+    },
+    {
+      "id": "DEP-ANDROID",
+      "folder": "main",
+      "worker": null,
+      "config": "main/settings.gradle.kts",
+      "routes": [],
+      "domain": "foundation.sohaeltasneem.app",
+      "build": ".\\\\gradlew.bat :app:assembleDebug",
+      "deploy": "Play Console (manual)",
+      "status": "PRODUCTION",
+      "deployable": true,
+      "external_path_dependencies": []
+    }
+  ],
+  "non_deployable": [
+    {
+      "folder": "web",
+      "classification": "LEGACY_MIRROR",
+      "deployable": false,
+      "evidence": "web/package.json predeploy exits 1; web/wrangler.toml.disabled"
+    },
+    {
+      "folder": "apk",
+      "classification": "LEGACY_MIRROR",
+      "deployable": false,
+      "evidence": "Duplicate of main/ at 0b2469d; no remote"
+    },
+    {
+      "folder": "files/web/aakutu-board",
+      "classification": "UNRELATED_PROJECT",
+      "deployable": false,
+      "evidence": "Independent git repo with own remote"
+    },
+    {
+      "folder": "main/preview/web",
+      "classification": "NESTED_REPO_IGNORED",
+      "deployable": false,
+      "evidence": "main/.gitignore excludes /preview/web/"
+    },
+    {
+      "folder": "_old",
+      "classification": "ARCHIVE",
+      "deployable": false,
+      "evidence": "zips, old logo, drone video"
+    },
+    {
+      "folder": "md-s",
+      "classification": "DOCUMENTATION",
+      "deployable": false,
+      "evidence": "78 markdown specs, no build reference"
+    },
+    {
+      "folder": "official_doc",
+      "classification": "GOVERNANCE_TEMPLATES",
+      "deployable": false,
+      "evidence": "acceptance letters, notices, templates"
+    }
+  ]
+}

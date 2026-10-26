@@ -1,0 +1,1634 @@
+{
+  "system": "STFL Autonomous Enterprise Platform (STFL AIO)",
+  "index_type": "ARCHITECTURE_DEPENDENCY_GRAPH_MASTER",
+  "document_id": "STFL-JSON-2026-DEP-IDX-V1",
+  "master_version": "1.0.0",
+  "generated_at": "2026-10-15T14:20:00+08:00",
+  "attribution": "Made with love from Dhaka, Kuala Lumpur, Wyoming and Varizen Inc.",
+  "production_verification_status": "PENDING (Prompt 13 Gate Closed)",
+  "summary": {
+    "total_features": 40,
+    "total_database_tables": 24,
+    "total_consoles": 18,
+    "total_constitutional_invariants": 12,
+    "total_user_classes": 13,
+    "total_relief_roles": 2,
+    "cyclic_dependencies_detected": 0,
+    "graph_integrity_score": "100% VALIDATED"
+  },
+  "features_dependency_graph": [
+    {
+      "feature_id": "FEAT-001",
+      "name": "Hardware Device Attestation Substrate",
+      "depends_on": [],
+      "depended_by": [
+        "FEAT-002",
+        "FEAT-005",
+        "FEAT-018"
+      ],
+      "database_tables": [
+        "device_registrations"
+      ],
+      "api_endpoints": [
+        "POST /api/v1/auth/device-attest",
+        "POST /api/v1/devices/register"
+      ],
+      "consoles": [
+        "CON-01",
+        "CON-16"
+      ],
+      "invariants": [
+        "INV-07",
+        "INV-11"
+      ],
+      "owning_packages": [
+        "apk/security",
+        "apk/api/src/crypto.ts",
+        "apk/api/src/middleware.ts"
+      ]
+    },
+    {
+      "feature_id": "FEAT-002",
+      "name": "Device Binding & Instant Revocation Ledger",
+      "depends_on": [
+        "FEAT-001"
+      ],
+      "depended_by": [
+        "FEAT-004",
+        "FEAT-005",
+        "FEAT-007"
+      ],
+      "database_tables": [
+        "device_registrations",
+        "identities"
+      ],
+      "api_endpoints": [
+        "POST /api/v1/devices/revoke",
+        "GET /api/v1/devices/status"
+      ],
+      "consoles": [
+        "CON-01",
+        "CON-16"
+      ],
+      "invariants": [
+        "INV-07"
+      ],
+      "owning_packages": [
+        "apk/security",
+        "apk/api/src/middleware.ts"
+      ]
+    },
+    {
+      "feature_id": "FEAT-003",
+      "name": "10-Dimensional Enterprise Audit Substrate",
+      "depends_on": [],
+      "depended_by": [
+        "FEAT-004",
+        "FEAT-007",
+        "FEAT-008",
+        "FEAT-009",
+        "FEAT-010",
+        "FEAT-011",
+        "FEAT-012",
+        "FEAT-013",
+        "FEAT-014",
+        "FEAT-015",
+        "FEAT-017",
+        "FEAT-020",
+        "FEAT-021"
+      ],
+      "database_tables": [
+        "enterprise_audit_logs"
+      ],
+      "api_endpoints": [
+        "POST /api/v1/audit/log",
+        "GET /api/v1/audit/query"
+      ],
+      "consoles": [
+        "CON-15",
+        "CON-16",
+        "CON-17"
+      ],
+      "invariants": [
+        "INV-04"
+      ],
+      "owning_packages": [
+        "apk/api/src/routes/audit.ts",
+        "apk/core/audit"
+      ]
+    },
+    {
+      "feature_id": "FEAT-004",
+      "name": "Three-Token Session Authority Architecture",
+      "depends_on": [
+        "FEAT-001",
+        "FEAT-002",
+        "FEAT-003"
+      ],
+      "depended_by": [
+        "FEAT-005",
+        "FEAT-007",
+        "FEAT-018",
+        "FEAT-019"
+      ],
+      "database_tables": [
+        "identities",
+        "users",
+        "device_registrations"
+      ],
+      "api_endpoints": [
+        "POST /api/v1/auth/exchange",
+        "POST /api/v1/auth/refresh"
+      ],
+      "consoles": [
+        "ALL_CONSOLES"
+      ],
+      "invariants": [
+        "INV-07",
+        "INV-11"
+      ],
+      "owning_packages": [
+        "apk/api/src/auth.ts",
+        "apk/api/src/middleware.ts"
+      ]
+    },
+    {
+      "feature_id": "FEAT-005",
+      "name": "13 User Classes Workspace Matrix (CLASS_00-12)",
+      "depends_on": [
+        "FEAT-004"
+      ],
+      "depended_by": [
+        "FEAT-006",
+        "FEAT-007",
+        "FEAT-022",
+        "FEAT-023",
+        "FEAT-024",
+        "FEAT-025",
+        "FEAT-026",
+        "FEAT-027",
+        "FEAT-028",
+        "FEAT-029",
+        "FEAT-030",
+        "FEAT-031"
+      ],
+      "database_tables": [
+        "users",
+        "user_classes",
+        "parties"
+      ],
+      "api_endpoints": [
+        "GET /api/v1/users/workspace",
+        "GET /api/v1/users/me"
+      ],
+      "consoles": [
+        "ALL_CONSOLES"
+      ],
+      "invariants": [
+        "INV-05"
+      ],
+      "owning_packages": [
+        "apk/api/src/routes/users.ts",
+        "apk/web/src/components/layout/"
+      ]
+    },
+    {
+      "feature_id": "FEAT-006",
+      "name": "Relief Moderator Dynamic Elevation (MODERATOR_A/B)",
+      "depends_on": [
+        "FEAT-005"
+      ],
+      "depended_by": [
+        "FEAT-010",
+        "FEAT-015",
+        "FEAT-022",
+        "FEAT-023",
+        "FEAT-031"
+      ],
+      "database_tables": [
+        "moderator_assignments",
+        "users",
+        "enterprise_audit_logs"
+      ],
+      "api_endpoints": [
+        "POST /api/v1/moderation/elevate",
+        "POST /api/v1/moderation/surrender"
+      ],
+      "consoles": [
+        "CON-01",
+        "CON-02",
+        "CON-03",
+        "CON-04",
+        "CON-05",
+        "CON-06",
+        "CON-07",
+        "CON-08",
+        "CON-09",
+        "CON-10",
+        "CON-11",
+        "CON-12",
+        "CON-13",
+        "CON-14",
+        "CON-15",
+        "CON-17",
+        "CON-18"
+      ],
+      "invariants": [
+        "INV-10"
+      ],
+      "owning_packages": [
+        "apk/api/src/moderation.ts",
+        "STFL_AIO_MODERATOR_MODEL.md"
+      ]
+    },
+    {
+      "feature_id": "FEAT-007",
+      "name": "Multi-Tenant Project Ecosystem & Scope Boundary",
+      "depends_on": [
+        "FEAT-003",
+        "FEAT-004",
+        "FEAT-005"
+      ],
+      "depended_by": [
+        "FEAT-008",
+        "FEAT-009",
+        "FEAT-010",
+        "FEAT-011",
+        "FEAT-012",
+        "FEAT-013",
+        "FEAT-014",
+        "FEAT-015",
+        "FEAT-016",
+        "FEAT-017"
+      ],
+      "database_tables": [
+        "projects",
+        "project_memberships",
+        "project_portfolios"
+      ],
+      "api_endpoints": [
+        "GET /api/v1/projects",
+        "POST /api/v1/projects",
+        "GET /api/v1/projects/:id"
+      ],
+      "consoles": [
+        "CON-07",
+        "CON-16"
+      ],
+      "invariants": [
+        "INV-12"
+      ],
+      "owning_packages": [
+        "apk/api/src/routes/projects.ts",
+        "apk/web/src/app/projects/"
+      ]
+    },
+    {
+      "feature_id": "FEAT-008",
+      "name": "Project Portfolio & Subsidiary Isolation Model",
+      "depends_on": [
+        "FEAT-007"
+      ],
+      "depended_by": [
+        "FEAT-009",
+        "FEAT-010",
+        "FEAT-011"
+      ],
+      "database_tables": [
+        "project_portfolios",
+        "projects"
+      ],
+      "api_endpoints": [
+        "GET /api/v1/portfolios",
+        "POST /api/v1/portfolios"
+      ],
+      "consoles": [
+        "CON-07"
+      ],
+      "invariants": [
+        "INV-12"
+      ],
+      "owning_packages": [
+        "apk/api/src/routes/projects.ts"
+      ]
+    },
+    {
+      "feature_id": "FEAT-009",
+      "name": "Project Identity, Unit Isolation & Membership Engine",
+      "depends_on": [
+        "FEAT-007",
+        "FEAT-008"
+      ],
+      "depended_by": [
+        "FEAT-010",
+        "FEAT-011",
+        "FEAT-012",
+        "FEAT-013",
+        "FEAT-014"
+      ],
+      "database_tables": [
+        "project_memberships",
+        "parties",
+        "users"
+      ],
+      "api_endpoints": [
+        "POST /api/v1/projects/:id/members",
+        "DELETE /api/v1/projects/:id/members/:uid"
+      ],
+      "consoles": [
+        "CON-07",
+        "CON-08"
+      ],
+      "invariants": [
+        "INV-12"
+      ],
+      "owning_packages": [
+        "apk/api/src/routes/projects.ts"
+      ]
+    },
+    {
+      "feature_id": "FEAT-010",
+      "name": "Project-Level Two-Tier Financial Accounting & Precision",
+      "depends_on": [
+        "FEAT-007",
+        "FEAT-009"
+      ],
+      "depended_by": [
+        "FEAT-011",
+        "FEAT-014"
+      ],
+      "database_tables": [
+        "ledger_accounts",
+        "journal_entries",
+        "journal_lines"
+      ],
+      "api_endpoints": [
+        "GET /api/v1/finance/ledgers",
+        "POST /api/v1/finance/journal-entries"
+      ],
+      "consoles": [
+        "CON-09"
+      ],
+      "invariants": [
+        "INV-03"
+      ],
+      "owning_packages": [
+        "apk/api/src/routes/finance.ts",
+        "STFL_AIO_PROJECT_FINANCE_MODEL.md"
+      ]
+    },
+    {
+      "feature_id": "FEAT-011",
+      "name": "Autonomous Agent Runtime (Level 3 Ceiling & Kill Switch)",
+      "depends_on": [
+        "FEAT-003",
+        "FEAT-004",
+        "FEAT-007"
+      ],
+      "depended_by": [
+        "FEAT-012",
+        "FEAT-013",
+        "FEAT-020",
+        "FEAT-021"
+      ],
+      "database_tables": [
+        "agents",
+        "agent_invocations",
+        "agent_kill_switches"
+      ],
+      "api_endpoints": [
+        "POST /api/v1/agents/invoke",
+        "POST /api/v1/agents/:id/kill",
+        "GET /api/v1/agents/status"
+      ],
+      "consoles": [
+        "CON-13",
+        "CON-16"
+      ],
+      "invariants": [
+        "INV-01",
+        "INV-06",
+        "INV-09"
+      ],
+      "owning_packages": [
+        "apk/api/src/agents/runtime.ts",
+        "STFL_AIO_AGENT_MODEL.md"
+      ]
+    },
+    {
+      "feature_id": "FEAT-012",
+      "name": "Project-Bound Departmental Agent Runtime",
+      "depends_on": [
+        "FEAT-007",
+        "FEAT-011"
+      ],
+      "depended_by": [
+        "FEAT-013",
+        "FEAT-020",
+        "FEAT-021"
+      ],
+      "database_tables": [
+        "agents",
+        "projects"
+      ],
+      "api_endpoints": [
+        "GET /api/v1/projects/:id/agents",
+        "POST /api/v1/projects/:id/agents/invoke"
+      ],
+      "consoles": [
+        "CON-07",
+        "CON-13"
+      ],
+      "invariants": [
+        "INV-01",
+        "INV-12"
+      ],
+      "owning_packages": [
+        "apk/api/src/agents/runtime.ts"
+      ]
+    },
+    {
+      "feature_id": "FEAT-013",
+      "name": "Multi-Tenant Agent Tool Registry & Scope Governance",
+      "depends_on": [
+        "FEAT-011",
+        "FEAT-012"
+      ],
+      "depended_by": [
+        "FEAT-020",
+        "FEAT-021"
+      ],
+      "database_tables": [
+        "agent_tools",
+        "scopes",
+        "permissions"
+      ],
+      "api_endpoints": [
+        "GET /api/v1/agents/tools",
+        "POST /api/v1/agents/tools/register"
+      ],
+      "consoles": [
+        "CON-13"
+      ],
+      "invariants": [
+        "INV-01",
+        "INV-06"
+      ],
+      "owning_packages": [
+        "apk/api/src/agents/tools/"
+      ]
+    },
+    {
+      "feature_id": "FEAT-014",
+      "name": "Zero Self-Approval & Anti-Collusion Workflow Engine",
+      "depends_on": [
+        "FEAT-004",
+        "FEAT-005",
+        "FEAT-007",
+        "FEAT-010"
+      ],
+      "depended_by": [
+        "FEAT-015",
+        "FEAT-020"
+      ],
+      "database_tables": [
+        "approvals",
+        "actions",
+        "policies"
+      ],
+      "api_endpoints": [
+        "POST /api/v1/approvals/request",
+        "POST /api/v1/approvals/:id/decide"
+      ],
+      "consoles": [
+        "CON-04",
+        "CON-09"
+      ],
+      "invariants": [
+        "INV-02"
+      ],
+      "owning_packages": [
+        "apk/api/src/approval.ts",
+        "apk/api/src/routes/approvals.ts"
+      ]
+    },
+    {
+      "feature_id": "FEAT-015",
+      "name": "Institutional Governance, Invariants & Constitution Gate",
+      "depends_on": [
+        "FEAT-003",
+        "FEAT-005",
+        "FEAT-014"
+      ],
+      "depended_by": [
+        "ALL_CONSOLES"
+      ],
+      "database_tables": [
+        "policies",
+        "enterprise_audit_logs"
+      ],
+      "api_endpoints": [
+        "GET /api/v1/governance/policies",
+        "POST /api/v1/governance/evaluate"
+      ],
+      "consoles": [
+        "CON-01",
+        "CON-16"
+      ],
+      "invariants": [
+        "INV-01",
+        "INV-02",
+        "INV-03",
+        "INV-04",
+        "INV-05",
+        "INV-06",
+        "INV-07",
+        "INV-08",
+        "INV-09",
+        "INV-10",
+        "INV-11",
+        "INV-12"
+      ],
+      "owning_packages": [
+        "apk/api/src/governance.ts",
+        "STFL_AIO_CONSTITUTION.md"
+      ]
+    },
+    {
+      "feature_id": "FEAT-016",
+      "name": "Project Lifecycle State Machine & Transition Gates",
+      "depends_on": [
+        "FEAT-007",
+        "FEAT-014"
+      ],
+      "depended_by": [
+        "FEAT-017",
+        "FEAT-033",
+        "FEAT-034",
+        "FEAT-035",
+        "FEAT-036"
+      ],
+      "database_tables": [
+        "projects",
+        "enterprise_audit_logs"
+      ],
+      "api_endpoints": [
+        "POST /api/v1/projects/:id/transition"
+      ],
+      "consoles": [
+        "CON-07"
+      ],
+      "invariants": [
+        "INV-12"
+      ],
+      "owning_packages": [
+        "apk/api/src/routes/projects.ts",
+        "STFL_AIO_PROJECT_LIFECYCLE.md"
+      ]
+    },
+    {
+      "feature_id": "FEAT-017",
+      "name": "Self-Contained Micro-Site Engine & Co-Branding CMS",
+      "depends_on": [
+        "FEAT-007",
+        "FEAT-016"
+      ],
+      "depended_by": [
+        "FEAT-037",
+        "FEAT-038",
+        "FEAT-039",
+        "FEAT-040"
+      ],
+      "database_tables": [
+        "project_websites",
+        "project_pages"
+      ],
+      "api_endpoints": [
+        "GET /api/v1/projects/:id/site",
+        "PUT /api/v1/projects/:id/site"
+      ],
+      "consoles": [
+        "CON-07"
+      ],
+      "invariants": [
+        "INV-12"
+      ],
+      "owning_packages": [
+        "apk/web/src/app/[project_slug]/",
+        "STFL_AIO_PROJECT_WEBSITE_MODEL.md"
+      ]
+    },
+    {
+      "feature_id": "FEAT-018",
+      "name": "Dynamic Forensic Watermarking & Exfiltration Prevention",
+      "depends_on": [
+        "FEAT-001",
+        "FEAT-004"
+      ],
+      "depended_by": [
+        "FEAT-019",
+        "FEAT-032"
+      ],
+      "database_tables": [
+        "device_registrations",
+        "identities"
+      ],
+      "api_endpoints": [
+        "GET /api/v1/watermark/payload"
+      ],
+      "consoles": [
+        "ALL_CONSOLES"
+      ],
+      "invariants": [
+        "INV-07",
+        "INV-08"
+      ],
+      "owning_packages": [
+        "apk/web/src/components/security/Watermark.tsx",
+        "apk/security/WatermarkProvider.kt"
+      ]
+    },
+    {
+      "feature_id": "FEAT-019",
+      "name": "Authoritative Document Vault, Metadata Ledger & Hash Locking",
+      "depends_on": [
+        "FEAT-003",
+        "FEAT-004",
+        "FEAT-018"
+      ],
+      "depended_by": [
+        "FEAT-020",
+        "FEAT-022",
+        "FEAT-024"
+      ],
+      "database_tables": [
+        "document_metadata",
+        "document_hashes"
+      ],
+      "api_endpoints": [
+        "POST /api/v1/documents",
+        "GET /api/v1/documents/:id",
+        "GET /api/v1/documents/:id/verify"
+      ],
+      "consoles": [
+        "CON-03"
+      ],
+      "invariants": [
+        "INV-08"
+      ],
+      "owning_packages": [
+        "apk/api/src/routes/documents.ts",
+        "apk/web/src/app/documents/"
+      ]
+    },
+    {
+      "feature_id": "FEAT-020",
+      "name": "Compliance & Regulatory Legal Intelligence Layer",
+      "depends_on": [
+        "FEAT-003",
+        "FEAT-011",
+        "FEAT-014",
+        "FEAT-019"
+      ],
+      "depended_by": [
+        "FEAT-021"
+      ],
+      "database_tables": [
+        "compliance_evaluations",
+        "compliance_escalations",
+        "statutory_instruments"
+      ],
+      "api_endpoints": [
+        "GET /api/v1/compliance/evaluations",
+        "POST /api/v1/compliance/escalate"
+      ],
+      "consoles": [
+        "CON-17"
+      ],
+      "invariants": [
+        "INV-01",
+        "INV-04"
+      ],
+      "owning_packages": [
+        "apk/api/src/compliance.ts",
+        "STFL_AIO_COMPLIANCE_ARCHITECTURE.md"
+      ]
+    },
+    {
+      "feature_id": "FEAT-021",
+      "name": "Knowledge, Training, Service & Moderation Ecosystem",
+      "depends_on": [
+        "FEAT-003",
+        "FEAT-005",
+        "FEAT-011",
+        "FEAT-020"
+      ],
+      "depended_by": [
+        "ALL_CONSOLES"
+      ],
+      "database_tables": [
+        "learning_modules",
+        "learning_progress",
+        "service_tickets"
+      ],
+      "api_endpoints": [
+        "GET /api/v1/training/courses",
+        "POST /api/v1/training/progress",
+        "POST /api/v1/service/tickets"
+      ],
+      "consoles": [
+        "CON-18"
+      ],
+      "invariants": [
+        "INV-04"
+      ],
+      "owning_packages": [
+        "apk/api/src/training.ts",
+        "STFL_AIO_KNOWLEDGE_ARCHITECTURE.md"
+      ]
+    },
+    {
+      "feature_id": "FEAT-022",
+      "name": "Executive & Board Command Console",
+      "depends_on": [
+        "FEAT-005",
+        "FEAT-006",
+        "FEAT-015"
+      ],
+      "depended_by": [],
+      "database_tables": [
+        "policies",
+        "enterprise_audit_logs",
+        "projects"
+      ],
+      "api_endpoints": [
+        "GET /api/v1/exec/kpis",
+        "GET /api/v1/exec/summary"
+      ],
+      "consoles": [
+        "CON-01"
+      ],
+      "invariants": [
+        "INV-05"
+      ],
+      "owning_packages": [
+        "apk/web/src/app/exec/"
+      ]
+    },
+    {
+      "feature_id": "FEAT-023",
+      "name": "Operations & Facility Control Console",
+      "depends_on": [
+        "FEAT-005",
+        "FEAT-006"
+      ],
+      "depended_by": [],
+      "database_tables": [
+        "facilities",
+        "assets",
+        "operations_logs"
+      ],
+      "api_endpoints": [
+        "GET /api/v1/operations/status",
+        "POST /api/v1/operations/dispatch"
+      ],
+      "consoles": [
+        "CON-02"
+      ],
+      "invariants": [
+        "INV-05"
+      ],
+      "owning_packages": [
+        "apk/web/src/app/operations/"
+      ]
+    },
+    {
+      "feature_id": "FEAT-024",
+      "name": "Document & Archive Vault Management Console",
+      "depends_on": [
+        "FEAT-005",
+        "FEAT-019"
+      ],
+      "depended_by": [],
+      "database_tables": [
+        "document_metadata",
+        "document_hashes"
+      ],
+      "api_endpoints": [
+        "GET /api/v1/documents",
+        "POST /api/v1/documents/archive"
+      ],
+      "consoles": [
+        "CON-03"
+      ],
+      "invariants": [
+        "INV-08"
+      ],
+      "owning_packages": [
+        "apk/web/src/app/documents/"
+      ]
+    },
+    {
+      "feature_id": "FEAT-025",
+      "name": "Approvals & Anti-Collusion Workflow Console",
+      "depends_on": [
+        "FEAT-005",
+        "FEAT-014"
+      ],
+      "depended_by": [],
+      "database_tables": [
+        "approvals",
+        "actions"
+      ],
+      "api_endpoints": [
+        "GET /api/v1/approvals/pending",
+        "POST /api/v1/approvals/:id/decide"
+      ],
+      "consoles": [
+        "CON-04"
+      ],
+      "invariants": [
+        "INV-02"
+      ],
+      "owning_packages": [
+        "apk/web/src/app/approvals/"
+      ]
+    },
+    {
+      "feature_id": "FEAT-026",
+      "name": "Communications & Multi-Channel Messaging Console",
+      "depends_on": [
+        "FEAT-005",
+        "FEAT-018"
+      ],
+      "depended_by": [],
+      "database_tables": [
+        "channel_messages",
+        "communications_dispatches"
+      ],
+      "api_endpoints": [
+        "GET /api/v1/comms/channels",
+        "POST /api/v1/comms/send"
+      ],
+      "consoles": [
+        "CON-05"
+      ],
+      "invariants": [
+        "INV-05"
+      ],
+      "owning_packages": [
+        "apk/web/src/app/comms/"
+      ]
+    },
+    {
+      "feature_id": "FEAT-027",
+      "name": "Print Substrate & Physical Production Console",
+      "depends_on": [
+        "FEAT-005",
+        "FEAT-018",
+        "FEAT-019"
+      ],
+      "depended_by": [],
+      "database_tables": [
+        "print_jobs",
+        "physical_tokens"
+      ],
+      "api_endpoints": [
+        "POST /api/v1/print/jobs",
+        "GET /api/v1/print/queue"
+      ],
+      "consoles": [
+        "CON-06"
+      ],
+      "invariants": [
+        "INV-08"
+      ],
+      "owning_packages": [
+        "apk/web/src/app/print/"
+      ]
+    },
+    {
+      "feature_id": "FEAT-028",
+      "name": "Multi-Tenant Project Directory & Expansion Console",
+      "depends_on": [
+        "FEAT-005",
+        "FEAT-007",
+        "FEAT-008",
+        "FEAT-009"
+      ],
+      "depended_by": [],
+      "database_tables": [
+        "projects",
+        "project_portfolios",
+        "project_memberships"
+      ],
+      "api_endpoints": [
+        "GET /api/v1/projects",
+        "POST /api/v1/projects"
+      ],
+      "consoles": [
+        "CON-07"
+      ],
+      "invariants": [
+        "INV-12"
+      ],
+      "owning_packages": [
+        "apk/web/src/app/projects/"
+      ]
+    },
+    {
+      "feature_id": "FEAT-029",
+      "name": "Workforce & Field Human Resource Console",
+      "depends_on": [
+        "FEAT-005",
+        "FEAT-009"
+      ],
+      "depended_by": [],
+      "database_tables": [
+        "users",
+        "parties",
+        "workforce_assignments"
+      ],
+      "api_endpoints": [
+        "GET /api/v1/workforce/staff",
+        "POST /api/v1/workforce/roster"
+      ],
+      "consoles": [
+        "CON-08"
+      ],
+      "invariants": [
+        "INV-05"
+      ],
+      "owning_packages": [
+        "apk/web/src/app/workforce/"
+      ]
+    },
+    {
+      "feature_id": "FEAT-030",
+      "name": "Finance, Ledgers & Treasury Management Console",
+      "depends_on": [
+        "FEAT-005",
+        "FEAT-010"
+      ],
+      "depended_by": [],
+      "database_tables": [
+        "ledger_accounts",
+        "journal_entries",
+        "journal_lines"
+      ],
+      "api_endpoints": [
+        "GET /api/v1/finance/ledgers",
+        "GET /api/v1/finance/trial-balance"
+      ],
+      "consoles": [
+        "CON-09"
+      ],
+      "invariants": [
+        "INV-03"
+      ],
+      "owning_packages": [
+        "apk/web/src/app/finance/"
+      ]
+    },
+    {
+      "feature_id": "FEAT-031",
+      "name": "System Administration & Infrastructure Governance Console",
+      "depends_on": [
+        "FEAT-001",
+        "FEAT-002",
+        "FEAT-003",
+        "FEAT-004",
+        "FEAT-005",
+        "FEAT-015"
+      ],
+      "depended_by": [],
+      "database_tables": [
+        "system_settings",
+        "device_registrations",
+        "enterprise_audit_logs"
+      ],
+      "api_endpoints": [
+        "GET /api/v1/admin/health",
+        "POST /api/v1/admin/configure"
+      ],
+      "consoles": [
+        "CON-16"
+      ],
+      "invariants": [
+        "INV-05",
+        "INV-10"
+      ],
+      "owning_packages": [
+        "apk/web/src/app/admin/"
+      ]
+    },
+    {
+      "feature_id": "FEAT-032",
+      "name": "Digital Identification & QR Credential Verification",
+      "depends_on": [
+        "FEAT-001",
+        "FEAT-004",
+        "FEAT-018"
+      ],
+      "depended_by": [],
+      "database_tables": [
+        "identities",
+        "users"
+      ],
+      "api_endpoints": [
+        "GET /api/v1/id/qr",
+        "POST /api/v1/id/verify"
+      ],
+      "consoles": [
+        "CON-01",
+        "CON-08"
+      ],
+      "invariants": [
+        "INV-07"
+      ],
+      "owning_packages": [
+        "apk/web/src/components/id/"
+      ]
+    },
+    {
+      "feature_id": "FEAT-033",
+      "name": "Community & Agro Initiative Archetype (ARCH_AGRO)",
+      "depends_on": [
+        "FEAT-007",
+        "FEAT-016"
+      ],
+      "depended_by": [],
+      "database_tables": [
+        "projects",
+        "agro_farms",
+        "crop_harvests"
+      ],
+      "api_endpoints": [
+        "GET /api/v1/projects/:id/agro"
+      ],
+      "consoles": [
+        "CON-07"
+      ],
+      "invariants": [
+        "INV-12"
+      ],
+      "owning_packages": [
+        "apk/api/src/archetypes/agro.ts"
+      ]
+    },
+    {
+      "feature_id": "FEAT-034",
+      "name": "Health & Healthcare Outreach Clinic Archetype (ARCH_CLINIC)",
+      "depends_on": [
+        "FEAT-007",
+        "FEAT-016"
+      ],
+      "depended_by": [],
+      "database_tables": [
+        "projects",
+        "clinic_patients",
+        "health_records"
+      ],
+      "api_endpoints": [
+        "GET /api/v1/projects/:id/clinic"
+      ],
+      "consoles": [
+        "CON-07"
+      ],
+      "invariants": [
+        "INV-12"
+      ],
+      "owning_packages": [
+        "apk/api/src/archetypes/clinic.ts"
+      ]
+    },
+    {
+      "feature_id": "FEAT-035",
+      "name": "Research, Innovation & Academic Archetype (ARCH_RESEARCH)",
+      "depends_on": [
+        "FEAT-007",
+        "FEAT-016"
+      ],
+      "depended_by": [],
+      "database_tables": [
+        "projects",
+        "research_grants",
+        "publications"
+      ],
+      "api_endpoints": [
+        "GET /api/v1/projects/:id/research"
+      ],
+      "consoles": [
+        "CON-07"
+      ],
+      "invariants": [
+        "INV-12"
+      ],
+      "owning_packages": [
+        "apk/api/src/archetypes/research.ts"
+      ]
+    },
+    {
+      "feature_id": "FEAT-036",
+      "name": "Social Welfare & Community Uplift Archetype (ARCH_COMMUNITY)",
+      "depends_on": [
+        "FEAT-007",
+        "FEAT-016"
+      ],
+      "depended_by": [],
+      "database_tables": [
+        "projects",
+        "welfare_beneficiaries",
+        "aid_distributions"
+      ],
+      "api_endpoints": [
+        "GET /api/v1/projects/:id/community"
+      ],
+      "consoles": [
+        "CON-07"
+      ],
+      "invariants": [
+        "INV-12"
+      ],
+      "owning_packages": [
+        "apk/api/src/archetypes/community.ts"
+      ]
+    },
+    {
+      "feature_id": "FEAT-037",
+      "name": "Dhaka Operations Zone (ZONAL_DHAKA)",
+      "depends_on": [
+        "FEAT-007",
+        "FEAT-017"
+      ],
+      "depended_by": [],
+      "database_tables": [
+        "zonal_divisions",
+        "projects"
+      ],
+      "api_endpoints": [
+        "GET /api/v1/zones/dhaka"
+      ],
+      "consoles": [
+        "CON-07"
+      ],
+      "invariants": [
+        "INV-12"
+      ],
+      "owning_packages": [
+        "apk/api/src/zones/dhaka.ts"
+      ]
+    },
+    {
+      "feature_id": "FEAT-038",
+      "name": "Northern Bangladesh Division (ZONAL_NORTH)",
+      "depends_on": [
+        "FEAT-007",
+        "FEAT-017"
+      ],
+      "depended_by": [],
+      "database_tables": [
+        "zonal_divisions",
+        "projects"
+      ],
+      "api_endpoints": [
+        "GET /api/v1/zones/north"
+      ],
+      "consoles": [
+        "CON-07"
+      ],
+      "invariants": [
+        "INV-12"
+      ],
+      "owning_packages": [
+        "apk/api/src/zones/north.ts"
+      ]
+    },
+    {
+      "feature_id": "FEAT-039",
+      "name": "Southern & Coastal Zone (ZONAL_SOUTH)",
+      "depends_on": [
+        "FEAT-007",
+        "FEAT-017"
+      ],
+      "depended_by": [],
+      "database_tables": [
+        "zonal_divisions",
+        "projects"
+      ],
+      "api_endpoints": [
+        "GET /api/v1/zones/south"
+      ],
+      "consoles": [
+        "CON-07"
+      ],
+      "invariants": [
+        "INV-12"
+      ],
+      "owning_packages": [
+        "apk/api/src/zones/south.ts"
+      ]
+    },
+    {
+      "feature_id": "FEAT-040",
+      "name": "Global Diaspora & International Zone (ZONAL_GLOBAL)",
+      "depends_on": [
+        "FEAT-007",
+        "FEAT-017"
+      ],
+      "depended_by": [],
+      "database_tables": [
+        "zonal_divisions",
+        "projects"
+      ],
+      "api_endpoints": [
+        "GET /api/v1/zones/global"
+      ],
+      "consoles": [
+        "CON-07"
+      ],
+      "invariants": [
+        "INV-12"
+      ],
+      "owning_packages": [
+        "apk/api/src/zones/global.ts"
+      ]
+    }
+  ],
+  "tables_dependency_graph": [
+    {
+      "table_name": "parties",
+      "purpose": "Foundational institutional legal/physical entity record.",
+      "referenced_by": [
+        "identities",
+        "users",
+        "relationships",
+        "project_memberships"
+      ],
+      "features": [
+        "FEAT-005",
+        "FEAT-009"
+      ],
+      "invariants": [
+        "INV-04"
+      ]
+    },
+    {
+      "table_name": "identities",
+      "purpose": "Cryptographic authentication identity record.",
+      "referenced_by": [
+        "users",
+        "agents",
+        "device_registrations"
+      ],
+      "features": [
+        "FEAT-002",
+        "FEAT-004",
+        "FEAT-032"
+      ],
+      "invariants": [
+        "INV-07"
+      ]
+    },
+    {
+      "table_name": "users",
+      "purpose": "Human operational actors mapped to 13 user classes.",
+      "referenced_by": [
+        "project_memberships",
+        "approvals",
+        "moderator_assignments"
+      ],
+      "features": [
+        "FEAT-004",
+        "FEAT-005",
+        "FEAT-006",
+        "FEAT-029"
+      ],
+      "invariants": [
+        "INV-05"
+      ]
+    },
+    {
+      "table_name": "agents",
+      "purpose": "Autonomous synthetic actors subject to Level 3 authority ceiling.",
+      "referenced_by": [
+        "agent_invocations",
+        "agent_kill_switches",
+        "agent_tools"
+      ],
+      "features": [
+        "FEAT-011",
+        "FEAT-012",
+        "FEAT-013"
+      ],
+      "invariants": [
+        "INV-01",
+        "INV-06",
+        "INV-09"
+      ]
+    },
+    {
+      "table_name": "device_registrations",
+      "purpose": "Hardware cryptographic attestation public key ledger.",
+      "referenced_by": [
+        "enterprise_audit_logs"
+      ],
+      "features": [
+        "FEAT-001",
+        "FEAT-002",
+        "FEAT-004",
+        "FEAT-018"
+      ],
+      "invariants": [
+        "INV-07"
+      ]
+    },
+    {
+      "table_name": "projects",
+      "purpose": "Multi-tenant project ecosystem boundary and isolation anchor.",
+      "referenced_by": [
+        "project_memberships",
+        "project_portfolios",
+        "ledger_accounts",
+        "agents"
+      ],
+      "features": [
+        "FEAT-007",
+        "FEAT-008",
+        "FEAT-016",
+        "FEAT-017"
+      ],
+      "invariants": [
+        "INV-12"
+      ]
+    },
+    {
+      "table_name": "project_memberships",
+      "purpose": "Scoped role association between human actors and project boundaries.",
+      "referenced_by": [],
+      "features": [
+        "FEAT-007",
+        "FEAT-009"
+      ],
+      "invariants": [
+        "INV-12"
+      ]
+    },
+    {
+      "table_name": "enterprise_audit_logs",
+      "purpose": "Immutable 10-dimensional enterprise audit log with SHA-256 chain.",
+      "referenced_by": [],
+      "features": [
+        "FEAT-003",
+        "FEAT-015"
+      ],
+      "invariants": [
+        "INV-04"
+      ]
+    },
+    {
+      "table_name": "ledger_accounts",
+      "purpose": "Two-tier general ledger with strict NUMERIC(18,2) precision.",
+      "referenced_by": [
+        "journal_lines"
+      ],
+      "features": [
+        "FEAT-010",
+        "FEAT-030"
+      ],
+      "invariants": [
+        "INV-03"
+      ]
+    },
+    {
+      "table_name": "approvals",
+      "purpose": "Anti-collusion and multi-signature authorization records.",
+      "referenced_by": [
+        "actions"
+      ],
+      "features": [
+        "FEAT-014",
+        "FEAT-025"
+      ],
+      "invariants": [
+        "INV-02"
+      ]
+    }
+  ],
+  "invariants_dependency_graph": [
+    {
+      "invariant_id": "INV-01",
+      "title": "Level 3 Authority Ceiling for Autonomous Agents",
+      "enforced_in": [
+        "apk/api/src/agents/runtime.ts"
+      ],
+      "affected_features": [
+        "FEAT-011",
+        "FEAT-012",
+        "FEAT-013",
+        "FEAT-020"
+      ],
+      "affected_tables": [
+        "agents",
+        "agent_invocations"
+      ]
+    },
+    {
+      "invariant_id": "INV-02",
+      "title": "Zero Self-Approval & Anti-Collusion Invariant",
+      "enforced_in": [
+        "apk/api/src/approval.ts",
+        "apk/api/src/routes/approvals.ts"
+      ],
+      "affected_features": [
+        "FEAT-014",
+        "FEAT-025"
+      ],
+      "affected_tables": [
+        "approvals",
+        "actions"
+      ]
+    },
+    {
+      "invariant_id": "INV-03",
+      "title": "Strict Financial Precision (No Floating Point, NUMERIC(18, 2))",
+      "enforced_in": [
+        "apk/api/migrations/0002_aio_parties_iam.sql",
+        "apk/api/src/routes/finance.ts"
+      ],
+      "affected_features": [
+        "FEAT-010",
+        "FEAT-030"
+      ],
+      "affected_tables": [
+        "ledger_accounts",
+        "journal_entries",
+        "journal_lines"
+      ]
+    },
+    {
+      "invariant_id": "INV-04",
+      "title": "Immutable Enterprise Audit Log (enterprise_audit_logs)",
+      "enforced_in": [
+        "apk/api/src/routes/audit.ts",
+        "apk/api/migrations/0001_init.sql"
+      ],
+      "affected_features": [
+        "FEAT-003",
+        "FEAT-015",
+        "FEAT-020",
+        "FEAT-021"
+      ],
+      "affected_tables": [
+        "enterprise_audit_logs"
+      ]
+    },
+    {
+      "invariant_id": "INV-05",
+      "title": "Universal Role Hierarchy & CLASS_00 Constitutional Primacy",
+      "enforced_in": [
+        "apk/api/src/middleware.ts",
+        "apk/api/src/auth.ts"
+      ],
+      "affected_features": [
+        "FEAT-005",
+        "FEAT-015",
+        "FEAT-022",
+        "FEAT-031"
+      ],
+      "affected_tables": [
+        "users",
+        "user_classes"
+      ]
+    },
+    {
+      "invariant_id": "INV-06",
+      "title": "Agent Human Masquerade Prohibition",
+      "enforced_in": [
+        "apk/api/src/agents/runtime.ts",
+        "apk/api/src/middleware.ts"
+      ],
+      "affected_features": [
+        "FEAT-011",
+        "FEAT-013"
+      ],
+      "affected_tables": [
+        "agents",
+        "identities"
+      ]
+    },
+    {
+      "invariant_id": "INV-07",
+      "title": "Hardware Token Cryptographic Proof for Sensitive Operations",
+      "enforced_in": [
+        "apk/security/DeviceIdentityProvider.kt",
+        "apk/api/src/crypto.ts"
+      ],
+      "affected_features": [
+        "FEAT-001",
+        "FEAT-002",
+        "FEAT-004",
+        "FEAT-018",
+        "FEAT-032"
+      ],
+      "affected_tables": [
+        "device_registrations"
+      ]
+    },
+    {
+      "invariant_id": "INV-08",
+      "title": "Permanent Document Hash Locking (Zero In-Place Mutation)",
+      "enforced_in": [
+        "apk/api/src/routes/documents.ts"
+      ],
+      "affected_features": [
+        "FEAT-018",
+        "FEAT-019",
+        "FEAT-024",
+        "FEAT-027"
+      ],
+      "affected_tables": [
+        "document_metadata",
+        "document_hashes"
+      ]
+    },
+    {
+      "invariant_id": "INV-09",
+      "title": "Hardware Kill-Switch Sovereignty",
+      "enforced_in": [
+        "apk/api/src/agents/runtime.ts"
+      ],
+      "affected_features": [
+        "FEAT-011"
+      ],
+      "affected_tables": [
+        "agent_kill_switches"
+      ]
+    },
+    {
+      "invariant_id": "INV-10",
+      "title": "Zero Single Point of Failure via Relief Moderators",
+      "enforced_in": [
+        "apk/api/src/moderation.ts"
+      ],
+      "affected_features": [
+        "FEAT-006",
+        "FEAT-031"
+      ],
+      "affected_tables": [
+        "moderator_assignments"
+      ]
+    },
+    {
+      "invariant_id": "INV-11",
+      "title": "No Plaintext Secret / Cryptographic Material Exposure",
+      "enforced_in": [
+        "apk/api/src/crypto.ts",
+        "apk/security/KeyStoreManager.kt"
+      ],
+      "affected_features": [
+        "FEAT-001",
+        "FEAT-004"
+      ],
+      "affected_tables": [
+        "identities",
+        "device_registrations"
+      ]
+    },
+    {
+      "invariant_id": "INV-12",
+      "title": "Zero Cross-Project Data Leakage",
+      "enforced_in": [
+        "apk/api/src/middleware.ts",
+        "apk/api/src/routes/projects.ts"
+      ],
+      "affected_features": [
+        "FEAT-007",
+        "FEAT-008",
+        "FEAT-009",
+        "FEAT-012",
+        "FEAT-016",
+        "FEAT-017",
+        "FEAT-028",
+        "FEAT-033",
+        "FEAT-034",
+        "FEAT-035",
+        "FEAT-036",
+        "FEAT-037",
+        "FEAT-038",
+        "FEAT-039",
+        "FEAT-040"
+      ],
+      "affected_tables": [
+        "projects",
+        "project_memberships",
+        "project_portfolios"
+      ]
+    }
+  ],
+  "creative_attribution": {
+    "en": "Made with love from Dhaka, Kuala Lumpur, Wyoming and Varizen Inc.",
+    "bn": "ঢাকা, কুয়ালালামপুর, ওয়াইওমিং এবং ভ্যারিজেন ইনকর্পোরেটেড থেকে ভালোবাসায় তৈরি",
+    "classification": "CREATIVE_ATTRIBUTION_NON_LEGAL"
+  }
+}

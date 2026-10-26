@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Varizen AiBrowser — Premium Dark-Mode UI</title>
+<style>
+  :root {
+    /* ---- surfaces ---- */
+    --page-bg: #030305;
+    --bg-0: #06060a;
+    --bg-1: #0c0c11;
+    --bg-2: #13131a;
+    --bg-3: #1a1a24;
+    --bg-4: #22222e;
+    --panel: rgba(18, 18, 26, 0.85);
+    --panel-glass: rgba(28, 28, 38, 0.55);
+    /* ---- lines ---- */
+    --line: rgba(255, 255, 255, 0.06);
+    --line-2: rgba(255, 255, 255, 0.12);
+    /* ---- text ---- */
+    --fg: #f0f0f5;
+    --fg-dim: #b8b8c4;
+    --muted: #6e6e7a;
+    --muted-2: #4a4a56;
+    /* ---- accents ---- */
+    --green: #13d69a;
+    --green-dim: #0ea070;
+    --green-ink: #13d69a;
+    --green-glow: rgba(19, 214, 154, 0.18);
+    --orange: #ff762f;
+    --orange-2: #e85a1a;
+    --orange-ink: #ff762f;
+    --orange-glow: rgba(255, 118, 47, 0.22);
+    --red: #ff4d4d;
+    --on-green: #071a12;
+    /* ---- interaction ---- */
+    --hover: rgba(255, 255, 255, 0.06);
+    --hover-soft: rgba(255, 255, 255, 0.05);
+    --hover-strong: rgba(255, 255, 255, 0.08);
+    --card-tint: linear-gradient(160deg, rgba(255,255,255,0.03), transparent);
+    --card-tint-2: linear-gradient(160deg, rgba(255,255,255,0.02), transparent);
+    --inset: inset 0 1px 3px rgba(0,0,0,0.4);
+    --window-shadow: 0 50px 120px rgba(0,0,0,0.75), 0 0 0 1px rgba(255,255,255,0.04);
+    --panel-shadow: 0 20px 60px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.03);
+    --gh-bg: #171820;
+    --gh-border: #3a3f4a;
+    /* ---- geometry ---- */
+    --radius: 12px;
+    --radius-sm: 8px;
+    --font: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    --font-mono: "IBM Plex Mono", "SF Mono", Consolas, monospace;
+    color-scheme: dark;
+  }
+
+  /* ===== Light theme ===== */
+  html[data-theme="light"] {
+    --page-bg: #e6e6ee;
+    --bg-0: #ececf2;
+    --bg-1: #f7f7fa;
+    --bg-2: #ffffff;
+    --bg-3: #f1f1f6;
+    --bg-4: #e6e6ee;
+    --panel: rgba(255, 255, 255, 0.9);
+    --panel-glass: rgba(255, 255, 255, 0.6);
+    --line: rgba(16, 16, 32, 0.08);
+    --line-2: rgba(16, 16, 32, 0.14);
+    --fg: #14141c;
+    --fg-dim: #4c4c5a;
+    --muted: #78788a;
+    --muted-2: #a4a4b4;
+    --green: #0a9d70;
+    --green-dim: #08805c;
+    --green-ink: #067a58;
+    --green-glow: rgba(10, 157, 112, 0.16);
+    --orange: #f26a1f;
+    --orange-2: #d4530c;
+    --orange-ink: #c2410c;
+    --orange-glow: rgba(242, 106, 31, 0.18);
+    --red: #d92d2d;
+    --on-green: #ffffff;
+    --hover: rgba(16, 16, 32, 0.055);
+    --hover-soft: rgba(16, 16, 32, 0.045);
+    --hover-strong: rgba(16, 16, 32, 0.08);
+    --card-tint: linear-gradient(160deg, rgba(16,16,32,0.022), transparent);
+    --card-tint-2: linear-gradient(160deg, rgba(16,16,32,0.016), transparent);
+    --inset: inset 0 1px 2px rgba(16,16,32,0.07);
+    --window-shadow: 0 40px 100px rgba(20,20,50,0.18), 0 0 0 1px rgba(16,16,32,0.07);
+    --panel-shadow: 0 16px 48px rgba(20,20,50,0.16), 0 0 0 1px rgba(16,16,32,0.06);
+    --gh-bg: #1b1f24;
+    --gh-border: #2f353d;
+    color-scheme: light;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; background: var(--page-bg); color: var(--fg); font-family: var(--font); -webkit-font-smoothing: antialiased; overflow: hidden; }
+  body { display: flex; align-items: center; justify-content: center; padding: 16px; transition: background .25s ease; }
+
+  /* ===== Icon system — every icon is a 24x24 SVG on an identical grid ===== */
+  .ic {
+    width: 16px; height: 16px; flex: 0 0 16px;
+    display: block; overflow: visible;
+    fill: none; stroke: currentColor;
+    stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;
+  }
+  .ic.xs { width: 12px; height: 12px; flex-basis: 12px; stroke-width: 1.7; }
+  .ic.sm { width: 14px; height: 14px; flex-basis: 14px; stroke-width: 1.6; }
+  .ic.md { width: 18px; height: 18px; flex-basis: 18px; stroke-width: 1.45; }
+  .ic.lg { width: 22px; height: 22px; flex-basis: 22px; stroke-width: 1.35; }
+  .ic.xl { width: 64px; height: 64px; flex-basis: 64px; stroke-width: 1.05; }
+  .ic .solid { fill: currentColor; stroke: none; }
+
+  .stage { width: 1400px; height: 900px; transform-origin: center center; flex-shrink: 0; }
+  .window {
+    width: 1400px; height: 900px; display: flex; flex-direction: column;
+    background: var(--bg-1); border: 1px solid var(--line-2); border-radius: 16px;
+    overflow: hidden; box-shadow: var(--window-shadow);
+    transition: background .25s ease, border-color .25s ease, box-shadow .25s ease;
+  }
+
+  /* ===== Title bar ===== */
+  .titlebar {
+    height: 40px; display: flex; align-items: center; gap: 12px;
+    padding: 0 14px; background: linear-gradient(180deg, var(--bg-2), var(--bg-1));
+    border-bottom: 1px solid var(--line); -webkit-app-region: drag;
+  }
+  .traffic { display: flex; gap: 8px; }
+  .traffic span { width: 12px; height: 12px; border-radius: 50%; }
+  .t-red { background: #ff5f57; box-shadow: inset 0 0 0 0.5px rgba(0,0,0,0.15); }
+  .t-yellow { background: #febc2e; box-shadow: inset 0 0 0 0.5px rgba(0,0,0,0.15); }
+  .t-green { background: #28c840; box-shadow: inset 0 0 0 0.5px rgba(0,0,0,0.15); }
+  .title-brand { display: flex; align-items: center; gap: 8px; margin-left: 4px; }
+  .title-brand .v { width: 20px; height: 20px; display: grid; place-items: center; border-radius: 5px; font-size: 11px; font-weight: 800; color: #fff; background: linear-gradient(135deg, var(--orange), var(--orange-2)); }
+  .title-brand b { font-size: 13px; font-weight: 600; letter-spacing: -0.3px; }
+  .title-brand .ver { font-size: 9px; font-weight: 600; color: var(--orange); border: 1px solid rgba(255,118,47,0.3); border-radius: 4px; padding: 1px 5px; background: rgba(255,118,47,0.08); }
+  .title-spacer { flex: 1; }
+  .title-tools { display: flex; align-items: center; gap: 6px; -webkit-app-region: no-drag; }
+  .title-tools button {
+    width: 30px; height: 30px; border-radius: 7px; border: 0; background: transparent;
+    color: var(--fg-dim); cursor: pointer; display: grid; place-items: center;
+    transition: background .15s, color .15s;
+  }
+  .title-tools button:hover { background: var(--hover); color: var(--fg); }
+  .title-tools .zlet {
+    display: flex; align-items: center; gap: 5px; height: 26px; padding: 0 10px; border-radius: 6px;
+    border: 1px solid rgba(255,118,47,0.3); background: rgba(255,118,47,0.08); color: var(--orange-ink);
+    font-size: 11px; font-weight: 600; cursor: pointer; line-height: 1;
+  }
+  .title-tools .zlet:hover { background: rgba(255,118,47,0.14); }
+
+  /* ===== Tab strip ===== */
+  .tabstrip {
+    height: 38px; display: flex; align-items: center; gap: 6px;
+    padding: 0 12px; background: var(--bg-1); border-bottom: 1px solid var(--line);
+  }
+  .tab { display: flex; align-items: center; gap: 8px; padding: 5px 12px; border-radius: 8px 8px 0 0; background: var(--bg-2); border: 1px solid var(--line); border-bottom: 0; color: var(--fg-dim); font-size: 12px; cursor: default; position: relative; }
+  .tab.active { background: linear-gradient(180deg, var(--bg-3), var(--bg-1)); color: var(--fg); border-color: var(--line-2); box-shadow: inset 0 2px 0 var(--orange); }
+  .tab .fav { width: 14px; height: 14px; border-radius: 3px; display: grid; place-items: center; font-size: 8px; font-weight: 700; color: #fff; background: linear-gradient(135deg, var(--orange), var(--orange-2)); }
+  .tab .x { display: grid; place-items: center; width: 16px; height: 16px; border-radius: 4px; opacity: 0.45; }
+  .tab .x:hover { opacity: 1; color: var(--fg); background: var(--hover-strong); }
+  .tab-new { width: 26px; height: 26px; border-radius: 6px; border: 0; background: transparent; color: var(--muted); cursor: pointer; display: grid; place-items: center; }
+  .tab-new:hover { background: var(--hover-soft); color: var(--fg); }
+
+  /* ===== Toolbar / Address bar ===== */
+  .toolbar {
+    height: 44px; display: flex; align-items: center; gap: 6px;
+    padding: 0 12px; background: var(--bg-1); border-bottom: 1px solid var(--line);
+  }
+  .toolbar > button {
+    width: 32px; height: 32px; border-radius: 7px; border: 0; background: transparent;
+    color: var(--fg-dim); cursor: pointer; display: grid; place-items: center;
+    transition: background .15s, color .15s;
+  }
+  .toolbar > button:hover { background: var(--hover-soft); color: var(--fg); }
+  .addr-wrap {
+    flex: 1; display: flex; align-items: center; gap: 10px;
+    background: var(--bg-0); border: 1px solid var(--line-2); border-radius: 10px;
+    padding: 0 12px; height: 34px; box-shadow: var(--inset);
+    transition: background .25s ease, border-color .25s ease;
+  }
+  .addr-wrap:focus-within { border-color: var(--green-dim); box-shadow: 0 0 0 2px var(--green-glow), var(--inset); }
+  .addr-wrap .lock { color: var(--green-ink); flex: 0 0 auto; }
+  .addr-wrap input {
+    flex: 1; background: transparent; border: 0; outline: none; color: var(--fg);
+    font: inherit; font-size: 12.5px; letter-spacing: 0.2px;
+  }
+  .addr-wrap input::placeholder { color: var(--muted-2); }
+  .addr-wrap .star { color: var(--fg-dim); cursor: pointer; flex: 0 0 auto; transition: color .15s; }
+  .addr-wrap .star:hover { color: var(--orange-ink); }
+  .addr-wrap .shield { display: flex; align-items: center; gap: 4px; color: var(--fg-dim); flex: 0 0 auto; }
+  .addr-wrap .shield b { color: var(--orange-ink); font-size: 11px; font-weight: 600; }
+  .addr-wrap .more { color: var(--fg-dim); cursor: pointer; flex: 0 0 auto; }
+
+  /* ===== Bookmarks row ===== */
+  .bookmarks {
+    height: 32px; display: flex; align-items: center; gap: 4px;
+    padding: 0 12px; background: var(--bg-1); border-bottom: 1px solid var(--line);
+  }
+  .bm { display: flex; align-items: center; gap: 6px; padding: 3px 10px; border-radius: 6px; color: var(--fg-dim); font-size: 11.5px; cursor: pointer; border: 1px solid transparent; transition: background .12s, border-color .12s; }
+  .bm:hover { background: var(--bg-2); color: var(--fg); border-color: var(--line-2); }
+  .bm .ico { width: 16px; height: 16px; border-radius: 50%; display: grid; place-items: center; font-size: 7px; font-weight: 700; color: #fff; }
+  .bm .ico.v { background: linear-gradient(135deg, var(--orange), var(--orange-2)); }
+  .bm .ico.gh { background: var(--gh-bg); border: 1px solid var(--gh-border); }
+  .bm .ico.duck { background: #df541e; }
+  .bm-spacer { flex: 1; }
+  .bm-all { display: flex; align-items: center; gap: 6px; padding: 3px 10px; border-radius: 6px; color: var(--muted); font-size: 11.5px; cursor: pointer; }
+  .bm-all:hover { color: var(--fg-dim); }
+
+  /* ===== Main layout ===== */
+  .main { flex: 1; display: flex; overflow: hidden; position: relative; }
+
+  /* ===== Content area (blocked page) ===== */
+  .content {
+    flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center;
+    background: radial-gradient(ellipse at 50% 40%, rgba(255,118,47,0.04), transparent 60%), var(--bg-1);
+    position: relative; padding: 40px; transition: background .25s ease;
+  }
+  .shield-wrap { display: flex; flex-direction: column; align-items: center; gap: 28px; max-width: 520px; text-align: center; }
+  .shield-graphic {
+    width: 180px; height: 180px; position: relative;
+    display: grid; place-items: center;
+  }
+  .shield-graphic::before {
+    content: ''; position: absolute; inset: -30px;
+    background: radial-gradient(circle, rgba(255,118,47,0.12), transparent 70%);
+    animation: pulse 3s ease-in-out infinite;
+  }
+  @keyframes pulse { 0%,100%{ opacity:0.6; transform:scale(1); } 50%{ opacity:1; transform:scale(1.08); } }
+  .shield-ring {
+    width: 140px; height: 140px; border-radius: 50%;
+    border: 2px solid rgba(255,118,47,0.15);
+    box-shadow: 0 0 40px rgba(255,118,47,0.1), inset 0 0 40px rgba(255,118,47,0.05);
+    display: grid; place-items: center; position: relative; z-index: 1;
+    color: var(--orange-ink);
+  }
+  .shield-ring::before {
+    content: ''; position: absolute; inset: 10px; border-radius: 50%;
+    border: 1px solid rgba(255,118,47,0.08);
+  }
+  .shield-ring .ic { filter: drop-shadow(0 0 18px rgba(255,118,47,0.35)); }
+  .shield-title { font-size: 26px; font-weight: 600; letter-spacing: -0.5px; line-height: 1.25; }
+  .shield-desc { font-size: 14px; color: var(--fg-dim); line-height: 1.6; max-width: 420px; }
+  .shield-cards { display: flex; gap: 12px; margin-top: 8px; }
+  .shield-card {
+    flex: 1; display: flex; flex-direction: column; align-items: flex-start; gap: 10px;
+    padding: 16px; border-radius: var(--radius); border: 1px solid var(--line);
+    background: var(--card-tint);
+    text-align: left; min-width: 140px; color: var(--orange-ink);
+    transition: background .25s ease, border-color .25s ease;
+  }
+  .shield-card h4 { font-size: 12px; font-weight: 600; color: var(--fg); }
+  .shield-card p { font-size: 11px; color: var(--muted); line-height: 1.5; }
+  .shield-actions { display: flex; gap: 10px; margin-top: 4px; }
+  .shield-actions button {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 10px 20px; border-radius: var(--radius-sm); border: 0; font: inherit; font-size: 13px; font-weight: 500; cursor: pointer;
+  }
+  .shield-actions .back { background: linear-gradient(135deg, var(--orange), var(--orange-2)); color: #fff; }
+  .shield-actions .learn { background: transparent; color: var(--fg-dim); border: 1px solid var(--line-2); }
+  .shield-actions .learn:hover { border-color: var(--line-2); color: var(--fg); }
+
+  /* ===== Panel system: docked / floating / minimized / auto-hide ===== */
+  .panel {
+    display: flex; flex-direction: column;
+    transition: transform .28s cubic-bezier(.4,0,.2,1), opacity .22s ease,
+                width .28s cubic-bezier(.4,0,.2,1), box-shadow .2s ease;
+  }
+  /* Docked (default) */
+  .panel[data-mode="docked"] { position: relative; }
+  /* Floating: lifted out of flow, draggable */
+  .panel[data-mode="floating"] {
+    position: absolute; z-index: 60; border-radius: var(--radius);
+    border: 1px solid var(--line-2); box-shadow: var(--panel-shadow);
+    max-height: calc(100% - 24px); overflow: hidden;
+  }
+  .panel[data-mode="floating"] .panel-grip { cursor: grab; }
+  .panel[data-mode="floating"] .panel-grip:active { cursor: grabbing; }
+  .panel.is-dragging { transition: none; user-select: none; }
+  /* Minimized: collapses to a dot */
+  .panel[data-mode="min"] {
+    position: relative; z-index: 70; width: 44px !important; height: 44px !important;
+    min-width: 0; flex: 0 0 44px; padding: 0; border-radius: 50%; overflow: hidden;
+    border: 1px solid var(--line-2); box-shadow: 0 6px 20px rgba(0,0,0,0.28), 0 0 0 1px rgba(255,118,47,0.18);
+    background: var(--bg-2); cursor: pointer;
+  }
+  .panel[data-mode="min"]:hover { border-color: var(--orange); box-shadow: 0 8px 26px rgba(0,0,0,0.34), 0 0 0 2px rgba(255,118,47,0.3); }
+  .panel[data-mode="min"] > *:not(.panel-dot) { display: none; }
+  .panel[data-mode="min"] .panel-dot { display: grid; }
+  /* Auto-hide: slides off the edge, reveals on hover */
+  .panel[data-autohide="on"][data-mode="docked"] {
+    position: absolute; top: 0; bottom: 0; right: 0; z-index: 55;
+    transform: translateX(calc(100% - 6px));
+    box-shadow: -8px 0 24px rgba(0,0,0,0.35);
+  }
+  .panel[data-autohide="on"][data-mode="docked"]:hover,
+  .panel[data-autohide="on"][data-mode="docked"]:focus-within { transform: translateX(0); }
+  .panel[data-autohide="on"][data-mode="docked"]::before {
+    content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 6px;
+    background: linear-gradient(180deg, var(--orange), var(--orange-2));
+    border-radius: 3px 0 0 3px; opacity: .85;
+  }
+
+  /* Panel header controls */
+  .panel-bar { display: flex; align-items: center; gap: 2px; }
+  .panel-btn {
+    width: 22px; height: 22px; border-radius: 5px; border: 0; background: transparent;
+    color: var(--muted); cursor: pointer; display: grid; place-items: center;
+    transition: background .14s, color .14s;
+  }
+  .panel-btn:hover { background: var(--hover); color: var(--fg); }
+  .panel-btn[aria-pressed="true"] { background: rgba(255,118,47,0.14); color: var(--orange-ink); }
+  .panel-grip { color: var(--muted-2); display: grid; place-items: center; }
+
+  /* Minimized dot */
+  .panel-dot {
+    display: none; place-items: center; width: 100%; height: 100%;
+    color: var(--orange-ink); position: relative;
+    background: radial-gradient(circle at 50% 40%, rgba(255,118,47,0.16), transparent 70%);
+  }
+  .panel-dot::after {
+    content: ''; position: absolute; inset: 5px; border-radius: 50%;
+    border: 1px solid rgba(255,118,47,0.45);
+    animation: dotPulse 2.4s ease-in-out infinite;
+  }
+  @keyframes dotPulse { 0%,100%{ transform: scale(1); opacity:.75 } 50%{ transform: scale(1.14); opacity:.2 } }
+
+  /* Dock rail: where minimized dots collect */
+  .dock-rail {
+    position: absolute; right: 12px; bottom: 12px; z-index: 80;
+    display: flex; flex-direction: column-reverse; align-items: center; gap: 10px;
+    pointer-events: none;
+  }
+  .dock-rail > * { pointer-events: auto; }
+
+  /* ===== Eye AI Sidebar ===== */
+  .ai-sidebar {
+    width: 340px; flex: 0 0 340px; display: flex; flex-direction: column;
+    background: linear-gradient(170deg, var(--bg-2), var(--bg-0));
+    border-left: 1px solid var(--line); padding: 16px; gap: 14px; overflow-y: auto;
+  }
+  .ai-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+  .ai-brand { display: flex; align-items: center; gap: 8px; color: var(--orange-ink); }
+  .ai-brand span { font-size: 13px; font-weight: 600; letter-spacing: 0.5px; color: var(--fg); }
+  .ai-brand .beta { font-size: 9px; font-weight: 600; color: var(--green-ink); border: 1px solid rgba(19,214,154,0.3); border-radius: 4px; padding: 1px 5px; background: rgba(19,214,154,0.08); }
+  .ai-close { width: 26px; height: 26px; border-radius: 6px; border: 0; background: transparent; color: var(--muted); cursor: pointer; display: grid; place-items: center; }
+  .ai-close:hover { background: var(--hover-soft); color: var(--fg); }
+
+  .ai-status {
+    display: flex; align-items: center; gap: 10px; padding: 10px 12px;
+    border-radius: var(--radius-sm); border: 1px solid rgba(19,214,154,0.15);
+    background: linear-gradient(135deg, rgba(19,214,154,0.06), transparent);
+  }
+  .ai-status .pulse { width: 8px; height: 8px; border-radius: 50%; background: var(--green); box-shadow: 0 0 8px var(--green); animation: blink 2s ease-in-out infinite; }
+  @keyframes blink { 0%,100%{ opacity:1; } 50%{ opacity:0.4; } }
+  .ai-status div { font-size: 12px; }
+  .ai-status div b { font-weight: 600; color: var(--green-ink); }
+
+  .ai-section { display: flex; flex-direction: column; gap: 8px; }
+  .ai-section h5 { font-size: 9px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+  .ai-page {
+    display: flex; align-items: center; gap: 10px; padding: 10px 12px;
+    border-radius: var(--radius-sm); border: 1px solid var(--line); background: var(--bg-2);
+  }
+  .ai-page .pg-icon { width: 32px; height: 32px; border-radius: 8px; background: var(--bg-3); display: grid; place-items: center; color: var(--fg-dim); flex: 0 0 32px; }
+  .ai-page .pg-info { flex: 1; }
+  .ai-page .pg-info div { font-size: 12px; font-weight: 500; }
+  .ai-page .pg-info span { font-size: 10px; color: var(--muted); }
+  .ai-page .pg-badge { font-size: 9px; font-weight: 600; color: var(--red); border: 1px solid rgba(255,77,77,0.25); border-radius: 4px; padding: 2px 6px; background: rgba(255,77,77,0.08); }
+
+  .ai-item {
+    display: flex; align-items: center; gap: 10px; padding: 10px 12px;
+    border-radius: var(--radius-sm); border: 1px solid var(--line); background: var(--bg-2);
+    cursor: pointer; transition: border-color .15s, background .15s;
+  }
+  .ai-item:hover { border-color: var(--line-2); background: var(--bg-3); }
+  .ai-item .ii-icon { width: 28px; height: 28px; border-radius: 7px; display: grid; place-items: center; flex: 0 0 28px; background: var(--hover-soft); color: var(--fg-dim); }
+  .ai-item .ii-icon.warn { background: rgba(255,118,47,0.1); color: var(--orange-ink); }
+  .ai-item .ii-icon.ok { background: rgba(19,214,154,0.1); color: var(--green-ink); }
+  .ai-item .ii-info { flex: 1; }
+  .ai-item .ii-info div { font-size: 12px; font-weight: 500; }
+  .ai-item .ii-info span { font-size: 10px; color: var(--muted); }
+  .ai-item .ii-arrow { color: var(--muted-2); flex: 0 0 auto; }
+
+  .ai-ask {
+    margin-top: auto; display: flex; gap: 8px; align-items: center;
+    padding: 8px 10px; border-radius: var(--radius-sm);
+    border: 1px solid var(--line-2); background: var(--bg-0);
+  }
+  .ai-ask input { flex: 1; background: transparent; border: 0; outline: none; color: var(--fg); font: inherit; font-size: 12px; }
+  .ai-ask input::placeholder { color: var(--muted-2); }
+  .ai-ask .mic { color: var(--muted); cursor: pointer; flex: 0 0 auto; }
+  .ai-ask .send { width: 28px; height: 28px; border-radius: 7px; border: 0; background: var(--green); color: var(--on-green); cursor: pointer; display: grid; place-items: center; flex: 0 0 28px; }
+
+  /* ===== Zero-Knowledge Profile Panel ===== */
+  .zk-panel {
+    position: absolute; top: 12px; right: 12px; width: 300px;
+    background: linear-gradient(170deg, var(--bg-2), var(--bg-0));
+    border: 1px solid var(--line-2); border-radius: var(--radius);
+    box-shadow: var(--panel-shadow);
+    display: flex; flex-direction: column; gap: 14px; padding: 18px; z-index: 20;
+    transition: background .25s ease, border-color .25s ease, box-shadow .25s ease;
+  }
+  /* When the AI sidebar is docked, keep the ZK panel clear of its controls */
+  .zk-panel[data-mode="floating"] { top: 12px; right: 12px; }
+  .main:has(.ai-sidebar[data-mode="docked"]) .zk-panel[data-mode="floating"] { right: 356px; }
+  .zk-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; }
+  .zk-profile { display: flex; align-items: center; gap: 10px; min-width: 0; }
+  .zk-avatar { width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg, var(--orange), var(--orange-2)); display: grid; place-items: center; color: #fff; flex: 0 0 36px; }
+  .zk-profile > div { min-width: 0; }
+  .zk-profile div { font-size: 13px; font-weight: 600; white-space: nowrap; }
+  .zk-profile span { font-size: 10px; color: var(--muted); display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .zk-close { width: 24px; height: 24px; border-radius: 6px; border: 0; background: transparent; color: var(--muted); cursor: pointer; display: grid; place-items: center; flex: 0 0 24px; }
+  .zk-close:hover { color: var(--fg); background: var(--hover); }
+
+  .zk-tag {
+    display: inline-flex; align-items: center; gap: 6px; padding: 3px 10px;
+    border-radius: 999px; border: 1px solid rgba(19,214,154,0.2);
+    background: rgba(19,214,154,0.06); color: var(--green-ink);
+    font-size: 10px; font-weight: 500; align-self: flex-start;
+  }
+
+  .zk-vault {
+    display: flex; flex-direction: column; align-items: center; gap: 14px;
+    padding: 20px; border-radius: var(--radius); border: 1px solid var(--line);
+    background: var(--card-tint-2);
+    text-align: center; transition: background .25s ease, border-color .25s ease;
+  }
+  .zk-vault .vault-icon { color: var(--orange-ink); filter: drop-shadow(0 0 12px rgba(255,118,47,0.2)); }
+  .zk-vault h4 { font-size: 14px; font-weight: 600; }
+  .zk-vault p { font-size: 11px; color: var(--muted); line-height: 1.6; }
+
+  .zk-features { display: flex; gap: 8px; }
+  .zk-feat {
+    flex: 1; display: flex; flex-direction: column; align-items: center; gap: 6px;
+    padding: 12px 8px; border-radius: var(--radius-sm); border: 1px solid var(--line);
+    background: var(--bg-2); text-align: center; color: var(--green-ink);
+    transition: background .25s ease, border-color .25s ease;
+  }
+  .zk-feat div { font-size: 10px; font-weight: 500; color: var(--fg-dim); }
+  .zk-feat span { font-size: 9px; color: var(--muted); }
+
+  .zk-actions { display: flex; gap: 8px; }
+  .zk-actions button {
+    flex: 1; padding: 9px 12px; border-radius: var(--radius-sm); border: 0;
+    font: inherit; font-size: 12px; font-weight: 500; cursor: pointer;
+    display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  }
+  .zk-actions .primary { background: linear-gradient(135deg, var(--orange), var(--orange-2)); color: #fff; }
+  .zk-actions .secondary { background: transparent; color: var(--fg-dim); border: 1px solid var(--line-2); }
+
+  .zk-steps { display: flex; gap: 10px; }
+  .zk-step { flex: 1; text-align: center; }
+  .zk-step .num {
+    width: 22px; height: 22px; border-radius: 50%; border: 1px solid var(--line-2);
+    display: grid; place-items: center; font-size: 10px; font-weight: 600; color: var(--fg-dim);
+    margin: 0 auto 6px;
+  }
+  .zk-step div { font-size: 10px; font-weight: 500; }
+  .zk-step span { font-size: 9px; color: var(--muted); }
+
+  /* ===== Status bar ===== */
+  .statusbar {
+    height: 30px; display: flex; align-items: center; gap: 14px;
+    padding: 0 14px; background: var(--bg-0); border-top: 1px solid var(--line);
+    font-size: 10px; color: var(--muted); white-space: nowrap;
+  }
+  .statusbar .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green); box-shadow: 0 0 7px rgba(19,214,154,0.5); }
+  .statusbar b { color: var(--fg-dim); font-weight: 500; }
+  .statusbar .sep { height: 12px; border-left: 1px solid var(--line-2); }
+  .statusbar .iso { display: flex; align-items: center; gap: 6px; padding: 2px 8px; border-radius: 10px; border: 1px solid var(--line-2); background: var(--bg-2); }
+  .statusbar .iso .gdot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); }
+  .statusbar .loc { display: flex; align-items: center; gap: 4px; }
+
+  /* ===== Theme toggle (lives in the title bar) ===== */
+  .title-tools .theme-toggle {
+    width: 30px; height: 30px; border-radius: 7px; border: 1px solid rgba(255,118,47,0.28);
+    background: rgba(255,118,47,0.09);
+    color: var(--orange-ink); cursor: pointer; display: grid; place-items: center;
+    transition: background .15s, color .15s, border-color .15s;
+  }
+  .title-tools .theme-toggle:hover { background: rgba(255,118,47,0.18); border-color: var(--orange); color: var(--orange-ink); }
+  .title-tools .theme-toggle .ic-sun { display: none; }
+  html[data-theme="light"] .title-tools .theme-toggle .ic-sun { display: block; }
+  html[data-theme="light"] .title-tools .theme-toggle .ic-moon { display: none; }
+
+  /* Scale helper — JS sets --fit so the whole window always fits the viewport.
+     The CSS fallback below only applies if JS is unavailable. */
+  .stage { transform: scale(var(--fit, 1)); }
+  @supports not (transform: scale(var(--fit, 1))) {
+    @media (max-width: 1440px) { .stage { transform: scale(0.92); } }
+    @media (max-width: 1280px) { .stage { transform: scale(0.82); } }
+    @media (max-width: 1100px) { .stage { transform: scale(0.72); } }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== Icon sprite: every glyph drawn on the same 24x24 grid, 1.5 stroke ===== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 7.5 12 13.5 20.5 7.5"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2.5"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol>
+    <symbol id="i-apps" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="7" height="7" rx="1.6"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.6"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.6"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.6"/></symbol>
+    <symbol id="i-wallet" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="13" rx="2.5"/><path d="M3 10h18"/><circle cx="17" cy="14.5" r="1.2" class="solid"/></symbol>
+    <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2.5 4.5 13.5H11l-1 8 8.5-11H12z"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4.5 20.5a7.5 7.5 0 0 1 15 0"/></symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12Z"/><circle cx="12" cy="12" r="3"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12"/><path d="M7.5 10.5 12 15l4.5-4.5"/><path d="M4 20.5h16"/></symbol>
+    <symbol id="i-more" viewBox="0 0 24 24"><circle cx="5" cy="12" r="1.6" class="solid"/><circle cx="12" cy="12" r="1.6" class="solid"/><circle cx="19" cy="12" r="1.6" class="solid"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M6.5 6.5 17.5 17.5M17.5 6.5 6.5 17.5"/></symbol>
+    <symbol id="i-left" viewBox="0 0 24 24"><path d="M15 4.5 7.5 12 15 19.5"/></symbol>
+    <symbol id="i-right" viewBox="0 0 24 24"><path d="M9 4.5 16.5 12 9 19.5"/></symbol>
+    <symbol id="i-reload" viewBox="0 0 24 24"><path d="M20.5 12a8.5 8.5 0 1 1-2.6-6.1"/><path d="M20.5 3.5v5h-5"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="4.5" y="10" width="15" height="11" rx="2.5"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 3.2l2.7 5.9 6.3.8-4.7 4.4 1.3 6.3L12 17.5 6.4 20.6l1.3-6.3L3 9.9l6.3-.8z"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 2.5 20 6v6c0 5-3.4 8.6-8 10-4.6-1.4-8-5-8-10V6z"/></symbol>
+    <symbol id="i-shield-check" viewBox="0 0 24 24"><path d="M12 2.5 20 6v6c0 5-3.4 8.6-8 10-4.6-1.4-8-5-8-10V6z"/><path d="M8.5 11.8 11 14.3l4.5-4.5"/></symbol>
+    <symbol id="i-list" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h10"/></symbol>
+    <symbol id="i-link" viewBox="0 0 24 24"><path d="M10.5 13.5a4 4 0 0 0 5.7 0l2.6-2.6a4 4 0 0 0-5.7-5.7l-1.4 1.4"/><path d="M13.5 10.5a4 4 0 0 0-5.7 0l-2.6 2.6a4 4 0 0 0 5.7 5.7l1.4-1.4"/></symbol>
+    <symbol id="i-clipboard" viewBox="0 0 24 24"><rect x="5" y="4.5" width="14" height="16.5" rx="2.5"/><rect x="9" y="2.5" width="6" height="4" rx="1.4"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><ellipse cx="12" cy="12" rx="4" ry="9"/></symbol>
+    <symbol id="i-warn" viewBox="0 0 24 24"><path d="M12 3.5 21.5 20H2.5z"/><path d="M12 9.5v4.5"/><circle cx="12" cy="17" r="1.1" class="solid"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M4.5 12.5 9.5 17.5 19.5 6.5"/></symbol>
+    <symbol id="i-question" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.3 9.4a2.8 2.8 0 0 1 5.5.9c0 1.9-2.8 2.1-2.8 4"/><circle cx="12" cy="17.2" r="1.1" class="solid"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.4 15.4 21 21"/></symbol>
+    <symbol id="i-mic" viewBox="0 0 24 24"><rect x="9" y="2.5" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0"/><path d="M12 18v3.5"/></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24"><path d="M3.5 12 21 3.5 14 21l-3-7.5z"/><path d="M11 13.5 21 3.5"/></symbol>
+    <symbol id="i-key" viewBox="0 0 24 24"><circle cx="8" cy="8" r="4.5"/><path d="M11.2 11.2 20.5 20.5"/><path d="M17 17l2-2M14.5 14.5l2-2"/></symbol>
+    <symbol id="i-ban" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M5.6 5.6 18.4 18.4"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20.5 14.2A8.6 8.6 0 0 1 9.8 3.5a8.6 8.6 0 1 0 10.7 10.7Z"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M9 3.5h6M12 3.5v6M8 9.5h8l1.5 5h-11z"/><path d="M12 14.5v6"/></symbol>
+    <symbol id="i-float" viewBox="0 0 24 24"><rect x="3" y="3" width="12" height="12" rx="2"/><path d="M13 11h8v8a2 2 0 0 1-2 2h-6z"/></symbol>
+    <symbol id="i-dock" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2.5"/><path d="M15 3v18"/></symbol>
+    <symbol id="i-min" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol>
+    <symbol id="i-grip" viewBox="0 0 24 24"><circle cx="9" cy="7" r="1.3" class="solid"/><circle cx="15" cy="7" r="1.3" class="solid"/><circle cx="9" cy="12" r="1.3" class="solid"/><circle cx="15" cy="12" r="1.3" class="solid"/><circle cx="9" cy="17" r="1.3" class="solid"/><circle cx="15" cy="17" r="1.3" class="solid"/></symbol>
+  </defs>
+</svg>
+
+<div class="stage">
+<div class="window">
+
+  <!-- Title bar -->
+  <div class="titlebar">
+    <div class="traffic"><span class="t-red"></span><span class="t-yellow"></span><span class="t-green"></span></div>
+    <div class="title-brand"><div class="v">V</div><b>AiBrowser</b><span class="ver">v0.1</span></div>
+    <div class="title-spacer"></div>
+    <div class="title-tools">
+      <button title="Mail"><svg class="ic"><use href="#i-mail"/></svg></button>
+      <button title="Calendar"><svg class="ic"><use href="#i-calendar"/></svg></button>
+      <button title="Apps"><svg class="ic"><use href="#i-apps"/></svg></button>
+      <button title="Wallet"><svg class="ic"><use href="#i-wallet"/></svg></button>
+      <div class="zlet"><svg class="ic sm"><use href="#i-bolt"/></svg><span>Zlet</span></div>
+      <button title="Profile"><svg class="ic"><use href="#i-user"/></svg></button>
+      <button title="Eye AI"><svg class="ic"><use href="#i-eye"/></svg></button>
+      <button title="Download"><svg class="ic"><use href="#i-download"/></svg></button>
+      <button class="theme-toggle" id="themeToggle" type="button" title="Toggle theme (Shift+D)" aria-label="Toggle light and dark theme">
+        <svg class="ic ic-moon"><use href="#i-moon"/></svg>
+        <svg class="ic ic-sun"><use href="#i-sun"/></svg>
+      </button>
+      <button title="More"><svg class="ic"><use href="#i-more"/></svg></button>
+    </div>
+  </div>
+
+  <!-- Tab strip -->
+  <div class="tabstrip">
+    <div class="tab active"><span class="fav">V</span><span>Varizen</span><span class="x"><svg class="ic xs"><use href="#i-close"/></svg></span></div>
+    <div class="tab-new" title="New tab"><svg class="ic sm"><use href="#i-plus"/></svg></div>
+  </div>
+
+  <!-- Toolbar -->
+  <div class="toolbar">
+    <button title="Back"><svg class="ic md"><use href="#i-left"/></svg></button>
+    <button title="Forward"><svg class="ic md"><use href="#i-right"/></svg></button>
+    <button title="Reload"><svg class="ic md"><use href="#i-reload"/></svg></button>
+    <div class="addr-wrap">
+      <svg class="ic sm lock"><use href="#i-lock"/></svg>
+      <input value="https://www.varizen.co" />
+      <svg class="ic sm star"><use href="#i-star"/></svg>
+      <span class="shield"><svg class="ic sm"><use href="#i-shield-check"/></svg><b>14</b></span>
+      <svg class="ic sm more"><use href="#i-more"/></svg>
+    </div>
+  </div>
+
+  <!-- Bookmarks -->
+  <div class="bookmarks">
+    <div class="bm"><span class="ico v">V</span><span>Varizen Trust</span></div>
+    <div class="bm"><span class="ico gh">GH</span><span>GitHub</span></div>
+    <div class="bm"><span class="ico duck">D</span><span>DuckDuckGo</span></div>
+    <div class="bm-spacer"></div>
+    <div class="bm-all"><svg class="ic sm"><use href="#i-list"/></svg><span>All Bookmarks</span></div>
+  </div>
+
+  <!-- Main -->
+  <div class="main">
+
+    <!-- Content: Blocked page -->
+    <div class="content">
+      <div class="shield-wrap">
+        <div class="shield-graphic">
+          <div class="shield-ring"><svg class="ic xl"><use href="#i-shield"/></svg></div>
+        </div>
+        <div>
+          <h2 class="shield-title">This page is blocked<br>for your protection</h2>
+          <p class="shield-desc">Eye AI has detected that this content may be unsafe, untrusted or isolated from your current browsing context.</p>
+        </div>
+        <div class="shield-cards">
+          <div class="shield-card">
+            <svg class="ic lg"><use href="#i-shield"/></svg>
+            <h4>Untrusted content</h4>
+            <p>The source is not verified or has low trust reputation.</p>
+          </div>
+          <div class="shield-card">
+            <svg class="ic lg"><use href="#i-link"/></svg>
+            <h4>Isolated browsing</h4>
+            <p>Opened in a secure sandbox environment.</p>
+          </div>
+          <div class="shield-card">
+            <svg class="ic lg"><use href="#i-clipboard"/></svg>
+            <h4>Zero telemetry</h4>
+            <p>No data is sent to external services from this page.</p>
+          </div>
+        </div>
+        <div class="shield-actions">
+          <button class="back"><svg class="ic sm"><use href="#i-left"/></svg> Go back</button>
+          <button class="learn">Learn more <svg class="ic xs"><use href="#i-right"/></svg></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Eye AI Sidebar -->
+    <div class="ai-sidebar panel" id="panel-ai" data-mode="docked" data-autohide="off">
+      <div class="panel-dot" title="Restore Eye AI"><svg class="ic md"><use href="#i-bolt"/></svg></div>
+      <div class="ai-head">
+        <div class="ai-brand"><svg class="ic md"><use href="#i-bolt"/></svg><span>EYE AI</span><span class="beta">BETA</span></div>
+        <div class="panel-bar">
+          <span class="panel-grip" title="Drag to move"><svg class="ic xs"><use href="#i-grip"/></svg></span>
+          <button class="panel-btn" data-act="float" title="Float panel"><svg class="ic xs"><use href="#i-float"/></svg></button>
+          <button class="panel-btn" data-act="autohide" title="Auto-hide"><svg class="ic xs"><use href="#i-pin"/></svg></button>
+          <button class="panel-btn" data-act="min" title="Minimize to dot"><svg class="ic xs"><use href="#i-min"/></svg></button>
+          <button class="panel-btn" data-act="close" title="Close"><svg class="ic xs"><use href="#i-close"/></svg></button>
+        </div>
+      </div>
+      <div class="ai-status">
+        <span class="pulse"></span>
+        <div><b>Active Protection</b><br><span style="font-size:11px;color:var(--muted)">This page is not fully trusted.</span></div>
+      </div>
+      <div class="ai-section">
+        <h5>Current Page</h5>
+        <div class="ai-page">
+          <div class="pg-icon"><svg class="ic"><use href="#i-globe"/></svg></div>
+          <div class="pg-info"><div>www.varizen.co</div><span>Content isolated in secure sandbox.</span></div>
+          <span class="pg-badge">Blocked</span>
+        </div>
+      </div>
+      <div class="ai-section">
+        <h5>Security Analysis</h5>
+        <div class="ai-item">
+          <div class="ii-icon warn"><svg class="ic sm"><use href="#i-warn"/></svg></div>
+          <div class="ii-info"><div>Content Analysis</div><span>Potential risk detected</span></div>
+          <svg class="ic xs ii-arrow"><use href="#i-right"/></svg>
+        </div>
+        <div class="ai-item">
+          <div class="ii-icon ok"><svg class="ic sm"><use href="#i-check"/></svg></div>
+          <div class="ii-info"><div>Network Protection</div><span>External requests blocked</span></div>
+          <svg class="ic xs ii-arrow"><use href="#i-right"/></svg>
+        </div>
+        <div class="ai-item">
+          <div class="ii-icon ok"><svg class="ic sm"><use href="#i-check"/></svg></div>
+          <div class="ii-info"><div>Data Privacy</div><span>Zero telemetry active</span></div>
+          <svg class="ic xs ii-arrow"><use href="#i-right"/></svg>
+        </div>
+      </div>
+      <div class="ai-section">
+        <div class="ai-item">
+          <div class="ii-icon warn"><svg class="ic sm"><use href="#i-question"/></svg></div>
+          <div class="ii-info"><div>Explain this risk</div><span>Why was this page blocked?</span></div>
+          <svg class="ic xs ii-arrow"><use href="#i-right"/></svg>
+        </div>
+        <div class="ai-item">
+          <div class="ii-icon ok"><svg class="ic sm"><use href="#i-lock"/></svg></div>
+          <div class="ii-info"><div>Can I open this safely?</div><span>Get AI recommendation</span></div>
+          <svg class="ic xs ii-arrow"><use href="#i-right"/></svg>
+        </div>
+        <div class="ai-item">
+          <div class="ii-icon"><svg class="ic sm"><use href="#i-search"/></svg></div>
+          <div class="ii-info"><div>Security details</div><span>See technical analysis</span></div>
+          <svg class="ic xs ii-arrow"><use href="#i-right"/></svg>
+        </div>
+      </div>
+      <div class="ai-ask">
+        <input placeholder="Ask Eye AI..." />
+        <svg class="ic sm mic"><use href="#i-mic"/></svg>
+        <button class="send"><svg class="ic sm"><use href="#i-send"/></svg></button>
+      </div>
+    </div>
+
+    <!-- Zero-Knowledge Profile Panel -->
+    <div class="zk-panel panel" id="panel-zk" data-mode="floating" data-autohide="off">
+      <div class="panel-dot" title="Restore Zero-Knowledge Profile"><svg class="ic md"><use href="#i-user"/></svg></div>
+      <div class="zk-head">
+        <div class="zk-profile">
+          <div class="zk-avatar"><svg class="ic"><use href="#i-user"/></svg></div>
+          <div>
+            <div>Zero-Knowledge Profile</div>
+            <span>Your data. Your keys. Always private.</span>
+          </div>
+        </div>
+        <div class="panel-bar">
+          <span class="panel-grip" title="Drag to move"><svg class="ic xs"><use href="#i-grip"/></svg></span>
+          <button class="panel-btn" data-act="float" title="Float panel"><svg class="ic xs"><use href="#i-float"/></svg></button>
+          <button class="panel-btn" data-act="autohide" title="Auto-hide"><svg class="ic xs"><use href="#i-pin"/></svg></button>
+          <button class="panel-btn" data-act="min" title="Minimize to dot"><svg class="ic xs"><use href="#i-min"/></svg></button>
+          <button class="panel-btn" data-act="close" title="Close"><svg class="ic xs"><use href="#i-close"/></svg></button>
+        </div>
+      </div>
+      <div class="zk-tag"><svg class="ic xs"><use href="#i-lock"/></svg> Local custody</div>
+      <div class="zk-vault">
+        <svg class="ic xl vault-icon"><use href="#i-lock"/></svg>
+        <h4>Nothing stored by Varizen.</h4>
+        <p>Your profile, secrets and sensitive data are encrypted on your device before storage. Only you hold the keys.</p>
+      </div>
+      <div class="zk-features">
+        <div class="zk-feat"><svg class="ic md"><use href="#i-lock"/></svg><div>Encrypted<br>before storage</div></div>
+        <div class="zk-feat"><svg class="ic md"><use href="#i-key"/></svg><div>You hold<br>the keys</div></div>
+        <div class="zk-feat"><svg class="ic md"><use href="#i-ban"/></svg><div>No plaintext<br>secrets</div></div>
+      </div>
+      <div class="zk-actions">
+        <button class="primary"><svg class="ic sm"><use href="#i-user"/></svg> Profile</button>
+        <button class="secondary"><svg class="ic sm"><use href="#i-clipboard"/></svg> Vault</button>
+        <button class="secondary"><svg class="ic sm"><use href="#i-reload"/></svg> Rescue</button>
+      </div>
+      <div style="text-align:center;font-size:11px;font-weight:600;margin-top:4px;">Create your secure profile</div>
+      <div style="text-align:center;font-size:10px;color:var(--muted);line-height:1.5;">Set up a 12-word passphrase and encrypted vault file to keep your data in zero-knowledge custody.</div>
+      <div class="zk-actions" style="margin-top:4px;">
+        <button class="primary" style="flex:2;">Create profile <svg class="ic xs"><use href="#i-right"/></svg></button>
+        <button class="secondary" style="flex:1;"><svg class="ic xs"><use href="#i-download"/></svg> Restore vault</button>
+      </div>
+      <div class="zk-steps">
+        <div class="zk-step"><div class="num">1</div><div>Create 12-word passphrase</div><span>You will write it down and keep it safe.</span></div>
+        <div class="zk-step"><div class="num">2</div><div>Generate vault file</div><span>Stored only on your device.</span></div>
+        <div class="zk-step"><div class="num">3</div><div>Use 4-digit rescue code</div><span>To recover access if needed.</span></div>
+      </div>
+    </div>
+
+    <!-- Dock rail: minimized panels collect here -->
+    <div class="dock-rail" id="dockRail"></div>
+
+  </div>
+
+  <!-- Status bar -->
+  <div class="statusbar">
+    <span class="dot"></span>
+    <b>Protected by Varizen Trust</b>
+    <span class="sep"></span>
+    <span>Secure Browsing</span>
+    <span class="sep"></span>
+    <span>Zero Telemetry</span>
+    <span class="sep"></span>
+    <div class="iso"><span class="gdot"></span>Isolation Mode</div>
+    <span class="sep"></span>
+    <div class="loc"><svg class="ic xs"><use href="#i-globe"/></svg> Malaysia (MY)</div>
+  </div>
+
+</div>
+</div>
+
+<script>
+  /* ================= Fit-to-viewport: scale the 1400x900 stage so it always fits ================= */
+  (function () {
+    var stage = document.querySelector('.stage');
+    var PAD = 32; // breathing room around the window
+
+    function fit() {
+      var availW = window.innerWidth - PAD;
+      var availH = window.innerHeight - PAD;
+      var scale = Math.min(availW / 1400, availH / 900, 1);
+      stage.style.setProperty('--fit', scale.toFixed(4));
+      // Scale about the centre so flex centring keeps the window visually centred.
+      stage.style.transformOrigin = 'center center';
+    }
+
+    fit();
+    window.addEventListener('resize', fit);
+    window.addEventListener('orientationchange', fit);
+  })();
+</script>
+
+<script>
+  /* ================= Panel system: detach / float / drag / minimize / dock / auto-hide ================= */
+  (function () {
+    var main = document.querySelector('.main');
+    var rail = document.getElementById('dockRail');
+    var panels = [].slice.call(document.querySelectorAll('.panel'));
+
+    function clamp(v, lo, hi) { return Math.max(lo, Math.min(hi, v)); }
+
+    panels.forEach(function (panel) {
+      var id = panel.id;
+      var grip = panel.querySelector('.panel-grip');
+      var dot = panel.querySelector('.panel-dot');
+      var btns = panel.querySelectorAll('.panel-btn');
+
+      /* ---- state helpers ---- */
+      function setMode(mode) {
+        panel.dataset.mode = mode;
+        if (mode === 'min') {
+          // park the dot in the rail
+          if (panel.parentElement !== rail) rail.appendChild(panel);
+          panel.style.left = '';
+          panel.style.top = '';
+          panel.style.right = '';
+        } else if (mode === 'floating') {
+          if (panel.parentElement !== main) main.appendChild(panel);
+          // seed a sensible position if none yet
+          if (!panel.style.left) {
+            var r = panel.getBoundingClientRect();
+            var mr = main.getBoundingClientRect();
+            panel.style.left = clamp(r.left - mr.left, 8, mr.width - r.width - 8) + 'px';
+            panel.style.top = clamp(r.top - mr.top, 8, mr.height - r.height - 8) + 'px';
+            panel.style.right = 'auto';
+          }
+        } else {
+          // docked
+          if (panel.parentElement !== main) main.appendChild(panel);
+          panel.style.left = '';
+          panel.style.top = '';
+          panel.style.right = '';
+        }
+        syncButtons();
+      }
+
+      function syncButtons() {
+        var mode = panel.dataset.mode;
+        var floatBtn = panel.querySelector('[data-act="float"]');
+        var hideBtn = panel.querySelector('[data-act="autohide"]');
+        if (floatBtn) floatBtn.setAttribute('aria-pressed', mode === 'floating' ? 'true' : 'false');
+        if (hideBtn) hideBtn.setAttribute('aria-pressed', panel.dataset.autohide === 'on' ? 'true' : 'false');
+      }
+
+      /* ---- buttons ---- */
+      btns.forEach(function (b) {
+        b.addEventListener('click', function (e) {
+          e.stopPropagation();
+          var act = b.dataset.act;
+          if (act === 'float') {
+            setMode(panel.dataset.mode === 'floating' ? 'docked' : 'floating');
+          } else if (act === 'min') {
+            setMode('min');
+          } else if (act === 'autohide') {
+            panel.dataset.autohide = panel.dataset.autohide === 'on' ? 'off' : 'on';
+            if (panel.dataset.autohide === 'on') setMode('docked');
+            syncButtons();
+          } else if (act === 'close') {
+            panel.style.display = 'none';
+          }
+        });
+      });
+
+      /* ---- restore from dot ---- */
+      if (dot) {
+        dot.addEventListener('click', function (e) {
+          e.stopPropagation();
+          setMode('floating');
+        });
+      }
+
+      /* ---- drag (floating only) ---- */
+      if (grip) {
+        var dragging = false, sx = 0, sy = 0, ox = 0, oy = 0;
+
+        grip.addEventListener('pointerdown', function (e) {
+          if (panel.dataset.mode !== 'floating') return;
+          dragging = true;
+          panel.classList.add('is-dragging');
+          grip.setPointerCapture(e.pointerId);
+          var mr = main.getBoundingClientRect();
+          var pr = panel.getBoundingClientRect();
+          sx = e.clientX; sy = e.clientY;
+          ox = pr.left - mr.left; oy = pr.top - mr.top;
+          e.preventDefault();
+        });
+
+        grip.addEventListener('pointermove', function (e) {
+          if (!dragging) return;
+          var mr = main.getBoundingClientRect();
+          var pr = panel.getBoundingClientRect();
+          var nx = clamp(ox + (e.clientX - sx), 0, mr.width - pr.width);
+          var ny = clamp(oy + (e.clientY - sy), 0, mr.height - pr.height);
+          panel.style.left = nx + 'px';
+          panel.style.top = ny + 'px';
+          panel.style.right = 'auto';
+        });
+
+        function endDrag(e) {
+          if (!dragging) return;
+          dragging = false;
+          panel.classList.remove('is-dragging');
+          try { grip.releasePointerCapture(e.pointerId); } catch (err) {}
+        }
+        grip.addEventListener('pointerup', endDrag);
+        grip.addEventListener('pointercancel', endDrag);
+      }
+
+      syncButtons();
+    });
+
+    /* ---- keyboard: Esc restores a minimized panel ---- */
+    document.addEventListener('keydown', function (e) {
+      if (e.key !== 'Escape') return;
+      var min = document.querySelector('.panel[data-mode="min"]');
+      if (min) min.dataset.mode = 'floating';
+    });
+  })();
+</script>
+
+<script>
+  (function () {
+    var root = document.documentElement;
+    var btn = document.getElementById('themeToggle');
+    var KEY = 'varizen-aibrowser-theme';
+
+    function apply(theme) {
+      root.setAttribute('data-theme', theme);
+      try { localStorage.setItem(KEY, theme); } catch (e) {}
+    }
+
+    // Restore saved choice, else follow the OS preference.
+    var saved = null;
+    try { saved = localStorage.getItem(KEY); } catch (e) {}
+    var prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+    apply(saved || (prefersLight ? 'light' : 'dark'));
+
+    btn.addEventListener('click', function () {
+      apply(root.getAttribute('data-theme') === 'light' ? 'dark' : 'light');
+    });
+
+    // Keyboard shortcut: Shift + D
+    document.addEventListener('keydown', function (e) {
+      if (e.shiftKey && (e.key === 'D' || e.key === 'd') && !/^(INPUT|TEXTAREA)$/.test(e.target.tagName)) {
+        e.preventDefault();
+        apply(root.getAttribute('data-theme') === 'light' ? 'dark' : 'light');
+      }
+    });
+  })();
+</script>
+</body>
+</html>
