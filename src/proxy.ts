@@ -26,7 +26,7 @@ export function proxy(request: NextRequest) {
     return NextResponse.next();
   }
 
-  const csp = `default-src 'self'; script-src 'self' 'unsafe-inline'${process.env.NODE_ENV === "development" ? " 'unsafe-eval'" : ""}; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self'; object-src 'none'; frame-src 'self' https:; base-uri 'self'; form-action 'self'; frame-ancestors 'none';${process.env.NODE_ENV === "production" ? " upgrade-insecure-requests;" : ""}`;
+  const csp = `default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com${process.env.NODE_ENV === "development" ? " 'unsafe-eval'" : ""}; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self' https://cloudflareinsights.com; object-src 'none'; frame-src 'self' https:; base-uri 'self'; form-action 'self'; frame-ancestors 'none';${process.env.NODE_ENV === "production" ? " upgrade-insecure-requests;" : ""}`;
   const requestHeaders = new Headers(request.headers);
   requestHeaders.set("Content-Security-Policy", csp);
   const response = NextResponse.next({ request: { headers: requestHeaders } });
